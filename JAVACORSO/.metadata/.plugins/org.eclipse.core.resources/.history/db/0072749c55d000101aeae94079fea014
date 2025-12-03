@@ -1,0 +1,14 @@
+package com.generation.demo;
+import com.generation.library.Console;
+
+public class HelloWorld
+{
+
+	public static void main(String[] args)
+	{
+		// TODO Auto-generated method stub
+
+		Console.print("Hello World");
+	}
+
+}

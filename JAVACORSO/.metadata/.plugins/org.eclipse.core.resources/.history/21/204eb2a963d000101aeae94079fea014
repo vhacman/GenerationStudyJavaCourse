@@ -1,0 +1,26 @@
+package com.generation.geometry;
+
+import com.generation.library.Console;
+
+public class RectangleCalculator
+{
+	public static void main(String[] args)
+	{
+		//DICHIARAZIONE DELLE VARIABILI UTILI
+		int base, height;
+		int area, perimeter; 
+		
+		Console.print("Insert base: ");
+		base = Console.readInt();
+		
+		Console.print("Insert height: ");
+		height = Console.readInt();
+		
+		area = base * height;
+		Console.print("The Area is: " + area);
+		
+		perimeter = 2 * (base + height);
+		Console.print("The Perimeter is: " + perimeter);
+	}
+	
+}

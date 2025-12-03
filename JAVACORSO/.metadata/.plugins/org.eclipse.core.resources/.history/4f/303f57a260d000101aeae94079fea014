@@ -1,0 +1,28 @@
+package com.generation.geometry;
+
+import com.generation.library.Console;
+
+public class SquareCalculator1
+{
+
+	public static void main(String[] args)
+	{
+		
+		int side; //DICHIARAZIONE SINGOLA (Di INPUT)
+		int area, perimeter; //DICHIARAZIONE MULTIPLA (Di OUTPUT)
+		
+		Console.print("Please insert side");
+		//nuovo metodo = readInt() che prende INPUT inserito dall'utente nella console e lo salva in una variabile
+		side = Console.readInt(); // chiedi un intero alla console e salvalo nella variabile side
+		
+		Console.print("Please insert side: " + Console.readInt());
+		Console.print("Input is: " + side);
+		
+		area = side * side;
+		perimeter = 4 * side;
+		
+		Console.print("The Area is: " + area);
+		Console.print ("The Perimeter is: " + perimeter);
+	}
+
+}

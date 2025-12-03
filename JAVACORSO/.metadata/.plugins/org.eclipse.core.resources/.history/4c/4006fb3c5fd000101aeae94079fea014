@@ -1,0 +1,11 @@
+package com.generation.geometry;
+
+public class RectangleCalculator
+{
+
+	public static void main(String[] args)
+	{
+
+	}
+
+}

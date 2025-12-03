@@ -1,0 +1,24 @@
+package com.generation.geometry;
+
+import com.generation.library.Console;
+
+public class RectangleCalculator
+{
+
+	public static void main(String[] args)
+	{
+		int base;
+		int height;
+		
+		Console.print("Insert base: ");
+		base = Console.readInt();
+		
+		Console.print("Insert height: ");
+		height = Console.readInt();
+		
+		
+		
+		
+	}
+
+}

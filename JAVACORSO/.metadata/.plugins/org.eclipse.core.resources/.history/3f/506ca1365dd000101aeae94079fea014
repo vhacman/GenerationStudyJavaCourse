@@ -1,0 +1,19 @@
+package com.generation.geometry;
+
+import com.generation.library.Console;
+
+public class SquareCalculator
+{
+	public static void main(String[] args)
+	{
+		//dichiarazione di una variabile.
+		//int = tipo; side = nome.
+		int side;
+		
+		//assegnamento. side contiene il valore 6
+		side = 6;
+		Console.print("il lato è");
+		Console.print(side);
+	}
+
+}
