@@ -13,31 +13,31 @@ public class PrintHouseLabel
 		String	label;
 
 		//INPUT
+		//General Information
 		Console.print("Insert City: ");
 		city = Console.readString();
-
 		Console.print("Insert Address: ");
 		address = Console.readString();
 
+		//SQM information
 		Console.print("Side Room 1: ");
 		roomSide1 = Console.readDouble();
 		Console.print("Side Room 2: ");
 		roomSide2 = Console.readDouble();
-
 		Console.print("Side Bath 1: ");
 		bathSide1 = Console.readDouble();
 		Console.print("Side Bath 2: ");
 		bathSide2 = Console.readDouble();
-
 		Console.print("Side Balcony 1: ");
 		balconySide1 = Console.readDouble();
 		Console.print("Side Balcony 2: ");
 		balconySide2 = Console.readDouble();
 
+		//Price Information
 		Console.print("Square Meter Price in euros: ");
 		squareMeterPrice = Console.readDouble();
 
-		//CALCOLI
+		//MATH
 		double roomArea = roomSide1 * roomSide2;
 		double bathArea = bathSide1 * bathSide2;
 		double balconyArea = balconySide1 * balconySide2;
@@ -60,7 +60,7 @@ public class PrintHouseLabel
 				"=======================================\n" +
 				"Total Price: " 							+ price + " euro\n" +
 				"========================================";
-		//OUTPUT --> STAMPA LABEL
+		//OUTPUT --> Print Label
 		Console.print(label);
 	}
 }
