@@ -48,13 +48,14 @@ public class PrintHouseLabel
 		label = "=======================================\n" +
 				"Studio Apartment: " 						+ "\n" +
 				"=======================================\n" +
-				"General information proprety: "            +
+				"General information proprety: "            + "\n" +
 				"=======================================\n" +
 				"City: " 									+ city + "\n" +
 				"Address: "									+ address +"\n" +
 				"Room: " 									+ roomArea + " sqm\n" +
 				"Bath: " 									+ bathArea + " sqm\n" +
 				"Balcony: " 								+ balconyArea + " sqm\n" +
+				"=======================================\n" +
 				"Square Meters Price: " 					+ squareMeterPrice + " euro\n" +
 				"=======================================\n" +
 				"Total Price: " 							+ price + " euro\n" +
