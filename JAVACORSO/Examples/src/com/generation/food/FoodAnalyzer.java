@@ -18,22 +18,16 @@ public class	FoodAnalyzer
         // INPUT DELL'UTENTE
         Console.print("What are you eating? ");
         name = Console.readString();
-
         Console.print("How many Carbs: ");
         carbs = Console.readDouble();
-
         Console.print("How many Proteins: ");
         proteins = Console.readDouble();
-
         Console.print("How many Fats: ");
         fats = Console.readDouble();
-
         // CALCOLO DELLE CALORIE TOTALI 
         calories = (carbs * 4) + (proteins * 4) + (fats * 9);
-
         Console.print("Of which (Insert Saturated Fats): ");
         saturatedFats = Console.readDouble();
-
         // CALCOLO DEI MACRONUTRIENTI
         double	caloriesFromProteins = proteins * 4;
         double	caloriesFromCarbs = carbs * 4;
@@ -42,8 +36,6 @@ public class	FoodAnalyzer
         percentageSaturatedFats = (saturatedFats / fats) * 100;
         percentageProteins = (caloriesFromProteins / calories) * 100;
         percentageCarbs = (caloriesFromFats / calories) * 100;
-        
-
         // OUTPUT 
         Console.print("\n========== NUTRITION SUMMARY ==========");
         Console.print("Food: " + name);
