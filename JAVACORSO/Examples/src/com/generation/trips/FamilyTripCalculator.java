@@ -13,6 +13,20 @@ import com.generation.library.Console;
  *
  * 
  */
+
+/*
+ * MECCANICA
+ * basata su tre fasi:
+ * RACCOLTA DATI:  il programma chiede all'utente di inserire tutte le info necessarie, usa Console.readInt per interi
+ * readDouble per double e readString per le stringhe (testo, nomi)
+ * Mentre l'user inserisce i dati, questi vengono salvati nelle variabili private della classe ( private per favorire incapsulamento) 
+ * ELABORAZIONE: una volta che il programma ha tutti i dati, esso esegue i calcoli, prima calcola il totale dei voli
+ * poi quello delle spese giornaliere e poi li somma
+ * CONFERMA: mostra all'utente un riepilogo di tutto: cosa ha prenotato, quanto costa e quando spende a testa
+ * 
+ *  PERCHE? 
+ *  Ogni metodo ha un'unica responsabilità, un programma modulare è un programma facile da debuggare, modificare e migliorare.
+ */
 public class FamilyTripCalculator
 {
 	//user input 
@@ -30,7 +44,8 @@ public class FamilyTripCalculator
     private double 		totalVacationCost;       	// Costo totale della vacanza (totalFlightCost + totalDailyExpenses)
     private double 		averageCostPerPerson;    	// Costo medio per persona (totalVacationCost / numPeople)
     
-    /* Costruttore della classe FamilyTripCalculator
+    /* 
+     * Costruttore della classe FamilyTripCalculator
      * Quando viene creato un oggetto di questa classe, vengono eseguiti i tre metodi principali
      */
     public FamilyTripCalculator()
