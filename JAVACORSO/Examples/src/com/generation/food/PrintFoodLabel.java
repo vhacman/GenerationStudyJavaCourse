@@ -30,11 +30,13 @@ public class	PrintFoodLabel
         saturatedFats = Console.readDouble();
 
         // CALCOLI
+        //espressione di tipo double (produce numero con la virgola)
         calories = (carbs * 4) + (proteins * 4) + (fats * 9);
         caloriesFromSatFats = saturatedFats * 9;
         percentageSatFats = (caloriesFromSatFats / calories) * 100;
 
-        //COSTRUZIONE DELLA LABEL        
+        //COSTRUZIONE DELLA LABEL        = ESPRESSIONE CHE PRODUCE UNA STRINGA
+        //ESPRESSIONE TI TIPO String
         label = "=======================================\n"    	 		      +
         		"Nutritional Board of: "	 	     + name 	  	 		  + "\n"      +
         		"=======================================\n"      		      +
