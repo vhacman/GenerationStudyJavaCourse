@@ -17,6 +17,7 @@ JAVACORSO/
                 ├── food/          # Food and nutrition calculators
                 ├── geometry/      # Geometric calculations
                 ├── housing/       # Real estate calculations
+                ├── trips/         # Travel planning calculators
                 └── library/       # Utility classes
 ```
 
@@ -41,6 +42,10 @@ Mathematical calculation programs:
 ### Housing (`com.generation.housing`)
 Real estate calculation tools:
 - `PrintHouseLabel.java` - Calculates and displays property information including area and price based on room dimensions
+
+### Trips (`com.generation.trips`)
+Travel planning calculators:
+- `FamilyTripCalculator.java` - Family vacation planner that calculates total costs including flights, accommodation, and daily budgets
 
 ### Library (`com.generation.library`)
 Utility classes:
@@ -72,6 +77,15 @@ Calculates property pricing based on:
 - Balcony dimensions
 - Square meter price
 - Outputs total property price (balcony area counted at 50% value)
+
+### FamilyTripCalculator
+Plans family vacations with complete cost breakdown:
+- Number of travelers
+- Flight costs per person
+- Number of nights
+- Daily budget per person
+- Destination city and hotel details
+- Outputs total vacation cost and average cost per person
 
 ## Learning Topics
 
