@@ -2,6 +2,9 @@
 
 This repository contains Java programming examples and exercises from the Generation Study Java Course.
 
+## 📚 Course Materials
+**Course Notes & Documentation:** [Access my Drive folder with all course notes and materials](https://drive.google.com/drive/folders/1f54Eu_EK2zw2XcMK-9qJH4ZErLXtV8Rj?hl=it)
+
 ## Project Structure
 
 ```
@@ -81,7 +84,6 @@ This repository covers fundamental Java concepts including:
 - Basic program structure
 
 ## Author
-
 Generation Study Course Student - Hacman Viorica Gabriela
 
 ## License
