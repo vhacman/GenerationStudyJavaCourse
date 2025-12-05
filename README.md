@@ -9,16 +9,30 @@ This repository contains Java programming examples and exercises from the Genera
 
 ```
 JAVACORSO/
-└── Examples/
-    └── src/
-        └── com/
-            └── generation/
-                ├── demo/          # Basic demo programs
-                ├── food/          # Food and nutrition calculators
-                ├── geometry/      # Geometric calculations
-                ├── housing/       # Real estate calculations
-                ├── trips/         # Travel planning calculators
-                └── library/       # Utility classes
+├── Examples/
+│   └── src/
+│       └── com/
+│           └── generation/
+│               ├── demo/          # Basic demo programs
+│               ├── food/          # Food and nutrition calculators
+│               ├── geometry/      # Geometric calculations
+│               ├── housing/       # Real estate calculations
+│               ├── trips/         # Travel planning calculators
+│               └── library/       # Utility classes
+└── PrintLabel/
+    ├── src/
+    │   └── com/
+    │       └── generation/
+    │           └── library/
+    │               ├── food/      # Food label generator
+    │               ├── housing/   # Housing label generator
+    │               ├── Console.java
+    │               ├── FileReader.java
+    │               ├── FileWriter.java
+    │               └── Template.java
+    └── print/                     # Output directory and HTML templates
+        ├── template.html          # Food label template
+        └── templateHousing.html   # Housing label template
 ```
 
 ## Modules
@@ -50,6 +64,9 @@ Travel planning calculators:
 ### Library (`com.generation.library`)
 Utility classes:
 - `Console.java` - Console input/output helper class
+- `FileReader.java` - File reading utility
+- `FileWriter.java` - File writing utility
+- `Template.java` - HTML template loader and processor
 
 ## How to Run
 ### Using an IDE
@@ -87,15 +104,54 @@ Plans family vacations with complete cost breakdown:
 - Destination city and hotel details
 - Outputs total vacation cost and average cost per person
 
+## PrintLabel Project
+
+A more advanced project that demonstrates file I/O operations and HTML template processing to generate formatted labels.
+
+### PrintFoodLabel
+Generates HTML food nutrition labels:
+- Input: food name, image URL, macronutrients (carbs, proteins, fats, saturated fats)
+- Calculates total calories using standard conversion rates:
+  - Carbohydrates: 4 calories per gram
+  - Proteins: 4 calories per gram
+  - Fats: 9 calories per gram
+- Loads HTML template from file
+- Replaces placeholders with actual values
+- Outputs formatted HTML label to file in `print/` directory
+
+Located in: `JAVACORSO/PrintLabel/src/com/generation/library/food/PrintFoodLabel.java`
+
+### PrintHousingLabel
+Generates HTML real estate property labels:
+- Input: city, address, image URL, room/bathroom/balcony dimensions, price per square meter
+- Calculates:
+  - Individual area for each space (room, bathroom, balcony)
+  - Total internal area (room + bathroom)
+  - Total property price (balcony counted at 50% value)
+- Uses HTML template system to generate formatted output
+- Saves result as HTML file in `print/` directory
+
+Located in: `JAVACORSO/PrintLabel/src/com/generation/library/housing/PrintHousingLabel.java`
+
+### Key Features of PrintLabel Project
+- **File I/O Operations**: Reading templates and writing output files
+- **Template System**: Load HTML templates and dynamically replace placeholders
+- **String Manipulation**: Using `.replace()` method for template processing
+- **Organized Output**: All generated labels saved in dedicated `print/` directory
+- **Reusable Components**: `Console`, `FileReader`, `FileWriter`, and `Template` utility classes
+
 ## Learning Topics
 
 This repository covers fundamental Java concepts including:
 - Variables and data types
-- Input/output operations
+- Console input/output operations
+- File I/O operations (reading from and writing to files)
 - Arithmetic operations
-- String manipulation
+- String manipulation and template processing
 - Package organization
 - Basic program structure
+- HTML template system and dynamic content generation
+- Exception handling (try-catch blocks)
 
 ## Author
 Generation Study Course Student - Hacman Viorica Gabriela
