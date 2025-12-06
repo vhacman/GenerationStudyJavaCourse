@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museum Ticket</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .ticket {
+            width: 400px;
+            background-color: #ffffff;
+            border: 2px solid #333;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .header {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .divider {
+            border-top: 1px solid #ddd;
+            margin: 15px 0;
+        }
+        .field {
+            margin: 15px 0;
+            text-align: left;
+        }
+        .label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        .price-section {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .price-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+        }
+        .price-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+    <div class="ticket">
+        <div class="header">🎫 MUSEUM TICKET</div>
+        
+        <div class="divider"></div>
+        
+        <div class="field">
+            <div class="label">Visitor Name</div>
+            <div class="value">Viorica Gabriela Hacman</div>
+        </div>
+        
+        <div class="field">
+            <div class="label">Age</div>
+            <div class="value">27</div>
+        </div>
+        
+        <div class="field">
+            <div class="label">Ticket Class</div>
+            <div class="value">1</div>
+        </div>
+        
+        <div class="price-section">
+            <div class="price-label">Admission Price</div>
+            <div class="price-value">$10.0</div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div style="font-size: 11px; color: #999; margin-top: 15px;">
+            Valid for one admission only
+        </div>
+    </div>
+</body>
+</html>

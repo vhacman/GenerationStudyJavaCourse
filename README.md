@@ -19,20 +19,47 @@ JAVACORSO/
 │               ├── housing/       # Real estate calculations
 │               ├── trips/         # Travel planning calculators
 │               └── library/       # Utility classes
-└── PrintLabel/
+├── PrintLabel/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           └── library/
+│   │               ├── food/      # Food label generator
+│   │               ├── housing/   # Housing label generator
+│   │               ├── Console.java
+│   │               ├── FileReader.java
+│   │               ├── FileWriter.java
+│   │               └── Template.java
+│   └── print/                     # Output directory and HTML templates
+│       ├── template.html          # Food label template
+│       └── templateHousing.html   # Housing label template
+├── BrianzaTaxi/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── bt/
+│   │           │   ├── main/      # Taxi receipt generator
+│   │           │   └── utility/   # Taxi calculation utilities
+│   │           └── library/       # Shared utility classes
+│   └── print/                     # Output directory and HTML templates
+├── BrianzaTrains/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── bt/
+│   │           │   └── main/      # Train ticket generator
+│   │           └── library/       # Shared utility classes
+│   └── print/                     # Output directory and HTML templates
+└── MuseumTicket/
     ├── src/
     │   └── com/
     │       └── generation/
-    │           └── library/
-    │               ├── food/      # Food label generator
-    │               ├── housing/   # Housing label generator
-    │               ├── Console.java
-    │               ├── FileReader.java
-    │               ├── FileWriter.java
-    │               └── Template.java
+    │           ├── museum/
+    │           │   └── main/      # Museum ticket generator
+    │           ├── mg/
+    │           │   └── utility/   # Museum calculation utilities
+    │           └── library/       # Shared utility classes
     └── print/                     # Output directory and HTML templates
-        ├── template.html          # Food label template
-        └── templateHousing.html   # Housing label template
 ```
 
 ## Modules
@@ -104,6 +131,69 @@ Plans family vacations with complete cost breakdown:
 - Destination city and hotel details
 - Outputs total vacation cost and average cost per person
 
+## Advanced Projects
+
+These projects demonstrate file I/O operations and HTML template processing to generate formatted labels and receipts.
+
+### BrianzaTaxi Project
+
+A taxi receipt generator that calculates fares and generates HTML receipts.
+
+**Main Program:** `PrintTaxiReceipt.java`
+
+Generates HTML taxi receipts based on:
+- Trip duration in minutes
+- Service level (standard or premium)
+- Departure time (hour and minute)
+- Arrival time (hour and minute)
+- Calculates total fare based on time-based pricing
+- Uses HTML template system to generate formatted receipt
+- Saves result as HTML file in `print/` directory
+
+**Utility Classes:**
+- `TaxiUtility.java` - Helper methods for input validation and price calculation
+
+Located in: `JAVACORSO/BrianzaTaxi/src/com/generation/bt/`
+
+### BrianzaTrains Project
+
+A train ticket generator that calculates fares based on distance and service class.
+
+**Main Program:** `PrintTicket.java`
+
+Generates train tickets with:
+- Distance in kilometers
+- Service class (1st or 2nd class)
+- Passenger information (name, surname, age)
+- Departure and arrival times
+- Pricing logic:
+  - 1st class: €0.20 per km
+  - 2nd class: €0.15 per km
+  - Minimum fare: €1.70
+- Displays formatted ticket with emoji graphics
+
+Located in: `JAVACORSO/BrianzaTrains/src/com/generation/bt/main/`
+
+### MuseumTicket Project
+
+A museum ticket generator that calculates admission prices based on visitor demographics.
+
+**Main Program:** `MuseumGenerator.java`
+
+Generates HTML museum tickets based on:
+- Visitor's full name
+- Age
+- Annual income (RAL - Reddito Annuo Lordo)
+- Ticket class/category choice
+- Calculates pricing based on demographic factors
+- Uses HTML template system to generate formatted ticket
+- Saves result as HTML file in `print/` directory
+
+**Utility Classes:**
+- `MGUtility.java` - Helper methods for input validation and price calculation
+
+Located in: `JAVACORSO/MuseumTicket/src/com/generation/museum/main/`
+
 ## PrintLabel Project
 
 A more advanced project that demonstrates file I/O operations and HTML template processing to generate formatted labels.
@@ -133,12 +223,16 @@ Generates HTML real estate property labels:
 
 Located in: `JAVACORSO/PrintLabel/src/com/generation/library/housing/PrintHousingLabel.java`
 
-### Key Features of PrintLabel Project
+### Key Features of Advanced Projects
 - **File I/O Operations**: Reading templates and writing output files
 - **Template System**: Load HTML templates and dynamically replace placeholders
 - **String Manipulation**: Using `.replace()` method for template processing
-- **Organized Output**: All generated labels saved in dedicated `print/` directory
+- **Organized Output**: All generated labels/receipts saved in dedicated `print/` directory
 - **Reusable Components**: `Console`, `FileReader`, `FileWriter`, and `Template` utility classes
+- **Input Validation**: Ensuring data quality and handling edge cases
+- **Business Logic**: Implementing real-world pricing calculations and rules
+- **Formatted Output**: Both console-based formatted output and HTML generation
+- **Modular Design**: Separation of concerns with utility classes for business logic
 
 ## Learning Topics
 
