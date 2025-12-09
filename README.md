@@ -42,6 +42,18 @@ JAVACORSO/
 │   │           │   └── utility/   # Taxi calculation utilities
 │   │           └── library/       # Shared utility classes
 │   └── print/                     # Output directory and HTML templates
+├── BrianzaTaxiService/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── bt/
+│   │           │   ├── main/      # Enhanced taxi receipt app
+│   │           │   ├── model/     # Data models (Ticket)
+│   │           │   └── service/   # Service layer classes
+│   │           ├── user/
+│   │           │   └── service/   # User management
+│   │           └── library/       # Shared utility classes
+│   └── print/                     # Output directory and HTML templates
 ├── BrianzaTrains/
 │   ├── src/
 │   │   └── com/
@@ -50,16 +62,74 @@ JAVACORSO/
 │   │           │   └── main/      # Train ticket generator
 │   │           └── library/       # Shared utility classes
 │   └── print/                     # Output directory and HTML templates
-└── MuseumTicket/
+├── MuseumTicket/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── museum/
+│   │           │   └── main/      # Museum ticket generator
+│   │           ├── mg/
+│   │           │   └── utility/   # Museum calculation utilities
+│   │           └── library/       # Shared utility classes
+│   └── print/                     # Output directory and HTML templates
+├── DeveloperCandidatura/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── main/          # Job application scoring system
+│   │           └── library/       # Shared utility classes
+├── ProlocoLakeComo/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── lcp/
+│   │           │   └── main/      # Tourist guide application
+│   │           └── library/       # Shared utility classes
+│   └── archive/                   # Saved applications
+├── DiscotecaTicket/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── bt/
+│   │           │   └── main/      # Nightclub ticket system
+│   │           └── library/       # Shared utility classes
+├── VillaMelzi/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── bt/
+│   │           │   └── main/      # Villa Melzi ticket system
+│   │           └── library/       # Shared utility classes
+├── Taxes/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── bt/
+│   │           │   └── main/      # Business tax calculator
+│   │           └── library/       # Shared utility classes
+├── SequenzaESelezione/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── checker/       # Age and height validation
+│   │           └── library/       # Shared utility classes
+├── ExtraLesson/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── bt/
+│   │           │   ├── main/      # Ticket management system
+│   │           │   └── model/
+│   │           │       └── entities/ # Ticket entity
+│   │           └── library/       # Shared utility classes
+│   └── ticket/                    # Generated ticket files
+└── ExtraLesson2/
     ├── src/
     │   └── com/
     │       └── generation/
-    │           ├── museum/
-    │           │   └── main/      # Museum ticket generator
-    │           ├── mg/
-    │           │   └── utility/   # Museum calculation utilities
+    │           ├── cyphar/
+    │           │   └── cesar/     # Caesar cipher implementation
     │           └── library/       # Shared utility classes
-    └── print/                     # Output directory and HTML templates
 ```
 
 ## Modules
@@ -194,6 +264,168 @@ Generates HTML museum tickets based on:
 
 Located in: `JAVACORSO/MuseumTicket/src/com/generation/museum/main/`
 
+### BrianzaTaxiService Project
+
+An enhanced version of the BrianzaTaxi project with service-oriented architecture and VIP user management.
+
+**Main Program:** `PrintTaxiReceipt.java`
+
+Features:
+- **User Management System**: Optional user registration with complete personal data
+- **Service Layer Architecture**: Separated concerns with dedicated service classes:
+  - `InputService.java` - Handles all user input operations
+  - `PriceService.java` - Price calculation logic with VIP discounts
+  - `UserService.java` - User management and ride tracking
+  - `TemplateService.java` - HTML template processing
+- **VIP System**: Users become VIP after 10 rides with 20% discount
+- **Ride History**: Tracks number of rides and total spending per user
+- **Flexible User Data**: Option for quick registration (name, surname, phone) or complete data entry
+- **Enhanced Ticket Model**: Improved ticket representation with detailed information
+
+Located in: `JAVACORSO/BrianzaTaxiService/src/com/generation/bt/main/`
+
+### DeveloperCandidatura Project
+
+A job application scoring system for back-end developer positions in the Lazio region.
+
+**Main Program:** `Main.java` with `Application.java` class
+
+**Application Class Features:**
+- Candidate data management (name, surname, birth year, province, education, experience)
+- Automatic age calculation using `LocalDate`
+- Complex scoring algorithm based on multiple criteria:
+  - **Province Bonus**: Roma/Latina (+20 points), Other Lazio provinces (+10 points)
+  - **Education**: Diploma (+20 points), Degree (+30 points)
+  - **Degree Subject**: Computer Science/Engineering (+30), Mathematics/Physics (+20), Statistics/Logic (+10)
+  - **Experience**: +10 points per year of experience
+  - **Travel Availability**: +20 points if available
+  - **Java Knowledge**: +20 points if knows Java, +10 if not
+- Formatted output with complete candidate summary and final score
+- Object-oriented design with encapsulation (getters/setters)
+
+Located in: `JAVACORSO/DeveloperCandidatura/src/com/generatio/main/`
+
+### ProlocoLakeComo Project
+
+Tourist guide application system for Lake Como with scoring-based candidate selection.
+
+**Main Program:** `TouristGuideApplication.java`
+
+Features:
+- Age validation (only candidates between 18-50 years old)
+- Province-based scoring:
+  - CO/LC provinces: +30 points
+  - VA/BG/MB provinces: +20 points
+  - MI/MN/BR/SO provinces: +10 points
+- Education level scoring: HS (+20), College (+30)
+- Subject bonus: Tourism subject (+20 points)
+- Application persistence: Saves candidate data to text files in `archive/` directory
+- File naming with candidate number
+- Formatted output with complete candidate information and score
+
+Located in: `JAVACORSO/ProlocoLakeComo/src/com/generation/lcp/main/`
+
+### DiscotecaTicket Project
+
+Nightclub entrance validation and pricing system with age and gender-based rules.
+
+**Main Program:** `DiscotecaTicket.java`
+
+Features:
+- Age verification (minimum 18 years old)
+- Gender-based pricing using ternary operator:
+  - Male (M/m): 18 euro
+  - Female (F/f): 10 euro
+- Entrance denied for underage users
+- Demonstrates conditional statements and character comparison
+
+Located in: `JAVACORSO/DiscotecaTicket/src/com/generatio/bt/main/`
+
+### VillaMelzi Project
+
+Villa Melzi museum ticket system with complex pricing logic based on residency, age, and student status.
+
+**Main Program:** `VillaMenzi.java` (note: typo in filename)
+
+**Pricing Rules:**
+- **Free Entry**: Bellagio or Civenna residents (0 euro)
+- **Provincial Discount**: Como, Lecco, Varese, or Bergamo residents (fixed 5 euro, non-cumulative)
+- **Base Price**: 10 euro with cumulative discounts:
+  - 70+ years: -2 euro (special 70th anniversary promotion)
+  - 65+ years OR under 7 years: -1 euro (not cumulative with 70+ discount)
+  - University students: -1 euro
+- **Data Collection**: Saves visitor statistics to file for analysis
+- **Validation**: Prevents negative prices
+
+Located in: `JAVACORSO/VillaMelzi/src/com/generation/bt/main/`
+
+### Taxes Project
+
+Business tax calculator with startup discount incentives.
+
+**Main Program:** `Taxes.java`
+
+Features:
+- Revenue-based tax calculation
+- Tax exemption for revenue under 20,000 euro
+- Standard tax rate: 20% on revenue exceeding 20,000 euro
+- Young business discount: 20% reduction for businesses open less than 5 years
+- Demonstrates nested conditional statements
+- Clear output formatting with intermediate calculations
+
+Located in: `JAVACORSO/Taxes/src/com/generation/bt/main/`
+
+### SequenzaESelezione Project
+
+Age and height validation system for ride or activity access control.
+
+**Main Program:** `AgeAndHeightChecker.java`
+
+Features:
+- Dual validation: age AND height requirements
+- Minimum age: 13 years
+- Minimum height: 120 cm
+- Nested if statements for combined validation
+- Access granted only when both conditions are met
+
+Located in: `JAVACORSO/SequenzaESelezione/src/com/generation/checker/`
+
+### ExtraLesson Project
+
+Advanced ticket management system demonstrating object-oriented programming with entity classes.
+
+**Main Program:** `TicketManagement.java` with `Ticket.java` entity
+
+**Key Concepts:**
+- **Entity Class Pattern**: `Ticket.java` represents a data model with attributes and methods
+- **Automatic Timestamp**: Uses `LocalDateTime.now()` for ticket creation time
+- **Object Methods**: Ticket validates itself with `isValid()` method
+- **Loop Structure**: Do-while loop for continuous ticket creation
+- **Template System**: HTML template processing with placeholder replacement
+- **File Naming**: Dynamic filename generation based on ticket ID
+- **User Confirmation**: Asks before saving to file
+- Demonstrates separation between data (Ticket) and operations (TicketManagement)
+
+Located in: `JAVACORSO/ExtraLesson/src/com/generation/bt/main/`
+
+### ExtraLesson2 Project
+
+Caesar cipher implementation for text encryption and decryption.
+
+**Main Program:** `Main.java` with `CaesarCypher.java` utility class
+
+**Features:**
+- **Cipher Method**: Encrypts text by shifting characters by K positions
+- **Decipher Method**: Decrypts text by reversing the shift
+- **Character Manipulation**: Uses char-to-int conversion and arithmetic operations
+- **String Building**: Concatenates characters to build result strings
+- Demonstrates:
+  - Type casting between char and int
+  - For loops for string iteration
+  - Method design for encryption/decryption
+
+Located in: `JAVACORSO/ExtraLesson2/src/com/generation/cyphar/cesar/`
+
 ## PrintLabel Project
 
 A more advanced project that demonstrates file I/O operations and HTML template processing to generate formatted labels.
@@ -236,16 +468,62 @@ Located in: `JAVACORSO/PrintLabel/src/com/generation/library/housing/PrintHousin
 
 ## Learning Topics
 
-This repository covers fundamental Java concepts including:
-- Variables and data types
+This repository covers fundamental and advanced Java concepts including:
+
+### Basic Concepts
+- Variables and data types (int, String, char, boolean, double)
 - Console input/output operations
-- File I/O operations (reading from and writing to files)
-- Arithmetic operations
-- String manipulation and template processing
-- Package organization
+- Arithmetic operations and calculations
 - Basic program structure
+- Package organization
+
+### Control Structures
+- Conditional statements (if/else)
+- Nested conditionals
+- Switch statements
+- Ternary operators
+- Boolean logic and comparisons
+- Loop structures (do-while, for loops)
+
+### String Manipulation
+- String methods (charAt, equalsIgnoreCase, contains, replace)
+- String concatenation
+- Template processing and placeholder replacement
+
+### File I/O Operations
+- Reading from files (FileReader)
+- Writing to files (FileWriter)
 - HTML template system and dynamic content generation
+- File naming and path management
 - Exception handling (try-catch blocks)
+
+### Object-Oriented Programming
+- Class design and implementation
+- Entity classes and data models
+- Encapsulation (private fields with getters/setters)
+- Constructors
+- Object methods and behavior
+- Service layer architecture
+- Separation of concerns
+
+### Advanced Topics
+- Date and time handling (LocalDate, LocalDateTime)
+- Type casting (char to int conversions)
+- Complex business logic implementation
+- Multi-criteria scoring algorithms
+- User management systems
+- VIP/loyalty programs
+- Data persistence and statistics collection
+- Modular architecture design
+- Caesar cipher cryptography
+
+### Software Engineering Practices
+- Code organization and structure
+- Reusable utility classes
+- Input validation
+- Error handling
+- User experience design
+- Formatted output and reporting
 
 ## Author
 Generation Study Course Student - Hacman Viorica Gabriela

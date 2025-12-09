@@ -1,0 +1,14 @@
+=== CANDIDATURA PROGRAMMATORE INFORMATICO BACK-END ===
+
+Nome: gabriela
+Cognome: hacman
+Età: 27 anni (nato/a 1998)
+Provincia di residenza: LATINA
+Titolo di studio: LAUREA
+Specializzazione: INFORMATICA
+Anni di esperienza: 2
+Disponibile a viaggiare: SI
+Conosce Java: SI
+Data della candidatura: 2025-12-09
+
+=== PUNTEGGIO FINALE: 140 ===

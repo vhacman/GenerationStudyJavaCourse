@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etichetta Candidatura</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border: 2px solid #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .section {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 4px;
+        }
+        
+        .section h2 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 8px;
+        }
+        
+        .field {
+            margin-bottom: 15px;
+        }
+        
+        .field label {
+            display: block;
+            font-weight: bold;
+            color: #333;
+            font-size: 12px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .field .value {
+            font-size: 14px;
+            color: #555;
+            padding: 8px;
+            background-color: #f9f9f9;
+            border-left: 3px solid #007bff;
+            word-break: break-word;
+        }
+        
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #333;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+        
+        .status-yes {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status-no {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+                background-color: white;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CANDIDATURA SPONTANEA</h1>
+            <p>Programmatore Informatico Back-End</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>Dati Personali</h2>
+                
+                <div class="field">
+                    <label>Nome</label>
+                    <div class="value">gabriela</div>
+                </div>
+                
+                <div class="field">
+                    <label>Cognome</label>
+                    <div class="value">hacman</div>
+                </div>
+                
+                <div class="field">
+                    <label>Anno di Nascita</label>
+                    <div class="value">1998</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Formazione</h2>
+                
+                <div class="field">
+                    <label>Titolo di Studio</label>
+                    <div class="value">LAUREA</div>
+                </div>
+                
+                <div class="field">
+                    <label>Materia di Laurea</label>
+                    <div class="value">INFORMATICA</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Esperienza</h2>
+                
+                <div class="field">
+                    <label>Anni di Esperienza</label>
+                    <div class="value">2</div>
+                </div>
+                
+                <div class="field">
+                    <label>Conosce Java</label>
+                    <div class="value">
+                        <span class="status-badge status-[knowsJavaClass]">
+                            SI
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Disponibilità</h2>
+                
+                <div class="field">
+                    <label>Disponibile a Viaggiare</label>
+                    <div class="value">
+                        <span class="status-badge status-[travelClass]">
+                            SI
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section full-width">
+                <h2>Dettagli Completi</h2>
+                
+                <div class="field">
+                    <label>Riepilogo Candidatura</label>
+                    <div class="value" style="white-space: pre-wrap;">
+                        Candidato: gabriela hacman
+                        Anno di nascita: 1998
+                        Titolo di studio: LAUREA
+                        Materia: INFORMATICA
+                        Anni di esperienza: 2
+                        Conosce Java: SI
+                        Disponibile a viaggiare: SI
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Generato automaticamente - Data: <span id="date-placeholder">--/--/----</span></p>
+        </div>
+    </div>
+</body>
+</html>
