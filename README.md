@@ -123,13 +123,45 @@ JAVACORSO/
 │   │           │       └── entities/ # Ticket entity
 │   │           └── library/       # Shared utility classes
 │   └── ticket/                    # Generated ticket files
-└── ExtraLesson2/
-    ├── src/
-    │   └── com/
-    │       └── generation/
-    │           ├── cyphar/
-    │           │   └── cesar/     # Caesar cipher implementation
-    │           └── library/       # Shared utility classes
+├── ExtraLesson2/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── cyphar/
+│   │           │   └── cesar/     # Caesar cipher implementation
+│   │           └── library/       # Shared utility classes
+├── MLTrains/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── bt/
+│   │           │   └── main/      # Train ticket system (Milano-Como line)
+│   │           └── library/       # Shared utility classes
+│   └── print/                     # Output directory and HTML templates
+├── Modulo4/
+│   └── src/
+│       └── com/
+│           └── generation/
+│               ├── exercises/     # Loop exercises (21-24)
+│               └── library/       # Shared utility classes
+├── MonzaMetro/
+│   └── src/
+│       └── com/
+│           └── generation/
+│               ├── bt/
+│               │   └── main/      # Metro ticket system (placeholder)
+│               └── library/       # Shared utility classes
+├── Recap/
+│   └── src/
+│       └── com/
+│           └── generation/
+│               ├── lessons/       # Review lessons (001-005)
+│               └── library/       # Shared utility classes
+└── While/
+    └── src/
+        └── com/
+            └── generation/
+                └── library/       # Shared utility classes
 ```
 
 ## Modules
@@ -426,6 +458,106 @@ Caesar cipher implementation for text encryption and decryption.
 
 Located in: `JAVACORSO/ExtraLesson2/src/com/generation/cyphar/cesar/`
 
+### MLTrains Project
+
+A train ticket generator for the Milano-Como railway line with HTML template integration.
+
+**Main Program:** `Main.java` with `PrintTicket.java`
+
+**Features:**
+- Train ticket booking system for Milano-Como line
+- Distance-based fare calculation
+- Service class selection (1st or 2nd class)
+- HTML template system for ticket generation
+- Departure and arrival time tracking
+- Passenger information management
+- Formatted ticket output with professional layout
+
+Located in: `JAVACORSO/MLTrains/src/com/generation/bt/main/`
+
+### Modulo4 Project
+
+Loop exercises collection demonstrating iterative programming concepts.
+
+**Main Program:** `Exercises21to24.java` with menu system
+
+**Exercise 21 - Maximum and Average:**
+- Input multiple integers
+- Calculate and display the largest number
+- Calculate and display the average
+- Do-while loop with user-controlled exit
+
+**Exercise 22 - Bill Payment Manager:**
+- Input number of bills to pay
+- For each bill: collect description and amount
+- Display complete bill list with individual amounts
+- Calculate and show total amount due
+
+**Exercise 23 - Even Numbers (For Loop):**
+- Display all even numbers below 1000
+- Uses for loop with modulo operator
+
+**Exercise 023 - Even Numbers (While Loop):**
+- Same as Exercise 23 but using while loop
+- Demonstrates different loop approaches
+
+**Exercise 24 - Odd-Even Pairs:**
+- Display pairs of consecutive odd-even numbers below 1000
+- Format: 1-2, 3-4, 5-6, etc.
+- Uses loop with increment by 2
+
+**Additional Program:** `EsercizioLezione.java`
+- Interactive number summation with do-while loop
+- Displays partial sums during input
+- Demonstrates user-controlled iteration
+
+Located in: `JAVACORSO/Modulo4/src/com/generation/exercises/`
+
+### MonzaMetro Project
+
+Metro ticket system placeholder project for future development.
+
+**Status:** Project structure created, implementation pending
+
+Located in: `JAVACORSO/MonzaMetro/src/com/generation/bt/main/`
+
+### Recap Project
+
+Review lessons covering fundamental Java programming concepts.
+
+**Lesson 001 - HelloWorld:**
+- Basic program structure
+- Output statements
+- First Java program
+
+**Lesson 002 - PrimeEspressioni:**
+- Variables and data types
+- Arithmetic expressions
+- Basic calculations
+
+**Lesson 003 - EsempiSelezioni:**
+- Conditional statements (if/else)
+- Boolean logic
+- Decision making
+
+**Lesson 004 - EsempioCiclo:**
+- Loop structures introduction
+- Basic iteration concepts
+
+**Lesson 005 - EsempioRettangolo:**
+- Rectangle area calculator
+- Input validation with do-while loops
+- Data validation (positive values only)
+- Practical use of loops for input validation
+
+Located in: `JAVACORSO/Recap/src/com/generation/lessons/`
+
+### While Project
+
+Utility project with shared library classes for loop-based exercises.
+
+Located in: `JAVACORSO/While/src/com/generation/library/`
+
 ## PrintLabel Project
 
 A more advanced project that demonstrates file I/O operations and HTML template processing to generate formatted labels.
@@ -483,7 +615,12 @@ This repository covers fundamental and advanced Java concepts including:
 - Switch statements
 - Ternary operators
 - Boolean logic and comparisons
-- Loop structures (do-while, for loops)
+- Loop structures:
+  - Do-while loops with user-controlled exit
+  - For loops with counters and iteration
+  - While loops for conditional repetition
+  - Loop increment patterns (i++, i+=2)
+- Menu-driven program design
 
 ### String Manipulation
 - String methods (charAt, equalsIgnoreCase, contains, replace)
@@ -508,7 +645,7 @@ This repository covers fundamental and advanced Java concepts including:
 
 ### Advanced Topics
 - Date and time handling (LocalDate, LocalDateTime)
-- Type casting (char to int conversions)
+- Type casting (char to int conversions, explicit casting for averages)
 - Complex business logic implementation
 - Multi-criteria scoring algorithms
 - User management systems
@@ -516,6 +653,12 @@ This repository covers fundamental and advanced Java concepts including:
 - Data persistence and statistics collection
 - Modular architecture design
 - Caesar cipher cryptography
+- Mathematical operations:
+  - Maximum value calculation
+  - Average calculation with proper casting
+  - Sum accumulation
+  - Modulo operator for even/odd detection
+  - Counter and accumulator patterns
 
 ### Software Engineering Practices
 - Code organization and structure
