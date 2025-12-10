@@ -145,12 +145,18 @@ JAVACORSO/
 │               ├── exercises/     # Loop exercises (21-24)
 │               └── library/       # Shared utility classes
 ├── MonzaMetro/
-│   └── src/
-│       └── com/
-│           └── generation/
-│               ├── bt/
-│               │   └── main/      # Metro ticket system (placeholder)
-│               └── library/       # Shared utility classes
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── bt/
+│   │           │   └── main/      # Metro ticket system main entry point
+│   │           ├── ticketGenerator/
+│   │           │   ├── Ticket.java        # Ticket entity class
+│   │           │   ├── Passenger.java     # Passenger entity class
+│   │           │   └── TicketService.java # Service layer for ticket operations
+│   │           └── library/       # Shared utility classes
+│   └── print/                     # Output directory and HTML templates
+│       └── templateGenerale.html  # Metro ticket template
 ├── Recap/
 │   └── src/
 │       └── com/
@@ -515,11 +521,41 @@ Located in: `JAVACORSO/Modulo4/src/com/generation/exercises/`
 
 ### MonzaMetro Project
 
-Metro ticket system placeholder project for future development.
+Metro ticket generation system with object-oriented design and HTML template integration.
 
-**Status:** Project structure created, implementation pending
+**Main Program:** `Main.java`
 
-Located in: `JAVACORSO/MonzaMetro/src/com/generation/bt/main/`
+**Features:**
+- **Object-Oriented Architecture**: Separated entity classes (Passenger, Ticket) and service layer (TicketService)
+- **Passenger Management**: Complete passenger information collection (name, surname, age)
+- **Age-Based Pricing System**:
+  - Children (0-10 years): €1.30
+  - Adults (11-69 years): €1.90
+  - Seniors (70+ years): Free (€0.00)
+- **Ticket Information**:
+  - Unique random ticket ID generation (1-999999)
+  - Departure station selection
+  - Departure date and time (custom selection)
+  - Check-in timestamp (automatic current time)
+- **Dual Output System**:
+  - Console formatted ticket display with borders and sections
+  - HTML file generation using template system
+- **Date and Time Handling**: Uses `LocalDateTime` with custom formatters
+- **Template Processing**: Dynamic HTML generation with placeholder replacement
+- **Input Validation**: Age validation and error handling
+
+**Classes:**
+- `Ticket.java` - Entity class representing a metro ticket with all attributes and getters/setters
+- `Passenger.java` - Entity class for passenger information with `toString()` override
+- `TicketService.java` - Service layer with static methods for:
+  - Personal information collection
+  - Age verification and price calculation
+  - Departure details (station, date, time)
+  - Ticket ID generation
+  - Check-in timestamp creation
+  - Console and HTML output formatting
+
+Located in: `JAVACORSO/MonzaMetro/src/com/generation/`
 
 ### Recap Project
 
