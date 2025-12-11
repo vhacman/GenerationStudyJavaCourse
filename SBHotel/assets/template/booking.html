@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>San Benedetto del Tronto Hotel — Prenotazione</title>
+
+  <style>
+    :root{
+      --accent: #0b7285;
+      --muted: #6c757d;
+      --bg: #f7f9fb;
+      --card: #ffffff;
+      --radius: 12px;
+    }
+
+    body{
+      margin:0;
+      background: var(--bg);
+      font-family: Arial, Helvetica, sans-serif;
+      padding:30px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .container{
+      width:100%;
+      max-width:900px;
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:24px;
+    }
+
+    .card{
+      background:var(--card);
+      padding:20px;
+      border-radius:var(--radius);
+      box-shadow:0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    header.card{
+      grid-column:1 / -1;
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+
+    .logo{
+      width:60px;
+      height:60px;
+      background:linear-gradient(135deg,var(--accent),#0f4c5c);
+      color:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      font-weight:bold;
+      border-radius:10px;
+    }
+
+    h1{
+      margin:0;
+      font-size:20px;
+    }
+    p{
+      margin:4px 0 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    label{
+      display:block;
+      margin-bottom:4px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    input, .info-box{
+      width:100%;
+      padding:10px;
+      border-radius:8px;
+      border:1px solid #dadfe3;
+      font-size:14px;
+      background:#f8f9fa;
+    }
+
+    .info-box{
+      min-height:40px;
+      white-space: pre-line;
+      line-height: 1.6;
+    }
+
+    .row{
+      display:flex;
+      gap:12px;
+      margin-bottom:14px;
+    }
+
+    .summary-title{
+      font-weight:bold;
+      font-size:16px;
+      margin-bottom:12px;
+    }
+
+    .line{
+      display:flex;
+      justify-content:space-between;
+      padding:8px;
+      border:1px solid #e3eaee;
+      border-radius:8px;
+      margin-bottom:8px;
+      background:white;
+    }
+
+    .price{
+      color:var(--accent);
+      font-weight:bold;
+      font-size:18px;
+      margin-top:4px;
+    }
+
+    .guest-list{
+      background:#f8f9fa;
+      padding:12px;
+      border-radius:8px;
+      border:1px solid #dadfe3;
+      white-space: pre-line;
+      line-height: 1.8;
+      margin-bottom:14px;
+    }
+
+    @media(max-width:900px){
+      .container{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <header class="card">
+      <div class="logo">SBH</div>
+      <div>
+        <h1>San Benedetto sul Tronto Hotel</h1>
+        <p>Prenotazione Confermata</p>
+      </div>
+    </header>
+
+    <!-- DETTAGLI PRENOTAZIONE -->
+    <section class="card">
+      <h2 style="margin-top:0;">Dettagli prenotazione</h2>
+
+      <label>Lista Ospiti ([guests_count] persone)</label>
+      <div class="guest-list">[guests]</div>
+
+      <div class="row">
+        <div style="flex:1;">
+          <label>Data prenotazione</label>
+          <div class="info-box">[date]</div>
+        </div>
+        <div style="flex:1;">
+          <label>Codice prenotazione</label>
+          <div class="info-box">[code]</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div style="flex:1;">
+          <label>Prezzo per notte</label>
+          <div class="info-box">€ [pricePerNight]</div>
+        </div>
+        <div style="flex:1;">
+          <label>Numero stanza</label>
+          <div class="info-box">Camera [nRoom]</div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- RIEPILOGO -->
+    <aside class="card">
+      <div class="summary-title">Riepilogo</div>
+
+      <div class="line">
+        <span>Ospiti</span>
+        <strong>[guests_count]</strong>
+      </div>
+
+      <div class="line">
+        <span>Data</span>
+        <strong>[date]</strong>
+      </div>
+
+      <div class="line">
+        <span>Codice</span>
+        <strong>[code]</strong>
+      </div>
+
+      <div class="line">
+        <span>Camera</span>
+        <strong>N° [nRoom]</strong>
+      </div>
+
+	  <div class="summary-item">
+	      <span>Totale camera ([nights] notti):</span>
+	      <span>€ [roomTotal]</span>
+	  </div>
+	  <div class="summary-item">
+	      <span>Servizio navetta:</span>
+	      <span>[shuttle]</span>
+	  </div>
+	  <div class="summary-item" style="font-weight: bold; font-size: 18px;">
+	      <span>Totale complessivo:</span>
+	      <span class="price">€ [totalCost]</span>
+	  </div>
+    </aside>
+
+  </div>
+</body>
+</html>

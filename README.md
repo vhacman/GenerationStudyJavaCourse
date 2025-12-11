@@ -157,11 +157,40 @@ JAVACORSO/
 │   │           └── library/       # Shared utility classes
 │   └── print/                     # Output directory and HTML templates
 │       └── templateGenerale.html  # Metro ticket template
+├── ChristmasTime/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── xmas/          # Christmas-themed exercises
+│   │           │   ├── PresentListV1-V5.java # Present list iterations (loop exercises)
+│   │           │   ├── SetteEMezzo.java      # Italian card game (7.5)
+│   │           │   ├── RegaloNonno.java      # Grandpa's gift calculator
+│   │           │   ├── PrintBetweenAandB.java # Print numbers in range
+│   │           │   └── PrintDueADueFraAeB.java # Print pairs in range
+│   │           └── library/       # Shared utility classes
+├── SBHotel/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── sbh/
+│   │           │   └── main/      # Hotel management system
+│   │           │       ├── RoomManagement.java      # Room booking system
+│   │           │       └── RoomCleaningOrder.java   # Cleaning service scheduler
+│   │           └── library/       # Shared utility classes
+│   ├── assets/                    # Templates and resources
+│   │   ├── template/              # HTML templates
+│   │   │   ├── booking.html       # Booking confirmation template
+│   │   │   ├── cancellationTemplate.html # Cancellation voucher template
+│   │   │   └── cleaningTemplate.html     # Cleaning order template
+│   │   ├── logo.txt               # Hotel logo
+│   │   ├── menu.txt               # Main menu
+│   │   └── rooms.txt              # Room list
+│   └── print/                     # Generated documents
 ├── Recap/
 │   └── src/
 │       └── com/
 │           └── generation/
-│               ├── lessons/       # Review lessons (001-005)
+│               ├── lessons/       # Review lessons (001-007)
 │               └── library/       # Shared utility classes
 └── While/
     └── src/
@@ -588,6 +617,145 @@ Review lessons covering fundamental Java programming concepts.
 
 Located in: `JAVACORSO/Recap/src/com/generation/lessons/`
 
+### ChristmasTime Project
+
+Christmas-themed programming exercises focusing on loops, arrays, and game logic.
+
+**Programs:**
+
+**PresentListV1-V5.java** - Evolution of a Christmas present list manager:
+- Version iterations demonstrating progressive complexity
+- V5 Features:
+  - Input number of presents to buy
+  - For-loop iteration for data collection
+  - Present name and cost tracking
+  - Automatic total calculation
+  - Formatted summary output
+- Demonstrates loop structures and string concatenation
+
+**SetteEMezzo.java** - Italian card game "Sette e Mezzo" (7.5):
+- Card game simulation with rules:
+  - Cards 1-7: face value points
+  - Cards 8-10 (Donna, Cavallo, Re): 0.5 points each
+  - Goal: Get as close to 7.5 without going over
+- Features:
+  - Random card generation using `Math.random()`
+  - Do-while loop for continuous play
+  - Ternary operator for card value calculation
+  - Score tracking and bust detection
+  - User interaction for "hit or stand" decisions
+
+**RegaloNonno.java** - Grandpa's Gift Calculator:
+- Gift budget calculator
+
+**PrintBetweenAandB.java** - Number Range Printer:
+- Prints all numbers between two values A and B
+
+**PrintDueADueFraAeB.java** - Pair Range Printer:
+- Prints pairs of consecutive numbers between A and B
+
+Located in: `JAVACORSO/ChristmasTime/src/com/generation/xmas/`
+
+### SBHotel Project
+
+Comprehensive hotel management system with booking, cancellation, and cleaning service functionalities.
+
+**Main Program:** `RoomManagement.java`
+
+**Core Features:**
+
+**1. Room Booking System** (`bookRoom()` method):
+- Guest Management:
+  - Support for 1-4 guests per booking
+  - Full name collection for each guest
+  - Guest list generation for confirmation
+- Stay Duration:
+  - 1-7 nights booking range
+  - Per-night pricing calculation
+- Room Selection:
+  - 4 available rooms with different pricing tiers:
+    - Room 1: €100/night
+    - Room 2: €80/night
+    - Room 3: €70/night
+    - Room 4: €220/night (premium)
+- Extra Services:
+  - Shuttle service option (€20 per person, one-time)
+  - Service cost automatically calculated and added to total
+- Booking Confirmation:
+  - Unique booking code generation
+  - HTML booking document with complete details
+  - Automatic total cost calculation (room + services)
+  - Current date stamping using `LocalDate.now()`
+  - File saved as `print/[code].html`
+
+**2. Cancellation System** (`cancelBooking()` method):
+- Refund Policy:
+  - Maximum refund: 2 nights only
+  - Calculation based on original room rate
+  - Partial refund for longer stays
+- Cancellation Voucher:
+  - HTML document generation
+  - Shows: original booking, nights booked, nights refunded
+  - Refund amount calculation
+  - File saved as `print/CANCEL_[code].html`
+
+**3. Cleaning Service Scheduler** (`RoomCleaningOrder.java`):
+- Date Validation System:
+  - Separate validation for day (1-31), month (1-12), year (current or future)
+  - Nested do-while loops for input validation
+  - Month-specific day limits using switch statement:
+    - 31 days: Jan, Mar, May, Jul, Aug, Oct, Dec
+    - 30 days: Apr, Jun, Sep, Nov
+    - February: Leap year calculation with nested ternary operators
+- Date Logic:
+  - Prevents past date selection using `LocalDate.isBefore()`
+  - Validates day-month-year combination
+  - Ensures cleaning date is present or future
+- Time Management:
+  - Cleaning hour selection (13:00-21:00 only)
+  - Input validation with do-while loop
+- Staff Assignment:
+  - Cleaner name input with empty string validation
+  - Mandatory field enforcement
+- Document Generation:
+  - Date formatting with `DateTimeFormatter` ("dd/MM/yyyy" pattern)
+  - HTML cleaning order with all details
+  - Dynamic filename: `print/CLEAN_Room[X]_[date].html`
+
+**4. Menu System:**
+- Interactive menu with 5 options:
+  1. Book a room
+  2. Cancel booking
+  3. View room availability
+  4. Order cleaning service
+  5. Exit
+- Template-based display loading from `assets/` directory
+- Switch statement for command routing
+- Do-while loop for continuous operation until exit
+
+**Template System:**
+- Asset files in `assets/` directory:
+  - `logo.txt` - Hotel branding displayed at startup
+  - `menu.txt` - Main menu options
+  - `rooms.txt` - Room availability list
+- HTML templates in `assets/template/`:
+  - `booking.html` - Booking confirmation format
+  - `cancellationTemplate.html` - Refund voucher format
+  - `cleaningTemplate.html` - Cleaning order format
+- Dynamic placeholder replacement using `.replace()` method
+
+**Advanced Concepts Demonstrated:**
+- Method decomposition and organization
+- Input validation with multiple strategies
+- Complex date handling and leap year calculation
+- Nested ternary operators for conditional logic
+- Template-based document generation
+- File I/O operations
+- Menu-driven architecture
+- Business rule implementation (refund limits, pricing tiers)
+
+Located in: `JAVACORSO/SBHotel/src/com/generation/sbh/main/`
+
 ### While Project
 
 Utility project with shared library classes for loop-based exercises.
@@ -648,15 +816,16 @@ This repository covers fundamental and advanced Java concepts including:
 ### Control Structures
 - Conditional statements (if/else)
 - Nested conditionals
-- Switch statements
-- Ternary operators
+- Switch statements with multiple cases
+- Ternary operators (simple and nested)
 - Boolean logic and comparisons
 - Loop structures:
   - Do-while loops with user-controlled exit
   - For loops with counters and iteration
   - While loops for conditional repetition
+  - Nested loops for complex validation
   - Loop increment patterns (i++, i+=2)
-- Menu-driven program design
+- Menu-driven program design with switch statements
 
 ### String Manipulation
 - String methods (charAt, equalsIgnoreCase, contains, replace)
@@ -681,6 +850,9 @@ This repository covers fundamental and advanced Java concepts including:
 
 ### Advanced Topics
 - Date and time handling (LocalDate, LocalDateTime)
+- Date formatting with DateTimeFormatter and custom patterns
+- Leap year calculation with nested ternary operators
+- Date validation and comparison (isBefore, isAfter)
 - Type casting (char to int conversions, explicit casting for averages)
 - Complex business logic implementation
 - Multi-criteria scoring algorithms
@@ -689,6 +861,8 @@ This repository covers fundamental and advanced Java concepts including:
 - Data persistence and statistics collection
 - Modular architecture design
 - Caesar cipher cryptography
+- Game logic implementation (card games, scoring systems)
+- Random number generation with Math.random()
 - Mathematical operations:
   - Maximum value calculation
   - Average calculation with proper casting
@@ -699,10 +873,16 @@ This repository covers fundamental and advanced Java concepts including:
 ### Software Engineering Practices
 - Code organization and structure
 - Reusable utility classes
-- Input validation
-- Error handling
+- Input validation with multiple strategies:
+  - Range validation (min-max checks)
+  - Empty string validation
+  - Date validation (day-month-year combinations)
+  - Business rule validation (refund limits, booking constraints)
+- Error handling and edge cases
 - User experience design
 - Formatted output and reporting
+- Template-driven document generation
+- Method decomposition and single responsibility principle
 
 ## Author
 Generation Study Course Student - Hacman Viorica Gabriela
