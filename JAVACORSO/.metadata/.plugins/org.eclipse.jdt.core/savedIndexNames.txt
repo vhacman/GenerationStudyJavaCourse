@@ -1,3 +1,0 @@
-INDEX VERSION 1.134+/home/vhacman/Desktop/JAVACORSO/.metadata/.plugins/org.eclipse.jdt.core
-1865797976.index
-1556433318.index
