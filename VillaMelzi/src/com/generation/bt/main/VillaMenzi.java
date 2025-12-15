@@ -61,11 +61,9 @@ public class VillaMenzi
 		
 		Console.print("Sei uno studente universitario? (si/no): ");
 		studentInput = Console.readString();
-		isStudent = studentInput.equalsIgnoreCase("si") || studentInput.equals("sì");
-		
+		isStudent = studentInput.equalsIgnoreCase("si") || studentInput.equals("sì");		
 		// Calculate price
-		price = calculatePrice(age, province, isStudent);
-		
+		price = calculatePrice(age, province, isStudent);		
 		// Display result
 		Console.print("\n=== RIEPILOGO ===");
 		Console.print("Nome: " + name + " " + surname);
@@ -82,35 +80,29 @@ public class VillaMenzi
 	/**
 	 * Calculates the ticket price based on residency (provincia), age, and student status
 	 */
-	public static int	calculatePrice(int age, String province, boolean isStudente)
-	{
+	public static int	calculatePrice(int age, String province, boolean isStudente) {
 		province = province.toLowerCase().trim();
 		int	MINPRICE = 0;
 		int	CHILD = 7;
 		int	ADULT = 65;
 		int	SENIOR = 70;
 		
-		if (province.equals("como") || province.equals("lecco") || province.equals("varese") || province.equals("bergamo"))
-		{
+		if (province.equals("como") || province.equals("lecco") || province.equals("varese") || province.equals("bergamo")) {
 			return (5); // Fixed price, non-cumulative
 		}
 		
 		int price = 10;
 		
-		if (age > SENIOR)
-		{
+		if (age > SENIOR) 		{
 			price -= 2;
 		} 
-		else if (age > ADULT || age < CHILD)
-		{
+		else if (age > ADULT || age < CHILD) {
 			price -= 1;
 		}
-		if (isStudente)
-		{
+		if (isStudente) {
 			price -= 1;
 		}
-		if (price < MINPRICE) 
-		{
+		if (price < MINPRICE) {
 			price = 0;
 		}
 		return (price);
@@ -119,8 +111,7 @@ public class VillaMenzi
 	/**
 	 * Saves visitor data to a file for statistical purposes
 	 */
-	public static void	saveStatistic(String name, String surname, int eta, String city, String province, boolean isStudent, int price)
-	{
+	public static void	saveStatistic(String name, String surname, int eta, String city, String province, boolean isStudent, int price) {
 		FileWriter	writer = new FileWriter("statistiche_visitatori.txt");
 		String		data = name + "|" + surname + "|" + eta + "|" + city + "|" + province + "|" + isStudent + "|" + price + "\n";
 		writer.print(data);

@@ -153,8 +153,7 @@ public class PrintTicket
 				Stampa un messaggio di conferma dicendo dove è stato salvato il file.
 				
 				In pratica: prende un template vuoto, lo riempie con i tuoi dati, e lo salva come file HTML nella cartella print.
-			*/
-			
+			*/			
 			label = Template.load("print/template.html");
 			Console.print("Inserire nome del file in cui stampare l'etichetta: ");
 	        outputFileName = Console.readString() + ".html";			

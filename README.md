@@ -138,6 +138,36 @@ JAVACORSO/
 │   │           │   └── main/      # Train ticket system (Milano-Como line)
 │   │           └── library/       # Shared utility classes
 │   └── print/                     # Output directory and HTML templates
+├── MilanoLeccoTRains2/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── ml/
+│   │           │   └── main/      # Train ticket system (Milano-Lecco line)
+│   │           ├── lessons/       # Programming lessons (001-003)
+│   │           └── library/       # Shared utility classes
+│   └── print/                     # Output directory and templates
+├── MilanoLeccoTrains3/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── ml/
+│   │           │   └── main/      # Enhanced train ticket system with discounts
+│   │           └── library/       # Shared utility classes (including Console2)
+│   └── print/                     # Output directory and templates
+├── MIlanoLeccoTrains4/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── trains/
+│   │           │   └── service/   # Service-oriented architecture
+│   │           │       ├── Main.java         # Entry point with menu system
+│   │           │       ├── Station.java      # Station entity and validation
+│   │           │       ├── Ticket.java       # Ticket entity
+│   │           │       ├── TicketInput.java  # Input handling service
+│   │           │       └── TicketPrinter.java # Output formatting service
+│   │           └── library/       # Shared utility classes
+│   └── print/                     # Output directory and templates
 ├── Modulo4/
 │   └── src/
 │       └── com/
@@ -509,6 +539,211 @@ A train ticket generator for the Milano-Como railway line with HTML template int
 - Formatted ticket output with professional layout
 
 Located in: `JAVACORSO/MLTrains/src/com/generation/bt/main/`
+
+### MilanoLeccoTRains2 Project
+
+First iteration of the Milano-Lecco train ticketing system with basic functionality.
+
+**Main Program:** `TicketManagement.java`
+
+**Railway Line:** Milano → Monza → Osnago → Lecco
+
+**Core Features:**
+- **Station Selection System**:
+  - 4 stations: Milano, Monza, Osnago, Lecco
+  - Case-insensitive station validation
+  - Prevents selecting same station for departure and arrival
+  - Multi-case switch statement for validation
+- **Distance Calculation**:
+  - Automatic distance calculation based on station pair
+  - Linear route: 15km intervals between consecutive stations
+  - Total line length: 45km (Milano to Lecco)
+  - Distance matrix implementation for all station combinations
+- **Class-Based Pricing**:
+  - 1st Class: €0.20 per km
+  - 2nd Class: €0.15 per km
+  - Dynamic price calculation based on distance and class
+- **Input Validation**:
+  - Station validation with error feedback
+  - Class validation (only 1 or 2 accepted)
+  - Prevents invalid station combinations
+- **Multi-Ticket Management**:
+  - Do-while loop for continuous ticket creation
+  - User-controlled session termination
+- **Programming Lessons Included**:
+  - Lesson001HelloWorld.java
+  - Lesson002MetodoStampaPersonalizzata.java
+  - Lesson003Geometry.java
+
+**Key Concepts Demonstrated:**
+- Switch expressions with multi-case labels (Java 14+ syntax)
+- Case-insensitive string comparison
+- Method decomposition (askStation, askLevel, calculateDistance)
+- Distance calculation algorithms
+- Input validation patterns
+- Loop-based menu systems
+
+Located in: `JAVACORSO/MilanoLeccoTRains2/src/com/generation/ml/main/`
+
+### MilanoLeccoTrains3 Project
+
+Enhanced version of MilanoLeccoTRains2 with passenger information, discount system, and date validation.
+
+**Main Program:** `TicketManagement.java`
+
+**New Features:**
+
+**1. Passenger Information Collection:**
+- Full name input with non-empty validation
+- Age input with range validation (1-120 years)
+- GreenCard status (discount card system)
+
+**2. Advanced Date/Time Management:**
+- **Date Input System** (`askDate()` method):
+  - Day validation (1-31)
+  - Month validation (1-12)
+  - Year validation (2025-2125)
+  - Complete date validation with `isValidDate()` method
+  - Month-specific day limits using switch statement
+  - Leap year calculation: `(year % 4 == 0) ? 29 : 28`
+  - Prevents invalid dates (e.g., February 30th)
+- **Time Input System** (`askHour()` method):
+  - Hour validation (0-23)
+  - Minutes validation (0-59)
+  - Formatted time output (HH:MM)
+
+**3. Discount System** (`calculatePrice()` method):
+- **Senior Discount**: Over 75 years → FREE travel (€0.00)
+- **GreenCard Discount**: 20% reduction on total price
+- Cascading discount logic (seniors get free, others can use GreenCard)
+
+**4. Enhanced Output:**
+- **Dual Output Format**:
+  - HTML file generation (template.html)
+  - Console text output (template.txt)
+- **Template Placeholders**:
+  - [fullName], [departure], [arrival], [age]
+  - [level] (converted to "Prima"/"Seconda")
+  - [km], [price], [date], [hour]
+  - [greenCard] (converted to "Sì"/"No")
+- File naming: `print_biglietto.html`
+
+**5. Advanced Console Utilities:**
+- Uses enhanced `Console2.java` library
+- `askNotEmptyString()` - prevents empty string input
+- `readIntBetween()` - validates integer ranges
+- Improved error messaging
+
+**Key Improvements:**
+- Complete passenger profile management
+- Complex date validation logic
+- Discount policy implementation
+- Dual-format output (HTML + Text)
+- Business rule enforcement (age-based pricing)
+- Enhanced input validation with range checking
+- Template system with multiple placeholders
+
+**Technical Concepts:**
+- Leap year algorithm
+- Nested validation logic
+- Ternary operators for conversions
+- String concatenation for date formatting
+- Boolean to string conversion for display
+- Method chaining in template replacement
+
+Located in: `JAVACORSO/MilanoLeccoTrains3/src/com/generation/ml/main/`
+
+### MIlanoLeccoTrains4 Project
+
+Most advanced iteration with full object-oriented architecture and service layer design.
+
+**Main Program:** `Main.java`
+
+**Architecture:**
+
+This project demonstrates professional software architecture with separation of concerns:
+
+**1. Menu-Driven Main Application** (`Main.java`):
+- **Welcome System**: Decorative ASCII art welcome message
+- **Main Menu Loop**:
+  - Option 1: Buy ticket
+  - Option 2: View system information
+  - Option 3: Exit
+- **Template-Based UI**: Menu loaded from external text files
+- **Post-Purchase Options**:
+  - View ticket in console
+  - Save ticket to HTML
+  - Return to main menu
+
+**2. Station Entity Class** (`Station.java`):
+- **Value Object Pattern**: Represents a railway station
+- **Built-in Validation**: Constructor and setter validate station names
+- **Constants Definition**:
+  - `MILANO`, `MONZA`, `OSNAGO`, `LECCO` as public static final
+  - Prevents "magic strings" throughout codebase
+- **Case-Insensitive Handling**: All names stored in lowercase
+- **Validation Loop**: Refuses to accept invalid stations
+- **Encapsulation**: Private name field with public getter/setter
+- **Defensive Programming**: Double-check validation in multiple places
+
+**3. Ticket Entity Class** (`Ticket.java`):
+- Complete ticket data model
+- Stores all passenger and journey information
+- Encapsulated with getters/setters
+
+**4. TicketInput Service** (`TicketInput.java`):
+- **Input Collection Service**: `collectTicketData()` method
+- Separates user interaction from business logic
+- Creates and returns populated Ticket objects
+- Delegates to Station class for validation
+
+**5. TicketPrinter Service** (`TicketPrinter.java`):
+- **Output Formatting Service**: Handles all ticket display
+- **Dual Output Support**:
+  - `printToConsole()` - formatted console display
+  - `printToHTML()` - HTML file generation
+- Template-based rendering
+- Responsible for all presentation logic
+
+**Key Features:**
+
+**System Information Display:**
+- Available stations list
+- Pricing information per class
+- Complete discount policy explanation
+- Distance matrix between all stations
+- Class descriptions and benefits
+
+**Discount System:**
+- GreenCard: 20% discount
+- Over 75: FREE travel
+- Clear policy communication to users
+
+**Professional Design Patterns:**
+- **Separation of Concerns**: Each class has single responsibility
+- **Service Layer**: Business logic separated from presentation
+- **Entity Objects**: Data models as dedicated classes
+- **Value Objects**: Station as immutable-style validated object
+- **Template Method**: External templates for UI elements
+- **Menu-Driven Architecture**: User-friendly navigation
+- **Input Validation**: Multi-level validation (Station class, Console methods)
+
+**Code Quality:**
+- **Extensive Documentation**: Detailed JavaDoc comments explaining design decisions
+- **Constants Usage**: Eliminates magic values
+- **Error Handling**: Graceful handling of invalid inputs
+- **User Confirmation**: Purchase confirmation before completion
+- **Modular Design**: Easy to extend with new features
+
+**Advanced Concepts:**
+- Object-oriented design principles (SOLID)
+- Design patterns (Value Object, Service Layer)
+- Architecture planning and organization
+- Code documentation best practices
+- User experience design
+- Defensive programming techniques
+
+Located in: `JAVACORSO/MIlanoLeccoTrains4/src/com/generation/trains/service/`
 
 ### Modulo4 Project
 

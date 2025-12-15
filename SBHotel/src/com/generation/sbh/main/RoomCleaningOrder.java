@@ -81,9 +81,7 @@ public class RoomCleaningOrder
 
 				case 2:
 					// Operatore ternario per anno bisestile
-					maxDays = (cleanYear % 400 == 0) ? 29 :
-								(cleanYear % 100 == 0) ? 28 :
-									(cleanYear % 4 == 0) ? 29 : 28;
+					maxDays = (cleanYear % 4 == 0) ? 29 : 28;
 				break;
 
 				default:
