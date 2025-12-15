@@ -7,8 +7,44 @@ This repository contains Java programming examples and exercises from the Genera
 
 ## Project Structure
 
+The projects are organized into 4 thematic categories:
+
 ```
-JAVACORSO/
+GenerationStudyJavaCourse/
+├── 01_Fundamentals_Examples/    # Basic concepts, lessons, and control structures
+│   ├── Examples/
+│   ├── Modulo4/
+│   ├── Recap/
+│   ├── SequenzaESelezione/
+│   └── While/
+├── 02_Tickets_Transportation/   # Ticketing and transportation systems
+│   ├── BrianzaTaxi/
+│   ├── BrianzaTaxiService/
+│   ├── BrianzaTrains/
+│   ├── DiscotecaTicket/
+│   ├── MilanoLeccoTRains2/
+│   ├── MilanoLeccoTrains3/
+│   ├── MIlanoLeccoTrains4/
+│   ├── MLTrains/
+│   └── MonzaMetro/
+├── 03_Business_Applications/    # Business and management applications
+│   ├── DeveloperCandidatura/
+│   ├── MuseumTicket/
+│   ├── PrintLabel/
+│   ├── ProlocoLakeComo/
+│   ├── SBHotel/
+│   └── VillaMelzi/
+└── 04_Exercises_Practice/       # Extra exercises and practice
+    ├── ChristmasTime/
+    ├── ExtraLesson/
+    ├── ExtraLesson2/
+    └── Taxes/
+```
+
+### Detailed Structure
+
+```
+01_Fundamentals_Examples/
 ├── Examples/
 │   └── src/
 │       └── com/
@@ -33,6 +69,7 @@ JAVACORSO/
 │   └── print/                     # Output directory and HTML templates
 │       ├── template.html          # Food label template
 │       └── templateHousing.html   # Housing label template
+02_Tickets_Transportation/
 ├── BrianzaTaxi/
 │   ├── src/
 │   │   └── com/
@@ -72,12 +109,37 @@ JAVACORSO/
 │   │           │   └── utility/   # Museum calculation utilities
 │   │           └── library/       # Shared utility classes
 │   └── print/                     # Output directory and HTML templates
+03_Business_Applications/
 ├── DeveloperCandidatura/
 │   ├── src/
 │   │   └── com/
 │   │       └── generation/
 │   │           ├── main/          # Job application scoring system
 │   │           └── library/       # Shared utility classes
+├── MuseumTicket/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── museum/
+│   │           │   └── main/      # Museum ticket generator
+│   │           ├── mg/
+│   │           │   └── utility/   # Museum calculation utilities
+│   │           └── library/       # Shared utility classes
+│   └── print/                     # Output directory and HTML templates
+├── PrintLabel/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           └── library/
+│   │               ├── food/      # Food label generator
+│   │               ├── housing/   # Housing label generator
+│   │               ├── Console.java
+│   │               ├── FileReader.java
+│   │               ├── FileWriter.java
+│   │               └── Template.java
+│   └── print/                     # Output directory and HTML templates
+│       ├── template.html          # Food label template
+│       └── templateHousing.html   # Housing label template
 ├── ProlocoLakeComo/
 │   ├── src/
 │   │   └── com/
@@ -86,33 +148,44 @@ JAVACORSO/
 │   │           │   └── main/      # Tourist guide application
 │   │           └── library/       # Shared utility classes
 │   └── archive/                   # Saved applications
-├── DiscotecaTicket/
+├── SBHotel/
 │   ├── src/
 │   │   └── com/
 │   │       └── generation/
-│   │           ├── bt/
-│   │           │   └── main/      # Nightclub ticket system
+│   │           ├── sbh/
+│   │           │   └── main/      # Hotel management system
+│   │           │       ├── RoomManagement.java      # Room booking system
+│   │           │       └── RoomCleaningOrder.java   # Cleaning service scheduler
 │   │           └── library/       # Shared utility classes
-├── VillaMelzi/
-│   ├── src/
-│   │   └── com/
-│   │       └── generation/
-│   │           ├── bt/
-│   │           │   └── main/      # Villa Melzi ticket system
-│   │           └── library/       # Shared utility classes
-├── Taxes/
-│   ├── src/
-│   │   └── com/
-│   │       └── generation/
-│   │           ├── bt/
-│   │           │   └── main/      # Business tax calculator
-│   │           └── library/       # Shared utility classes
-├── SequenzaESelezione/
-│   ├── src/
-│   │   └── com/
-│   │       └── generation/
-│   │           ├── checker/       # Age and height validation
-│   │           └── library/       # Shared utility classes
+│   ├── assets/                    # Templates and resources
+│   │   ├── template/              # HTML templates
+│   │   │   ├── booking.html       # Booking confirmation template
+│   │   │   ├── cancellationTemplate.html # Cancellation voucher template
+│   │   │   └── cleaningTemplate.html     # Cleaning order template
+│   │   ├── logo.txt               # Hotel logo
+│   │   ├── menu.txt               # Main menu
+│   │   └── rooms.txt              # Room list
+│   └── print/                     # Generated documents
+└── VillaMelzi/
+    ├── src/
+    │   └── com/
+    │       └── generation/
+    │           ├── bt/
+    │           │   └── main/      # Villa Melzi ticket system
+    │           └── library/       # Shared utility classes
+
+04_Exercises_Practice/
+├── ChristmasTime/
+    ├── src/
+    │   └── com/
+    │       └── generation/
+    │           ├── xmas/          # Christmas-themed exercises
+    │           │   ├── PresentListV1-V5.java # Present list iterations (loop exercises)
+    │           │   ├── SetteEMezzo.java      # Italian card game (7.5)
+    │           │   ├── RegaloNonno.java      # Grandpa's gift calculator
+    │           │   ├── PrintBetweenAandB.java # Print numbers in range
+    │           │   └── PrintDueADueFraAeB.java # Print pairs in range
+    │           └── library/       # Shared utility classes
 ├── ExtraLesson/
 │   ├── src/
 │   │   └── com/
@@ -130,6 +203,40 @@ JAVACORSO/
 │   │           ├── cyphar/
 │   │           │   └── cesar/     # Caesar cipher implementation
 │   │           └── library/       # Shared utility classes
+└── Taxes/
+    ├── src/
+    │   └── com/
+    │       └── generation/
+    │           ├── bt/
+    │           │   └── main/      # Business tax calculator
+    │           └── library/       # Shared utility classes
+
+01_Fundamentals_Examples/ (continued)
+├── Modulo4/
+│   └── src/
+│       └── com/
+│           └── generation/
+│               ├── exercises/     # Loop exercises (21-24)
+│               └── library/       # Shared utility classes
+├── Recap/
+│   └── src/
+│       └── com/
+│           └── generation/
+│               ├── lessons/       # Review lessons (001-007)
+│               └── library/       # Shared utility classes
+├── SequenzaESelezione/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── checker/       # Age and height validation
+│   │           └── library/       # Shared utility classes
+└── While/
+    └── src/
+        └── com/
+            └── generation/
+                └── library/       # Shared utility classes
+
+02_Tickets_Transportation/ (continued)
 ├── MLTrains/
 │   ├── src/
 │   │   └── com/
@@ -168,66 +275,58 @@ JAVACORSO/
 │   │           │       └── TicketPrinter.java # Output formatting service
 │   │           └── library/       # Shared utility classes
 │   └── print/                     # Output directory and templates
-├── Modulo4/
-│   └── src/
-│       └── com/
-│           └── generation/
-│               ├── exercises/     # Loop exercises (21-24)
-│               └── library/       # Shared utility classes
-├── MonzaMetro/
-│   ├── src/
-│   │   └── com/
-│   │       └── generation/
-│   │           ├── bt/
-│   │           │   └── main/      # Metro ticket system main entry point
-│   │           ├── ticketGenerator/
-│   │           │   ├── Ticket.java        # Ticket entity class
-│   │           │   ├── Passenger.java     # Passenger entity class
-│   │           │   └── TicketService.java # Service layer for ticket operations
-│   │           └── library/       # Shared utility classes
-│   └── print/                     # Output directory and HTML templates
-│       └── templateGenerale.html  # Metro ticket template
-├── ChristmasTime/
-│   ├── src/
-│   │   └── com/
-│   │       └── generation/
-│   │           ├── xmas/          # Christmas-themed exercises
-│   │           │   ├── PresentListV1-V5.java # Present list iterations (loop exercises)
-│   │           │   ├── SetteEMezzo.java      # Italian card game (7.5)
-│   │           │   ├── RegaloNonno.java      # Grandpa's gift calculator
-│   │           │   ├── PrintBetweenAandB.java # Print numbers in range
-│   │           │   └── PrintDueADueFraAeB.java # Print pairs in range
-│   │           └── library/       # Shared utility classes
-├── SBHotel/
-│   ├── src/
-│   │   └── com/
-│   │       └── generation/
-│   │           ├── sbh/
-│   │           │   └── main/      # Hotel management system
-│   │           │       ├── RoomManagement.java      # Room booking system
-│   │           │       └── RoomCleaningOrder.java   # Cleaning service scheduler
-│   │           └── library/       # Shared utility classes
-│   ├── assets/                    # Templates and resources
-│   │   ├── template/              # HTML templates
-│   │   │   ├── booking.html       # Booking confirmation template
-│   │   │   ├── cancellationTemplate.html # Cancellation voucher template
-│   │   │   └── cleaningTemplate.html     # Cleaning order template
-│   │   ├── logo.txt               # Hotel logo
-│   │   ├── menu.txt               # Main menu
-│   │   └── rooms.txt              # Room list
-│   └── print/                     # Generated documents
-├── Recap/
-│   └── src/
-│       └── com/
-│           └── generation/
-│               ├── lessons/       # Review lessons (001-007)
-│               └── library/       # Shared utility classes
-└── While/
-    └── src/
-        └── com/
-            └── generation/
-                └── library/       # Shared utility classes
+└── MonzaMetro/
+    ├── src/
+    │   └── com/
+    │       └── generation/
+    │           ├── bt/
+    │           │   └── main/      # Metro ticket system main entry point
+    │           ├── ticketGenerator/
+    │           │   ├── Ticket.java        # Ticket entity class
+    │           │   ├── Passenger.java     # Passenger entity class
+    │           │   └── TicketService.java # Service layer for ticket operations
+    │           └── library/       # Shared utility classes
+    └── print/                     # Output directory and HTML templates
+        └── templateGenerale.html  # Metro ticket template
 ```
+
+## Category Overview
+
+### 01_Fundamentals_Examples
+Basic Java programming concepts, lessons, and control structures including:
+- **Examples**: Demo programs covering geometry, food calculations, housing, and trips
+- **Modulo4**: Loop exercises (21-24)
+- **Recap**: Review lessons (001-007) covering fundamentals
+- **SequenzaESelezione**: Age and height validation with conditional statements
+- **While**: Loop-based exercises
+
+### 02_Tickets_Transportation
+Ticketing and transportation systems with progressive complexity:
+- **BrianzaTaxi**: Basic taxi receipt generator
+- **BrianzaTaxiService**: Enhanced taxi system with VIP management and service layer
+- **BrianzaTrains**: Train ticket generator
+- **DiscotecaTicket**: Nightclub entrance validation system
+- **MLTrains**: Milano-Como train line ticketing
+- **MilanoLeccoTRains2**: First iteration of Milano-Lecco line with distance calculation
+- **MilanoLeccoTrains3**: Enhanced with passenger info and discount system
+- **MIlanoLeccoTrains4**: Advanced OOP architecture with service layer design
+- **MonzaMetro**: Metro ticket system with age-based pricing
+
+### 03_Business_Applications
+Business and management applications:
+- **DeveloperCandidatura**: Job application scoring system for developers
+- **MuseumTicket**: Museum admission with demographic-based pricing
+- **PrintLabel**: HTML label generator for food and housing
+- **ProlocoLakeComo**: Tourist guide application with province-based scoring
+- **SBHotel**: Comprehensive hotel management with booking, cancellation, and cleaning services
+- **VillaMelzi**: Villa museum ticket system with complex discount rules
+
+### 04_Exercises_Practice
+Extra exercises and practice programs:
+- **ChristmasTime**: Holiday-themed exercises including card game (Sette e Mezzo)
+- **ExtraLesson**: Advanced ticket management with entity classes
+- **ExtraLesson2**: Caesar cipher encryption/decryption
+- **Taxes**: Business tax calculator with startup incentives
 
 ## Modules
 
