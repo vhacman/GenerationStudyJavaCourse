@@ -14,6 +14,7 @@ GenerationStudyJavaCourse/
 ├── 01_Fundamentals_Examples/    # Basic concepts, lessons, and control structures
 │   ├── Examples/
 │   ├── Modulo4/
+│   ├── Modulo 6/
 │   ├── Recap/
 │   ├── SequenzaESelezione/
 │   └── While/
@@ -28,7 +29,9 @@ GenerationStudyJavaCourse/
 │   ├── MLTrains/
 │   └── MonzaMetro/
 ├── 03_Business_Applications/    # Business and management applications
+│   ├── BrianzaTrainsObjects/
 │   ├── DeveloperCandidatura/
+│   ├── JavaBus/
 │   ├── MuseumTicket/
 │   ├── PrintLabel/
 │   ├── ProlocoLakeComo/
@@ -110,11 +113,34 @@ GenerationStudyJavaCourse/
 │   │           └── library/       # Shared utility classes
 │   └── print/                     # Output directory and HTML templates
 03_Business_Applications/
+├── BrianzaTrainsObjects/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── bt/
+│   │           │   ├── main/      # Main controller (MVC pattern)
+│   │           │   ├── test/      # Testing layer
+│   │           │   └── view/      # View layer (TicketView)
+│   │           ├── model/
+│   │           │   └── entities/  # Entity classes (Ticket)
+│   │           └── library/       # Shared utility classes
+│   └── template/                  # Text and HTML templates
 ├── DeveloperCandidatura/
 │   ├── src/
 │   │   └── com/
 │   │       └── generation/
 │   │           ├── main/          # Job application scoring system
+│   │           └── library/       # Shared utility classes
+├── JavaBus/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── bt/
+│   │           │   ├── main/      # Main controller (project skeleton)
+│   │           │   ├── model/
+│   │           │   │   └── entities/ # Ticket entity (empty template)
+│   │           │   ├── test/      # Unit testing setup
+│   │           │   └── view/      # View layer (TicketView)
 │   │           └── library/       # Shared utility classes
 ├── MuseumTicket/
 │   ├── src/
@@ -218,6 +244,13 @@ GenerationStudyJavaCourse/
 │           └── generation/
 │               ├── exercises/     # Loop exercises (21-24)
 │               └── library/       # Shared utility classes
+├── Modulo 6/
+│   └── src/
+│       └── com/
+│           └── generation/
+│               ├── modulo6/
+│               │   └── main/      # OOP exercises (Person, House classes)
+│               └── library/       # Shared utility classes
 ├── Recap/
 │   └── src/
 │       └── com/
@@ -296,6 +329,7 @@ GenerationStudyJavaCourse/
 Basic Java programming concepts, lessons, and control structures including:
 - **Examples**: Demo programs covering geometry, food calculations, housing, and trips
 - **Modulo4**: Loop exercises (21-24)
+- **Modulo 6**: Object-oriented programming fundamentals (Person and House classes)
 - **Recap**: Review lessons (001-007) covering fundamentals
 - **SequenzaESelezione**: Age and height validation with conditional statements
 - **While**: Loop-based exercises
@@ -314,7 +348,9 @@ Ticketing and transportation systems with progressive complexity:
 
 ### 03_Business_Applications
 Business and management applications:
+- **BrianzaTrainsObjects**: OOP train ticketing system demonstrating MVC pattern with entity classes
 - **DeveloperCandidatura**: Job application scoring system for developers
+- **JavaBus**: Bus ticketing system template with MVC architecture (project skeleton)
 - **MuseumTicket**: Museum admission with demographic-based pricing
 - **PrintLabel**: HTML label generator for food and housing
 - **ProlocoLakeComo**: Tourist guide application with province-based scoring
@@ -419,7 +455,7 @@ Generates HTML taxi receipts based on:
 **Utility Classes:**
 - `TaxiUtility.java` - Helper methods for input validation and price calculation
 
-Located in: `JAVACORSO/BrianzaTaxi/src/com/generation/bt/`
+Located in: `02_Tickets_Transportation/BrianzaTaxi/src/com/generation/bt/`
 
 ### BrianzaTrains Project
 
@@ -438,7 +474,7 @@ Generates train tickets with:
   - Minimum fare: €1.70
 - Displays formatted ticket with emoji graphics
 
-Located in: `JAVACORSO/BrianzaTrains/src/com/generation/bt/main/`
+Located in: `02_Tickets_Transportation/BrianzaTrains/src/com/generation/bt/main/`
 
 ### MuseumTicket Project
 
@@ -458,7 +494,7 @@ Generates HTML museum tickets based on:
 **Utility Classes:**
 - `MGUtility.java` - Helper methods for input validation and price calculation
 
-Located in: `JAVACORSO/MuseumTicket/src/com/generation/museum/main/`
+Located in: `03_Business_Applications/MuseumTicket/src/com/generation/museum/main/`
 
 ### BrianzaTaxiService Project
 
@@ -478,7 +514,7 @@ Features:
 - **Flexible User Data**: Option for quick registration (name, surname, phone) or complete data entry
 - **Enhanced Ticket Model**: Improved ticket representation with detailed information
 
-Located in: `JAVACORSO/BrianzaTaxiService/src/com/generation/bt/main/`
+Located in: `02_Tickets_Transportation/BrianzaTaxiService/src/com/generation/bt/main/`
 
 ### DeveloperCandidatura Project
 
@@ -499,7 +535,7 @@ A job application scoring system for back-end developer positions in the Lazio r
 - Formatted output with complete candidate summary and final score
 - Object-oriented design with encapsulation (getters/setters)
 
-Located in: `JAVACORSO/DeveloperCandidatura/src/com/generatio/main/`
+Located in: `03_Business_Applications/DeveloperCandidatura/src/com/generation/main/`
 
 ### ProlocoLakeComo Project
 
@@ -519,7 +555,7 @@ Features:
 - File naming with candidate number
 - Formatted output with complete candidate information and score
 
-Located in: `JAVACORSO/ProlocoLakeComo/src/com/generation/lcp/main/`
+Located in: `03_Business_Applications/ProlocoLakeComo/src/com/generation/lcp/main/`
 
 ### DiscotecaTicket Project
 
@@ -535,7 +571,7 @@ Features:
 - Entrance denied for underage users
 - Demonstrates conditional statements and character comparison
 
-Located in: `JAVACORSO/DiscotecaTicket/src/com/generatio/bt/main/`
+Located in: `02_Tickets_Transportation/DiscotecaTicket/src/com/generatio/bt/main/`
 
 ### VillaMelzi Project
 
@@ -553,7 +589,7 @@ Villa Melzi museum ticket system with complex pricing logic based on residency, 
 - **Data Collection**: Saves visitor statistics to file for analysis
 - **Validation**: Prevents negative prices
 
-Located in: `JAVACORSO/VillaMelzi/src/com/generation/bt/main/`
+Located in: `03_Business_Applications/VillaMelzi/src/com/generation/bt/main/`
 
 ### Taxes Project
 
@@ -569,7 +605,111 @@ Features:
 - Demonstrates nested conditional statements
 - Clear output formatting with intermediate calculations
 
-Located in: `JAVACORSO/Taxes/src/com/generation/bt/main/`
+Located in: `04_Exercises_Practice/Taxes/src/com/generation/bt/main/`
+
+### BrianzaTrainsObjects Project
+
+Object-oriented train ticketing system demonstrating the MVC (Model-View-Controller) design pattern.
+
+**Main Program:** `Main.java`
+
+**Architecture:**
+
+This project showcases professional software architecture following the MVC pattern:
+
+**1. Model Layer** (`Ticket.java` entity):
+- **Entity Class Pattern**: Represents a train ticket with attributes and behavior
+- **Public Attributes**: id, km (kilometers), level (class)
+- **Class Constants**:
+  - `PRICEPERKMFIRSTCLASS = 0.2` (€0.20 per km)
+  - `PRICEPERKMSECONDCLASS = 0.1` (€0.10 per km)
+- **Business Methods**:
+  - `getPrice()` - Calculates ticket price using ternary operator for class selection
+  - `isValid()` - Validates ticket data (id > 0, km > 0, level = 1 or 2)
+- **Encapsulation**: Separates data from presentation logic
+
+**2. View Layer** (`TicketView.java`):
+- **Template-Based Rendering**: Uses external templates for output formatting
+- **Dual Format Support**:
+  - Text format (template.txt) for console display
+  - HTML format (template.html) for file output
+- **render() Method**:
+  - Loads template from file
+  - Replaces placeholders: [id], [km], [level], [price]
+  - Returns formatted string
+- **Separation of Concerns**: View only handles presentation, no business logic
+
+**3. Controller Layer** (`Main.java`):
+- **User Interaction Management**: Handles input/output flow
+- **askTicket() Method**:
+  - Input collection with do-while loop
+  - Validation using `isValid()` method
+  - Continues until valid data is entered
+- **Main Flow**:
+  1. Collect ticket data
+  2. Create two views (TXT for preview, HTML for saving)
+  3. Display text preview in console
+  4. Optional HTML file save (user confirmation)
+  5. Dynamic filename using ticket ID
+
+**Key Features:**
+- **MVC Architecture**: Clear separation between Model, View, and Controller
+- **Template System**: Reusable templates for different output formats
+- **Input Validation**: Multi-level validation with user feedback
+- **User Experience**: Preview before save, optional file generation
+- **Code Reusability**: View class can be instantiated multiple times with different templates
+
+**Advanced Concepts Demonstrated:**
+- MVC design pattern implementation
+- Entity class design with validation methods
+- Template-based view rendering
+- Separation of concerns principle
+- Object-oriented encapsulation
+- Static constants for configuration
+- Method chaining for template replacement
+- User-controlled workflow
+
+Located in: `03_Business_Applications/BrianzaTrainsObjects/src/com/generation/`
+
+### JavaBus Project
+
+Bus ticketing system template demonstrating MVC architecture setup (project skeleton for future development).
+
+**Main Program:** `Main.java`
+
+**Architecture:**
+
+This project provides a foundational structure for a bus ticketing system following MVC principles:
+
+**1. Model Layer** (`com.generation.bt.model.entities`):
+- `Ticket.java` - Empty entity class ready for implementation
+- Prepared for ticket attributes and business logic
+
+**2. View Layer** (`com.generation.bt.view`):
+- `TicketView.java` - View component for ticket rendering
+- Follows the same pattern as BrianzaTrainsObjects
+
+**3. Test Layer** (`com.generation.bt.test`):
+- `TicketTest.java` - Testing framework setup
+- Demonstrates unit testing preparation
+
+**4. Main Controller**:
+- Entry point prepared for application logic
+
+**Project Purpose:**
+- Serves as a template/skeleton for building ticketing systems
+- Demonstrates proper project structure and package organization
+- Ready for implementation of bus-specific business logic
+- Shows how to organize code following MVC principles from project start
+
+**Package Structure:**
+- `com.generation.bt.main` - Application entry point
+- `com.generation.bt.model.entities` - Data models
+- `com.generation.bt.view` - Presentation layer
+- `com.generation.bt.test` - Testing layer
+- `com.generation.library` - Shared utilities (Console, FileReader, FileWriter, Template)
+
+Located in: `03_Business_Applications/JavaBus/src/com/generation/`
 
 ### SequenzaESelezione Project
 
@@ -584,7 +724,7 @@ Features:
 - Nested if statements for combined validation
 - Access granted only when both conditions are met
 
-Located in: `JAVACORSO/SequenzaESelezione/src/com/generation/checker/`
+Located in: `01_Fundamentals_Examples/SequenzaESelezione/src/com/generation/checker/`
 
 ### ExtraLesson Project
 
@@ -602,7 +742,7 @@ Advanced ticket management system demonstrating object-oriented programming with
 - **User Confirmation**: Asks before saving to file
 - Demonstrates separation between data (Ticket) and operations (TicketManagement)
 
-Located in: `JAVACORSO/ExtraLesson/src/com/generation/bt/main/`
+Located in: `04_Exercises_Practice/ExtraLesson/src/com/generation/bt/main/`
 
 ### ExtraLesson2 Project
 
@@ -620,7 +760,7 @@ Caesar cipher implementation for text encryption and decryption.
   - For loops for string iteration
   - Method design for encryption/decryption
 
-Located in: `JAVACORSO/ExtraLesson2/src/com/generation/cyphar/cesar/`
+Located in: `04_Exercises_Practice/ExtraLesson2/src/com/generation/cyphar/cesar/`
 
 ### MLTrains Project
 
@@ -637,7 +777,7 @@ A train ticket generator for the Milano-Como railway line with HTML template int
 - Passenger information management
 - Formatted ticket output with professional layout
 
-Located in: `JAVACORSO/MLTrains/src/com/generation/bt/main/`
+Located in: `02_Tickets_Transportation/MLTrains/src/com/generation/bt/main/`
 
 ### MilanoLeccoTRains2 Project
 
@@ -682,7 +822,7 @@ First iteration of the Milano-Lecco train ticketing system with basic functional
 - Input validation patterns
 - Loop-based menu systems
 
-Located in: `JAVACORSO/MilanoLeccoTRains2/src/com/generation/ml/main/`
+Located in: `02_Tickets_Transportation/MilanoLeccoTRains2/src/com/generation/ml/main/`
 
 ### MilanoLeccoTrains3 Project
 
@@ -750,7 +890,7 @@ Enhanced version of MilanoLeccoTRains2 with passenger information, discount syst
 - Boolean to string conversion for display
 - Method chaining in template replacement
 
-Located in: `JAVACORSO/MilanoLeccoTrains3/src/com/generation/ml/main/`
+Located in: `02_Tickets_Transportation/MilanoLeccoTrains3/src/com/generation/ml/main/`
 
 ### MIlanoLeccoTrains4 Project
 
@@ -842,7 +982,77 @@ This project demonstrates professional software architecture with separation of 
 - User experience design
 - Defensive programming techniques
 
-Located in: `JAVACORSO/MIlanoLeccoTrains4/src/com/generation/trains/service/`
+Located in: `02_Tickets_Transportation/MIlanoLeccoTrains4/src/com/generation/trains/service/`
+
+### Modulo 6 Project
+
+Object-oriented programming fundamentals with entity class design and implementation.
+
+**Main Programs:** `Main.java` and `MainHouse.java`
+
+**Entity Classes:**
+
+**1. Person Class:**
+- **Attributes**:
+  - `name` - Person's first name
+  - `surname` - Person's last name
+  - `dateOfBirth` - Birth date in ISO format (YYYY-MM-DD)
+  - `gender` - Gender identification
+- **Constructor**:
+  - Default constructor initializing all fields to empty strings
+  - Demonstrates proper object initialization
+- **Methods**:
+  - `toString()` - Returns formatted person information
+  - String concatenation for display
+
+**2. House Class:**
+- **Attributes**:
+  - `address` - Property address
+  - `area` - Property area in square meters (MQ)
+  - `spm` - Price per square meter (soldi per metro)
+- **Constructor**:
+  - Default constructor initializing strings to empty and numbers to 0
+- **Business Methods**:
+  - `getPrice()` - Calculates total property price (area × spm)
+  - Returns calculated value, not stored value
+- **Display Method**:
+  - `toString()` - Returns formatted house information with calculated price
+  - Demonstrates combining attributes with computed values
+
+**Main Programs:**
+
+**Main.java - Person Demo:**
+- Creates two Person objects (p1, p2)
+- Direct attribute assignment (public fields)
+- Demonstrates object instantiation with `new` keyword
+- Shows multiple independent objects from same class
+- Uses `toString()` for formatted output
+
+**MainHouse.java - House Demo:**
+- Creates House object
+- Sets property details (address, area, price per sqm)
+- Demonstrates method call for price calculation
+- Shows `toString()` with computed values
+
+**Key Concepts Demonstrated:**
+- **Class Definition**: Blueprint for objects with attributes and methods
+- **Object Instantiation**: Creating instances with `new` keyword
+- **Constructors**: Initializing object state
+- **Encapsulation Basics**: Grouping data and methods
+- **toString() Override**: Custom string representation
+- **Business Logic Methods**: Methods that compute values (getPrice)
+- **Multiple Objects**: Creating and managing multiple instances
+- **Direct Field Access**: Public fields without getters/setters (basic approach)
+
+**OOP Principles Introduced:**
+- Class as template, object as instance
+- State (attributes) and behavior (methods)
+- Constructor role in object creation
+- Method return values
+- Object-to-string conversion
+- Calculated vs stored properties
+
+Located in: `01_Fundamentals_Examples/Modulo 6/src/com/generation/modulo6/main/`
 
 ### Modulo4 Project
 
@@ -880,7 +1090,7 @@ Loop exercises collection demonstrating iterative programming concepts.
 - Displays partial sums during input
 - Demonstrates user-controlled iteration
 
-Located in: `JAVACORSO/Modulo4/src/com/generation/exercises/`
+Located in: `01_Fundamentals_Examples/Modulo4/src/com/generation/exercises/`
 
 ### MonzaMetro Project
 
@@ -918,7 +1128,7 @@ Metro ticket generation system with object-oriented design and HTML template int
   - Check-in timestamp creation
   - Console and HTML output formatting
 
-Located in: `JAVACORSO/MonzaMetro/src/com/generation/`
+Located in: `02_Tickets_Transportation/MonzaMetro/src/com/generation/`
 
 ### Recap Project
 
@@ -949,7 +1159,7 @@ Review lessons covering fundamental Java programming concepts.
 - Data validation (positive values only)
 - Practical use of loops for input validation
 
-Located in: `JAVACORSO/Recap/src/com/generation/lessons/`
+Located in: `01_Fundamentals_Examples/Recap/src/com/generation/lessons/`
 
 ### ChristmasTime Project
 
@@ -988,7 +1198,7 @@ Christmas-themed programming exercises focusing on loops, arrays, and game logic
 **PrintDueADueFraAeB.java** - Pair Range Printer:
 - Prints pairs of consecutive numbers between A and B
 
-Located in: `JAVACORSO/ChristmasTime/src/com/generation/xmas/`
+Located in: `04_Exercises_Practice/ChristmasTime/src/com/generation/xmas/`
 
 ### SBHotel Project
 
@@ -1088,13 +1298,13 @@ Comprehensive hotel management system with booking, cancellation, and cleaning s
 - Menu-driven architecture
 - Business rule implementation (refund limits, pricing tiers)
 
-Located in: `JAVACORSO/SBHotel/src/com/generation/sbh/main/`
+Located in: `03_Business_Applications/SBHotel/src/com/generation/sbh/main/`
 
 ### While Project
 
 Utility project with shared library classes for loop-based exercises.
 
-Located in: `JAVACORSO/While/src/com/generation/library/`
+Located in: `01_Fundamentals_Examples/While/src/com/generation/library/`
 
 ## PrintLabel Project
 
@@ -1111,7 +1321,7 @@ Generates HTML food nutrition labels:
 - Replaces placeholders with actual values
 - Outputs formatted HTML label to file in `print/` directory
 
-Located in: `JAVACORSO/PrintLabel/src/com/generation/library/food/PrintFoodLabel.java`
+Located in: `03_Business_Applications/PrintLabel/src/com/generation/library/food/PrintFoodLabel.java`
 
 ### PrintHousingLabel
 Generates HTML real estate property labels:
@@ -1123,7 +1333,7 @@ Generates HTML real estate property labels:
 - Uses HTML template system to generate formatted output
 - Saves result as HTML file in `print/` directory
 
-Located in: `JAVACORSO/PrintLabel/src/com/generation/library/housing/PrintHousingLabel.java`
+Located in: `03_Business_Applications/PrintLabel/src/com/generation/library/housing/PrintHousingLabel.java`
 
 ### Key Features of Advanced Projects
 - **File I/O Operations**: Reading templates and writing output files
@@ -1181,6 +1391,9 @@ This repository covers fundamental and advanced Java concepts including:
 - Object methods and behavior
 - Service layer architecture
 - Separation of concerns
+- MVC (Model-View-Controller) design pattern
+- Template-based view rendering
+- Static constants and class-level attributes
 
 ### Advanced Topics
 - Date and time handling (LocalDate, LocalDateTime)
