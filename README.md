@@ -23,9 +23,9 @@ GenerationStudyJavaCourse/
 │   ├── BrianzaTaxiService/
 │   ├── BrianzaTrains/
 │   ├── DiscotecaTicket/
-│   ├── MilanoLeccoTRains2/
+│   ├── MilanoLeccoTrains2/
 │   ├── MilanoLeccoTrains3/
-│   ├── MIlanoLeccoTrains4/
+│   ├── MilanoLeccoTrains4/
 │   ├── MLTrains/
 │   └── MonzaMetro/
 ├── 03_Business_Applications/    # Business and management applications
@@ -135,7 +135,7 @@ GenerationStudyJavaCourse/
 │   ├── src/
 │   │   └── com/
 │   │       └── generation/
-│   │           ├── bt/
+│   │           ├── jb/
 │   │           │   ├── main/      # Main controller (project skeleton)
 │   │           │   ├── model/
 │   │           │   │   └── entities/ # Ticket entity (empty template)
@@ -278,7 +278,7 @@ GenerationStudyJavaCourse/
 │   │           │   └── main/      # Train ticket system (Milano-Como line)
 │   │           └── library/       # Shared utility classes
 │   └── print/                     # Output directory and HTML templates
-├── MilanoLeccoTRains2/
+├── MilanoLeccoTrains2/
 │   ├── src/
 │   │   └── com/
 │   │       └── generation/
@@ -295,7 +295,7 @@ GenerationStudyJavaCourse/
 │   │           │   └── main/      # Enhanced train ticket system with discounts
 │   │           └── library/       # Shared utility classes (including Console2)
 │   └── print/                     # Output directory and templates
-├── MIlanoLeccoTrains4/
+├── MilanoLeccoTrains4/
 │   ├── src/
 │   │   └── com/
 │   │       └── generation/
@@ -341,9 +341,9 @@ Ticketing and transportation systems with progressive complexity:
 - **BrianzaTrains**: Train ticket generator
 - **DiscotecaTicket**: Nightclub entrance validation system
 - **MLTrains**: Milano-Como train line ticketing
-- **MilanoLeccoTRains2**: First iteration of Milano-Lecco line with distance calculation
+- **MilanoLeccoTrains2**: First iteration of Milano-Lecco line with distance calculation
 - **MilanoLeccoTrains3**: Enhanced with passenger info and discount system
-- **MIlanoLeccoTrains4**: Advanced OOP architecture with service layer design
+- **MilanoLeccoTrains4**: Advanced OOP architecture with service layer design
 - **MonzaMetro**: Metro ticket system with age-based pricing
 
 ### 03_Business_Applications
@@ -703,10 +703,10 @@ This project provides a foundational structure for a bus ticketing system follow
 - Shows how to organize code following MVC principles from project start
 
 **Package Structure:**
-- `com.generation.bt.main` - Application entry point
-- `com.generation.bt.model.entities` - Data models
-- `com.generation.bt.view` - Presentation layer
-- `com.generation.bt.test` - Testing layer
+- `com.generation.jb.main` - Application entry point
+- `com.generation.jb.model.entities` - Data models
+- `com.generation.jb.view` - Presentation layer
+- `com.generation.jb.test` - Testing layer
 - `com.generation.library` - Shared utilities (Console, FileReader, FileWriter, Template)
 
 Located in: `03_Business_Applications/JavaBus/src/com/generation/`
@@ -779,7 +779,7 @@ A train ticket generator for the Milano-Como railway line with HTML template int
 
 Located in: `02_Tickets_Transportation/MLTrains/src/com/generation/bt/main/`
 
-### MilanoLeccoTRains2 Project
+### MilanoLeccoTrains2 Project
 
 First iteration of the Milano-Lecco train ticketing system with basic functionality.
 
@@ -822,11 +822,11 @@ First iteration of the Milano-Lecco train ticketing system with basic functional
 - Input validation patterns
 - Loop-based menu systems
 
-Located in: `02_Tickets_Transportation/MilanoLeccoTRains2/src/com/generation/ml/main/`
+Located in: `02_Tickets_Transportation/MilanoLeccoTrains2/src/com/generation/ml/main/`
 
 ### MilanoLeccoTrains3 Project
 
-Enhanced version of MilanoLeccoTRains2 with passenger information, discount system, and date validation.
+Enhanced version of MilanoLeccoTrains2 with passenger information, discount system, and date validation.
 
 **Main Program:** `TicketManagement.java`
 
@@ -892,7 +892,7 @@ Enhanced version of MilanoLeccoTRains2 with passenger information, discount syst
 
 Located in: `02_Tickets_Transportation/MilanoLeccoTrains3/src/com/generation/ml/main/`
 
-### MIlanoLeccoTrains4 Project
+### MilanoLeccoTrains4 Project
 
 Most advanced iteration with full object-oriented architecture and service layer design.
 

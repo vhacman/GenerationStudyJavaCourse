@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>BIGLIETTO JAVA BUS</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .ticket {
+            background-color: white;
+            border: 3px solid #003366;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 500px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            color: #003366;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .company-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+        .label {
+            font-weight: bold;
+            color: #333;
+        }
+        .value {
+            color: #666;
+        }
+        .price-section {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin: 20px -30px -30px;
+            border-radius: 0 0 7px 7px;
+        }
+        .price-label {
+            font-size: 14px;
+            margin: 0;
+        }
+        .price-value {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="ticket">
+        <div class="header">
+            <p class="company-name">JAVA BUS</p>
+            <p class="subtitle">Biglietto Autobus</p>
+        </div>
+
+        <div class="info-row">
+            <span class="label">ID Biglietto:</span>
+            <span class="value">[id]</span>
+        </div>
+
+        <div class="info-row">
+            <span class="label">Classe:</span>
+            <span class="value">[level]° Classe</span>
+        </div>
+
+        <div class="price-section">
+            <p class="price-label">IMPORTO TOTALE</p>
+            <p class="price-value">€[price]</p>
+        </div>
+    </div>
+</body>
+</html>
