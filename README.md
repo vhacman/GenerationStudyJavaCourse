@@ -136,12 +136,13 @@ GenerationStudyJavaCourse/
 │   │   └── com/
 │   │       └── generation/
 │   │           ├── jb/
-│   │           │   ├── main/      # Main controller (project skeleton)
+│   │           │   ├── main/      # Main controller (MVC pattern)
 │   │           │   ├── model/
-│   │           │   │   └── entities/ # Ticket entity (empty template)
+│   │           │   │   └── entities/ # Ticket entity with 3-class system
 │   │           │   ├── test/      # Unit testing setup
 │   │           │   └── view/      # View layer (TicketView)
 │   │           └── library/       # Shared utility classes
+│   └── template/                  # Text and HTML templates
 ├── MuseumTicket/
 │   ├── src/
 │   │   └── com/
@@ -350,7 +351,7 @@ Ticketing and transportation systems with progressive complexity:
 Business and management applications:
 - **BrianzaTrainsObjects**: OOP train ticketing system demonstrating MVC pattern with entity classes
 - **DeveloperCandidatura**: Job application scoring system for developers
-- **JavaBus**: Bus ticketing system template with MVC architecture (project skeleton)
+- **JavaBus**: Bus ticketing system with MVC architecture and three-class pricing model
 - **MuseumTicket**: Museum admission with demographic-based pricing
 - **PrintLabel**: HTML label generator for food and housing
 - **ProlocoLakeComo**: Tourist guide application with province-based scoring
@@ -673,40 +674,86 @@ Located in: `03_Business_Applications/BrianzaTrainsObjects/src/com/generation/`
 
 ### JavaBus Project
 
-Bus ticketing system template demonstrating MVC architecture setup (project skeleton for future development).
+Bus ticketing system demonstrating MVC architecture with three-class pricing model and GreenCard discount system.
 
 **Main Program:** `Main.java`
 
 **Architecture:**
 
-This project provides a foundational structure for a bus ticketing system following MVC principles:
+This project implements a complete bus ticketing system following MVC (Model-View-Controller) principles:
 
-**1. Model Layer** (`com.generation.bt.model.entities`):
-- `Ticket.java` - Empty entity class ready for implementation
-- Prepared for ticket attributes and business logic
+**1. Model Layer** (`Ticket.java` entity):
+- **Entity Class Pattern**: Represents a bus ticket with attributes and behavior
+- **Public Attributes**: id, km (kilometers), level (class), greenCard (discount card)
+- **Class Constants**:
+  - `PRICEPERKMFIRSTCLASS = 0.2` (€0.20 per km)
+  - `PRICEPERKMSECONDCLASS = 0.1` (€0.10 per km)
+  - `PRICEPERKMTHIRDCLASS = 0.05` (€0.05 per km)
+- **Business Methods**:
+  - `getPrice()` - Calculates ticket price based on class selection
+  - **GreenCard System**: 50% discount if greenCard is true
+  - Switch statement for class-based pricing
+  - `isValid()` - Validates ticket data (id > 0, km > 0, level = 1/2/3)
+- **Constructors**:
+  - Default constructor
+  - Parameterized constructor for all fields
+- **Encapsulation**: Combines data with business logic
 
-**2. View Layer** (`com.generation.bt.view`):
-- `TicketView.java` - View component for ticket rendering
-- Follows the same pattern as BrianzaTrainsObjects
+**2. View Layer** (`TicketView.java`):
+- **Template-Based Rendering**: Uses external templates for output formatting
+- **Dual Format Support**:
+  - Text format (template.txt) for console display
+  - HTML format (template.html) for file output
+- **render() Method**:
+  - Loads template from file using Template utility
+  - Replaces placeholders: [id], [km], [level], [price]
+  - Returns formatted string with ticket information
+- **Separation of Concerns**: View only handles presentation, no business logic
+- **Method Chaining**: Template replacement using fluent interface
 
-**3. Test Layer** (`com.generation.bt.test`):
-- `TicketTest.java` - Testing framework setup
-- Demonstrates unit testing preparation
+**3. Controller Layer** (`Main.java`):
+- **User Interaction Management**: Handles input/output flow
+- **askTicket() Method**:
+  - Input collection with do-while loop
+  - Range validation using `Console.readIntBetween()`
+  - Validation ranges: id (0-1000), km (1-1000), level (1-2)
+  - Continues until valid data using `isValid()` method
+- **Main Flow**:
+  1. Collect ticket data from user
+  2. Create two views (TXT for preview, HTML for saving)
+  3. Display text preview in console
+  4. Optional HTML file save with user confirmation
+  5. Dynamic filename using ticket ID: `print/{id}_biglietto.html`
 
-**4. Main Controller**:
-- Entry point prepared for application logic
+**4. Test Layer** (`TicketTest.java`):
+- Testing framework setup for unit testing
 
-**Project Purpose:**
-- Serves as a template/skeleton for building ticketing systems
-- Demonstrates proper project structure and package organization
-- Ready for implementation of bus-specific business logic
-- Shows how to organize code following MVC principles from project start
+**Key Features:**
+- **MVC Architecture**: Clear separation between Model, View, and Controller
+- **Three-Class System**: First, second, and third class with different pricing
+- **GreenCard Discount**: Automatic 50% discount for cardholders
+- **Template System**: Reusable templates for different output formats
+- **Input Validation**: Multi-level validation with range checking and user feedback
+- **User Experience**: Preview before save, optional file generation
+- **Code Reusability**: View class can be instantiated multiple times with different templates
+
+**Advanced Concepts Demonstrated:**
+- MVC design pattern implementation
+- Entity class design with validation and business logic methods
+- Template-based view rendering
+- Separation of concerns principle
+- Object-oriented encapsulation
+- Static constants for configuration
+- Method chaining for template replacement
+- User-controlled workflow with confirmation
+- Switch statement for pricing logic
+- Conditional discount application
 
 **Package Structure:**
-- `com.generation.jb.main` - Application entry point
-- `com.generation.jb.model.entities` - Data models
-- `com.generation.jb.view` - Presentation layer
-- `com.generation.jb.test` - Testing layer
+- `com.generation.jb.main` - Application entry point and controller
+- `com.generation.jb.model.entities` - Ticket entity with business logic
+- `com.generation.jb.view` - Presentation layer (TicketView)
+- `com.generation.jb.test` - Testing layer (TicketTest)
 - `com.generation.library` - Shared utilities (Console, FileReader, FileWriter, Template)
 
 Located in: `03_Business_Applications/JavaBus/src/com/generation/`
