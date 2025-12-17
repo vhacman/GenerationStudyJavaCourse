@@ -123,47 +123,111 @@ GenerationStudyJavaCourse/
 │   │       └── generation/
 │   │           ├── bt/
 │   │           │   ├── main/      # Main controller (MVC pattern)
+│   │           │   │   └── Main.java
 │   │           │   ├── test/      # Testing layer
+│   │           │   │   └── TicketTest.java
 │   │           │   └── view/      # View layer (TicketView)
+│   │           │       └── TicketView.java
 │   │           ├── model/
 │   │           │   └── entities/  # Entity classes (Ticket)
+│   │           │       └── Ticket.java
 │   │           └── library/       # Shared utility classes
-│   └── template/                  # Text and HTML templates
+│   ├── template/                  # Text and HTML templates
+│   └── print/                     # Generated ticket files
 ├── DeveloperCandidatura/
 │   ├── src/
 │   │   └── com/
+│   │       ├── generatio/         # Note: package name typo
+│   │       │   └── main/          # Job application scoring system
+│   │       │       ├── Application.java
+│   │       │       └── Main.java
 │   │       └── generation/
-│   │           ├── main/          # Job application scoring system
 │   │           └── library/       # Shared utility classes
+│   ├── archive/                   # Saved application files
+│   └── print/                     # HTML template
+│       └── template.html
 ├── JavaBus/
 │   ├── src/
 │   │   └── com/
 │   │       └── generation/
 │   │           ├── jb/
 │   │           │   ├── main/      # Main controller (MVC pattern)
+│   │           │   │   └── Main.java
 │   │           │   ├── model/
 │   │           │   │   └── entities/ # Ticket entity with 3-class system
+│   │           │   │       └── Ticket.java
 │   │           │   ├── test/      # Unit testing setup
+│   │           │   │   └── TicketTest.java
 │   │           │   └── view/      # View layer (TicketView)
+│   │           │       └── TicketView.java
 │   │           └── library/       # Shared utility classes
-│   └── template/                  # Text and HTML templates
+│   ├── template/                  # Text template
+│   │   └── template.txt
+│   └── print/                     # HTML template
+│       └── template.html
+├── JavItaAirline/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── jia/
+│   │           │   ├── main/      # Main controller
+│   │           │   │   └── Main.java
+│   │           │   ├── demo/      # Demo programs
+│   │           │   │   └── JavaitaAirplaneDemo.java
+│   │           │   ├── test/      # JUnit testing
+│   │           │   │   └── JavaitaTest.java
+│   │           │   ├── model/
+│   │           │   │   └── entities/ # Entity classes with enums
+│   │           │   │       ├── AirlineTicket.java
+│   │           │   │       ├── MembershipType.java (enum)
+│   │           │   │       └── ServiceClass.java (enum)
+│   │           │   └── view/      # View layer
+│   │           │       └── JavaitaView.java
+│   │           └── library/       # Shared utility classes
+│   └── template/                  # Templates directory
+├── LeccoB&B/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── lbb/
+│   │           │   ├── main/      # Main controller
+│   │           │   │   └── Main.java
+│   │           │   ├── demo/      # Demo programs
+│   │           │   │   ├── DemoBooking.java
+│   │           │   │   └── LocalDateDemo.java
+│   │           │   ├── model/
+│   │           │   │   └── entities/ # Entity classes with enums
+│   │           │   │       ├── Booking.java
+│   │           │   │       ├── MembershipType.java (enum)
+│   │           │   │       └── RoomType.java (enum)
+│   │           │   └── view/      # View layer
+│   │           │       └── BookingView.java
+│   │           └── library/       # Shared utility classes
+│   └── template/                  # HTML and TXT templates
+│       ├── template.html
+│       └── template.txt
 ├── MuseumTicket/
 │   ├── src/
 │   │   └── com/
 │   │       └── generation/
 │   │           ├── museum/
 │   │           │   └── main/      # Museum ticket generator
+│   │           │       └── MuseumGenerator.java
 │   │           ├── mg/
 │   │           │   └── utility/   # Museum calculation utilities
+│   │           │       └── MGUtility.java
 │   │           └── library/       # Shared utility classes
 │   └── print/                     # Output directory and HTML templates
+│       └── template.html
 ├── PrintLabel/
 │   ├── src/
 │   │   └── com/
 │   │       └── generation/
 │   │           └── library/
 │   │               ├── food/      # Food label generator
+│   │               │   └── PrintFoodLabel.java
 │   │               ├── housing/   # Housing label generator
+│   │               │   └── PrintHousingLabel.java
 │   │               ├── Console.java
 │   │               ├── FileReader.java
 │   │               ├── FileWriter.java
@@ -177,8 +241,34 @@ GenerationStudyJavaCourse/
 │   │       └── generation/
 │   │           ├── lcp/
 │   │           │   └── main/      # Tourist guide application
+│   │           │       └── TouristGuideApplication.java
 │   │           └── library/       # Shared utility classes
-│   └── archive/                   # Saved applications
+│   └── archive/                   # Saved application files
+├── RepairShop/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── rs/
+│   │           │   ├── main/      # Main controller
+│   │           │   │   └── Main.java
+│   │           │   ├── demo/      # Demo programs
+│   │           │   │   ├── DemoRepair.java
+│   │           │   │   └── DemoRepairView.java
+│   │           │   ├── test/      # JUnit testing
+│   │           │   │   └── RepairTest.java
+│   │           │   ├── model/
+│   │           │   │   └── entities/ # Entity classes
+│   │           │   │       └── Repair.java
+│   │           │   └── view/      # View layer
+│   │           │       └── RepairView.java
+│   │           └── library/       # Shared utility classes
+│   └── template/                  # Multiple templates
+│       ├── menu.txt               # Main menu
+│       ├── repairPreView.txt      # Text preview template
+│       ├── clientView.html        # Client invoice template
+│       ├── repair_1.html          # Sample repair 1
+│       ├── repair_2.html          # Sample repair 2
+│       └── repair_3.html          # Sample repair 3
 ├── SBHotel/
 │   ├── src/
 │   │   └── com/
@@ -203,6 +293,7 @@ GenerationStudyJavaCourse/
     │       └── generation/
     │           ├── bt/
     │           │   └── main/      # Villa Melzi ticket system
+    │           │       └── VillaMenzi.java (note: typo in filename)
     │           └── library/       # Shared utility classes
 
 04_Exercises_Practice/
