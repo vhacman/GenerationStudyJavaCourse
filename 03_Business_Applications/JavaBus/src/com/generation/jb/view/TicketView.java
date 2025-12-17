@@ -20,6 +20,19 @@ public class TicketView
 {
 	String filename;
 	
+	/**
+	 * Costruttore: crea una RepairView associata a un file template specifico.
+	 * 
+	 * Questo permette di avere diverse "viste" per lo stesso oggetto Repair:
+	 * - RepairView("templates/repair_full.html") → vista completa
+	 * - RepairView("templates/repair_summary.txt") → vista riassuntiva
+	 * - RepairView("templates/repair_invoice.html") → formato fattura
+	 * 
+	 * Esempio:
+	 * RepairView view = new RepairView("templates/repair.html");
+	 * 
+	 * @param filename il percorso del file template da utilizzare
+	 */
 	public	TicketView(String filename)
 	{
 		this.filename = filename;
