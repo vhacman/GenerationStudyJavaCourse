@@ -15,6 +15,7 @@ GenerationStudyJavaCourse/
 │   ├── Examples/
 │   ├── Modulo4/
 │   ├── Modulo 6/
+│   ├── Modulo7Incapsulamento/
 │   ├── Recap/
 │   ├── SequenzaESelezione/
 │   └── While/
@@ -32,9 +33,12 @@ GenerationStudyJavaCourse/
 │   ├── BrianzaTrainsObjects/
 │   ├── DeveloperCandidatura/
 │   ├── JavaBus/
+│   ├── JavItaAirline/
+│   ├── LeccoB&B/
 │   ├── MuseumTicket/
 │   ├── PrintLabel/
 │   ├── ProlocoLakeComo/
+│   ├── RepairShop/
 │   ├── SBHotel/
 │   └── VillaMelzi/
 └── 04_Exercises_Practice/       # Extra exercises and practice
@@ -252,6 +256,12 @@ GenerationStudyJavaCourse/
 │               ├── modulo6/
 │               │   └── main/      # OOP exercises (Person, House classes)
 │               └── library/       # Shared utility classes
+├── Modulo7Incapsulamento/
+│   └── src/
+│       └── com/
+│           └── generation/
+│               ├── lessons/       # Encapsulation lessons (Person class)
+│               └── library/       # Shared utility classes
 ├── Recap/
 │   └── src/
 │       └── com/
@@ -331,6 +341,7 @@ Basic Java programming concepts, lessons, and control structures including:
 - **Examples**: Demo programs covering geometry, food calculations, housing, and trips
 - **Modulo4**: Loop exercises (21-24)
 - **Modulo 6**: Object-oriented programming fundamentals (Person and House classes)
+- **Modulo7Incapsulamento**: Encapsulation principles with private fields and getters/setters
 - **Recap**: Review lessons (001-007) covering fundamentals
 - **SequenzaESelezione**: Age and height validation with conditional statements
 - **While**: Loop-based exercises
@@ -352,9 +363,12 @@ Business and management applications:
 - **BrianzaTrainsObjects**: OOP train ticketing system demonstrating MVC pattern with entity classes
 - **DeveloperCandidatura**: Job application scoring system for developers
 - **JavaBus**: Bus ticketing system with MVC architecture and three-class pricing model
+- **JavItaAirline**: Airline ticket system with service classes, membership discounts, and JUnit testing
+- **LeccoB&B**: Bed & Breakfast booking system with room types, membership discounts, and age verification
 - **MuseumTicket**: Museum admission with demographic-based pricing
 - **PrintLabel**: HTML label generator for food and housing
 - **ProlocoLakeComo**: Tourist guide application with province-based scoring
+- **RepairShop**: Repair shop management system with pricing calculation and HTML invoice generation
 - **SBHotel**: Comprehensive hotel management with booking, cancellation, and cleaning services
 - **VillaMelzi**: Villa museum ticket system with complex discount rules
 
@@ -1101,6 +1115,61 @@ Object-oriented programming fundamentals with entity class design and implementa
 
 Located in: `01_Fundamentals_Examples/Modulo 6/src/com/generation/modulo6/main/`
 
+### Modulo7Incapsulamento Project
+
+Object-oriented programming with focus on **encapsulation** - one of the four pillars of OOP.
+
+**Main Programs:** `Main.java` and `Person.java` entity class
+
+**Encapsulation Concepts Demonstrated:**
+
+**Person Class - Proper Encapsulation:**
+- **Private Attributes**:
+  - `private String name` - Protected first name
+  - `private String surname` - Protected last name
+  - `private String dateOfBirth` - Protected birth date
+  - `private String gender` - Protected gender
+- **Constructors**:
+  - No-argument constructor (initializes with empty strings)
+  - Parameterized constructor (accepts all fields)
+- **Getter Methods with Null-Safety**:
+  - `getName()`, `getSurname()`, `getDateOfBirth()`, `getGender()`
+  - All getters return "UNKNOWN" instead of null for safe handling
+  - Example: `return name == null ? "UNKNOWN" : name;`
+- **Setter Methods with Validation**:
+  - `setName()`, `setSurname()`, `setDateOfBirth()`, `setGender()`
+  - All setters handle null values defensively
+  - Example: `this.name = name == null ? "UNKNOWN" : name;`
+- **toString() Method**:
+  - Returns formatted string representation
+  - Demonstrates custom object display
+
+**Main.java - Demonstration:**
+Creates four Person objects:
+```java
+Person p1 = new Person("Gabriela", "Hacman", "21-10-1998", "F");
+Person p2 = new Person("Valerio", "Corallini", "02-23-1999", "M");
+Person p3 = new Person("Pippo", "Disney", null, "M");
+Person p4 = new Person("Pluto", "Disney", null, "M");
+```
+- Shows proper object instantiation
+- Demonstrates null handling (p3 and p4 have null dateOfBirth)
+- Displays all objects using Console.print()
+
+**Key Principles:**
+- **Data Hiding**: Private fields prevent direct external access
+- **Controlled Access**: Public getters/setters control data flow
+- **Defensive Programming**: Null-safety checks prevent NullPointerException
+- **Encapsulation Benefits**: Internal representation can change without affecting external code
+
+**Advanced Concepts:**
+- Ternary operators for concise null checks
+- Constructor overloading (multiple constructors)
+- Method chaining potential
+- Object state management
+
+Located in: `01_Fundamentals_Examples/Modulo7Incapsulamento/src/com/generation/lessons/`
+
 ### Modulo4 Project
 
 Loop exercises collection demonstrating iterative programming concepts.
@@ -1347,6 +1416,360 @@ Comprehensive hotel management system with booking, cancellation, and cleaning s
 
 Located in: `03_Business_Applications/SBHotel/src/com/generation/sbh/main/`
 
+### JavItaAirline Project
+
+Airline ticket management system with service classes, membership tiers, and comprehensive unit testing.
+
+**Main Program:** `Main.java` with demo and test components
+
+**Architecture:**
+
+**1. Entity Classes:**
+
+**AirlineTicket.java** - Core business entity:
+- **Attributes**:
+  - `String id` - Unique ticket identifier
+  - `int km` - Flight distance in kilometers
+  - `ServiceClass serviceClass` - Service tier (BASIC/SILVER/GOLD)
+  - `MembershipType membershipType` - Customer membership level
+  - `LocalDate date` - Flight date
+  - `LocalTime start` - Departure time
+  - `LocalTime end` - Arrival time
+- **Business Methods**:
+  - `getPrice()` - Calculates ticket price with membership discount
+    - Formula: `basePrice = km × serviceClass.pricePerKm`
+    - Discount: `discountAmount = basePrice × membershipType.discount`
+    - Final: `basePrice - discountAmount`
+  - `getDuration()` - Returns flight duration (hours and minutes)
+  - `isValid()` - Validates all ticket data (dates, times, distance, ID)
+
+**ServiceClass Enum** - Three service tiers:
+- `BASIC` - €0.10 per km (economy)
+- `SILVER` - €0.20 per km (business)
+- `GOLD` - €0.50 per km (first class)
+
+**MembershipType Enum** - Customer loyalty levels:
+- `NONE` - 0% discount
+- `SILVER` - 20% discount
+- `GOLD` - 30% discount
+
+**2. Demo Programs:**
+
+**JavaitaAirplaneDemo.java** - Interactive ticket creation:
+- Prompts for all ticket details
+- Uses Console utility for validated input
+- Demonstrates LocalDate and LocalTime usage
+- Shows real-time price calculation
+- Example flow: ID → distance → service class → membership → dates/times
+
+**3. Unit Testing (JUnit Jupiter):**
+
+**JavaitaTest.java** - Three comprehensive tests:
+- `testGetPrice()` - Verifies pricing calculation (100 km BASIC = €10.00)
+- `testGetDuration()` - Tests duration calculation (10:00 to 15:00 = 5 hours)
+- `testIsValid()` - Validates complete ticket data
+
+**4. Pricing System:**
+
+Dynamic pricing formula:
+```
+Base Price = Distance (km) × Service Class Rate
+Final Price = Base Price × (1 - Membership Discount)
+```
+
+**Examples:**
+- 100 km, BASIC, no membership: 100 × 0.1 × 1.0 = €10.00
+- 100 km, SILVER, SILVER membership: 100 × 0.2 × 0.8 = €16.00
+- 100 km, GOLD, GOLD membership: 100 × 0.5 × 0.7 = €35.00
+
+**Key Features:**
+- **Three-Tier Service**: Economy, business, and first-class options
+- **Loyalty Program**: Up to 30% discount for GOLD members
+- **Time Management**: Modern Java 8+ LocalDate/LocalTime API
+- **Comprehensive Validation**: Multi-field validation before ticket creation
+- **Unit Testing**: JUnit-based test coverage for critical methods
+- **Enum Type Safety**: Prevents invalid service/membership values
+- **Duration Calculation**: Automatic flight duration computation
+
+**Advanced Concepts:**
+- Enum with attributes (pricePerKm, discount)
+- Modern date/time API (java.time package)
+- JUnit 5 testing framework
+- Business logic in entity classes
+- Calculated properties vs stored values
+- Type-safe constants using enums
+
+Located in: `03_Business_Applications/JavItaAirline/src/com/generation/jia/`
+
+### LeccoB&B Project
+
+Bed & Breakfast booking management system with room types, membership discounts, and automated document generation.
+
+**Main Program:** `Main.java` with menu-driven interface
+
+**Architecture:**
+
+**1. Entity Classes:**
+
+**Booking.java** - Core booking entity:
+- **Attributes**:
+  - `String id` - Unique booking identifier
+  - `String firstName`, `lastName` - Guest information
+  - `LocalDate checkIn`, `checkOut` - Stay dates
+  - `RoomType roomType` - Room category selection
+  - `MembershipType membershipType` - Membership level
+  - `LocalDate dob` - Guest date of birth (for age verification)
+- **Business Methods**:
+  - `getNights()` - Calculates stay duration using `ChronoUnit.DAYS`
+  - `getBasicPrice()` - Base cost: nights × room rate
+  - `getDiscount()` - Discount amount based on membership
+  - `getFinalPrice()` - Base price minus discount
+  - `isValid()` - Comprehensive validation including 18+ age check
+
+**RoomType Enum** - Four room categories:
+- `BASIC` - €50/night (budget)
+- `MIDDLE` - €70/night (standard)
+- `SUPERIOR` - €100/night (deluxe)
+- `SUITE` - €200/night (luxury)
+
+**MembershipType Enum** - Two loyalty tiers:
+- `NONE` - 0% discount
+- `SILVER` - 10% discount
+- `GOLD` - 20% discount
+
+**2. View Layer:**
+
+**BookingView.java** - Template-based rendering:
+- `render()` - Loads template and replaces placeholders
+- Supports multiple formats (HTML and TXT)
+- Placeholders: [id], [firstName], [lastName], [roomType], [membershipType], [Check In], [Check Out], [nights], [price], [discount]
+
+**3. Menu System:**
+
+**Main.java** - Three main options:
+1. **Insert Booking** - Creates new reservation with HTML generation
+2. **View Preview** - Displays TXT preview of last booking
+3. **Exit** - Gracefully exits
+
+**4. Validation Rules:**
+
+The `isValid()` method enforces:
+- Non-zero booking ID
+- Valid check-in and check-out dates
+- Check-out must be in the future
+- Stay duration: 1-30 nights
+- Room type must be selected
+- Non-blank first and last names
+- Date of birth provided
+- **Guest must be 18+ years old** (age verification using `ChronoUnit.YEARS`)
+
+**5. Templates:**
+
+**template.html** - Professional HTML confirmation:
+- Modern purple gradient design
+- Responsive layout (mobile-friendly)
+- Sections: booking ID, guest info, stay details, price breakdown
+- Print-optimized CSS
+- Contact information footer
+
+**template.txt** - ASCII art formatted confirmation:
+- Box-drawing borders
+- Console-friendly preview
+- Same information structure as HTML
+
+**6. Pricing Formula:**
+
+```
+Basic Price = Nights × Room Cost/Night
+Discount = Basic Price × Membership Discount %
+Final Price = Basic Price - Discount
+```
+
+**7. Demo Programs:**
+
+**DemoBooking.java** - Standalone booking demonstration:
+- Sample: 2025-12-20 to 2025-12-23 (3 nights)
+- SUPERIOR room: €100/night = €300 base
+- GOLD membership: 20% discount (€60)
+- Final price: €240
+
+**LocalDateDemo.java** - Date API educational program:
+- LocalDate creation and manipulation
+- Date arithmetic with ChronoUnit
+- Age calculation examples
+- Days/years between dates
+
+**Key Features:**
+- **Four Room Types**: Budget to luxury accommodation options
+- **Membership Discounts**: SILVER 10%, GOLD 20% savings
+- **Age Verification**: Enforces 18+ requirement for bookings
+- **Duration Limits**: 1-30 night stay restrictions
+- **Dual Output**: HTML file + text preview
+- **Date Validation**: Future dates only, proper date handling
+- **Professional Templates**: Modern, print-ready booking confirmations
+- **Comprehensive Validation**: Multi-level data integrity checks
+
+**Advanced Concepts:**
+- Modern Java 8+ date/time API (LocalDate, ChronoUnit)
+- Template-based rendering system
+- Business rule validation (age, duration limits)
+- Enum with attributes for type-safe configuration
+- File generation with dynamic naming (booking_{id}.html)
+- ASCII art for console UI
+- Separation of concerns (Model-View pattern)
+
+Located in: `03_Business_Applications/LeccoB&B/src/com/generation/lbb/`
+
+### RepairShop Project
+
+Repair shop management system with pricing calculation, labor tracking, and automated HTML invoice generation.
+
+**Main Program:** `Main.java` with menu-driven interface
+
+**Architecture:**
+
+**1. Entity Model:**
+
+**Repair.java** - Core repair job entity:
+- **Attributes**:
+  - `String id` - Unique repair identifier
+  - `String client` - Customer name
+  - `String phone` - Contact phone number
+  - `String fix` - Problem description/repair needed
+  - `double materialPartsCost` - Parts and materials cost (euros)
+  - `double hour` - Labor hours required
+  - `double price` - Final negotiated price
+  - `String totalRepairsDone` - Cumulative repair count
+- **Business Methods**:
+  - `getEstimatedPrice()` - Calculates estimate: materials + (hours × €50)
+  - `isValid()` - Validates all required fields and positive values
+
+**2. View Layer:**
+
+**RepairView.java** - Template-based rendering:
+- `render(Repair repair)` - Loads template and replaces placeholders
+- Supports multiple formats (text and HTML)
+- Placeholders: [id], [client], [phone], [fix], [materialPartsCost], [hour], [exprice] (estimated), [price] (final)
+
+**3. Menu System:**
+
+**Main.java** - Three main options:
+1. **Add New Repair** - Creates repair with preview and HTML generation
+2. **View Repair List** - Shows repair info and total count
+3. **Exit** - Closes application
+
+**4. Key Methods:**
+
+**askRepair(Repair r)** - Interactive repair creation:
+- Prompts for: ID, client name, phone, problem description, material costs, labor hours
+- Validates all inputs
+- If valid: generates text preview and HTML file
+
+**printRepairList(Repair r)** - Displays repair information and statistics
+
+**printPreviewTXT(Repair r)** - Console preview using repairPreView.txt template
+
+**printClientViewHTML(Repair r)** - Generates HTML invoice file (repair_{ID}.html)
+
+**5. Templates:**
+
+**menu.txt** - Main menu display:
+```
+=== SISTEMA GESTIONE RIPARAZIONI ===
+1. Aggiungi nuova riparazione
+2. Lista Riparazioni effettuate
+3. Esci
+```
+
+**repairPreView.txt** - Text preview format:
+```
+CLIENTE: [client]
+ID: [id]
+TELEFONO: [phone]
+PROBLEMA: [fix]
+Ore lavoro: [hour] ore
+Prezzo stimato: €[exprice]
+```
+
+**clientView.html** - Professional HTML invoice:
+- Clean Arial font styling
+- Repair details section
+- Cost breakdown
+- Client-facing professional format
+
+**6. Pricing System:**
+
+**Hourly Labor Rate**: Fixed at **€50/hour**
+
+**Pricing Formula**:
+```
+Estimated Price = Material Cost + (Hours × €50)
+Final Price = Negotiated (can differ from estimated)
+```
+
+**Example**:
+- Materials: €300
+- Labor: 2 hours
+- Estimated: €300 + (2 × €50) = €400
+- Final: €350 (negotiated)
+
+**7. Workflow:**
+
+1. User selects "Add new repair"
+2. System prompts for all repair details
+3. System validates data (hour >= 1, cost >= 0, non-empty fields)
+4. If valid:
+   - Text preview displayed in console
+   - User prompted for final negotiated price
+   - HTML invoice generated: repair_{ID}.html
+   - Confirmation message shown
+5. User can view repair list or exit
+
+**8. Validation Rules:**
+
+The `isValid()` method checks:
+- Client name, phone, and fix description are non-empty
+- Material costs >= 0
+- Labor hours >= 1
+
+**9. Demo Programs:**
+
+**DemoRepair.java** - Pricing demonstration:
+- Shows €400 estimated vs €350 final price
+- Demonstrates price negotiation concept
+
+**DemoRepairView.java** - Template rendering demo:
+- Shows text preview generation
+- Demonstrates HTML output file creation
+
+**10. Testing:**
+
+**RepairTest.java** - JUnit test class:
+- `getEstimatedPrice()` - Tests €400 total (€300 materials + 2 hours)
+- `isValid()` - Validates with/without phone number
+
+**Key Features:**
+- **Fixed Hourly Rate**: €50/hour standard labor charge
+- **Material Tracking**: Separate parts cost calculation
+- **Price Negotiation**: Estimated vs final price flexibility
+- **Dual Output**: Console preview + HTML invoice
+- **Template System**: Flexible content generation
+- **File Generation**: Automatic invoice creation (repair_{ID}.html)
+- **Input Validation**: Comprehensive data integrity checks
+- **Menu Navigation**: User-friendly interface
+- **Testing Coverage**: JUnit tests for critical methods
+
+**Advanced Concepts:**
+- MVC architecture (Model-View-Controller)
+- Template-based document generation
+- Business logic in entity classes (getEstimatedPrice)
+- Separation of concerns (entity, view, controller)
+- File I/O operations
+- Input validation patterns
+- Menu-driven application design
+
+Located in: `03_Business_Applications/RepairShop/src/com/generation/rs/`
+
 ### While Project
 
 Utility project with shared library classes for loop-based exercises.
@@ -1434,35 +1857,49 @@ This repository covers fundamental and advanced Java concepts including:
 - Class design and implementation
 - Entity classes and data models
 - Encapsulation (private fields with getters/setters)
-- Constructors
+  - Null-safety in getters/setters
+  - Defensive programming techniques
+  - Data hiding and controlled access
+- Constructors (default and parameterized)
 - Object methods and behavior
 - Service layer architecture
 - Separation of concerns
 - MVC (Model-View-Controller) design pattern
 - Template-based view rendering
 - Static constants and class-level attributes
+- Enum types with attributes (type-safe constants)
+- Business logic in entity classes
+- Calculated properties vs stored values
 
 ### Advanced Topics
-- Date and time handling (LocalDate, LocalDateTime)
+- Date and time handling (LocalDate, LocalDateTime, LocalTime)
 - Date formatting with DateTimeFormatter and custom patterns
 - Leap year calculation with nested ternary operators
 - Date validation and comparison (isBefore, isAfter)
+- Duration calculation with ChronoUnit (DAYS, YEARS)
+- Age verification and calculation
 - Type casting (char to int conversions, explicit casting for averages)
 - Complex business logic implementation
 - Multi-criteria scoring algorithms
 - User management systems
 - VIP/loyalty programs
+- Membership discount systems (tiered pricing)
 - Data persistence and statistics collection
 - Modular architecture design
 - Caesar cipher cryptography
 - Game logic implementation (card games, scoring systems)
 - Random number generation with Math.random()
+- JUnit testing framework (JUnit Jupiter)
+- Unit test design and implementation
+- Test-driven development concepts
 - Mathematical operations:
   - Maximum value calculation
   - Average calculation with proper casting
   - Sum accumulation
   - Modulo operator for even/odd detection
   - Counter and accumulator patterns
+  - Price calculation with discounts
+  - Labor cost estimation (hourly rates)
 
 ### Software Engineering Practices
 - Code organization and structure
