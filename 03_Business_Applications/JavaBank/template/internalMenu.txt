@@ -1,0 +1,8 @@
+╔════════════════════════════════════════════════╗
+║  Banca Nazionale Casa Hacman-Corallini         ║
+╠════════════════════════════════════════════════╣
+║  1. Deposito                                   ║
+║  2. Prelievo                                   ║
+║  3. Visualizza balance                         ║
+║  4. Torna al menu principale                   ║
+╚════════════════════════════════════════════════╝

@@ -1,0 +1,14 @@
+ssn =
+
+HCMVCG98R61Z129E
+
+5 caratteri --> lettere
+2 caratteri --> numeri
+1 lettera
+2 numeri
+1 lettera
+3 numeri
+1 lettera 
+
+1 controllo -> solo 15 caratteri
+2 controllo --> ci sono solo caratteri alphanumerici? --> regex

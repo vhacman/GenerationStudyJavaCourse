@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estratto Conto Bancario</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        .content {
+            padding: 30px;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section-title {
+            color: #667eea;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 5px;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        .label {
+            color: #666;
+            font-weight: 500;
+        }
+        .value {
+            color: #333;
+            font-weight: 600;
+        }
+        .balance-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .balance-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        .balance-amount {
+            font-size: 36px;
+            font-weight: 700;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏦 Estratto Conto Bancario</h1>
+            <p>Documento generato automaticamente</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="section-title">Informazioni Account</div>
+                <div class="info-row">
+                    <span class="label">Numero Conto:</span>
+                    <span class="value">1</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Dati Cliente</div>
+                <div class="info-row">
+                    <span class="label">Nome:</span>
+                    <span class="value">GABRIELA</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Cognome:</span>
+                    <span class="value">HACMAN</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Data di Nascita:</span>
+                    <span class="value">21/10/1998</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Codice Fiscale:</span>
+                    <span class="value">HCMVCG98R61Z129E</span>
+                </div>
+            </div>
+            
+            <div class="balance-box">
+                <div class="balance-label">Saldo Disponibile</div>
+                <div class="balance-amount">€ 1000.00</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Questo documento è stato generato elettronicamente e non richiede firma.</p>
+            <p>© 2024 BankAccount System - Tutti i diritti riservati</p>
+        </div>
+    </div>
+</body>
+</html>
+━━━

@@ -24,6 +24,9 @@ public class AirlineTicket
 	public	LocalTime getDuration()
 	{
 		Duration duration = Duration.between(start, end);
+		if (duration.isNegative()) {
+                duration = duration.plusDays(1);
+        }
 		long	hour = duration.toHours();
 		long	minutes = duration.toMinutesPart();
 		return LocalTime.of((int)hour, (int)minutes);
