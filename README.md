@@ -146,6 +146,35 @@ GenerationStudyJavaCourse/
 │   ├── archive/                   # Saved application files
 │   └── print/                     # HTML template
 │       └── template.html
+├── JavaBank/
+│   ├── src/
+│   │   └── com/
+│   │       └── generation/
+│   │           ├── ba/
+│   │           │   ├── main/      # Main controller with menu system
+│   │           │   │   └── Main.java
+│   │           │   ├── model/
+│   │           │   │   └── entities/ # Entity classes
+│   │           │   │       ├── BankAccount.java   # Account entity with BigDecimal
+│   │           │   │       ├── Client.java        # Client entity with SSN
+│   │           │   │       ├── Config.java        # Configuration settings
+│   │           │   │       └── Country.java       # Country enum for date formatting
+│   │           │   ├── service/   # Service layer
+│   │           │   │   ├── AccountService.java    # Account management service
+│   │           │   │   ├── SsnService.java        # SSN validation service
+│   │           │   │   └── UserInputService.java  # Input handling service
+│   │           │   ├── view/      # View layer
+│   │           │   │   └── BankView.java
+│   │           │   ├── demo/      # Demo files
+│   │           │   │   └── ssn.txt
+│   │           │   └── test/      # Testing layer
+│   │           └── library/       # Shared utility classes
+│   ├── template/                  # Text and HTML templates
+│   │   ├── template.html          # HTML account statement template
+│   │   ├── template.txt           # Text account statement template
+│   │   ├── menu.txt               # Main menu template
+│   │   └── internalMenu.txt       # Internal operations menu
+│   └── print/                     # Generated account statements
 ├── JavaBus/
 │   ├── src/
 │   │   └── com/
@@ -453,6 +482,7 @@ Ticketing and transportation systems with progressive complexity:
 Business and management applications:
 - **BrianzaTrainsObjects**: OOP train ticketing system demonstrating MVC pattern with entity classes
 - **DeveloperCandidatura**: Job application scoring system for developers
+- **JavaBank**: Advanced banking system with account management, SSN validation, BigDecimal operations, and multi-client support
 - **JavaBus**: Bus ticketing system with MVC architecture and three-class pricing model
 - **JavItaAirline**: Airline ticket system with service classes, membership discounts, and JUnit testing
 - **LeccoB&B**: Bed & Breakfast booking system with room types, membership discounts, and age verification
@@ -1711,6 +1741,199 @@ Final Price = Basic Price - Discount
 
 Located in: `03_Business_Applications/LeccoB&B/src/com/generation/lbb/`
 
+### JavaBank Project
+
+Advanced banking system with account management, SSN validation, precise financial calculations, and multi-client support.
+
+**Main Program:** `Main.java` with dual menu system
+
+**Architecture:**
+
+This project demonstrates a professional banking application with service-oriented architecture and financial data handling best practices.
+
+**1. Entity Classes:**
+
+**BankAccount.java** - Core banking entity:
+- **Attributes**:
+  - `long id` - Unique account identifier
+  - `BigDecimal balance` - Account balance (using BigDecimal for precise monetary calculations)
+  - `Client client` - Associated client object
+- **Financial Operations**:
+  - `deposit(int euro, int cents)` - Adds funds to account with euro and cent precision
+  - `withdrawl(int euro, int cents)` - Subtracts funds from account
+  - `setBalance(String balanceValue)` - Sets balance from string representation
+  - Uses BigDecimal to avoid floating-point rounding errors in financial calculations
+- **Key Concept**: NEVER use `double` for financial data - BigDecimal ensures exact decimal arithmetic
+
+**Client.java** - Customer information entity:
+- **Attributes**:
+  - `String name` - Client's first name
+  - `String surname` - Client's last name
+  - `String ssn` - Social Security Number (Italian Codice Fiscale format)
+  - `LocalDate dob` - Date of birth
+- **Validation Methods**:
+  - `setName(String)` - Returns boolean, validates non-null/non-blank
+  - `setSurname(String)` - Returns boolean, validates non-null/non-blank
+  - Input sanitization with `.trim()` to remove whitespace
+- **Date Handling**:
+  - `setDob(int day, int month, int year)` - Set date from components
+  - `setDob(String date)` - Parse ISO-8601 date string
+  - `getDob()` - Returns formatted date based on configured country
+- **Internationalization**: Date format adapts to country settings (Config.COUNTRY)
+
+**Country.java** - Enum for international date formats:
+- `ITALY` - dd/MM/yyyy format
+- `USA` - MM/dd/yyyy format
+- `UK` - dd/MM/yyyy format
+- `FRANCE` - dd/MM/yyyy format
+- `GERMANY` - dd.MM.yyyy format
+- `UNIVERSAL` - yyyy-MM-dd (ISO-8601)
+- Each enum value stores its dateFormat string
+
+**Config.java** - Application configuration settings:
+- Static configuration for country-specific behavior
+- Centralizes application settings
+
+**2. Service Layer:**
+
+**AccountService.java** - Multi-client account management:
+- Manages multiple bank accounts (ArrayList or similar)
+- `addAccount(BankAccount)` - Registers new account
+- `getAllAccounts()` - Returns list of all accounts
+- `getCurrentAccount()` - Returns currently selected account
+- `getAccountCount()` - Returns total number of registered clients
+- `isEmpty()` - Checks if any accounts exist
+- Service pattern for centralized account operations
+
+**SsnService.java** - Italian SSN (Codice Fiscale) validation:
+- **Validation Rules** (16-character format: RSSMRA85T10A562S):
+  - `checkLength(String)` - Must be exactly 16 characters
+  - `checkAlphaNum(String)` - Only letters and digits allowed
+  - `checkAlpha(String)` - Letters at positions: 0-5, 8, 11, 15
+  - `checkDigits(String)` - Digits at positions: 6-7, 9-10, 12-14
+- **Main Method**:
+  - `validateSSN(String)` - Combines all validation checks
+  - Case-insensitive (converts to uppercase)
+  - Trims whitespace before validation
+- **Italian Codice Fiscale Format**:
+  - Positions 0-5: Surname and name letters
+  - Positions 6-7: Birth year (last 2 digits)
+  - Position 8: Birth month letter
+  - Positions 9-10: Birth day
+  - Position 11: Birth place letter
+  - Positions 12-14: Municipality code
+  - Position 15: Check character
+
+**UserInputService.java** - Centralized input handling:
+- `requestId()` - Prompts for account ID
+- `requestName()` - Prompts for first name with validation
+- `requestSurname()` - Prompts for last name with validation
+- `requestDateOfBirth()` - Prompts for date with format validation
+- `requestValidSSN()` - Prompts for SSN with continuous validation loop
+- `requestInitialBalance()` - Prompts for starting account balance
+- `requestAmount(String type)` - Prompts for transaction amount (returns [euro, cents])
+- Centralizes all user input logic for consistency
+
+**3. View Layer:**
+
+**BankView.java** - Template-based rendering:
+- `showMainMenu()` - Displays main menu and returns choice
+- `showInternalMenu()` - Displays operations menu and returns choice
+- `render(BankAccount)` - Generates account statement from template
+- Supports dual formats (TXT for console, HTML for file)
+- Template placeholders: [id], [name], [surname], [ssn], [dob], [balance]
+
+**4. Menu System:**
+
+**Main Menu** (`menu.txt`):
+1. **Insert New Client** - Register new bank account
+2. **Display Client** - View account details and access operations menu
+3. **Make Deposit** - Add funds to account
+4. **Make Withdrawal** - Remove funds from account
+5. **Exit** - Close application
+
+**Internal Menu** (`internalMenu.txt`) - Accessed after viewing client:
+1. **Make Deposit** - Add funds
+2. **Make Withdrawal** - Remove funds
+3. **Show Balance** - View current balance
+4. **Return to Main Menu** - Go back
+
+**5. Key Features:**
+
+**Financial Precision:**
+- **BigDecimal Usage**: Ensures exact decimal arithmetic for money
+- **Euro and Cents Separation**: Handles currency in two integer parts
+- **No Floating-Point Errors**: Avoids 0.1 + 0.2 = 0.30000000000000004 problem
+
+**SSN Validation:**
+- Complete Italian Codice Fiscale format validation
+- Multi-step validation (length, characters, positions)
+- Real-world document verification logic
+
+**Multi-Client Support:**
+- AccountService manages multiple accounts
+- Client selection and switching capability
+- Account count tracking
+
+**International Date Formatting:**
+- Country-specific date display formats
+- Enum-based configuration
+- Supports 6 different regions
+
+**Input Validation:**
+- Return-value validation (boolean returns from setters)
+- Continuous validation loops until valid input
+- Input sanitization (trim, uppercase)
+
+**Dual Output System:**
+- Console text preview
+- HTML file generation for printing
+- Template-based rendering for consistency
+
+**6. Workflow:**
+
+1. User launches application
+2. Main menu displays 5 options
+3. User selects "Insert New Client"
+4. System prompts for: ID, name, surname, date of birth, SSN, initial balance
+5. SSN validation occurs in real-time with specific error messages
+6. Client successfully registered
+7. User selects "Display Client"
+8. Console shows formatted account details
+9. System offers HTML save option
+10. Internal menu appears with transaction options
+11. User can deposit/withdraw/view balance
+12. BigDecimal ensures precise calculations
+13. Return to main menu or exit
+
+**7. Advanced Concepts Demonstrated:**
+
+- **BigDecimal for Financial Data**: Industry best practice for monetary calculations
+- **Service Layer Pattern**: Separation of business logic from presentation
+- **Input Validation Service**: Centralized input handling
+- **Enum with Attributes**: Type-safe configuration with associated data
+- **SSN Validation Algorithm**: Complex multi-step validation logic
+- **Template-Based Views**: Reusable presentation layer
+- **Multi-Entity Architecture**: BankAccount contains Client (composition)
+- **Return-Value Validation**: Boolean returns indicate success/failure
+- **Internationalization Support**: Country-specific date formatting
+- **Menu-Driven Architecture**: Nested menu system with state management
+- **Character-Level Validation**: charAt() with Character class methods
+- **String Manipulation**: trim(), toUpperCase(), isBlank()
+- **Loop-Based Validation**: Do-while loops ensuring valid input
+- **Modern Date API**: LocalDate for date handling
+- **Defensive Programming**: Null checks and input sanitization
+
+**8. TODO Implementation Notes:**
+
+The project includes detailed TODO comments for implementing AccountService throughout Main.java:
+- Converting single-account to multi-account architecture
+- Updating all methods to use AccountService instead of static account variable
+- Adding client selection functionality
+- Supporting multiple simultaneous clients
+
+Located in: `03_Business_Applications/JavaBank/src/com/generation/ba/`
+
 ### RepairShop Project
 
 Repair shop management system with pricing calculation, labor tracking, and automated HTML invoice generation.
@@ -1983,6 +2206,25 @@ This repository covers fundamental and advanced Java concepts including:
 - JUnit testing framework (JUnit Jupiter)
 - Unit test design and implementation
 - Test-driven development concepts
+- **Financial Data Handling**:
+  - **BigDecimal for monetary calculations** (avoiding floating-point errors)
+  - Precise decimal arithmetic for banking operations
+  - Euro and cents separation in currency handling
+  - Industry best practices for financial applications
+- **Advanced String Validation**:
+  - Character-level validation with charAt()
+  - Position-specific validation (SSN/Codice Fiscale format)
+  - Multi-step validation algorithms
+  - Character class methods (isLetter, isDigit, isLetterOrDigit)
+- **Internationalization (i18n)**:
+  - Country-specific date formatting
+  - Enum-based configuration for regional settings
+  - Locale-aware data presentation
+- **Service Layer Architecture**:
+  - Centralized business logic in service classes
+  - Input validation services
+  - Document validation services (SSN)
+  - Account management services
 - Mathematical operations:
   - Maximum value calculation
   - Average calculation with proper casting
@@ -2000,11 +2242,15 @@ This repository covers fundamental and advanced Java concepts including:
   - Empty string validation
   - Date validation (day-month-year combinations)
   - Business rule validation (refund limits, booking constraints)
+  - **SSN/Document validation** (Italian Codice Fiscale format)
+  - **Return-value validation** (boolean returns indicating success/failure)
+  - **Character position validation** (specific format enforcement)
 - Error handling and edge cases
 - User experience design
 - Formatted output and reporting
 - Template-driven document generation
 - Method decomposition and single responsibility principle
+- **Financial application best practices** (BigDecimal for money, no double/float)
 
 ## Author
 Generation Study Course Student - Hacman Viorica Gabriela
