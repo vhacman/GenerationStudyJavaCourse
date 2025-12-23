@@ -1,0 +1,55 @@
+╔════════════════════════════════════════════════════════════════╗
+║                         PREVENTIVO PC                          ║
+║                      N. [estimateNb]                           ║
+╔════════════════════════════════════════════════════════════════╗
+
+┌────────────────────────────────────────────────────────────────┐
+│ DATI CLIENTE                                                   │
+└────────────────────────────────────────────────────────────────┘
+  Nome:         [clientName] [clientSurname]
+  Telefono:     [clientPhone]
+  Nome PC:      [name]
+
+┌────────────────────────────────────────────────────────────────┐
+│ COMPONENTI SELEZIONATI                                         │
+└────────────────────────────────────────────────────────────────┘
+
+  PROCESSORE: [processor]
+  ├─ Piattaforma:  [processorPlatform]
+  ├─ Benchmark:    [processorBenchmark]
+  └─ Prezzo:       €[processorPrice]
+
+  GPU: [gpu]
+  ├─ Marca:        [gpuBrand]
+  ├─ Benchmark:    [gpuBenchmark]
+  └─ Prezzo:       €[gpuPrice]
+
+  RAM: [ram]
+  ├─ Capacità:     [ramSize] GB
+  ├─ Velocità:     [ramSpeed] MHz
+  ├─ Marca:        [ramBrand]
+  └─ Prezzo:       €[ramPrice]
+
+  STORAGE PRIMARIO: [storage]
+  ├─ Capacità:     [storageSize] GB
+  ├─ Marca:        [storageBrand]
+  ├─ Benchmark:    [storageBenchmark]
+  └─ Prezzo:       €[storagePrice]
+
+  STORAGE EXTRA: [extraStorage]
+
+┌────────────────────────────────────────────────────────────────┐
+│ RIEPILOGO                                                      │
+└────────────────────────────────────────────────────────────────┘
+  Processore:           €[processorPrice]
+  GPU:                  €[gpuPrice]
+  RAM:                  €[ramPrice]
+  Storage Primario:     €[storagePrice]
+  Storage Extra:        €0
+  ──────────────────────────────────────────────────────────
+  BENCHMARK TOTALE:     [totalBenchmark]
+  TOTALE:               €[totalCost]
+
+╔════════════════════════════════════════════════════════════════╗
+║ Preventivo valido per 30 giorni dalla data di emissione       ║
+╔════════════════════════════════════════════════════════════════╗

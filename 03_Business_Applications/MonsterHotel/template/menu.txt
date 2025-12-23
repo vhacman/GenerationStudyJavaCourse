@@ -1,0 +1,20 @@
+╔══════════════════════════════════════════════════════════════╗
+║            MONSTER HOTEL BOOKING SYSTEM                      ║
+║      "Where Nightmares Get a Good Night's Sleep"             ║
+╠══════════════════════════════════════════════════════════════╣
+║                                                              ║
+║   Benvenuto al ricevimento, creatura della notte.            ║
+║   Cosa desideri fare durante questa oscura permanenza?       ║
+║                                                              ║
+╠══════════════════════════════════════════════════════════════╣
+║   [1]  Nuova Prenotazione        - Accogli un nuovo ospite   ║
+║   [2]  Elenco Prenotazioni       - Visualizza gli alloggiati ║
+║   [3]  Cerca Prenotazione        - Ricerca per ID            ║
+║   [4]  Salva Prenotazioni        - Sigilla nella cripta      ║
+║   [5]  Carica Prenotazioni       - Evoca dal passato         ║
+║   [6]  Genera HTML               - Documento per i mortali   ║
+║   [7]  Statistiche Hotel         - Analisi infestazioni      ║
+║                                                              ║
+║   [0]  Esci                      - Ritorna nell'oscurita'    ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝

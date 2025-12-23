@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preventivo [estimateNb] - [name]</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background-color: #e9ecef;
+            padding: 30px 15px;
+        }
+
+        .invoice {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.15);
+        }
+
+        /* HEADER */
+        .invoice-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+        }
+
+        .invoice-title {
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .invoice-number {
+            font-size: 18px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* CLIENT INFO */
+        .client-section {
+            padding: 35px 40px;
+            background: #f8f9fa;
+            border-bottom: 3px solid #2c3e50;
+        }
+
+        .client-title {
+            font-size: 14px;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .client-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .client-item {
+            display: flex;
+            align-items: baseline;
+        }
+
+        .client-label {
+            font-weight: 600;
+            color: #495057;
+            min-width: 100px;
+        }
+
+        .client-value {
+            color: #212529;
+        }
+
+        /* COMPONENTS */
+        .components-section {
+            padding: 40px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+            font-weight: 600;
+        }
+
+        .component-card {
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+
+        .component-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: #2c3e50;
+        }
+
+        .component-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .component-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .spec-item {
+            font-size: 14px;
+            color: #495057;
+            padding: 5px 0;
+        }
+
+        .spec-label {
+            color: #6c757d;
+            font-size: 13px;
+        }
+
+        .spec-value {
+            font-weight: 600;
+            color: #212529;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* SUMMARY */
+        .summary-section {
+            background: #f8f9fa;
+            padding: 35px 40px;
+            border-top: 3px solid #2c3e50;
+        }
+
+        .summary-table {
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 15px;
+        }
+
+        .summary-row.subtotal {
+            color: #495057;
+        }
+
+        .summary-row.benchmark {
+            background: #e7f3ff;
+            padding: 12px 15px;
+            margin: 10px -15px;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            color: #0056b3;
+        }
+
+        .summary-row.total {
+            border-bottom: none;
+            border-top: 3px double #2c3e50;
+            padding: 20px 0 0 0;
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-top: 15px;
+        }
+
+        .total-amount {
+            color: #28a745;
+        }
+
+        /* FOOTER */
+        .invoice-footer {
+            background: #2c3e50;
+            color: white;
+            padding: 25px 40px;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer-note {
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .invoice {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            .component-card {
+                page-break-inside: avoid;
+            }
+
+            .component-card:hover {
+                box-shadow: none;
+                border-color: #dee2e6;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .client-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .component-specs {
+                grid-template-columns: 1fr;
+            }
+
+            .invoice-header, .components-section, .client-section, .summary-section, .invoice-footer {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice">
+        
+        <!-- HEADER -->
+        <div class="invoice-header">
+            <div class="invoice-title">PREVENTIVO CONFIGURAZIONE PC</div>
+            <div class="invoice-number">Preventivo N° [estimateNb]</div>
+        </div>
+
+        <!-- CLIENT INFO -->
+        <div class="client-section">
+            <div class="client-title">Intestato a</div>
+            <div class="client-grid">
+                <div class="client-item">
+                    <span class="client-label">Cliente:</span>
+                    <span class="client-value">[clientName] [clientSurname]</span>
+                </div>
+                <div class="client-item">
+                    <span class="client-label">Telefono:</span>
+                    <span class="client-value">[clientPhone]</span>
+                </div>
+                <div class="client-item">
+                    <span class="client-label">Nome PC:</span>
+                    <span class="client-value">[name]</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMPONENTS -->
+        <div class="components-section">
+            <div class="section-title">Dettaglio Componenti</div>
+
+            <!-- PROCESSOR -->
+            <div class="component-card">
+                <div class="component-title">🔷 PROCESSORE</div>
+                <div class="component-specs">
+                    <div class="spec-item">
+                        <div class="spec-label">Modello</div>
+                        <div class="spec-value">[processor]</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Piattaforma</div>
+                        <div class="spec-value">[processorPlatform]</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Performance</div>
+                        <div class="spec-value">[processorBenchmark] pts</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Prezzo</div>
+                        <div><span class="price-tag">€ [processorPrice]</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GPU -->
+            <div class="component-card">
+                <div class="component-title">🔷 SCHEDA VIDEO</div>
+                <div class="component-specs">
+                    <div class="spec-item">
+                        <div class="spec-label">Modello</div>
+                        <div class="spec-value">[gpu]</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Marca</div>
+                        <div class="spec-value">[gpuBrand]</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Performance</div>
+                        <div class="spec-value">[gpuBenchmark] pts</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Prezzo</div>
+                        <div><span class="price-tag">€ [gpuPrice]</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RAM -->
+            <div class="component-card">
+                <div class="component-title">🔷 MEMORIA RAM</div>
+                <div class="component-specs">
+                    <div class="spec-item">
+                        <div class="spec-label">Modello</div>
+                        <div class="spec-value">[ram]</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Marca</div>
+                        <div class="spec-value">[ramBrand]</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Capacità</div>
+                        <div class="spec-value">[ramSize] GB</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Frequenza</div>
+                        <div class="spec-value">[ramSpeed] MHz</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Prezzo</div>
+                        <div><span class="price-tag">€ [ramPrice]</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STORAGE -->
+            <div class="component-card">
+                <div class="component-title">🔷 STORAGE PRIMARIO</div>
+                <div class="component-specs">
+                    <div class="spec-item">
+                        <div class="spec-label">Modello</div>
+                        <div class="spec-value">[storage]</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Marca</div>
+                        <div class="spec-value">[storageBrand]</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Capacità</div>
+                        <div class="spec-value">[storageSize] GB</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Performance</div>
+                        <div class="spec-value">[storageBenchmark] pts</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Prezzo</div>
+                        <div><span class="price-tag">€ [storagePrice]</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXTRA STORAGE -->
+            <div class="component-card">
+                <div class="component-title">🔷 STORAGE AGGIUNTIVO</div>
+                <div class="component-specs">
+                    <div class="spec-item">
+                        <div class="spec-value">[extraStorage]</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SUMMARY -->
+        <div class="summary-section">
+            <div class="section-title">Riepilogo</div>
+            <div class="summary-table">
+                <div class="summary-row subtotal">
+                    <span>Processore</span>
+                    <span>€ [processorPrice]</span>
+                </div>
+                <div class="summary-row subtotal">
+                    <span>Scheda Video</span>
+                    <span>€ [gpuPrice]</span>
+                </div>
+                <div class="summary-row subtotal">
+                    <span>Memoria RAM</span>
+                    <span>€ [ramPrice]</span>
+                </div>
+                <div class="summary-row subtotal">
+                    <span>Storage Primario</span>
+                    <span>€ [storagePrice]</span>
+                </div>
+                <div class="summary-row subtotal">
+                    <span>Storage Aggiuntivo</span>
+                    <span>€ 0</span>
+                </div>
+
+                <div class="summary-row benchmark">
+                    <span>⚡ Benchmark Totale Sistema</span>
+                    <span>[totalBenchmark] pts</span>
+                </div>
+
+                <div class="summary-row subtotal" style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #dee2e6;">
+                    <span><strong>Subtotale Materiali</strong></span>
+                    <span><strong>€ [materialCost]</strong></span>
+                </div>
+                <div class="summary-row subtotal">
+                    <span><strong>Costo Manodopera</strong></span>
+                    <span><strong>€ [labourCost]</strong></span>
+                </div>
+
+                <div class="summary-row total">
+                    <span>TOTALE PREVENTIVO</span>
+                    <span class="total-amount">€ [finalPrice]</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="invoice-footer">
+            <div class="footer-note">Preventivo valido per 30 giorni dalla data di emissione</div>
+            <div class="footer-note">Tutti i prezzi sono da intendersi IVA esclusa</div>
+            <div class="footer-note">I componenti sono soggetti a disponibilità di magazzino</div>
+        </div>
+
+    </div>
+</body>
+</html>
