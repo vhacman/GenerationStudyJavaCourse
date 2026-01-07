@@ -30,4 +30,6 @@ Brianza Trains is a train ticket generation system for railway journeys with fix
 
 ## Learning Objectives
 
-Students learn to implement validation logic for complex user input, perform conditional pricing calculations based on multiple factors, format professional output with special characters, manage passenger data systematically, and apply business rules (minimum fare) in pricing logic. The project provides practice in handling real-world transportation booking scenarios.
+
+This project helps to  learn to implement validation logic for complex user input, perform conditional pricing calculations based on multiple factors, format professional output with special characters, manage passenger data systematically, and apply business rules (minimum fare) in pricing logic. The project provides practice in handling real-world transportation booking scenarios.
+
