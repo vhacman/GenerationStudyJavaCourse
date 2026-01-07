@@ -14,7 +14,6 @@ School Management v2 is an advanced version extending the basic school managemen
 - Template-based rendering of entity information
 - Service layer for business logic separation
 - Console input/output management
-- HTML export of school records
 - Demo classes for testing entity relationships
 - Multi-entity management and display
 
