@@ -30,4 +30,5 @@ Milano Lecco Trains 4 is a fully object-oriented train ticketing system with ded
 
 ## Learning Objectives
 
-Students learn professional application architecture with dedicated service classes, implement model classes that encapsulate data and behavior, separate business logic from presentation, apply design patterns for scalability, delegate responsibilities to specialized services, organize complex logic into manageable components, and build systems that are easy to maintain and extend. The project demonstrates enterprise-quality code structure.
+Thi project helps to learn professional application architecture with dedicated service classes, implement model classes that encapsulate data and behavior, separate business logic from presentation, apply design patterns for scalability, delegate responsibilities to specialized services, organize complex logic into manageable components, and build systems that are easy to maintain and extend. The project demonstrates enterprise-quality code structure.
+
