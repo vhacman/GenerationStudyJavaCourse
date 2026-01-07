@@ -1,5 +1,6 @@
 # Java Course - Generation Study
 
+
 This repository contains Java programming examples and exercises from the Generation Study Java Course.
 
 ## 📚 Course Materials
