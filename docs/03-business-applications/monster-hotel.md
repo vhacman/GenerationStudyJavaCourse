@@ -33,6 +33,6 @@ Monster Hotel is an advanced hotel management system with a complete MVC archite
 
 ## Learning Objectives
 
-Students learn to build enterprise-level hotel management systems using MVC architecture, implement repository patterns for data persistence, separate business logic into service layers, generate statistical reports, and design sophisticated multi-feature hospitality applications.
+This project helps to learn to build enterprise-level hotel management systems using MVC architecture, implement repository patterns for data persistence, separate business logic into service layers, generate statistical reports, and design sophisticated multi-feature hospitality applications.
 
 **Location:** `03_Business_Applications/MonsterHotel`

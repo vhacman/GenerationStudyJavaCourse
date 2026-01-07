@@ -30,4 +30,4 @@ Milano Lecco Trains 2 is an enhanced train ticketing system for the Milano-Lecco
 
 ## Learning Objectives
 
-Students learn to organize code through method extraction, create reusable validation methods, implement distance lookup tables efficiently, apply encapsulation with private methods, manage multi-step user interactions, provide helpful error messages, and build extensible ticketing logic. The project emphasizes clean code practices and method design.
+This project helps to learn to organize code through method extraction, create reusable validation methods, implement distance lookup tables efficiently, apply encapsulation with private methods, manage multi-step user interactions, provide helpful error messages, and build extensible ticketing logic. The project emphasizes clean code practices and method design.

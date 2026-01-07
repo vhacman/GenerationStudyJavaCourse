@@ -30,6 +30,6 @@ ProLoco Lake Como is a tour guide recruitment and evaluation system for the Lake
 
 ## Learning Objectives
 
-Students learn to implement recruitment evaluation systems with weighted scoring, apply geographic-based qualifications, create professional application archiving, and build tour guide selection systems for tourism organizations.
+This project helps to learn to implement recruitment evaluation systems with weighted scoring, apply geographic-based qualifications, create professional application archiving, and build tour guide selection systems for tourism organizations.
 
 **Location:** `03_Business_Applications/ProlocoLakeComo`

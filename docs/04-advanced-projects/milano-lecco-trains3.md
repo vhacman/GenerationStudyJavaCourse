@@ -30,4 +30,4 @@ Milano Lecco Trains 3 is an advanced train ticketing system utilizing modern Jav
 
 ## Learning Objectives
 
-Students learn modern Java language features, appreciate evolution of syntax, understand when to use switch expressions over statements, implement comprehensive documentation with Javadoc, organize code for clarity and maintainability, apply pattern matching concepts, and develop professional code practices. The project demonstrates current best practices in Java programming.
+This project helps to learn modern Java language features, appreciate evolution of syntax, understand when to use switch expressions over statements, implement comprehensive documentation with Javadoc, organize code for clarity and maintainability, apply pattern matching concepts, and develop professional code practices. The project demonstrates current best practices in Java programming.

@@ -28,4 +28,4 @@ Discoteca Ticket is a nightclub entry ticket pricing system that calculates admi
 
 ## Learning Objectives
 
-Students learn to implement business rules with conditional logic, apply different pricing based on demographic factors, handle character input for categorical data, implement access control policies, and provide immediate user feedback. The project demonstrates practical application of decision-making structures in real-world scenarios like venue management.
+This project helps to learn to implement business rules with conditional logic, apply different pricing based on demographic factors, handle character input for categorical data, implement access control policies, and provide immediate user feedback. The project demonstrates practical application of decision-making structures in real-world scenarios like venue management.

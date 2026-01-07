@@ -30,6 +30,6 @@ Developer Candidatura is a job application system for developer positions. The a
 
 ## Learning Objectives
 
-Students learn to build candidate evaluation systems with weighted scoring, implement geographic eligibility checks, create professional application documentation, validate multiple qualification criteria, and generate evaluation reports.
+This project helps to learn to build candidate evaluation systems with weighted scoring, implement geographic eligibility checks, create professional application documentation, validate multiple qualification criteria, and generate evaluation reports.
 
 **Location:** `03_Business_Applications/DeveloperCandidatura`

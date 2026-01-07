@@ -30,4 +30,4 @@ Taxes is a business tax calculation system demonstrating financial logic with co
 
 ## Learning Objectives
 
-Students learn to implement business rule logic, perform percentage-based calculations, apply conditional discounts, handle financial data safely, implement progressive taxation systems, provide clear user feedback, and develop practical tax calculation systems. The project demonstrates how programming applies to real-world business scenarios and financial computation.
+This project helps to learn to implement business rule logic, perform percentage-based calculations, apply conditional discounts, handle financial data safely, implement progressive taxation systems, provide clear user feedback, and develop practical tax calculation systems. The project demonstrates how programming applies to real-world business scenarios and financial computation.

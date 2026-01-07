@@ -30,6 +30,6 @@ Villa Melzi is a ticket purchasing system for a botanical garden attraction. The
 
 ## Learning Objectives
 
-Students learn to implement complex discount systems with business rules, handle non-cumulative geographic discounts vs cumulative social discounts, collect and analyze visitor statistics, and build attraction ticketing systems with sophisticated pricing logic.
+This project helps to learn to implement complex discount systems with business rules, handle non-cumulative geographic discounts vs cumulative social discounts, collect and analyze visitor statistics, and build attraction ticketing systems with sophisticated pricing logic.
 
 **Location:** `03_Business_Applications/VillaMelzi`

@@ -30,4 +30,4 @@ Christmas Time is a collection of interactive programs for Christmas-themed exer
 
 ## Learning Objectives
 
-Students learn different loop patterns through practical examples, understand string accumulation techniques, practice user interaction patterns, implement game logic with rules, handle budgets and totals in applications, apply control structures in real contexts, and progressively enhance programs with features. The seasonal theme makes learning control structures engaging and memorable.
+This project helps to learn different loop patterns through practical examples, understand string accumulation techniques, practice user interaction patterns, implement game logic with rules, handle budgets and totals in applications, apply control structures in real contexts, and progressively enhance programs with features. The seasonal theme makes learning control structures engaging and memorable.

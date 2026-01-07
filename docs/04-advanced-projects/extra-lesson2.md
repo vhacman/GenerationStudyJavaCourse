@@ -30,4 +30,4 @@ Extra Lesson 2 is a cryptography implementation project focusing on the Caesar c
 
 ## Learning Objectives
 
-Students learn cryptographic algorithm fundamentals, understand character shifting principles, implement string manipulation algorithms, apply modular arithmetic for character cycling, design menu-driven interfaces, validate user commands, process text character by character, and implement reversible transformations. The project demonstrates how mathematical concepts apply to real programming problems.
+This project helps to learn cryptographic algorithm fundamentals, understand character shifting principles, implement string manipulation algorithms, apply modular arithmetic for character cycling, design menu-driven interfaces, validate user commands, process text character by character, and implement reversible transformations. The project demonstrates how mathematical concepts apply to real programming problems.

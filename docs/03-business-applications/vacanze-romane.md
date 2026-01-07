@@ -33,6 +33,6 @@ Vacanze Romane is a vacation package management system for weekend trips in Rome
 
 ## Learning Objectives
 
-Students learn to design complex vacation management systems with multiple related entities, implement service orchestration across different business domains, manage multi-part package pricing, generate comprehensive vacation confirmations, and build complete travel booking applications.
+This project helps to learn to design complex vacation management systems with multiple related entities, implement service orchestration across different business domains, manage multi-part package pricing, generate comprehensive vacation confirmations, and build complete travel booking applications.
 
 **Location:** `03_Business_Applications/VacanzeRomane`

@@ -27,6 +27,6 @@ Print Label is a label generation system that creates printable labels from appl
 
 ## Learning Objectives
 
-Students learn to build label generation systems, work with templates for document customization, generate printable documents from application data, and implement document export functionality.
+This project helps to learn to build label generation systems, work with templates for document customization, generate printable documents from application data, and implement document export functionality.
 
 **Location:** `03_Business_Applications/PrintLabel`

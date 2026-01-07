@@ -29,6 +29,6 @@ Repair Shop is a business management system for tracking repair orders and calcu
 
 ## Learning Objectives
 
-Students learn to model a service business with cost calculations, implement invoice generation systems, validate business data, test financial calculations thoroughly, and manage customer information professionally.
+This project helps to learn to model a service business with cost calculations, implement invoice generation systems, validate business data, test financial calculations thoroughly, and manage customer information professionally.
 
 **Location:** `03_Business_Applications/RepairShop`

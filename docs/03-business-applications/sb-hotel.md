@@ -30,6 +30,6 @@ SB Hotel is a comprehensive hotel management system for booking rooms, managing 
 
 ## Learning Objectives
 
-Students learn to build hotel management systems with complex pricing logic, implement refund policies with business constraints, calculate multi-component costs, generate professional HTML documents, and handle multi-guest reservations with validation.
+This project helps to learn to build hotel management systems with complex pricing logic, implement refund policies with business constraints, calculate multi-component costs, generate professional HTML documents, and handle multi-guest reservations with validation.
 
 **Location:** `03_Business_Applications/SBHotel`

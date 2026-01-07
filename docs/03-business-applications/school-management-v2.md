@@ -32,6 +32,6 @@ School Management v2 is an advanced version extending the basic school managemen
 
 ## Learning Objectives
 
-Students learn to build complete school management systems using MVC architecture, separate business logic with service layers, implement view layers for data display, persist data to files, and generate formatted reports from entity data.
+This project helps to learn to build complete school management systems using MVC architecture, separate business logic with service layers, implement view layers for data display, persist data to files, and generate formatted reports from entity data.
 
 **Location:** `03_Business_Applications/SchoolManagement_v2`

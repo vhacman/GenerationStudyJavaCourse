@@ -28,6 +28,6 @@ Brianza Trains Objects is an object-oriented implementation of a train ticketing
 
 ## Learning Objectives
 
-Students learn to design entities with proper validation, implement test-driven development, verify pricing calculations with unit tests, and build robust transportation ticketing systems with comprehensive quality assurance.
+This project helps to learn to design entities with proper validation, implement test-driven development, verify pricing calculations with unit tests, and build robust transportation ticketing systems with comprehensive quality assurance.
 
 **Location:** `03_Business_Applications/BrianzaTrainsObjects`

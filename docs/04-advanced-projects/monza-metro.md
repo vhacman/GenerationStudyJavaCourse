@@ -30,4 +30,4 @@ Monza Metro is a metropolitan transit ticket system featuring service-based arch
 
 ## Learning Objectives
 
-Students learn to organize business logic in service classes, implement models that represent domain entities, create reusable service methods, apply the service layer pattern effectively, separate concerns between data models and business logic, manage ticket lifecycle through services, and develop professional service-based architectures. The project provides practical experience with common architectural patterns used in production systems.
+This project helps to learn to organize business logic in service classes, implement models that represent domain entities, create reusable service methods, apply the service layer pattern effectively, separate concerns between data models and business logic, manage ticket lifecycle through services, and develop professional service-based architectures. The project provides practical experience with common architectural patterns used in production systems.

@@ -27,6 +27,6 @@ Java Bus is a bus ticket system for regional transportation that manages ticket 
 
 ## Learning Objectives
 
-Students learn to build a transportation ticketing system with validation logic, implement class-based pricing models, work with distance-dependent calculations, and generate professional tickets in multiple formats.
+This project helps to learn to build a transportation ticketing system with validation logic, implement class-based pricing models, work with distance-dependent calculations, and generate professional tickets in multiple formats.
 
 **Location:** `03_Business_Applications/JavaBus`

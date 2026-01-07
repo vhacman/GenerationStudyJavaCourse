@@ -27,6 +27,6 @@ Java Bank is a banking system that manages client accounts and transactions. The
 
 ## Learning Objectives
 
-Students learn how to structure a multi-layer banking application using the MVC pattern, implement business logic separation with service classes, handle financial transactions safely, validate user input for banking operations, and generate professional HTML reports from application data.
+This project helps to learn how to structure a multi-layer banking application using the MVC pattern, implement business logic separation with service classes, handle financial transactions safely, validate user input for banking operations, and generate professional HTML reports from application data.
 
 **Location:** `03_Business_Applications/JavaBank`

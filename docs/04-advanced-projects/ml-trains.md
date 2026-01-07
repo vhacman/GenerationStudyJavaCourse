@@ -30,4 +30,4 @@ ML Trains is a train ticketing system with support for multiple journey bookings
 
 ## Learning Objectives
 
-Students learn to implement complex validation workflows with nested conditions, use switch statements for distance mapping, apply different pricing based on class selection, manage iterative ticket creation, populate HTML templates dynamically, and save files with meaningful names. The project demonstrates multi-ticket transaction handling and input validation patterns.
+This project helps to learn to implement complex validation workflows with nested conditions, use switch statements for distance mapping, apply different pricing based on class selection, manage iterative ticket creation, populate HTML templates dynamically, and save files with meaningful names. The project demonstrates multi-ticket transaction handling and input validation patterns.

@@ -30,4 +30,4 @@ Extra Lesson is a train ticket management system demonstrating object-oriented d
 
 ## Learning Objectives
 
-Students learn to create entity models that represent domain concepts, implement validation logic within models, use LocalDateTime for automatic values, apply the model-service pattern, manage multiple objects in collections, generate formatted output from models, and understand how to transition from procedural to object-oriented design. The project demonstrates practical OOP principles in real applications.
+This project helps to learn to create entity models that represent domain concepts, implement validation logic within models, use LocalDateTime for automatic values, apply the model-service pattern, manage multiple objects in collections, generate formatted output from models, and understand how to transition from procedural to object-oriented design. The project demonstrates practical OOP principles in real applications.

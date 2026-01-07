@@ -28,6 +28,6 @@ Lecco B&B is a bed-and-breakfast booking system that manages room reservations w
 
 ## Learning Objectives
 
-Students learn to implement hospitality business logic with multi-criteria pricing, manage date ranges for duration calculation, work with enumeration types for business rules, apply progressive discount systems, and generate professional booking confirmations.
+This project helps to learn to implement hospitality business logic with multi-criteria pricing, manage date ranges for duration calculation, work with enumeration types for business rules, apply progressive discount systems, and generate professional booking confirmations.
 
 **Location:** `03_Business_Applications/LeccoB&B`

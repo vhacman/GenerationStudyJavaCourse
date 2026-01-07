@@ -27,6 +27,6 @@ JavIta Airline is a ticket booking system for an airline that calculates ticket 
 
 ## Learning Objectives
 
-Students learn to implement complex pricing logic using enumerations, manage discount calculations with multiple criteria, validate business requirements through entity methods, work with Java date/time APIs, and generate formatted documents from application data.
+This project helps to learn to implement complex pricing logic using enumerations, manage discount calculations with multiple criteria, validate business requirements through entity methods, work with Java date/time APIs, and generate formatted documents from application data.
 
 **Location:** `03_Business_Applications/JavItaAirline`

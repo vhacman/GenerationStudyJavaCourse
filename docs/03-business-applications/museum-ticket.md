@@ -28,6 +28,6 @@ Museum Ticket is a ticketing system for museum admission with age-based and inco
 
 ## Learning Objectives
 
-Students learn to implement progressive pricing systems with multiple factors, calculate discounts based on demographic data, generate official admission documents, and build ticketing systems for cultural institutions.
+This project helps to learn to implement progressive pricing systems with multiple factors, calculate discounts based on demographic data, generate official admission documents, and build ticketing systems for cultural institutions.
 
 **Location:** `03_Business_Applications/MuseumTicket`

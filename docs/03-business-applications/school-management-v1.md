@@ -29,6 +29,6 @@ School Management v1 is the foundational version of a school management system t
 
 ## Learning Objectives
 
-Students learn to design class hierarchies through inheritance, model real-world relationships with classes, implement parent-child class structures, leverage inheritance to avoid code duplication, and build extensible data models for educational systems.
+This project helps to learn to design class hierarchies through inheritance, model real-world relationships with classes, implement parent-child class structures, leverage inheritance to avoid code duplication, and build extensible data models for educational systems.
 
 **Location:** `03_Business_Applications/SchoolManagement_v1`
