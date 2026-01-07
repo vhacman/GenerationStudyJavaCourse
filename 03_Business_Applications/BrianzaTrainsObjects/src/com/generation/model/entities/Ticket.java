@@ -1,5 +1,7 @@
 package com.generation.model.entities;
 
+
+
 /**
  * Entity che rappresenta un biglietto ferroviario.
  * Gestisce il calcolo del prezzo in base alla distanza percorsa

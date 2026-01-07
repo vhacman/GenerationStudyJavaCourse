@@ -1,5 +1,6 @@
 package com.generation.bt.model.entities;
 
+
 import java.time.LocalDateTime;
 
 /**
