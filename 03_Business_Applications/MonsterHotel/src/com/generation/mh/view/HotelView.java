@@ -1,3 +1,4 @@
+
 package com.generation.mh.view;
 
 import com.generation.mh.model.dto.StatisticsData;

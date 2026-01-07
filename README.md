@@ -16,6 +16,8 @@ GenerationStudyJavaCourse/
 │   ├── Modulo4/
 │   ├── Modulo 6/
 │   ├── Modulo7Incapsulamento/
+│   ├── Modulo8Ereditarietà/
+│   ├── Modulo9Astrazione/
 │   ├── Recap/
 │   ├── SequenzaESelezione/
 │   └── While/
@@ -32,14 +34,19 @@ GenerationStudyJavaCourse/
 ├── 03_Business_Applications/    # Business and management applications
 │   ├── BrianzaTrainsObjects/
 │   ├── DeveloperCandidatura/
+│   ├── JavaBank/
 │   ├── JavaBus/
 │   ├── JavItaAirline/
 │   ├── LeccoB&B/
+│   ├── MonsterHotel/
 │   ├── MuseumTicket/
 │   ├── PrintLabel/
 │   ├── ProlocoLakeComo/
 │   ├── RepairShop/
 │   ├── SBHotel/
+│   ├── SchoolManagement_v1/
+│   ├── SchoolManagement_v2/
+│   ├── VacanzeRomane/
 │   └── VillaMelzi/
 └── 04_Exercises_Practice/       # Extra exercises and practice
     ├── ChristmasTime/
@@ -486,11 +493,15 @@ Business and management applications:
 - **JavaBus**: Bus ticketing system with MVC architecture and three-class pricing model
 - **JavItaAirline**: Airline ticket system with service classes, membership discounts, and JUnit testing
 - **LeccoB&B**: Bed & Breakfast booking system with room types, membership discounts, and age verification
+- **MonsterHotel**: Comprehensive hotel management system with inheritance, polymorphism, and advanced OOP concepts
 - **MuseumTicket**: Museum admission with demographic-based pricing
 - **PrintLabel**: HTML label generator for food and housing
 - **ProlocoLakeComo**: Tourist guide application with province-based scoring
 - **RepairShop**: Repair shop management system with pricing calculation and HTML invoice generation
 - **SBHotel**: Comprehensive hotel management with booking, cancellation, and cleaning services
+- **SchoolManagement_v1**: School management system (version 1) - Student and teacher administration (in development)
+- **SchoolManagement_v2**: School management system (version 2) - Enhanced student and teacher management (in development)
+- **VacanzeRomane**: Roman vacation booking and management system
 - **VillaMelzi**: Villa museum ticket system with complex discount rules
 
 ### 04_Exercises_Practice

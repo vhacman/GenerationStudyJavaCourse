@@ -1,0 +1,13 @@
+====================================
+SCHEDA INSEGNANTE
+====================================
+
+ID:                 [id]
+Nome:               [name]
+Cognome:            [surname]
+Data di nascita:    [dateOfBirth]
+Età:                [age] anni
+Materia:            [subject]
+Anni esperienza:    [years]
+
+====================================
