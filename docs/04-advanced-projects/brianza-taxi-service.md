@@ -30,4 +30,6 @@ Brianza Taxi Service is an advanced taxi system featuring user account managemen
 
 ## Learning Objectives
 
-Students learn professional application architecture with service layers, implement multi-class systems with clear responsibility delegation, manage user state across multiple operations, apply discount logic and conditional pricing, validate user input comprehensively, and generate complex formatted output based on user type. The project showcases enterprise patterns useful for scalable applications.
+
+This project helps to  learn professional application architecture with service layers, implement multi-class systems with clear responsibility delegation, manage user state across multiple operations, apply discount logic and conditional pricing, validate user input comprehensively, and generate complex formatted output based on user type. The project showcases enterprise patterns useful for scalable applications.
+
