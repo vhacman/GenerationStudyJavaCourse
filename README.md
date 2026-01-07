@@ -5,9 +5,6 @@ This repository contains Java programming examples and exercises from the Genera
 ## Quick Links
 
 - **Course Materials:** [Access my Drive folder with all course notes and materials](https://drive.google.com/drive/folders/1f54Eu_EK2zw2XcMK-9qJH4ZErLXtV8Rj?hl=it)
-- **Getting Started:** [How to run and use this repository](docs/01-getting-started.md)
-- **Learning Path:** [Recommended learning progression](docs/05-learning-path.md)
-
 ## Repository Structure
 
 The projects are organized into 4 thematic categories:
