@@ -68,10 +68,6 @@ GenerationStudyJavaCourse/
 - [ExtraLesson2](docs/04-advanced-projects/extra-lesson2.md)
 - [Taxes](docs/04-advanced-projects/taxes.md)
 
-## Learning Path
-
-For a recommended learning progression through these projects, see the [Learning Path Guide](docs/05-learning-path.md).
-
 ## Key Topics Covered
 
 - Variables and data types
