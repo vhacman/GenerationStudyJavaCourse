@@ -27,4 +27,5 @@ Brianza Taxi is a simple taxi receipt generation system that calculates fares ba
 
 ## Learning Objectives
 
-Students learn how to build a simple transactional system with calculation logic, implement template-based file generation, handle multiple input parameters, perform financial calculations, and create formatted output documents. The project demonstrates practical real-world application of basic programming concepts in a service-oriented context.
+This project helps to learn how to build a simple transactional system with calculation logic, implement template-based file generation, handle multiple input parameters, perform financial calculations, and create formatted output documents. The project demonstrates practical real-world application of basic programming concepts in a service-oriented context.
+
