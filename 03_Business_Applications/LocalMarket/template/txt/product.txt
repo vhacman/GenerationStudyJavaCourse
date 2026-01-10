@@ -1,0 +1,11 @@
+═══════════════════════════════════════════════════
+         SCHEDA PRODOTTO
+═══════════════════════════════════════════════════
+
+INFORMAZIONI PRODOTTO:
+ID:              [id]
+Nome:            [name]
+Descrizione:     [description]
+Prezzo Unitario: €[priceEuros].[priceCents]
+
+═══════════════════════════════════════════════════

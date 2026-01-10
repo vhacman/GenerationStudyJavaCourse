@@ -1,0 +1,12 @@
+═══════════════════════════════════════════════════
+       SCHEDA PRODUTTORE
+═══════════════════════════════════════════════════
+
+INFORMAZIONI ANAGRAFICHE:
+ID:              [id]
+Nome Legale:     [legalName]
+Indirizzo:       [address]
+Storia/Note:     [history]
+Stato:           [status]
+
+═══════════════════════════════════════════════════

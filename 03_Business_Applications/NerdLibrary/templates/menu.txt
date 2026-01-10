@@ -1,0 +1,9 @@
+
+========== NERD LIBRARY ==========
+CARICA           - Carica e visualizza un libro/fumetto
+AGGIUNGI_LIBRO   - Aggiungi un nuovo libro
+AGGIUNGI_FUMETTO - Aggiungi un nuovo fumetto
+VENDI            - Vendi una copia di un libro
+ESPORTA_HTML     - Genera catalogo HTML
+Q                - Esci dal programma
+==================================

@@ -1,0 +1,28 @@
+═══════════════════════════════════════════════════
+          SCHEDA BATCH
+═══════════════════════════════════════════════════
+
+INFORMAZIONI BATCH:
+ID Batch:        [batchId]
+Data Acquisto:   [date]
+Quantità:        [quantity] pezzi
+Prezzo Unitario: €[unitPriceEuros].[unitPriceCents]
+Prezzo Totale:   €[totalPriceEuros].[totalPriceCents]
+Stato:           [status]
+Note:            [notes]
+
+───────────────────────────────────────────────────
+PRODOTTO:
+ID:              [productId]
+Nome:            [productName]
+Descrizione:     [productDescription]
+Prezzo Attuale:  €[currentPriceEuros].[currentPriceCents]
+
+───────────────────────────────────────────────────
+PRODUTTORE:
+ID:              [producerId]
+Nome Legale:     [producerName]
+Indirizzo:       [producerAddress]
+Stato:           [producerStatus]
+
+═══════════════════════════════════════════════════

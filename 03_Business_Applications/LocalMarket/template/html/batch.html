@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheda Batch #[batchId]</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .header .batch-id {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+
+        .status-pending {
+            background: #ffd93d;
+            color: #7d6608;
+        }
+
+        .status-validated {
+            background: #6bcf7f;
+            color: #1e5128;
+        }
+
+        .status-corrupt {
+            background: #ff6b6b;
+            color: #8b0000;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #667eea;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .info-row {
+            display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #555;
+            min-width: 180px;
+        }
+
+        .info-value {
+            color: #333;
+            flex: 1;
+        }
+
+        .price-highlight {
+            font-size: 1.8em;
+            color: #667eea;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            background: #f0f3ff;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .notes-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffd93d;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-style: italic;
+            color: #666;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9em;
+            border-top: 1px solid #eee;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Scheda Lotto di Acquisto</h1>
+            <div class="batch-id">Batch #[batchId]</div>
+            <div class="status-badge status-[statusClass]">[status]</div>
+        </div>
+
+        <div class="content">
+            <!-- Informazioni Batch -->
+            <div class="section">
+                <div class="section-title">Informazioni Lotto</div>
+                <div class="info-row">
+                    <div class="info-label">ID Batch:</div>
+                    <div class="info-value">[batchId]</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Data Acquisto:</div>
+                    <div class="info-value">[date]</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Quantità:</div>
+                    <div class="info-value">[quantity] pezzi</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Prezzo Unitario:</div>
+                    <div class="info-value">€[unitPriceEuros].[unitPriceCents]</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Stato:</div>
+                    <div class="info-value">[status]</div>
+                </div>
+            </div>
+
+            <!-- Prezzo Totale -->
+            <div class="price-highlight">
+                Prezzo Totale: €[totalPriceEuros].[totalPriceCents]
+            </div>
+
+            <!-- Note -->
+            <div class="notes-box">
+                <strong>Note:</strong> [notes]
+            </div>
+
+            <!-- Informazioni Prodotto -->
+            <div class="section">
+                <div class="section-title">Prodotto</div>
+                <div class="info-row">
+                    <div class="info-label">ID Prodotto:</div>
+                    <div class="info-value">[productId]</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Nome:</div>
+                    <div class="info-value">[productName]</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Descrizione:</div>
+                    <div class="info-value">[productDescription]</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Prezzo Attuale:</div>
+                    <div class="info-value">€[currentPriceEuros].[currentPriceCents]</div>
+                </div>
+            </div>
+
+            <!-- Informazioni Produttore -->
+            <div class="section">
+                <div class="section-title">Produttore</div>
+                <div class="info-row">
+                    <div class="info-label">ID Produttore:</div>
+                    <div class="info-value">[producerId]</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Nome Legale:</div>
+                    <div class="info-value">[producerName]</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Indirizzo:</div>
+                    <div class="info-value">[producerAddress]</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Stato:</div>
+                    <div class="info-value">[producerStatus]</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Generato da LocalMarket System - [currentDate]
+        </div>
+    </div>
+</body>
+</html>

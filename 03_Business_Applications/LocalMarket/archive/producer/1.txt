@@ -1,0 +1,5 @@
+1
+Azienda Agricola Rossi
+Via delle Rose 123, Milano
+Produttore storico di ortaggi biologici dal 1985
+true

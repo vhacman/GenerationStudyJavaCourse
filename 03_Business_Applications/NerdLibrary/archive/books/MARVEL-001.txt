@@ -1,0 +1,11 @@
+COMICBOOK
+6
+MARVEL-001
+Spider-Man: Amazing Fantasy #15
+30
+Stan Lee
+Steve Ditko
+25.00
+Supereroi
+2
+1

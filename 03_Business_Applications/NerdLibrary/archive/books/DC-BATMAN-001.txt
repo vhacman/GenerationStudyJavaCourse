@@ -1,0 +1,11 @@
+COMICBOOK
+7
+DC-BATMAN-001
+Batman: The Dark Knight Returns
+224
+Frank Miller
+Frank Miller
+19.90
+Supereroi
+3
+1

@@ -1,0 +1,16 @@
+═══════════════════════════════════════════════════
+SCHEDA DOTTORE
+═══════════════════════════════════════════════════
+
+INFORMAZIONI ANAGRAFICHE:
+ID:              [id]
+Nome:            [firstName]
+Cognome:         [lastName]
+Codice Fiscale:  [SSN]
+Data di Nascita: [dob]
+
+INFORMAZIONI PROFESSIONALI:
+Specializzazione: [specialization]
+Stipendio:        € [salary]
+
+═══════════════════════════════════════════════════

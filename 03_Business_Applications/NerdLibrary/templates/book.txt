@@ -1,0 +1,10 @@
+--- LIBRO ---
+ID: [id]
+ISBN: [isbn]
+Titolo: [title]
+Autore: [author]
+Genere: [genre]
+Pagine: [numberOfPages]
+Prezzo: [price]
+Disponibilita: [stockQuantity] copie
+-------------

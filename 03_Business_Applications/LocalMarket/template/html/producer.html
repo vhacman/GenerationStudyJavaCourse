@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheda Produttore #[id]</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .header .producer-id {
+            font-size: 1em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 1em;
+        }
+
+        .status-active {
+            background: #6bcf7f;
+            color: #1e5128;
+        }
+
+        .status-inactive {
+            background: #ff6b6b;
+            color: #8b0000;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .producer-name {
+            font-size: 2em;
+            color: #f5576c;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #f093fb;
+        }
+
+        .section-title {
+            color: #f5576c;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #f093fb;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .info-row {
+            display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #555;
+            min-width: 150px;
+        }
+
+        .info-value {
+            color: #333;
+            flex: 1;
+        }
+
+        .address-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+        }
+
+        .address-icon {
+            font-size: 2em;
+            margin-right: 15px;
+        }
+
+        .history-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffd93d;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9em;
+            border-top: 1px solid #eee;
+        }
+
+        .producer-icon {
+            font-size: 4em;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Scheda Produttore</h1>
+            <div class="producer-id">ID: [id]</div>
+            <div class="status-badge status-[statusClass]">[status]</div>
+        </div>
+
+        <div class="content">
+            <div class="producer-icon">🏭</div>
+
+            <div class="producer-name">[legalName]</div>
+
+            <!-- Informazioni Generali -->
+            <div class="section">
+                <div class="section-title">Informazioni Generali</div>
+                <div class="info-row">
+                    <div class="info-label">ID Produttore:</div>
+                    <div class="info-value">[id]</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Nome Legale:</div>
+                    <div class="info-value">[legalName]</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Stato:</div>
+                    <div class="info-value">[status]</div>
+                </div>
+            </div>
+
+            <!-- Indirizzo -->
+            <div class="section">
+                <div class="section-title">Indirizzo</div>
+                <div class="address-box">
+                    <div class="address-icon">📍</div>
+                    <div>[address]</div>
+                </div>
+            </div>
+
+            <!-- Storia/Note -->
+            <div class="section">
+                <div class="section-title">Storia e Note</div>
+                <div class="history-box">
+                    [history]
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Generato da LocalMarket System - [currentDate]
+        </div>
+    </div>
+</body>
+</html>

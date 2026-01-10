@@ -1,0 +1,27 @@
+═══════════════════════════════════════════════════
+    LOCAL MARKET - SISTEMA GESTIONE LOTTI
+═══════════════════════════════════════════════════
+
+GESTIONE BATCH:
+  1  - Aggiungi nuovo batch
+  2  - Revoca batch
+  5  - Approva batch
+  9  - Aggiungi batch con prezzo custom
+
+GESTIONE PRODUTTORI:
+  3  - Aggiungi nuovo produttore
+  7  - Cambia indirizzo produttore
+  10 - Banna produttore
+  11 - Sbanna produttore
+
+GESTIONE PRODOTTI:
+  4  - Aggiungi nuovo prodotto
+  6  - Cambia prezzo prodotto
+  8  - Cambia descrizione prodotto
+
+STAMPA:
+  12 - Stampa scheda HTML batch
+
+  Q  - Esci
+
+═══════════════════════════════════════════════════

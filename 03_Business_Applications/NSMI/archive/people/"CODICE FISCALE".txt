@@ -1,0 +1,8 @@
+DOCTOR
+3
+Gianni
+Palma
+1950-02-03
+"CODICE FISCALE"
+45000.0
+Cardio

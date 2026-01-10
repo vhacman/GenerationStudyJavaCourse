@@ -1,0 +1,9 @@
+┌────────────────────────────────┐
+│         MENU PRINCIPALE        │
+├────────────────────────────────┤
+│ 1. Carica Persona              │
+│ 2. Salva Persona               │
+│ 3. Salva Paziente              |
+| 4. Salva Dottore               │
+│ Q. Esci                        │
+└────────────────────────────────┘

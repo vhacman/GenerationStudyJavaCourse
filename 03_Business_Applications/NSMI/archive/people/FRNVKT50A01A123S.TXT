@@ -1,0 +1,8 @@
+PAZIENTE
+2
+Viktor
+Von Frankestein
+1950-01-01
+FRNVKT50A01A123S
+FULL
+Amore eccessivo per i puzzle

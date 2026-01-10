@@ -1,0 +1,9 @@
+BOOK
+3
+978-8-804-66913-7
+1984
+328
+George Orwell
+12.50
+8
+Distopia

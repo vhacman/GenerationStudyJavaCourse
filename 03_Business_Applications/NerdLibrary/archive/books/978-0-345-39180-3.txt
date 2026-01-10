@@ -1,0 +1,9 @@
+BOOK
+4
+978-0-345-39180-3
+Dune
+688
+Frank Herbert
+18.90
+4
+Fantascienza
