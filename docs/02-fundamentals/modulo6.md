@@ -395,14 +395,3 @@ Dopo aver padroneggiato le basi OOP:
 - 📧 hacmanvioricagabriela@gmail.com
 - 🐙 GitHub: [@vhacman](https://github.com/vhacman)
 
----
-
-<div align="center">
-
-### ⭐ Hai completato le basi OOP? Passa all'Encapsulation!
-
-**Ricorda:** Gli oggetti sono la base della programmazione moderna!
-
-![Java](https://img.shields.io/badge/Keep_Coding-Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-
-</div>
