@@ -5,15 +5,6 @@
 ![Livello](https://img.shields.io/badge/Livello-Intermedio-orange?style=for-the-badge)
 
 **Percorso:** `01_Fundamentals_Examples/Modulo7Incapsulamento/`
-
----
-
-## 📋 Panoramica
-
-Esplora l'**Incapsulamento**, uno dei quattro pilastri fondamentali della Programmazione Orientata agli Oggetti (OOP). Impara a proteggere i dati e controllare l'accesso agli attributi della classe.
-
----
-
 ## 💻 Programma Principale
 
 **Main.java** con classe entità **Person.java** migliorata
@@ -380,4 +371,5 @@ Dopo aver padroneggiato l'incapsulamento:
 - 🎓 Generation Italy - Java Full Stack Developer
 - 📧 hacmanvioricagabriela@gmail.com
 - 🐙 GitHub: [@vhacman](https://github.com/vhacman)
+
 
