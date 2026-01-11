@@ -8,11 +8,6 @@
 
 ---
 
-## 📋 Panoramica
-
-Esplora l'**Astrazione**, il terzo pilastro della Programmazione Orientata agli Oggetti (OOP). Impara a nascondere i dettagli implementativi complessi e mostrare solo le funzionalità essenziali.
-
----
 
 ## 🎯 Cos'è l'Astrazione?
 
@@ -318,18 +313,4 @@ Dopo aver padroneggiato l'astrazione, applica tutti e quattro i pilastri OOP in 
 - 📧 hacmanvioricagabriela@gmail.com
 - 🐙 GitHub: [@vhacman](https://github.com/vhacman)
 
----
 
-<div align="center">
-
-### ⭐ Hai completato tutti i 4 pilastri OOP!
-
-**I 4 Pilastri OOP:**
-1. **Encapsulation** (Incapsulamento)
-2. **Inheritance** (Ereditarietà)
-3. **Abstraction** (Astrazione)
-4. **Polymorphism** (Polimorfismo)
-
-![Java](https://img.shields.io/badge/Keep_Coding-Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-
-</div>
