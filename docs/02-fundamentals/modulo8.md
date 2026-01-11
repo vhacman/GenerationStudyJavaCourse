@@ -6,13 +6,6 @@
 
 **Percorso:** `01_Fundamentals_Examples/Modulo8Ereditarietà/`
 
----
-
-## 📋 Panoramica
-
-Esplora l'**Ereditarietà**, il secondo pilastro fondamentale della Programmazione Orientata agli Oggetti (OOP). Questo modulo ti insegna come creare gerarchie di classi, riutilizzare il codice e modellare relazioni IS-A del mondo reale.
-
----
 
 ## 🎯 Cos'è l'Ereditarietà?
 
@@ -282,3 +275,4 @@ public class Teacher extends Person {
 ![Java](https://img.shields.io/badge/Keep_Coding-Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 
 </div>
+
