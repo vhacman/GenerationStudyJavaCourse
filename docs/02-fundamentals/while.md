@@ -282,14 +282,4 @@ Dopo aver padroneggiato i while loops, procedi con:
 - 📧 hacmanvioricagabriela@gmail.com
 - 🐙 GitHub: [@vhacman](https://github.com/vhacman)
 
----
 
-<div align="center">
-
-### ⭐ Hai completato questo modulo? Passa al successivo!
-
-**Ricorda:** I while loops sono perfetti quando non sai esattamente quante iterazioni servono!
-
-![Java](https://img.shields.io/badge/Keep_Coding-Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-
-</div>
