@@ -6,13 +6,6 @@
 
 **Percorso:** `01_Fundamentals_Examples/Modulo 6/`
 
----
-
-## 📋 Panoramica
-
-Introduzione alla Programmazione Orientata agli Oggetti con design e implementazione di classi entità. Impara a creare oggetti, definire attributi e metodi, e comprendere i concetti fondamentali della OOP.
-
----
 
 ## 💻 Programmi Principali
 
@@ -375,17 +368,6 @@ public double getPrice() {
 </td>
 </tr>
 </table>
-
----
-
-## 🚀 Prossimi Passi
-
-Dopo aver padroneggiato le basi OOP:
-
-1. **Modulo 7 - Encapsulation** → Campi privati con getter/setter
-2. **Modulo 8 - Inheritance** → Ereditarietà delle classi
-3. **Modulo 9 - Abstraction** → Classi astratte e interfacce
-
 ---
 
 ## 👨‍💻 Autore
@@ -394,4 +376,5 @@ Dopo aver padroneggiato le basi OOP:
 - 🎓 Generation Italy - Java Full Stack Developer
 - 📧 hacmanvioricagabriela@gmail.com
 - 🐙 GitHub: [@vhacman](https://github.com/vhacman)
+
 
