@@ -51,8 +51,14 @@ GenerationStudyJavaCourse/
 - [JavaBus](docs/03-business-applications/java-bus.md)
 - [JavItaAirline](docs/03-business-applications/javita-airline.md)
 - [LeccoB&B](docs/03-business-applications/lecco-bb.md)
+- [LocalMarket](docs/03-business-applications/local-market.md)
+- [LocalMarketDB](docs/03-business-applications/local-market-db.md)
 - [MonsterHotel](docs/03-business-applications/monster-hotel.md)
 - [MuseumTicket](docs/03-business-applications/museum-ticket.md)
+- [NerdLibrary](docs/03-business-applications/nerd-library.md)
+- [NSMI](docs/03-business-applications/nsmi.md)
+- [PCWizard](docs/03-business-applications/pc-wizard.md)
+- [PokeDex](docs/03-business-applications/pokedex.md)
 - [PrintLabel](docs/03-business-applications/print-label.md)
 - [ProlocoLakeComo](docs/03-business-applications/proloco-lake-como.md)
 - [RepairShop](docs/03-business-applications/repair-shop.md)
@@ -73,13 +79,20 @@ GenerationStudyJavaCourse/
 - Variables and data types
 - Control structures (if/else, loops)
 - Object-oriented programming
+- Inheritance and polymorphism (method overloading/overriding)
 - File I/O operations
+- Database operations with JDBC and SQLite
 - Date and time handling
 - MVC architecture
 - Service layer design
+- Repository and DAO patterns
+- Dependency Injection
+- Singleton pattern
+- Lazy loading
 - Template-based rendering
 - Financial calculations with BigDecimal
 - Input validation
+- Enum with attributes and methods
 - JUnit testing
 
 ## Author
