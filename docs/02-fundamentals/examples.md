@@ -1,4 +1,3 @@
-```markdown
 # 📘 Modulo Examples - Fondamenti di Java
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
@@ -83,3 +82,4 @@ File pulito e pronto! [attached_file:1][attached_file:2]
 
 [1](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 [2](https://img.shields.io/badge/Livello-Principiante-green?style=for-the-badge)
+
