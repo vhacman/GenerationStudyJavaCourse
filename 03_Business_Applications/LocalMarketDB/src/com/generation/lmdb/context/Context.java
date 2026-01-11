@@ -9,9 +9,8 @@ import com.generation.lmdb.model.repository.BatchRepository;
 import com.generation.lmdb.model.repository.ProducerRepository;
 import com.generation.lmdb.model.repository.ProductRepository;
 
-/*
- * CONCETTI TEORICI - DEPENDENCY INJECTION E SINGLETON
- *
+/**
+
  * Context è un CONTENITORE CENTRALE per le dipendenze dell'applicazione.
  * Implementa il pattern DEPENDENCY INJECTION (iniezione delle dipendenze).
  *
@@ -34,13 +33,14 @@ import com.generation.lmdb.model.repository.ProductRepository;
  * 1. Risparmio di memoria (oggetti condivisi)
  * 2. Connessione al database centralizzata
  * 3. Facile cambiare implementazione (basta modificare il blocco static)
+ * 
+ * Il fatto che la lista sia statica e che gli oggetti vengano 
+ * creati una sola volta rende Context un esempio di Singleton.
  */
 
 public class 	Context
 {
-	/*
-	 * ATTRIBUTO STATIC - LISTA DELLE DIPENDENZE
-	 *
+	/**
 	 * private → solo Context può accedere a questa lista
 	 * static → appartiene alla CLASSE, non all'oggetto
 	 *          esiste UNA SOLA copia condivisa da tutto il programma
@@ -77,7 +77,7 @@ public class 	Context
 	{
 		try
 		{
-			/*
+			/**
 			 * CARICAMENTO DRIVER JDBC
 			 *
 			 * Class.forName("org.sqlite.JDBC") → carica la classe del driver SQLite
@@ -88,7 +88,7 @@ public class 	Context
 			 */
 			Class.forName("org.sqlite.JDBC");
 
-			/*
+			/**
 			 * CREAZIONE CONNESSIONE AL DATABASE
 			 *
 			 * DriverManager.getConnection("jdbc:sqlite:market.db")
@@ -128,8 +128,7 @@ public class 	Context
 		}
 	}
 	
-	/*
-	 * CONCETTI TEORICI - RIFLESSIONE (REFLECTION) E FOR-EACH
+	/**
 	 *
 	 * Questo metodo cerca nella lista dependencies un oggetto del tipo richiesto.
 	 *
