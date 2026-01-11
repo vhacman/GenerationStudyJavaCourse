@@ -70,13 +70,6 @@ PREZZO = €0.25/km × Distanza × Moltiplicatore
 Es: Milano-Lecco (50km, 1ª Cl.) = €16.88
 ```
 
-## 🚀 Prossimi Passi
-
-1. **Orari treni** con Ticket temporali
-2. **Sconti** famiglie/bambini 
-3. **Prenotazioni multiple**
-4. **Database** persistenza dati
-
 ***
 
 **👨‍💻 Autore:** Hacman Viorica Gabriela  
@@ -84,4 +77,5 @@ Es: Milano-Lecco (50km, 1ª Cl.) = €16.88
 **📧** hacmanvioricagabriela@gmail.com
 
 **⭐** Lascia una ⭐ se utile!
+
 
