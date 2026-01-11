@@ -249,14 +249,4 @@ Inserisci la tua altezza (cm): 110
 - 📧 hacmanvioricagabriela@gmail.com
 - 🐙 GitHub: [@vhacman](https://github.com/vhacman)
 
----
 
-<div align="center">
-
-### ⭐ Hai completato questo modulo? Passa al successivo!
-
-**Ricorda:** La logica condizionale è fondamentale per il controllo del flusso!
-
-![Java](https://img.shields.io/badge/Keep_Coding-Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-
-</div>
