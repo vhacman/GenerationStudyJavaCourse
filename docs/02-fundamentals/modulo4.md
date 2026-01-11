@@ -267,12 +267,3 @@ java -cp bin com.generation.modulo4.Exercises21to24
 
 ---
 
-<div align="center">
-
-### ⭐ Hai completato questi esercizi? Passa al modulo successivo!
-
-**Ricorda:** La pratica con i cicli è essenziale per la programmazione!
-
-![Java](https://img.shields.io/badge/Keep_Coding-Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-
-</div>
