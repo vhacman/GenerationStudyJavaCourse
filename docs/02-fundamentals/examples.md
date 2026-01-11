@@ -77,9 +77,3 @@ git add docs/02-fundamentals/examples.md
 git commit -m "Risolto conflitto merge examples.md"
 git push
 ```
-
-File pulito e pronto! [attached_file:1][attached_file:2]
-
-[1](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-[2](https://img.shields.io/badge/Livello-Principiante-green?style=for-the-badge)
-
