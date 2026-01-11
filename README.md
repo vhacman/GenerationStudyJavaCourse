@@ -1,104 +1,251 @@
-# Java Course - Generation Study
+# 🎓 Corso Java - Generation Italy
 
-This repository contains Java programming examples and exercises from the Generation Study Java Course.
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
 
-## Quick Links
+Questa repository contiene tutti i miei progetti, esercizi ed esempi di programmazione Java sviluppati durante il bootcamp Full Stack Java Developer di Generation Italy.
 
-- **Course Materials:** [Access my Drive folder with all course notes and materials](https://drive.google.com/drive/folders/1f54Eu_EK2zw2XcMK-9qJH4ZErLXtV8Rj?hl=it)
-## Repository Structure
+---
 
-The projects are organized into 4 thematic categories:
+## 🔗 Link Rapidi
+
+📚 **Materiali del Corso:** [Accedi alla mia cartella Drive con tutti gli appunti e materiali](https://drive.google.com/drive/folders/1f54Eu_EK2zw2XcMK-9qJH4ZErLXtV8Rj?hl=it)
+
+---
+
+## 📁 Struttura della Repository
+
+I progetti sono organizzati in 4 categorie tematiche:
 
 ```
 GenerationStudyJavaCourse/
-├── 01_Fundamentals_Examples/    # Basic concepts and control structures
-├── 02_Tickets_Transportation/   # Ticketing and transportation systems
-├── 03_Business_Applications/    # Business and management applications
-└── 04_Exercises_Practice/       # Extra exercises and practice
+├── 📘 01_Fundamentals_Examples/      # Concetti base e strutture di controllo
+├── 🚆 02_Tickets_Transportation/     # Sistemi di biglietteria e trasporti
+├── 💼 03_Business_Applications/      # Applicazioni business e gestionali
+└── 🎯 04_Exercises_Practice/         # Esercizi extra e pratica
 ```
 
-## Documentation
+---
 
-### Getting Started
-- [Setup and Running Programs](docs/01-getting-started.md)
+## 📖 Documentazione Completa
 
-### Fundamentals (01_Fundamentals_Examples/)
-- [Examples Module](docs/02-fundamentals/examples.md)
-- [Modulo 4 - Loops](docs/02-fundamentals/modulo4.md)
-- [Modulo 6 - OOP Basics](docs/02-fundamentals/modulo6.md)
-- [Modulo 7 - Encapsulation](docs/02-fundamentals/modulo7.md)
-- [Modulo 8 - Inheritance](docs/02-fundamentals/modulo8.md)
-- [Modulo 9 - Abstraction](docs/02-fundamentals/modulo9.md)
-- [Recap - Review Lessons](docs/02-fundamentals/recap.md)
+### 🚀 Inizia Qui
+- [Setup e Esecuzione Programmi](docs/01-getting-started.md)
+
+### 📘 Fondamentali (01_Fundamentals_Examples/)
+
+<details>
+<summary><b>Clicca per vedere tutti i moduli fondamentali</b></summary>
+
+- [Modulo Esempi Base](docs/02-fundamentals/examples.md)
+- [Modulo 4 - Cicli e Iterazioni](docs/02-fundamentals/modulo4.md)
+- [Modulo 6 - Basi OOP](docs/02-fundamentals/modulo6.md)
+- [Modulo 7 - Incapsulamento](docs/02-fundamentals/modulo7.md)
+- [Modulo 8 - Ereditarietà](docs/02-fundamentals/modulo8.md)
+- [Modulo 9 - Astrazione](docs/02-fundamentals/modulo9.md)
+- [Recap - Lezioni di Ripasso](docs/02-fundamentals/recap.md)
 - [Sequenza e Selezione](docs/02-fundamentals/sequenza-selezione.md)
-- [While Loops](docs/02-fundamentals/while.md)
+- [Cicli While](docs/02-fundamentals/while.md)
 
-### Transportation & Tickets (02_Tickets_Transportation/)
-- [BrianzaTaxi](docs/04-advanced-projects/brianza-taxi.md)
-- [BrianzaTaxiService](docs/04-advanced-projects/brianza-taxi-service.md)
-- [BrianzaTrains](docs/04-advanced-projects/brianza-trains.md)
-- [DiscotecaTicket](docs/04-advanced-projects/discoteca-ticket.md)
-- [MLTrains](docs/04-advanced-projects/ml-trains.md)
-- [MilanoLeccoTrains2](docs/04-advanced-projects/milano-lecco-trains2.md)
-- [MilanoLeccoTrains3](docs/04-advanced-projects/milano-lecco-trains3.md)
-- [MilanoLeccoTrains4](docs/04-advanced-projects/milano-lecco-trains4.md)
-- [MonzaMetro](docs/04-advanced-projects/monza-metro.md)
+</details>
 
-### Business Applications (03_Business_Applications/)
-- [BrianzaTrainsObjects](docs/03-business-applications/brianza-trains-objects.md)
-- [DeveloperCandidatura](docs/03-business-applications/developer-candidatura.md)
-- [JavaBank](docs/03-business-applications/java-bank.md)
-- [JavaBus](docs/03-business-applications/java-bus.md)
-- [JavItaAirline](docs/03-business-applications/javita-airline.md)
-- [LeccoB&B](docs/03-business-applications/lecco-bb.md)
-- [LocalMarket](docs/03-business-applications/local-market.md)
-- [LocalMarketDB](docs/03-business-applications/local-market-db.md)
-- [MonsterHotel](docs/03-business-applications/monster-hotel.md)
-- [MuseumTicket](docs/03-business-applications/museum-ticket.md)
-- [NerdLibrary](docs/03-business-applications/nerd-library.md)
-- [NSMI](docs/03-business-applications/nsmi.md)
-- [PCWizard](docs/03-business-applications/pc-wizard.md)
-- [PokeDex](docs/03-business-applications/pokedex.md)
-- [PrintLabel](docs/03-business-applications/print-label.md)
-- [ProlocoLakeComo](docs/03-business-applications/proloco-lake-como.md)
-- [RepairShop](docs/03-business-applications/repair-shop.md)
-- [SBHotel](docs/03-business-applications/sb-hotel.md)
-- [SchoolManagement v1](docs/03-business-applications/school-management-v1.md)
-- [SchoolManagement v2](docs/03-business-applications/school-management-v2.md)
-- [VacanzeRomane](docs/03-business-applications/vacanze-romane.md)
-- [VillaMelzi](docs/03-business-applications/villa-melzi.md)
+### 🚆 Trasporti e Biglietteria (02_Tickets_Transportation/)
 
-### Practice Exercises (04_Exercises_Practice/)
-- [ChristmasTime](docs/04-advanced-projects/christmas-time.md)
-- [ExtraLesson](docs/04-advanced-projects/extra-lesson.md)
-- [ExtraLesson2](docs/04-advanced-projects/extra-lesson2.md)
-- [Taxes](docs/04-advanced-projects/taxes.md)
+<details>
+<summary><b>Clicca per vedere tutti i progetti di trasporto</b></summary>
 
-## Key Topics Covered
+| Progetto | Descrizione | Tecnologie |
+|----------|-------------|------------|
+| [BrianzaTaxi](docs/04-advanced-projects/brianza-taxi.md) | Sistema di prenotazione taxi | OOP, Collections |
+| [BrianzaTaxiService](docs/04-advanced-projects/brianza-taxi-service.md) | Servizio taxi con calcolo tariffe | Inheritance, Polymorphism |
+| [BrianzaTrains](docs/04-advanced-projects/brianza-trains.md) | Sistema biglietti treno | Classes, Methods |
+| [DiscotecaTicket](docs/04-advanced-projects/discoteca-ticket.md) | Biglietti eventi con restrizioni età | Validation, Date API |
+| [MLTrains](docs/04-advanced-projects/ml-trains.md) | Gestione treni Milano-Lecco | OOP |
+| [MilanoLeccoTrains2](docs/04-advanced-projects/milano-lecco-trains2.md) | Sistema treni v2 | Enhanced OOP |
+| [MilanoLeccoTrains3](docs/04-advanced-projects/milano-lecco-trains3.md) | Sistema treni v3 | Advanced Features |
+| [MilanoLeccoTrains4](docs/04-advanced-projects/milano-lecco-trains4.md) | Sistema treni completo | Abstract Classes, Enums |
+| [MonzaMetro](docs/04-advanced-projects/monza-metro.md) | Biglietteria metropolitana | BigDecimal, Pricing |
 
-- Variables and data types
-- Control structures (if/else, loops)
-- Object-oriented programming
-- Inheritance and polymorphism (method overloading/overriding)
-- File I/O operations
-- Database operations with JDBC and SQLite
-- Date and time handling
-- MVC architecture
-- Service layer design
-- Repository and DAO patterns
-- Dependency Injection
-- Singleton pattern
-- Lazy loading
-- Template-based rendering
-- Financial calculations with BigDecimal
-- Input validation
-- Enum with attributes and methods
-- JUnit testing
+</details>
 
-## Author
+### 💼 Applicazioni Business (03_Business_Applications/)
 
-Generation Study Course Student - Hacman Viorica Gabriela
+<details>
+<summary><b>Clicca per vedere tutte le applicazioni business</b></summary>
 
-## License
+| Progetto | Categoria | Tecnologie Chiave |
+|----------|-----------|-------------------|
+| [JavaBank](docs/03-business-applications/java-bank.md) | Sistema Bancario | OOP, Collections, Transactions |
+| [JavaBus](docs/03-business-applications/java-bus.md) | Gestione Flotta Bus | Fleet Management |
+| [JavItaAirline](docs/03-business-applications/javita-airline.md) | Sistema Compagnia Aerea | Date/Time API, Booking System |
+| [LocalMarket](docs/03-business-applications/local-market.md) | E-commerce Base | Shopping Cart, Products |
+| [LocalMarketDB](docs/03-business-applications/local-market-db.md) | E-commerce con Database | JDBC, SQLite, SQL |
+| [MonsterHotel](docs/03-business-applications/monster-hotel.md) | Gestione Hotel | MVC, Service Layer |
+| [SBHotel](docs/03-business-applications/sb-hotel.md) | Sistema Alberghiero | Room Management |
+| [NerdLibrary](docs/03-business-applications/nerd-library.md) | Gestione Biblioteca | Collections, File I/O |
+| [SchoolManagement v1](docs/03-business-applications/school-management-v1.md) | Gestione Scolastica | Basic CRUD |
+| [SchoolManagement v2](docs/03-business-applications/school-management-v2.md) | Gestione Scolastica Avanzata | DAO Pattern, Advanced Design |
+| [PokeDex](docs/03-business-applications/pokedex.md) | Database Pokemon | Collections, Search |
+| [PCWizard](docs/03-business-applications/pc-wizard.md) | Negozio Computer | Inventory Management |
+| [RepairShop](docs/03-business-applications/repair-shop.md) | Officina Riparazioni | Service Tracking |
+| [MuseumTicket](docs/03-business-applications/museum-ticket.md) | Biglietteria Museo | Pricing Tiers |
+| [DeveloperCandidatura](docs/03-business-applications/developer-candidatura.md) | Sistema Candidature | Form Processing |
+| [BrianzaTrainsObjects](docs/03-business-applications/brianza-trains-objects.md) | Treni con Oggetti | Advanced OOP |
+| [LeccoB&B](docs/03-business-applications/lecco-bb.md) | Bed & Breakfast | Booking System |
+| [NSMI](docs/03-business-applications/nsmi.md) | Sistema Gestionale | Business Logic |
+| [PrintLabel](docs/03-business-applications/print-label.md) | Stampa Etichette | Template Rendering |
+| [ProlocoLakeComo](docs/03-business-applications/proloco-lake-como.md) | Turismo Lago Como | Tourism Management |
+| [VacanzeRomane](docs/03-business-applications/vacanze-romane.md) | Agenzia Viaggi | Travel Booking |
+| [VillaMelzi](docs/03-business-applications/villa-melzi.md) | Gestione Villa | Property Management |
 
-Educational use only
+</details>
+
+### 🎯 Esercizi e Pratica (04_Exercises_Practice/)
+
+<details>
+<summary><b>Clicca per vedere tutti gli esercizi</b></summary>
+
+- [ChristmasTime](docs/04-advanced-projects/christmas-time.md) - Progetto a tema natalizio
+- [ExtraLesson](docs/04-advanced-projects/extra-lesson.md) - Lezione extra di approfondimento
+- [ExtraLesson2](docs/04-advanced-projects/extra-lesson2.md) - Seconda lezione extra
+- [Taxes](docs/04-advanced-projects/taxes.md) - Calcolo tasse e imposte
+
+</details>
+
+---
+
+## 🎯 Argomenti e Competenze Sviluppate
+
+### 💻 Programmazione Core
+
+<table>
+<tr>
+<td width="50%">
+
+#### Fondamenti Java
+- ✅ Variabili e tipi di dati
+- ✅ Strutture di controllo (if/else, switch)
+- ✅ Cicli (for, while, do-while)
+- ✅ Array e Collections
+- ✅ String manipulation
+- ✅ Exception handling
+
+</td>
+<td width="50%">
+
+#### OOP Avanzato
+- ✅ Classi e Oggetti
+- ✅ Incapsulamento
+- ✅ Ereditarietà
+- ✅ Polimorfismo
+- ✅ Classi Astratte
+- ✅ Interfacce
+
+</td>
+</tr>
+</table>
+
+### 🏗️ Architettura Software
+
+- **MVC Pattern** - Separazione Model-View-Controller
+- **Repository/DAO Pattern** - Accesso ai dati
+- **Service Layer** - Logica di business
+- **Dependency Injection** - Gestione dipendenze
+- **Singleton Pattern** - Gestione istanze uniche
+- **Lazy Loading** - Ottimizzazione caricamento dati
+- **Template-based Rendering** - Generazione output
+
+### 🗄️ Database e Persistenza
+
+- **JDBC** - Java Database Connectivity
+- **SQLite** - Database embedded
+- **SQL Queries** - SELECT, INSERT, UPDATE, DELETE
+- **Database Design** - Normalizzazione e relazioni
+- **Transaction Management** - Gestione transazioni
+
+### 💼 Sviluppo Applicazioni Business
+
+- **Calcoli Finanziari** - Uso di BigDecimal per precisione
+- **Gestione Date e Tempo** - LocalDate, LocalDateTime, DateTimeFormatter
+- **Validazione Input** - Sanitizzazione e controllo dati
+- **File I/O** - Lettura e scrittura file
+- **Enum Avanzati** - Enum con attributi e metodi
+
+### 🧪 Testing e Qualità
+
+- **JUnit Testing** - Unit test e test cases
+- **Test-Driven Development** - TDD approach
+- **Code Quality** - Clean code principles
+- **Best Practices** - Convenzioni di naming e organizzazione
+
+---
+
+## 📊 Statistiche Progetti
+
+| Categoria | Numero Progetti | Livello |
+|-----------|----------------|---------|
+| 📘 Fondamentali | 10+ moduli | Principiante |
+| 🚆 Trasporti | 9 progetti | Intermedio |
+| 💼 Business | 22 progetti | Intermedio/Avanzato |
+| 🎯 Esercizi | 4 progetti | Vario |
+| **TOTALE** | **40+ progetti** | **Completo** |
+
+---
+
+## 🛠️ Tecnologie Utilizzate
+
+<div align="center">
+
+![Java](https://img.shields.io/badge/Java_17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
+![JDBC](https://img.shields.io/badge/JDBC-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+![JUnit](https://img.shields.io/badge/JUnit_5-25A162?style=for-the-badge&logo=junit5&logoColor=white)
+![IntelliJ](https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellijidea&logoColor=white)
+![Eclipse](https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=eclipse&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+
+</div>
+
+---
+
+## 👨‍💻 Autore
+
+**Hacman Viorica Gabriela**
+- 🎓 Studentessa Generation Italy - Java Full Stack Developer Bootcamp
+- 💼 [LinkedIn](https://www.linkedin.com/in/viorica-gabriela-hacman-63a412267/)
+- 📧 Email: hacmanvioricagabriela@gmail.com
+- 🐙 GitHub: [@vhacman](https://github.com/vhacman)
+
+---
+
+## 📝 Licenza
+
+📚 **Uso Educativo**
+
+Questo repository è stato creato per scopi educativi come parte del bootcamp Generation Italy.
+Sentiti libero di esplorare, imparare e trarre ispirazione, ma rispetta il lavoro degli altri studenti.
+
+---
+
+## 🙏 Ringraziamenti
+
+Un ringraziamento speciale a:
+- **Generation Italy** per l'opportunità di apprendimento
+- **I docenti e mentor** per la guida e il supporto
+- **I compagni di corso** per la collaborazione e lo scambio di conoscenze
+
+---
+
+<div align="center">
+
+### ⭐ Se trovi utile questo repository, lascia una stella!
+
+**Made with ☕ and 💻 during Generation Italy Bootcamp**
+
+[![Generation Italy](https://img.shields.io/badge/Generation-Italy-FF6B35?style=for-the-badge&logo=java&logoColor=white)](https://italy.generation.org/)
+
+</div>

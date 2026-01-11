@@ -9,7 +9,10 @@
 
 ## 📋 Panoramica
 
-Esempi pratici di programmazione Java che coprono i concetti fondamentali del linguaggio. Ogni programma è progettato per insegnare specifici concetti attraverso applicazioni reali e pratiche.
+<<<<<<< HEAD
+=======
+Questo modulo contiene esempi pratici di programmazione Java che coprono i concetti fondamentali del linguaggio. Ogni programma è progettato per insegnare specifici concetti attraverso applicazioni reali e pratiche.
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
 
 ---
 
@@ -85,6 +88,7 @@ Calorie Totali = (carboidrati × 4) + (proteine × 4) + (grassi × 9)
 - Percentuale copertura proteica
 - Report nutrizionale completo
 
+<<<<<<< HEAD
 ---
 
 ### 📐 Geometry (com.generation.geometry)
@@ -99,10 +103,69 @@ Calorie Totali = (carboidrati × 4) + (proteine × 4) + (grassi × 9)
 **Input:**
 - Lato del quadrato (double)
 
+=======
+**Concetti Appresi:**
+- Operazioni aritmetiche
+- Casting di tipi
+- Formattazione output
+- Calcoli scientifici
+
+---
+
+#### **PrintFoodLabel.java** - Generatore Etichette Alimentari
+
+**Funzionalità:**
+- Creazione etichette alimentari formattate
+- Generazione HTML per visualizzazione
+
+**Concetti Appresi:**
+- String formatting
+- HTML embedding in Java
+- Template design
+
+---
+
+#### **FoodAnalyzer.java** - Analizzatore Alimenti
+
+**Funzionalità:**
+- Analisi composizione alimenti
+- Strumenti di valutazione nutrizionale
+
+**Concetti Appresi:**
+- Analisi dati
+- Logica condizionale
+
+---
+
+### 📐 Geometry (com.generation.geometry)
+
+<table>
+<tr>
+<td width="50%">
+
+#### **SquareCalculator.java**
+**Calcoli sul Quadrato**
+
+**Input:**
+- Lato del quadrato (double)
+
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
 **Calcoli:**
 - Area = lato²
 - Perimetro = lato × 4
 
+<<<<<<< HEAD
+=======
+**Output:**
+- Area formattata
+- Perimetro formattato
+
+**Concetti:**
+- Operazioni matematiche
+- Math class
+- Variabili double
+
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
 </td>
 <td width="50%">
 
@@ -117,6 +180,18 @@ Calorie Totali = (carboidrati × 4) + (proteine × 4) + (grassi × 9)
 - Area = base × altezza
 - Perimetro = (base + altezza) × 2
 
+<<<<<<< HEAD
+=======
+**Output:**
+- Area formattata
+- Perimetro formattato
+
+**Concetti:**
+- Variabili multiple
+- Operazioni composite
+- Formattazione decimali
+
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
 </td>
 </tr>
 </table>
@@ -131,6 +206,18 @@ Calorie Totali = (carboidrati × 4) + (proteine × 4) + (grassi × 9)
 - Calcolo superficie totale immobile
 - Calcolo prezzo finale con valutazione balcone
 
+<<<<<<< HEAD
+=======
+**Input Richiesti:**
+```java
+• Dimensioni stanze (lunghezza × larghezza)
+• Numero bagni
+• Presenza balcone (sì/no)
+• Dimensioni balcone (se presente)
+• Prezzo al metro quadro (€/m²)
+```
+
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
 **Logica di Calcolo:**
 ```java
 Superficie Totale = Σ(stanze) + bagni
@@ -140,12 +227,42 @@ Se balcone presente:
 Prezzo Finale = (Superficie Totale × Prezzo/m²) + Valore Balcone
 ```
 
+<<<<<<< HEAD
+=======
+**Output Formattato:**
+- Dettagli proprietà
+- Superficie totale
+- Prezzo finale
+- Prezzo al metro quadro
+
+**Concetti Avanzati:**
+- Cicli for per input multipli
+- Calcoli condizionali
+- Accumulo valori
+- Formattazione currency
+
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
 ---
 
 ### ✈️ Trips (com.generation.trips)
 
 #### **FamilyTripCalculator.java** - Pianificatore Viaggio Famiglia
 
+<<<<<<< HEAD
+=======
+**Funzionalità:**
+- Calcolo costo totale vacanza famiglia
+- Analisi costo per persona
+
+**Input:**
+```java
+• Numero viaggiatori
+• Costo voli (andata + ritorno per persona)
+• Numero notti
+• Budget giornaliero per persona
+```
+
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
 **Calcoli:**
 ```java
 Costo Voli Totale = costo_volo × numero_viaggiatori
@@ -154,10 +271,30 @@ Costo Totale = Costo Voli + Costo Soggiorno
 Media per Persona = Costo Totale / viaggiatori
 ```
 
+<<<<<<< HEAD
+=======
+**Output:**
+- Breakdown dettagliato costi
+- Costo totale viaggio
+- Media per persona
+- Suggerimenti budget
+
+**Concetti:**
+- Variabili multiple
+- Calcoli finanziari
+- Media aritmetica
+- Formattazione valute
+
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
 ---
 
 ## 🎯 Concetti Chiave Appresi
 
+<<<<<<< HEAD
+=======
+### Fondamenti Java
+
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
 <table>
 <tr>
 <td width="50%">
@@ -166,11 +303,20 @@ Media per Persona = Costo Totale / viaggiatori
 - `int`, `double`, `String`, `boolean`
 - Dichiarazione e inizializzazione
 - Casting e conversioni
+<<<<<<< HEAD
+=======
+- Costanti (`final`)
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
 
 #### ⌨️ Input/Output
 - `Scanner` per input utente
 - `System.out.print/println`
+<<<<<<< HEAD
 - Formattazione output
+=======
+- Formattazione output (`printf`)
+- Buffer management
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
 
 </td>
 <td width="50%">
@@ -178,12 +324,20 @@ Media per Persona = Costo Totale / viaggiatori
 #### ➕ Operazioni Aritmetiche
 - Operatori base (+, -, *, /, %)
 - Precedenza operatori
+<<<<<<< HEAD
+=======
+- Operatori incremento/decremento
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
 - Math class methods
 
 #### 🏗️ Struttura Programma
 - Package organization
 - Import statements
 - Main method
+<<<<<<< HEAD
+=======
+- Commenti e documentazione
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
 
 </td>
 </tr>
@@ -193,7 +347,21 @@ Media per Persona = Costo Totale / viaggiatori
 
 ## 🚀 Come Eseguire i Programmi
 
+<<<<<<< HEAD
 ### Da Terminale
+=======
+### Metodo 1: Da IDE (IntelliJ/Eclipse)
+
+```bash
+1. Apri il progetto nell'IDE
+2. Naviga al file .java desiderato
+3. Click destro sul file
+4. Seleziona "Run As" → "Java Application"
+5. Segui le istruzioni nella console
+```
+
+### Metodo 2: Da Terminale
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
 
 ```bash
 # Compila il programma
@@ -203,10 +371,35 @@ javac -d bin src/com/generation/[package]/[NomeFile].java
 java -cp bin com.generation.[package].[NomeFile]
 ```
 
+<<<<<<< HEAD
+=======
+### Esempio Pratico:
+```bash
+# Compilare NeedCalculator
+javac -d bin src/com/generation/food/NeedCalculator.java
+
+# Eseguire NeedCalculator
+java -cp bin com.generation.food.NeedCalculator
+```
+
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
 ---
 
 ## 📚 Percorso di Apprendimento Consigliato
 
+<<<<<<< HEAD
+=======
+```mermaid
+graph LR
+    A[1. HelloWorld] --> B[2. HelloMe]
+    B --> C[3. SquareCalculator]
+    C --> D[4. RectangleCalculator]
+    D --> E[5. NeedCalculator]
+    E --> F[6. FamilyTripCalculator]
+    F --> G[7. PrintHouseLabel]
+```
+
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
 ### 🎓 Livello Principiante
 1. **HelloWorld.java** - Comprendi la struttura base
 2. **HelloMe.java** - Impara l'input utente
@@ -217,6 +410,69 @@ java -cp bin com.generation.[package].[NomeFile]
 5. **NeedCalculator.java** - Formule complesse
 6. **FamilyTripCalculator.java** - Logica business
 
+<<<<<<< HEAD
+=======
+### 🎓 Livello Avanzato (per questo modulo)
+7. **PrintHouseLabel.java** - Cicli e condizioni
+8. **PrintFoodLabel.java** - String formatting avanzato
+
+---
+
+## 💡 Suggerimenti per lo Studio
+
+### ✅ Best Practices
+
+1. **Leggi il codice prima di eseguirlo**
+   - Cerca di capire cosa fa ogni riga
+   - Identifica variabili e tipi
+
+2. **Esegui e sperimenta**
+   - Prova diversi input
+   - Osserva gli output
+
+3. **Modifica il codice**
+   - Cambia le formule
+   - Aggiungi nuove funzionalità
+   - Migliora l'output
+
+4. **Commenta il tuo codice**
+   - Spiega la logica
+   - Documenta le formule
+
+### 🎯 Esercizi Proposti
+
+**Per ogni programma:**
+- [ ] Eseguilo e comprendine il funzionamento
+- [ ] Modifica le formule di calcolo
+- [ ] Aggiungi validazione input
+- [ ] Migliora la formattazione output
+- [ ] Crea una versione con menu
+
+---
+
+## 🐛 Problemi Comuni e Soluzioni
+
+| Problema | Causa | Soluzione |
+|----------|-------|-----------|
+| `ClassNotFoundException` | Classe non trovata | Verifica il path e il nome della classe |
+| `InputMismatchException` | Input tipo sbagliato | Usa `try-catch` o valida l'input |
+| `ArithmeticException` | Divisione per zero | Controlla i valori prima di dividere |
+| Output formattato male | Printf format errato | Verifica i format specifiers (`%d`, `%f`, `%s`) |
+
+---
+
+## 📖 Risorse Aggiuntive
+
+### 📚 Documentazione
+- [Java SE Documentation](https://docs.oracle.com/javase/)
+- [Java Tutorials - Oracle](https://docs.oracle.com/javase/tutorial/)
+
+### 🎥 Tutorial Consigliati
+- Java Basics for Beginners
+- Understanding Variables and Data Types
+- Input/Output in Java
+
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
 ---
 
 ## 👨‍💻 Autore
@@ -227,6 +483,7 @@ java -cp bin com.generation.[package].[NomeFile]
 - 🐙 GitHub: [@vhacman](https://github.com/vhacman)
 
 ---
+<<<<<<< HEAD
 
 <div align="center">
 
@@ -237,3 +494,5 @@ java -cp bin com.generation.[package].[NomeFile]
 ![Java](https://img.shields.io/badge/Keep_Coding-Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 
 </div>
+=======
+>>>>>>> cbf0a2b90a8ac87e90f1503e722ceca9defd49b8
