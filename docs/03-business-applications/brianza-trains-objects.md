@@ -1,33 +1,87 @@
-# Brianza Trains Objects
+# 🚂 Brianza Trains Objects
 
-**Location:** `03_Business_Applications/BrianzaTrainsObjects`
+**Percorso:** `03_Business_Applications/BrianzaTrainsObjects`
 
-## Overview
+## 🎯 Panoramica
 
-Brianza Trains Objects is an object-oriented implementation of a train ticketing system. The application manages train tickets with distance-based pricing for different service classes, with comprehensive validation, testing, and HTML report generation. It demonstrates proper OOP design principles applied to transportation systems.
+**Brianza Trains Objects** è un sistema di biglietteria ferroviaria **orientato agli oggetti** che gestisce biglietti con **prezzi basati sulla distanza** per diverse classi di servizio. Include validazione completa, test unitari JUnit e generazione report HTML, applicando i principi OOP ai sistemi di trasporto.
 
-## Key Features
+## ✨ Caratteristiche Principali
 
-- Create train tickets with validated ticket IDs and distances
-- Support two service class levels (first and second class)
-- Calculate class-based pricing with distance multipliers
-- Comprehensive input validation (distance > 0, valid classes)
-- Unit testing of ticket pricing logic
-- Detailed text-based ticket previews
-- HTML export of confirmed tickets
-- Test-driven development with JUnit tests
+| Feature | Descrizione |
+|---------|-------------|
+| 🎫 **Creazione Biglietti** | ID univoci + distanze validate (> 0 km) |
+| 👑 **Classi di Servizio** | Prima e Seconda Classe con moltiplicatori distinti |
+| 💰 **Calcolo Prezzi** | Formula: `base × distanza × classe_multiplier` |
+| 🧪 **Test JUnit** | Verifica logica prezzi e validazioni |
+| 📄 **Anteprima Testuale** | Visualizzazione formattata biglietto |
+| 🌐 **Export HTML** | Report biglietti confermati |
 
-## Technologies Used
+## 🛠️ Tecnologie Utilizzate
 
-- Object-oriented design with Ticket entity
-- Unit testing with JUnit framework
-- Input validation patterns
-- Template-based HTML rendering
-- File I/O and documentation generation
-- Test classes for behavior verification
+```
+Core: Java OOP, Encapsulation, Validation
+Testing: JUnit 5 Framework  
+Output: HTML Rendering + Console Preview
+Design: Single Responsibility Principle
+```
 
-## Learning Objectives
+## 📚 Obiettivi di Apprendimento
 
-This project helps to learn to design entities with proper validation, implement test-driven development, verify pricing calculations with unit tests, and build robust transportation ticketing systems with comprehensive quality assurance.
+| Obiettivo | Beneficio |
+|-----------|-----------|
+| **Entità Validate** | Oggetti robusti con controlli |
+| **TDD** | Test prima del codice |
+| **Calcoli Finanziari** | Logica prezzi reali |
+| **Report HTML** | Template da Java |
 
-**Location:** `03_Business_Applications/BrianzaTrainsObjects`
+## 📁 Struttura Progetto
+
+```
+src/main/java/com/generation/brianza/
+├── Ticket.java           # Entità principale
+├── TicketService.java    # Logica business
+└── TicketPreview.java    # Output formattato
+
+src/test/java/com/generation/brianza/
+└── TicketTest.java       # Test unitari
+```
+
+## 💻 Come Eseguire
+
+```bash
+# Compilazione
+javac -d bin src/**/*.java
+
+# Test JUnit
+java -cp "bin:lib/*" org.junit.runner.JUnitCore com.generation.brianza.TicketTest
+
+# Demo
+java -cp bin com.generation.brianza.TicketDemo
+```
+
+## 🧮 Formula Prezzi
+
+```
+PREZZO = €0.25/km × Distanza × Moltiplicatore
+✓ Seconda Classe: × 1.0
+✓ Prima Classe: × 1.35
+
+Es: Milano-Lecco (50km, 1ª Cl.) = €16.88
+```
+
+## 🚀 Prossimi Passi
+
+1. **Orari treni** con Ticket temporali
+2. **Sconti** famiglie/bambini 
+3. **Prenotazioni multiple**
+4. **Database** persistenza dati
+
+***
+
+**👨‍💻 Autore:** Hacman Viorica Gabriela  
+**🐙 GitHub:** [@vhacman](https://github.com/vhacman)  
+**📧** hacmanvioricagabriela@gmail.com
+
+**⭐** Lascia una ⭐ se utile!
+
