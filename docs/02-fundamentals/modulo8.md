@@ -265,14 +265,3 @@ public class Teacher extends Person {
 - 🐙 GitHub: [@vhacman](https://github.com/vhacman)
 
 ---
-
-<div align="center">
-
-### ⭐ Hai completato questo modulo? Passa al successivo!
-
-**Ricorda:** L'ereditarietà è uno strumento potente - usalo saggiamente!
-
-![Java](https://img.shields.io/badge/Keep_Coding-Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-
-</div>
-
