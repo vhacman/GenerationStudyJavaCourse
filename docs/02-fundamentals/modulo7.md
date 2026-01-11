@@ -381,14 +381,3 @@ Dopo aver padroneggiato l'incapsulamento:
 - 📧 hacmanvioricagabriela@gmail.com
 - 🐙 GitHub: [@vhacman](https://github.com/vhacman)
 
----
-
-<div align="center">
-
-### ⭐ Hai completato questo modulo? Passa al successivo!
-
-**Ricorda:** L'incapsulamento è la base per codice sicuro e manutenibile!
-
-![Java](https://img.shields.io/badge/Keep_Coding-Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-
-</div>
