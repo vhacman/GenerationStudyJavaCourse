@@ -102,12 +102,12 @@ NSMPI/
 ├─────────────────────────────────────────────────────────────────────────┤
 │ Entity (Abstract, Template Method)                                      │
 │  ├── Person (Abstract)                                                  │
-│  │   ├── Patient (specializzazione: history, allergies)                │
-│  │   └── Doctor (specializzazione: specialties, salary)                │
+│  │   ├── Patient (specializzazione: history, allergies)                 │
+│  │   └── Doctor (specializzazione: specialties, salary)                 │
 │  ├── MedicalService (description, price)                                │
 │  └── ServiceRoom (description, floor)                                   │
 │                                                                         │
-│ Enums: Gender (M, F, N), Specialty (CARDIOLOGY, PEDIATRICS, ...)       │
+│ Enums: Gender (M, F, N), Specialty (CARDIOLOGY, PEDIATRICS, ...)        │
 └─────────────────────────────────────────────────────────────────────────┘
                                 ▲
                                 │ uses
@@ -115,11 +115,11 @@ NSMPI/
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                            ETL LAYER                                    │
 ├─────────────────────────────────────────────────────────────────────────┤
-│ PatientExtractor (Interface)         │  DoctorExtractor (Interface)    │
-│  └── DummyPatientExtractor           │   └── DummyDoctorExtractor      │
-│      (Implementazione test)          │       (Implementazione test)    │
+│ PatientExtractor (Interface)         │  DoctorExtractor (Interface)     │
+│  └── DummyPatientExtractor           │   └── DummyDoctorExtractor       │
+│      (Implementazione test)          │       (Implementazione test)     │
 │                                      │                                  │
-│ PatientExtractorFactory              │  DoctorExtractorFactory         │
+│ PatientExtractorFactory              │  DoctorExtractorFactory          │
 │ (Factory Pattern)                    │  (Factory Pattern)               │
 └─────────────────────────────────────────────────────────────────────────┘
                                 ▲
@@ -128,8 +128,8 @@ NSMPI/
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                         DATA SOURCES                                    │
 ├─────────────────────────────────────────────────────────────────────────┤
-│ TestData/patient.txt                 │  TestData/doctor.txt            │
-│ template/patientTemplate*.txt        │  template/doctorTemplate*.txt   │
+│ TestData/patient.txt                 │  TestData/doctor.txt             │
+│ template/patientTemplate*.txt        │  template/doctorTemplate*.txt    │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -1497,5 +1497,6 @@ PatientView view = PatientViewFactory.make(role);
 ```
 
 ---
+
 
 
