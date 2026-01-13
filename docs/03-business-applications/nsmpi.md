@@ -44,22 +44,22 @@ NSMPI è un sistema gestionale per strutture sanitarie che dimostra l'applicazio
 ├─────────────────────────────────────────────────────────────────────────┤
 │ Entity (Abstract, Template Method)                                      │
 │  ├── Person (Abstract)                                                  │
-│  │   ├── Patient (history, allergies)                                  │
-│  │   └── Doctor (specialties, salary)                                  │
+│  │   ├── Patient (history, allergies)                                   │
+│  │   └── Doctor (specialties, salary)                                   │
 │  ├── MedicalService (description, price)                                │
 │  └── ServiceRoom (description, floor)                                   │
 │                                                                         │
-│ Enums: Gender (M, F, N), Specialty (CARDIOLOGY, PEDIATRICS, ...)       │
+│ Enums: Gender (M, F, N), Specialty (CARDIOLOGY, PEDIATRICS, ...)        │
 └─────────────────────────────────────────────────────────────────────────┘
                                 ▲
                                 │
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                            ETL LAYER                                    │
 ├─────────────────────────────────────────────────────────────────────────┤
-│ PatientExtractor (Interface)         │  DoctorExtractor (Interface)    │
-│  └── DummyPatientExtractor           │   └── DummyDoctorExtractor      │
+│ PatientExtractor (Interface)         │  DoctorExtractor (Interface)     │
+│  └── DummyPatientExtractor           │   └── DummyDoctorExtractor       │
 │                                      │                                  │
-│ PatientExtractorFactory              │  DoctorExtractorFactory         │
+│ PatientExtractorFactory              │  DoctorExtractorFactory          │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -475,5 +475,6 @@ Questo progetto dimostra:
 ---
 
 **Progetto didattico** sviluppato durante il bootcamp Generation Italy per apprendere OOP avanzato e design patterns in Java.
+
 
 
