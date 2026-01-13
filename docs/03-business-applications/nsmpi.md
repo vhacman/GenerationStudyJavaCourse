@@ -6,19 +6,6 @@
 
 Sistema completo di gestione sanitaria che implementa polimorfismo avanzato, interfacce e pattern architetturali (MVC, Factory, Strategy, ETL) con visualizzazioni dinamiche basate su ruoli.
 
----
-
-## 📋 Indice
-
-- [Panoramica](#-panoramica)
-- [Architettura](#️-architettura)
-- [Entità del Dominio](#-entità-del-dominio)
-- [Design Patterns](#-design-patterns)
-- [Funzionalità Principali](#-funzionalità-principali)
-- [Esecuzione](#️-esecuzione)
-- [Concetti OOP](#-concetti-oop-avanzati)
-
----
 
 ## 🎯 Panoramica
 
@@ -488,4 +475,5 @@ Questo progetto dimostra:
 ---
 
 **Progetto didattico** sviluppato durante il bootcamp Generation Italy per apprendere OOP avanzato e design patterns in Java.
+
 
