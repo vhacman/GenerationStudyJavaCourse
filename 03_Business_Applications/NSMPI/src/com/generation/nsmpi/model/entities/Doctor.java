@@ -18,10 +18,11 @@ public class Doctor extends Person {
      * Inizializza un medico con anagrafica completa, specializzazioni e salario.
      */
     public Doctor(String firstName, String lastName, LocalDate dob, Gender gender, 
-                  List<Specialty> specialties, int salary) {
+                  List<Specialty> specialties, int salary)
+    {
         super(firstName, lastName, dob, gender);
         if (specialties != null) {
-            this.specialties = new ArrayList<>(specialties); // Defensive copy
+            this.specialties = new ArrayList<>(specialties);
         }
         this.salary = salary;
     }

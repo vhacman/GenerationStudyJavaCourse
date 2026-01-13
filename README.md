@@ -96,7 +96,7 @@ GenerationStudyJavaCourse/
 | [BrianzaTrainsObjects](docs/03-business-applications/brianza-trains-objects.md) | Treni con Oggetti | Advanced OOP |
 | [LeccoB&B](docs/03-business-applications/lecco-bb.md) | Bed & Breakfast | Booking System |
 | [NSMI](docs/03-business-applications/nsmi.md) | Sistema Gestionale | Business Logic |
-| [NSMPI](docs/03-business-applications/nsmpi.md) | Sistema Gestionale Polimorfismo | Advanced OOP, Interfaces |
+| [NSMPI](docs/03-business-applications/nsmpi.md) | Sistema Gestionale Polimorfismo | Advanced OOP, Interfaces, Factory Pattern, Strategy Pattern, ETL |
 | [PrintLabel](docs/03-business-applications/print-label.md) | Stampa Etichette | Template Rendering |
 | [ProlocoLakeComo](docs/03-business-applications/proloco-lake-como.md) | Turismo Lago Como | Tourism Management |
 | [VacanzeRomane](docs/03-business-applications/vacanze-romane.md) | Agenzia Viaggi | Travel Booking |

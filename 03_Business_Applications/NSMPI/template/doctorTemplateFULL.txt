@@ -1,0 +1,18 @@
+╭──────────────────────────────────────────────────────────╮
+│                🩺  SCHEDA MEDICO COMPLETA                │
+╰──────────────────────────────────────────────────────────╯
+
+  ANAGRAFICA
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  🆔 ID:              [id]
+  👤 Nome:            [firstName]
+  👤 Cognome:         [lastName]
+  📅 Data di Nascita: [dob]
+  ⚧  Sesso:           [gender]
+
+
+  💼 INFORMAZIONI PROFESSIONALI
+  ──────────────────────────────────────────────────────────
+  💰 Salario:         [salary] €
+  🏥 Specialità:      [specialties]
+

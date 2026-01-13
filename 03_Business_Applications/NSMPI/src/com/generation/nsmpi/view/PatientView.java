@@ -2,10 +2,11 @@ package com.generation.nsmpi.view;
 
 import com.generation.nsmpi.model.entities.Patient;
 
-public interface PatientView {
+public interface PatientView
+{
 
 	/**
-	 * Esce un paziente, esce graficato
+	 * entra un paziente, esce graficato
 	 * COME non lo so e non mi interessa
 	 * @param p
 	 * @return

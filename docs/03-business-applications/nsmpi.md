@@ -34,20 +34,30 @@ NSMPI/
 │           │   └── Specialty.java        # Enum specializzazioni
 │           │
 │           ├── view/                     # VIEW - Presentazione
-│           │   ├── PatientView.java              # Interfaccia view
-│           │   ├── FullPatientView.java          # View completa
-│           │   ├── AnonymousPatientView.java     # View anonimizzata
-│           │   ├── ClerkPatientView.java         # View amministrativa
-│           │   └── PatientViewFactory.java       # Factory view
+│           │   ├── PatientView.java              # Interfaccia view pazienti
+│           │   ├── FullPatientView.java          # View completa paziente
+│           │   ├── AnonymousPatientView.java     # View anonimizzata paziente
+│           │   ├── ClerkPatientView.java         # View amministrativa paziente
+│           │   ├── PatientViewFactory.java       # Factory view pazienti
+│           │   ├── DoctorView.java               # Interfaccia view medici
+│           │   ├── FullDoctorView.java           # View completa medico
+│           │   ├── FinancialDoctorView.java      # View finanziaria medico
+│           │   ├── DoctorViewFactory.java        # Factory view medici
+│           │   ├── DemoPatient.java              # Demo patient view
+│           │   └── DemoDoctor.java               # Demo doctor view
 │           │
 │           ├── etl/                      # ETL - Estrazione dati
-│           │   ├── PatientExtractor.java         # Interfaccia estrattore
-│           │   ├── DummyPatientExtractor.java    # Implementazione dummy
-│           │   └── PatientExtractorFactory.java  # Factory estrattori
+│           │   ├── PatientExtractor.java         # Interfaccia estrattore pazienti
+│           │   ├── DummyPatientExtractor.java    # Implementazione dummy pazienti
+│           │   ├── PatientExtractorFactory.java  # Factory estrattori pazienti
+│           │   ├── DoctorExtractor.java          # Interfaccia estrattore medici
+│           │   ├── DummyDoctorExtractor.java     # Implementazione dummy medici
+│           │   └── DoctorExtractorFactory.java   # Factory estrattori medici
 │           │
 │           ├── demo/                     # CONTROLLER - Demo
 │           │   ├── DemoPatientView.java
-│           │   └── DemoPatientExtractor.java
+│           │   ├── DemoPatientExtractor.java
+│           │   └── DemoDoctorExtractor.java
 │           │
 │           └── test/                     # Unit test
 │               ├── PatientTest.java
@@ -56,9 +66,11 @@ NSMPI/
 │               └── MedicalServiceTest.java
 │
 ├── template/                             # Template rendering
-│   ├── patientTemplateFULL.txt
-│   ├── patientTemplateForClerk.txt
-│   └── patientTemplateForExternal.txt
+│   ├── patientTemplateFULL.txt          # Template paziente completo
+│   ├── patientTemplateForClerk.txt      # Template paziente clerk
+│   ├── patientTemplateForExternal.txt   # Template paziente esterno
+│   ├── doctorTemplateFULL.txt           # Template medico completo
+│   └── doctorTemplateFINANCIAL.txt      # Template medico finanziario
 │
 └── TestData/                             # Dati di test
     ├── patient.txt
@@ -436,7 +448,7 @@ public class ServiceRoom extends Entity {
 
 ---
 
-## 🎨 Strato View
+## 🎨 Strato View - Pazienti
 
 ### PatientView (Interfaccia)
 
@@ -743,6 +755,321 @@ public class PatientExtractorFactory {
 
 ---
 
+## 🩺 Strato View - Medici
+
+### DoctorView (Interfaccia)
+
+**Percorso:** `com.generation.nsmpi.view.DoctorView`
+
+```java
+public interface DoctorView {
+    /**
+     * Renderizza un medico in formato stringa
+     * @param d Medico da renderizzare
+     * @return Stringa formattata secondo il template
+     */
+    String render(Doctor d);
+}
+```
+
+**Responsabilità:**
+- Definisce il contratto per renderizzare medici
+- Permette diverse implementazioni per diversi ruoli (completa, finanziaria)
+
+---
+
+### FullDoctorView (View Completa)
+
+**Percorso:** `com.generation.nsmpi.view.FullDoctorView`
+
+```java
+class FullDoctorView implements DoctorView {
+    protected String filename;  // Path del template
+
+    public FullDoctorView(String filename) {
+        this.filename = filename;
+    }
+
+    @Override
+    public String render(Doctor d) {
+        String res = Template.load(filename);
+
+        // Sostituisce placeholders
+        res = res.replace("[id]", String.valueOf(d.getId()))
+                 .replace("[firstName]", d.getFirstName())
+                 .replace("[lastName]", d.getLastName())
+                 .replace("[dob]", d.getDob().toString())
+                 .replace("[gender]", d.getGender().toString())
+                 .replace("[salary]", String.valueOf(d.getSalary()));
+
+        // Specializzazioni
+        String specialtiesString = "";
+        for (int i = 0; i < d.getSpecialties().size(); i++) {
+            Specialty specialty = d.getSpecialties().get(i);
+            specialtiesString += specialty + (i < d.getSpecialties().size() - 1 ? ", " : "");
+        }
+        res = res.replace("[specialties]", specialtiesString);
+
+        return res;
+    }
+}
+```
+
+**Template:** `template/doctorTemplateFULL.txt`
+
+```
+╭──────────────────────────────────────────────────────────╮
+│                🩺  SCHEDA MEDICO COMPLETA                │
+╰──────────────────────────────────────────────────────────╯
+
+  ANAGRAFICA
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  🆔 ID:              [id]
+  👤 Nome:            [firstName]
+  👤 Cognome:         [lastName]
+  📅 Data di Nascita: [dob]
+  ⚧  Sesso:           [gender]
+
+
+  💼 INFORMAZIONI PROFESSIONALI
+  ──────────────────────────────────────────────────────────
+  💰 Salario:         [salary] €
+  🏥 Specialità:      [specialties]
+```
+
+**Uso:** Per amministrazione e HR (dati completi incluse informazioni professionali).
+
+---
+
+### FinancialDoctorView (View Finanziaria)
+
+**Percorso:** `com.generation.nsmpi.view.FinancialDoctorView`
+
+```java
+class FinancialDoctorView extends FullDoctorView {
+    protected String filename;
+
+    public FinancialDoctorView(String filename) {
+        this.filename = filename;
+    }
+
+    @Override
+    public String render(Doctor d) {
+        String res = Template.load(filename);
+
+        // SOLO dati finanziari essenziali
+        res = res.replace("[id]", String.valueOf(d.getId()))
+                 .replace("[firstName]", d.getFirstName())
+                 .replace("[lastName]", d.getLastName())
+                 .replace("[salary]", String.valueOf(d.getSalary()));
+
+        return res;
+    }
+}
+```
+
+**Template:** `template/doctorTemplateFINANCIAL.txt`
+
+```
+╭──────────────────────────────────────────────────────────╮
+│              💰  SCHEDA MEDICO FINANZIARIA               │
+╰──────────────────────────────────────────────────────────╯
+
+  DATI BASE
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  🆔 ID:              [id]
+  👤 Nome:            [firstName]
+  👤 Cognome:         [lastName]
+
+
+  💼 INFORMAZIONI FINANZIARIE
+  ──────────────────────────────────────────────────────────
+  💰 Salario:         [salary] €
+```
+
+**Uso:** Per reparto finanziario e amministrazione paghe (solo dati salariali).
+
+**Caratteristica:** Estende `FullDoctorView` ma override `render()` per mostrare solo info finanziarie, dimostrando riuso tramite ereditarietà.
+
+---
+
+### DoctorViewFactory (Factory Pattern)
+
+**Percorso:** `com.generation.nsmpi.view.DoctorViewFactory`
+
+```java
+public class DoctorViewFactory {
+    // Singleton instances
+    static DoctorView fullViewTXT =
+        new FullDoctorView("template/doctorTemplateFULL.txt");
+
+    static DoctorView financialViewTXT =
+        new FinancialDoctorView("template/doctorTemplateFINANCIAL.txt");
+
+    public static DoctorView make(String role) {
+        switch (role) {
+            case "full":
+                return fullViewTXT;
+            case "financial":
+                return financialViewTXT;
+            default:
+                return null;
+        }
+    }
+}
+```
+
+**Pattern:**
+- **Factory Pattern:** Centralizza creazione view medici
+- **Singleton:** Istanze statiche (no duplicazione, efficienza memoria)
+- **Strategy Selection:** Sceglie strategia basata su ruolo
+
+**Utilizzo:**
+```java
+DoctorView view = DoctorViewFactory.make("full");
+String rendered = view.render(doctor);
+
+// Cambio ruolo al volo
+view = DoctorViewFactory.make("financial");
+rendered = view.render(doctor);
+```
+
+---
+
+## 📥 Strato ETL - Medici
+
+### DoctorExtractor (Interfaccia)
+
+**Percorso:** `com.generation.nsmpi.etl.DoctorExtractor`
+
+```java
+public interface DoctorExtractor {
+    /**
+     * Estrae lista di medici da file
+     * @param filename Path del file sorgente
+     * @return Lista di medici
+     */
+    List<Doctor> getDoctorsFromFile(String filename);
+}
+```
+
+**Responsabilità:**
+- Definisce contratto generico per estrazione dati medici
+- Permette diverse implementazioni (CSV, XML, JSON, DB)
+
+---
+
+### DummyDoctorExtractor
+
+**Percorso:** `com.generation.nsmpi.etl.DummyDoctorExtractor`
+
+```java
+public class DummyDoctorExtractor implements DoctorExtractor {
+    @Override
+    public List<Doctor> getDoctorsFromFile(String filename) {
+        List<Doctor> res = new ArrayList<>();
+
+        // Dati dummy per test (ignora filename)
+        Doctor d1 = new Doctor("Mario", "Rossi",
+            LocalDate.of(1975, 3, 15), Gender.M,
+            Arrays.asList(Specialty.CARDIOLOGY), 55000);
+        d1.setId(1);
+        res.add(d1);
+
+        Doctor d2 = new Doctor("Laura", "Bianchi",
+            LocalDate.of(1980, 7, 22), Gender.F,
+            Arrays.asList(Specialty.PEDIATRICS, Specialty.EMERGENCY_MEDICINE), 48000);
+        d2.setId(2);
+        res.add(d2);
+
+        // ... altri medici ...
+
+        return res;
+    }
+}
+```
+
+**Caratteristiche:**
+- Implementazione dummy (ignora filename)
+- Dati hardcoded per scopi didattici
+- Crea medici con specializzazioni multiple
+
+---
+
+### DoctorExtractorFactory
+
+**Percorso:** `com.generation.nsmpi.etl.DoctorExtractorFactory`
+
+```java
+public class DoctorExtractorFactory {
+    static DoctorExtractor dummy = new DummyDoctorExtractor();
+
+    public static DoctorExtractor make(String type) {
+        return dummy;  // Al momento ritorna sempre dummy
+    }
+}
+```
+
+**Estensibile a:**
+- `CSVDoctorExtractor`
+- `XMLDoctorExtractor`
+- `JSONDoctorExtractor`
+- `DBDoctorExtractor`
+
+---
+
+### DemoDoctorExtractor
+
+**Percorso:** `com.generation.nsmpi.demo.DemoDoctorExtractor`
+
+```java
+public class DemoDoctorExtractor {
+    public static void main(String[] args) {
+        // Factory per creare extractor e view
+        DoctorExtractor dummyExtractor = DoctorExtractorFactory.make("dummy");
+        DoctorView fullView = DoctorViewFactory.make("full");
+
+        // Estrai lista medici
+        List<Doctor> doctorList = dummyExtractor.getDoctorsFromFile("testdata/doctors.csv");
+
+        // Renderizza ogni medico
+        for (Doctor currentDoctor : doctorList) {
+            String renderedDoctor = fullView.render(currentDoctor);
+            Console.print(renderedDoctor);
+        }
+    }
+}
+```
+
+**Esecuzione:**
+```bash
+javac com/generation/nsmpi/demo/DemoDoctorExtractor.java
+java com.generation.nsmpi.demo.DemoDoctorExtractor
+```
+
+**Output:**
+```
+╭──────────────────────────────────────────────────────────╮
+│                🩺  SCHEDA MEDICO COMPLETA                │
+╰──────────────────────────────────────────────────────────╯
+
+  ANAGRAFICA
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  🆔 ID:              1
+  👤 Nome:            Mario
+  👤 Cognome:         Rossi
+  📅 Data di Nascita: 1975-03-15
+  ⚧  Sesso:           M
+
+
+  💼 INFORMAZIONI PROFESSIONALI
+  ──────────────────────────────────────────────────────────
+  💰 Salario:         55000 €
+  🏥 Specialità:      CARDIOLOGY
+```
+
+---
+
 ## 🎭 Pattern Implementati
 
 ### 1. MVC (Model-View-Controller)
@@ -756,11 +1083,17 @@ MODEL (model/entities/)
 VIEW (view/)
   ├── PatientView (interfaccia)
   ├── FullPatientView, AnonymousPatientView, ClerkPatientView
-  └── PatientViewFactory
+  ├── PatientViewFactory
+  ├── DoctorView (interfaccia)
+  ├── FullDoctorView, FinancialDoctorView
+  └── DoctorViewFactory
 
 CONTROLLER (demo/)
   ├── DemoPatientView
-  └── DemoPatientExtractor
+  ├── DemoPatientExtractor
+  ├── DemoDoctorExtractor
+  ├── DemoDoctor
+  └── DemoPatient
 ```
 
 ---
@@ -768,11 +1101,17 @@ CONTROLLER (demo/)
 ### 2. Factory Pattern
 
 ```java
-// View Factory
-PatientView view = PatientViewFactory.make("doctor");
+// Patient View Factory
+PatientView patientView = PatientViewFactory.make("doctor");
 
-// Extractor Factory
-PatientExtractor extractor = PatientExtractorFactory.make("csv");
+// Doctor View Factory
+DoctorView doctorView = DoctorViewFactory.make("full");
+
+// Patient Extractor Factory
+PatientExtractor patientExtractor = PatientExtractorFactory.make("csv");
+
+// Doctor Extractor Factory
+DoctorExtractor doctorExtractor = DoctorExtractorFactory.make("dummy");
 ```
 
 **Benefici:**
@@ -785,17 +1124,27 @@ PatientExtractor extractor = PatientExtractorFactory.make("csv");
 ### 3. Strategy Pattern
 
 ```java
+// Interfaccia comune per Patient View
 public interface PatientView {
     String render(Patient p);
 }
 
-// Diverse strategie di rendering
+// Diverse strategie di rendering per pazienti
 class FullPatientView implements PatientView { ... }
 class AnonymousPatientView extends FullPatientView { ... }
 class ClerkPatientView extends FullPatientView { ... }
+
+// Interfaccia comune per Doctor View
+public interface DoctorView {
+    String render(Doctor d);
+}
+
+// Diverse strategie di rendering per medici
+class FullDoctorView implements DoctorView { ... }
+class FinancialDoctorView extends FullDoctorView { ... }
 ```
 
-**Beneficio:** Stesso metodo (`render`), algoritmi diversi.
+**Beneficio:** Stesso metodo (`render`), algoritmi diversi. Permette di cambiare strategia a runtime.
 
 ---
 
