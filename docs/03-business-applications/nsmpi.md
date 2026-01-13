@@ -72,9 +72,9 @@ NSMPI/
 │                      VIEW LAYER                         │
 ├─────────────────────────────────────────────────────────┤
 │ PatientView (Interface)                                 │
-│  ├── FullPatientView (Strategy: dati completi)         │
-│  ├── AnonymousPatientView (Strategy: anonimizzata)     │
-│  └── ClerkPatientView (Strategy: dati minimi)          │
+│  ├── FullPatientView (Strategy: dati completi)          │
+│  ├── AnonymousPatientView (Strategy: anonimizzata)      │
+│  └── ClerkPatientView (Strategy: dati minimi)           │
 │                                                         │
 │ PatientViewFactory (Factory Pattern)                    │
 └─────────────────────────────────────────────────────────┘
@@ -91,7 +91,7 @@ NSMPI/
 │  ├── MedicalService                                     │
 │  └── ServiceRoom                                        │
 │                                                         │
-│ Enums: Gender, Specialty                               │
+│ Enums: Gender, Specialty                                │
 └─────────────────────────────────────────────────────────┘
                         ▲
                         │ uses
@@ -100,7 +100,7 @@ NSMPI/
 │                      ETL LAYER                          │
 ├─────────────────────────────────────────────────────────┤
 │ PatientExtractor (Interface)                            │
-│  └── DummyPatientExtractor                             │
+│  └── DummyPatientExtractor                              │
 │                                                         │
 │ PatientExtractorFactory (Factory Pattern)               │
 └─────────────────────────────────────────────────────────┘
@@ -1134,24 +1134,4 @@ PatientView view = PatientViewFactory.make(role);
 
 ---
 
-## 📚 Conclusioni
-
-NSMPI è un progetto didattico completo che dimostra:
-
-1. **Architettura MVC** con separazione chiara
-2. **Pattern moderni** (Factory, Strategy, Template Method, Repository)
-3. **Polimorfismo avanzato** per ereditarietà e interfaccia
-4. **Type-safety** con enum
-5. **Validazione robusta** con Template Method
-6. **Visualizzazioni dinamiche** basate su ruoli
-7. **Estensibilità** facile
-8. **Testing** con JUnit
-9. **Principi SOLID** applicati
-10. **Code reusability** con libreria condivisa
-
-Un esempio eccellente di applicazione Java OOP realistica e professionale.
-
----
-
-**[⬅️ Torna all'indice](../../README.md)** | **[📚 Altri progetti business](../../README.md#-applicazioni-business-03_business_applications)**
 
