@@ -6,43 +6,6 @@
 
 Sistema completo di gestione sanitaria che implementa polimorfismo avanzato, interfacce, pattern architetturali (MVC, Factory, Strategy) e visualizzazioni dinamiche basate su ruoli.
 
-## 📋 Indice
-
-- [Panoramica](#-panoramica)
-- [Architettura](#-architettura)
-- [Modello di Dominio](#-modello-di-dominio)
-- [Strato View](#-strato-view)
-- [Strato ETL](#-strato-etl)
-- [Pattern Implementati](#-pattern-implementati)
-- [Polimorfismo](#-polimorfismo)
-- [Esecuzione](#-esecuzione)
-- [Testing](#-testing)
-
----
-
-## 🎯 Panoramica
-
-**NSMPI** (Nome Servizio Medico Polimorfismo Interfacce) è un'applicazione didattica avanzata che dimostra:
-
-- **Architettura MVC** completa con separazione chiara delle responsabilità
-- **Pattern di Design** moderni (Factory, Strategy, Template Method, Repository)
-- **Polimorfismo avanzato** sia per ereditarietà che per interfacce
-- **Visualizzazioni dinamiche** basate su ruoli con template rendering
-- **Type-safety** con enum per genere e specializzazioni mediche
-- **Validazione robusta** mediante Template Method pattern
-- **Principi SOLID** ben applicati
-
-### Obiettivi di Apprendimento
-
-- ✅ Implementare architettura MVC in Java
-- ✅ Utilizzare pattern Factory e Strategy
-- ✅ Creare visualizzazioni basate su ruoli
-- ✅ Applicare polimorfismo per ereditarietà e interfacce
-- ✅ Gestire validazione con Template Method
-- ✅ Utilizzare enum per type-safety
-- ✅ Implementare ETL (Extract, Transform, Load)
-- ✅ Scrivere unit test con JUnit
-
 ---
 
 ## 🏗️ Architettura
@@ -1191,3 +1154,4 @@ Un esempio eccellente di applicazione Java OOP realistica e professionale.
 ---
 
 **[⬅️ Torna all'indice](../../README.md)** | **[📚 Altri progetti business](../../README.md#-applicazioni-business-03_business_applications)**
+
