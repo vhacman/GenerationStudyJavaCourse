@@ -80,42 +80,57 @@ NSMPI/
 ### Diagramma Architetturale
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                      VIEW LAYER                         │
-├─────────────────────────────────────────────────────────┤
-│ PatientView (Interface)                                 │
-│  ├── FullPatientView (Strategy: dati completi)          │
-│  ├── AnonymousPatientView (Strategy: anonimizzata)      │
-│  └── ClerkPatientView (Strategy: dati minimi)           │
-│                                                         │
-│ PatientViewFactory (Factory Pattern)                    │
-└─────────────────────────────────────────────────────────┘
-                        ▲
-                        │ uses
-                        │
-┌─────────────────────────────────────────────────────────┐
-│                     MODEL LAYER                         │
-├─────────────────────────────────────────────────────────┤
-│ Entity (Abstract, Template Method)                      │
-│  ├── Person (Abstract)                                  │
-│  │   ├── Patient                                        │
-│  │   └── Doctor                                         │
-│  ├── MedicalService                                     │
-│  └── ServiceRoom                                        │
-│                                                         │
-│ Enums: Gender, Specialty                                │
-└─────────────────────────────────────────────────────────┘
-                        ▲
-                        │ uses
-                        │
-┌─────────────────────────────────────────────────────────┐
-│                      ETL LAYER                          │
-├─────────────────────────────────────────────────────────┤
-│ PatientExtractor (Interface)                            │
-│  └── DummyPatientExtractor                              │
-│                                                         │
-│ PatientExtractorFactory (Factory Pattern)               │
-└─────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────┐
+│                            VIEW LAYER                                   │
+├─────────────────────────────────────────────────────────────────────────┤
+│ PatientView (Interface)              │  DoctorView (Interface)          │
+│  ├── FullPatientView                 │   ├── FullDoctorView             │
+│  │   (Strategy: dati completi)       │   │   (Strategy: dati completi)  │
+│  ├── AnonymousPatientView            │   └── FinancialDoctorView        │
+│  │   (Strategy: anonimizzata)        │       (Strategy: dati finanziari)│
+│  └── ClerkPatientView                │                                  │
+│      (Strategy: dati minimi)         │                                  │
+│                                      │                                  │
+│ PatientViewFactory                   │  DoctorViewFactory               │
+│ (Factory Pattern)                    │  (Factory Pattern)               │
+└─────────────────────────────────────────────────────────────────────────┘
+                                ▲
+                                │ uses
+                                │
+┌─────────────────────────────────────────────────────────────────────────┐
+│                           MODEL LAYER                                   │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Entity (Abstract, Template Method)                                      │
+│  ├── Person (Abstract)                                                  │
+│  │   ├── Patient (specializzazione: history, allergies)                │
+│  │   └── Doctor (specializzazione: specialties, salary)                │
+│  ├── MedicalService (description, price)                                │
+│  └── ServiceRoom (description, floor)                                   │
+│                                                                         │
+│ Enums: Gender (M, F, N), Specialty (CARDIOLOGY, PEDIATRICS, ...)       │
+└─────────────────────────────────────────────────────────────────────────┘
+                                ▲
+                                │ uses
+                                │
+┌─────────────────────────────────────────────────────────────────────────┐
+│                            ETL LAYER                                    │
+├─────────────────────────────────────────────────────────────────────────┤
+│ PatientExtractor (Interface)         │  DoctorExtractor (Interface)    │
+│  └── DummyPatientExtractor           │   └── DummyDoctorExtractor      │
+│      (Implementazione test)          │       (Implementazione test)    │
+│                                      │                                  │
+│ PatientExtractorFactory              │  DoctorExtractorFactory         │
+│ (Factory Pattern)                    │  (Factory Pattern)               │
+└─────────────────────────────────────────────────────────────────────────┘
+                                ▲
+                                │ reads from
+                                │
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         DATA SOURCES                                    │
+├─────────────────────────────────────────────────────────────────────────┤
+│ TestData/patient.txt                 │  TestData/doctor.txt            │
+│ template/patientTemplate*.txt        │  template/doctorTemplate*.txt   │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
