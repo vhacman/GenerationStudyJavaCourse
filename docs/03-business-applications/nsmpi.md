@@ -460,30 +460,6 @@ doctor.addSpecialty(Specialty.CARDIOLOGY);  // IDE autocomplete, compile-time ch
 | **I** - Interface Segregation | Interfacce piccole: `PatientView` ha solo `render()` |
 | **D** - Dependency Inversion | Dipendenza da astrazioni (`PatientView`) non concretizzazioni |
 
----
-
-## 🚀 Possibili Estensioni
-
-1. **Database Integration**
-   - `DatabasePatientExtractor` con JDBC
-   - `DatabaseDoctorExtractor` con query SQL
-
-2. **Nuove View**
-   - `JsonPatientView` per API REST
-   - `PdfDoctorView` per report stampabili
-   - `ExcelPatientView` per export dati
-
-3. **Autenticazione e Autorizzazione**
-   - Sistema di login con ruoli
-   - Selezione automatica view in base a ruolo utente
-
-4. **Cache Layer**
-   - Cache per view renderizzate frequentemente
-   - Invalidazione cache su update entità
-
-5. **Async Processing**
-   - Elaborazione asincrona per grandi dataset
-   - Progress tracking per operazioni lunghe
 
 ---
 
@@ -512,3 +488,4 @@ Questo progetto dimostra:
 ---
 
 **Progetto didattico** sviluppato durante il bootcamp Generation Italy per apprendere OOP avanzato e design patterns in Java.
+
