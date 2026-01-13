@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 
 import com.generation.pokedex.contex.Context;
 import com.generation.pokedex.model.entities.Pokemon;
@@ -15,13 +16,15 @@ import com.generation.pokedex.model.entities.PokemonType;
 public class PokemonRepository 
 {
 	Connection connection = (Connection) Context.getDependency(Connection.class);
+
 	
 	public void insert(Pokemon p)
 	{
 		try
 		{
 			// COMANDO SQL
-			PreparedStatement	sqlCmd = connection.prepareStatement("insert into pokemon(name, primarytypeid) values(?,?);");
+			PreparedStatement sqlCmd = 
+				connection.prepareStatement("insert into pokemon(name, primarytypeid) values(?,?);");
 			sqlCmd.setString(1, p.getName());
 			sqlCmd.setInt(2, p.getPrimary().getId());
 			sqlCmd.execute(); // ho scritto sul db.
@@ -75,6 +78,12 @@ public class PokemonRepository
 		}
 		
 		
+	}
+
+	public void insert(List<Pokemon> pokemons) 
+	{
+		for(Pokemon p:pokemons)
+			insert(p); // richiamo l'insert del singolo
 	}
 	
 

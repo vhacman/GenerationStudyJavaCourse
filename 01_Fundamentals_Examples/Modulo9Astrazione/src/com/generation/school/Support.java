@@ -16,19 +16,19 @@ public class Support extends Employee
 		this.occupation = occupation;
 	}
 
-	public String 	getOccupation() {return occupation == null ? "UNKNOWN" : occupation;}
-	public void 	setOccupation(String occupation) {this.occupation = occupation == null ? "UNKNOWN" : occupation;}
+	public String 	getOccupation() 					{return occupation == null ? "UNKNOWN" : occupation;}
+	public void 	setOccupation(String occupation) 	{this.occupation = occupation == null ? "UNKNOWN" : occupation;}
 
 	@Override
-	public double getYearlyRetribution()
-	{
-		return salary * 14;
-	}
-
+	public double	getYearlyRetribution() 				{return salary * 14;}
 	@Override
-	public String toString()
+	public String toString() 							{return super.toString() + " Occupation: " + getOccupation();}
+	
+	public boolean isValid()
 	{
-		return super.toString() + " Occupation: " +
-				getOccupation();
+		return salary >= 800 			&&
+				occupation != null 		&&
+				!occupation.isBlank() 	&&
+				!occupation.isEmpty();
 	}
 }

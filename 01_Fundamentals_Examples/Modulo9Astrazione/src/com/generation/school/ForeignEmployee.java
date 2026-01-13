@@ -44,4 +44,14 @@ public class ForeignEmployee extends Employee
 					getVisaType() + " NativeLanguage: " +
 					getNativeLanguage();
 	}
+	
+	public boolean isValid()
+	{
+	    if (nationality == null || nationality.isEmpty()) return false;
+	    if (visaType == null || visaType.isEmpty()) return false;
+	    if (nativeLanguage == null || nativeLanguage.isEmpty()) return false;
+	    return true; 
+	}
+
+	
 }

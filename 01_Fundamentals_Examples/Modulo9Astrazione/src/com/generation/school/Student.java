@@ -32,14 +32,15 @@ public class Student extends Person
 	    this.hasFailingGrades = hasFailingGrades;
 	}
 
-	public int 		getYear() {return year;}
-	public String 	getSection() {return section == null ? "UNKNOWN" : section;}
-	public double 	getAverage() {return average;}
-	public boolean 	hasFailingGrades() {return hasFailingGrades;}
-	public void 	setYear(int year) {this.year = year;}
-	public void 	setSection(String section) { this.section = section == null ? "UNKNOWN" : section;}
-	public void 	setAverage(double average) {this.average = average;}
-	public void 	setHasFailingGrades(boolean hasFailingGrades) {this.hasFailingGrades = hasFailingGrades;}
+	public int 		getYear() 										{return year;}
+	public String 	getSection() 									{return section == null ? "UNKNOWN" : section;}
+	public double 	getAverage() 									{return average;}
+	public boolean 	hasFailingGrades() 								{return hasFailingGrades;}
+	
+	public void 	setYear(int year) 								{this.year = year;}
+	public void 	setSection(String section)						{ this.section = section == null ? "UNKNOWN" : section;}
+	public void 	setAverage(double average) 						{this.average = average;}
+	public void 	setHasFailingGrades(boolean hasFailingGrades) 	{this.hasFailingGrades = hasFailingGrades;}
 	
 	@Override
 	public int getCost()
@@ -64,5 +65,11 @@ public class Student extends Person
 				getDateOfBirth() + " " +
 				getGender() + " Year: " + year + " Section: " +
 				getSection();
+	}
+	public boolean isValid()
+	{
+		if (year < 1 || year > 5) return false;
+		if (section == null || section.isEmpty()) return false;
+		return true;
 	}
 }

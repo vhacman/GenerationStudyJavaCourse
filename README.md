@@ -45,6 +45,7 @@ GenerationStudyJavaCourse/
 - [Modulo 7 - Incapsulamento](docs/02-fundamentals/modulo7.md)
 - [Modulo 8 - Ereditarietà](docs/02-fundamentals/modulo8.md)
 - [Modulo 9 - Astrazione](docs/02-fundamentals/modulo9.md)
+- [Modulo 10 - Polimorfismo e Interfacce](docs/02-fundamentals/modulo10.md)
 - [Recap - Lezioni di Ripasso](docs/02-fundamentals/recap.md)
 - [Sequenza e Selezione](docs/02-fundamentals/sequenza-selezione.md)
 - [Cicli While](docs/02-fundamentals/while.md)
@@ -95,6 +96,7 @@ GenerationStudyJavaCourse/
 | [BrianzaTrainsObjects](docs/03-business-applications/brianza-trains-objects.md) | Treni con Oggetti | Advanced OOP |
 | [LeccoB&B](docs/03-business-applications/lecco-bb.md) | Bed & Breakfast | Booking System |
 | [NSMI](docs/03-business-applications/nsmi.md) | Sistema Gestionale | Business Logic |
+| [NSMPI](docs/03-business-applications/nsmpi.md) | Sistema Gestionale Polimorfismo | Advanced OOP, Interfaces |
 | [PrintLabel](docs/03-business-applications/print-label.md) | Stampa Etichette | Template Rendering |
 | [ProlocoLakeComo](docs/03-business-applications/proloco-lake-como.md) | Turismo Lago Como | Tourism Management |
 | [VacanzeRomane](docs/03-business-applications/vacanze-romane.md) | Agenzia Viaggi | Travel Booking |
@@ -186,11 +188,11 @@ GenerationStudyJavaCourse/
 
 | Categoria | Numero Progetti | Livello |
 |-----------|----------------|---------|
-| 📘 Fondamentali | 10+ moduli | Principiante |
+| 📘 Fondamentali | 11 moduli | Principiante |
 | 🚆 Trasporti | 9 progetti | Intermedio |
-| 💼 Business | 22 progetti | Intermedio/Avanzato |
+| 💼 Business | 23 progetti | Intermedio/Avanzato |
 | 🎯 Esercizi | 4 progetti | Vario |
-| **TOTALE** | **40+ progetti** | **Completo** |
+| **TOTALE** | **47 progetti** | **Completo** |
 
 ---
 
