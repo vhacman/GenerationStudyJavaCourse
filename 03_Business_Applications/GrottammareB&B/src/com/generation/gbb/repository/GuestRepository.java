@@ -4,78 +4,81 @@ import java.util.List;
 import com.generation.gbb.model.entities.Guest;
 
 /**
- * Interfaccia per la gestione della persistenza degli ospiti.
- * Definisce i metodi CRUD per l'entità Guest.
+ * Interface for Guest persistence management.
+ * Defines CRUD operations for Guest entity.
  */
 public interface GuestRepository
 {
-	// ==================== READ ====================
+    // ==================== READ ====================
 
-	/**
-	 * R - Recupera tutti gli ospiti presenti nel sistema.
-	 *
-	 * @return Lista di tutti gli ospiti
-	 */
-	List<Guest> 		findAll();
+    /**
+     * R - Retrieves all guests available in the system.
+     *
+     * @return List of all guests
+     */
+    List<Guest> findAll();
 
-	/**
-	 * R - Recupera un ospite tramite il suo identificativo.
-	 *
-	 * @return Ospite trovato, null se non esiste
-	 */
-	Guest 				findById(int id);
+    /**
+     * R - Retrieves single guest by its unique identifier.
+     *
+     * @param id Guest identifier to search
+     * @return Found guest, null if not exists
+     */
+    Guest findById(int id);
 
-	/**
-	 * R - Recupera un ospite tramite il suo codice fiscale.
-	 *
-	 * @param ssn Codice fiscale dell'ospite da cercare
-	 * @return Ospite trovato, null se non esiste
-	 */
-	Guest 				findBySSN(String ssn);
+    /**
+     * R - Retrieves single guest by Tax Code.
+     *
+     * @param ssn Guest Tax Code to search
+     * @return Found guest, null if not exists
+     */
+    Guest findBySSN(String ssn);
 
-	/**
-	 * R - Recupera tutti gli ospiti il cui cognome contiene la stringa specificata.
-	 *
-	 * @param part Parte del cognome da cercare
-	 * @return Lista di ospiti con cognome contenente la stringa, lista vuota se nessun match
-	 */
-	List<Guest> 		findBySurnameContaining(String part);
+    /**
+     * R - Finds all guests whose surname contains specified string.
+     * Case-insensitive partial match search.
+     *
+     * @param part String part to search in surname
+     * @return List of guests with matching surname, empty list if no matches
+     */
+    List<Guest> findBySurnameContaining(String part);
 
-	/**
-	 * R - Recupera tutti gli ospiti residenti in una specifica città.
-	 *
-	 * @param city Nome della città da cercare
-	 * @return Lista di ospiti residenti nella città, lista vuota se nessun match
-	 */
-	List<Guest> 		findByCity(String city);
+    /**
+     * R - Finds all guests residing in specific city.
+     * Case-insensitive exact match search.
+     *
+     * @param city City name to search
+     * @return List of guests from city, empty list if no matches
+     */
+    List<Guest> findByCity(String city);
 
-	// ==================== CREATE ====================
+    // ==================== CREATE ====================
 
-	/**
-	 * C - Inserisce un nuovo ospite nel sistema.
-	 *
-	 * @param newGuest Ospite da inserire (con tutti i dati obbligatori)
-	 * @return Ospite inserito con ID assegnato, null se l'inserimento fallisce
-	 */
-	Guest 				insert(Guest newGuest);
+    /**
+     * C - Inserts new guest into the system.
+     *
+     * @param newGuest Guest to insert with all required data
+     * @return Inserted guest with assigned ID, null if insertion fails
+     */
+    Guest insert(Guest newGuest);
 
-	// ==================== UPDATE ====================
+    // ==================== UPDATE ====================
 
-	/**
-	 * U - Aggiorna i dati di un ospite esistente.
-	 *
-	 * @param newVersion Ospite con dati aggiornati (deve avere un ID valido)
-	 * @return Ospite aggiornato, null se l'aggiornamento fallisce o l'ospite non esiste
-	 */
-	Guest				update(Guest newVersion);
+    /**
+     * U - Updates existing guest data.
+     *
+     * @param newVersion Updated guest (must have valid existing ID)
+     * @return Updated guest, null if update fails or guest not found
+     */
+    Guest update(Guest newVersion);
 
-	// ==================== DELETE ====================
+    // ==================== DELETE ====================
 
-	/**
-	 * D - Elimina un ospite dal sistema tramite il suo identificativo.
-	 *
-	 * @param id Identificativo dell'ospite da eliminare
-	 * @return true se l'eliminazione è avvenuta con successo, false altrimenti
-	 */
-	boolean				delete(int id);
+    /**
+     * D - Deletes guest from system by identifier.
+     *
+     * @param id Guest identifier to delete
+     * @return true if deletion successful, false otherwise
+     */
+    boolean delete(int id);
 }

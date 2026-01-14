@@ -6,8 +6,8 @@ import java.util.List;
 import com.generation.gbb.model.entities.Guest;
 
 /**
- * Repository in-memory per la gestione degli ospiti.
- * Utilizza una lista mockData per simulare la persistenza senza database.
+ * In-memory repository for guest management.
+ * Uses mockData list to simulate persistence without database.
  */
 public class DummyGuestRepositoryFactory implements GuestRepository
 {
@@ -16,9 +16,9 @@ public class DummyGuestRepositoryFactory implements GuestRepository
 
 
 	/**
-	 * Inizializza il repository con dati di test.
-	 * Popola mockData con 13 ospiti fittizi per simulare un dataset iniziale.
-	 */
+     * Initializes repository with test data.
+     * Populates mockData with 13 fictional guests to simulate initial dataset.
+     */
 	public DummyGuestRepositoryFactory()
 	{
 		mockData.add(new Guest(1, "Carlo", "Rossi", "ABCDEF99C11K345L", "1999-02-08", "Via dei crisantesimi", "Livorno"));
@@ -36,11 +36,11 @@ public class DummyGuestRepositoryFactory implements GuestRepository
         mockData.add(new Guest(13, "Gabriele", "Serra", "SRRGRL84A10D612E", "1984-01-10", "Via Indipendenza 8", "Messina"));
 	}
 
-	/**
-	 * Recupera tutti gli ospiti dal repository.
-	 *
-	 * @return Lista completa degli ospiti in memoria
-	 */
+	 /**
+     * Retrieves all guests from repository.
+     *
+     * @return Complete list of guests in memory
+     */
 	@Override
 	public List<Guest> findAll()
 	{
@@ -48,12 +48,12 @@ public class DummyGuestRepositoryFactory implements GuestRepository
 	}
 
 	/**
-	 * Cerca un ospite tramite identificativo univoco.
-	 * Scorre la lista fino a trovare corrispondenza con l'ID.
-	 *
-	 * @param id Identificativo numerico dell'ospite
-	 * @return Ospite trovato, null se non esiste
-	 */
+     * Finds guest by unique identifier.
+     * Iterates through list until ID match is found.
+     *
+     * @param id Guest numeric identifier
+     * @return Found guest, null if not exists
+     */
 	@Override
 	public Guest findById(int id)
 	{
@@ -66,12 +66,12 @@ public class DummyGuestRepositoryFactory implements GuestRepository
 	}
 
 	/**
-	 * Cerca un ospite tramite codice fiscale.
-	 * Confronto case-sensitive del codice fiscale.
-	 *
-	 * @param ssn Codice fiscale dell'ospite
-	 * @return Ospite trovato, null se non esiste o ssn nullo
-	 */
+     * Finds guest by Tax Code.
+     * Case-sensitive Tax Code comparison.
+     *
+     * @param ssn Guest Tax Code
+     * @return Found guest, null if not exists or ssn null
+     */
 	@Override
 	public Guest findBySSN(String ssn)
 	{
@@ -85,12 +85,12 @@ public class DummyGuestRepositoryFactory implements GuestRepository
 	}
 
 	/**
-	 * Cerca ospiti il cui cognome contiene la stringa specificata.
-	 * Ricerca case-insensitive per match parziali.
-	 *
-	 * @param part Stringa da cercare nel cognome
-	 * @return Lista di ospiti con cognome matching, lista vuota se nessun risultato
-	 */
+     * Finds guests whose surname contains specified string.
+     * Case-insensitive partial match search.
+     *
+     * @param part String to search in surname
+     * @return List of matching guests, empty list if no results
+     */
 	@Override
 	public List<Guest> findBySurnameContaining(String part)
 	{
@@ -106,12 +106,12 @@ public class DummyGuestRepositoryFactory implements GuestRepository
 	}
 
 	/**
-	 * Cerca ospiti residenti in una specifica città.
-	 * Ricerca case-insensitive per match esatti.
-	 *
-	 * @param city Nome della città da cercare
-	 * @return Lista di ospiti residenti nella città, lista vuota se nessun risultato
-	 */
+     * Finds guests residing in specific city.
+     * Case-insensitive exact match search.
+     *
+     * @param city City name to search
+     * @return List of guests from city, empty list if no results
+     */
 	@Override
 	public List<Guest> findByCity(String city)
 	{
@@ -127,38 +127,38 @@ public class DummyGuestRepositoryFactory implements GuestRepository
 	}
 
 	/**
-	 * Inserisce un nuovo ospite nel repository.
-	 * Genera automaticamente l'ID incrementale e valida i dati.
-	 *
-	 * @param newGuest Ospite da inserire con dati completi
-	 * @return Ospite inserito con ID assegnato, null se validazione fallisce
-	 */
+     * Inserts new guest into repository.
+     * Auto-generates incremental ID and validates data.
+     *
+     * @param newGuest Guest to insert with complete data
+     * @return Inserted guest with assigned ID, null if validation fails or newGuest is null
+     */
 	@Override
 	public Guest insert(Guest newGuest)
 	{
 		return null;
 	}
 
-	/**
-	 * Aggiorna un ospite esistente nel repository.
-	 * Sostituisce l'ospite con lo stesso ID con la nuova versione.
-	 *
-	 * @param newVersion Ospite aggiornato (deve avere ID esistente)
-	 * @return Ospite aggiornato, null se non trovato o validazione fallisce
-	 */
+	 /**
+     * Updates existing guest in repository.
+     * Replaces guest with same ID with new version.
+     *
+     * @param newVersion Updated guest (must have existing ID)
+     * @return Updated guest, null if not found or validation fails
+     */
 	@Override
 	public Guest update(Guest newVersion)
 	{
 		return null;
 	}
 
-	/**
-	 * Elimina un ospite dal repository.
-	 * Rimuove l'ospite dalla lista se trovato.
-	 *
-	 * @param id Identificativo dell'ospite da eliminare
-	 * @return true se eliminato con successo, false se non trovato
-	 */
+	 /**
+     * Deletes guest from repository.
+     * Removes guest from list if found.
+     *
+     * @param id Guest identifier to delete
+     * @return true if successfully deleted, false if not found
+     */
 	@Override
 	public boolean delete(int id)
 	{

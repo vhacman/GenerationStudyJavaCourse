@@ -54,13 +54,13 @@ public class BatchRepository
 					+ "																	notes,"
 					+ "																	status) "
 					+ "												values(?,?,?,?,?,?,?);");
-			sqlCmd.setString(1,  batch.getDate().toString());
-			sqlCmd.setInt(2,  batch.getProducer().getId());
-			sqlCmd.setInt(3,  batch.getProduct().getId());
-			sqlCmd.setInt(4, batch.getQuantity());
-			sqlCmd.setInt(5, batch.getUnitPrice());
-			sqlCmd.setString(6, batch.getNotes());
-			sqlCmd.setString(7,  batch.getStatus().toString());
+			sqlCmd.setString(1,  	batch.getDate().toString());
+			sqlCmd.setInt(2,  		batch.getProducer().getId());
+			sqlCmd.setInt(3,  		batch.getProduct().getId());
+			sqlCmd.setInt(4, 		batch.getQuantity());
+			sqlCmd.setInt(5, 		batch.getUnitPrice());
+			sqlCmd.setString(6, 	batch.getNotes());
+			sqlCmd.setString(7,  	batch.getStatus().toString());
 			sqlCmd.execute(); //per eseguire
 			sqlCmd.close();
 		}
@@ -112,14 +112,14 @@ public class BatchRepository
 				if(row.next())
 				{
 					Batch res = new Batch();
-					res.setId(row.getInt("id"));
-					res.setDate(LocalDate.parse(row.getString("date")));
-					res.setProducer(producerRepo.findById(row.getInt("producerid")));
-					res.setProduct(productRepo.findById(row.getInt("productid")));
-					res.setQuantity(row.getInt("quantity"));
+					res.setId		(row.getInt("id"));
+					res.setDate		(LocalDate.parse(row.getString("date")));
+					res.setProducer	(producerRepo.findById(row.getInt("producerid")));
+					res.setProduct	(productRepo.findById(row.getInt("productid")));
+					res.setQuantity	(row.getInt("quantity"));
 					res.setUnitPrice(row.getInt("unitPrice"));
-					res.setNotes(row.getString("notes"));
-					res.setStatus(row.getString("status"));
+					res.setNotes	(row.getString("notes"));
+					res.setStatus	(row.getString("status"));
 					return res;
 				}
 				return null;
