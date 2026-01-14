@@ -118,69 +118,39 @@ GenerationStudyJavaCourse/
 
 ---
 
-## 🎯 Argomenti e Competenze Sviluppate
+## ⭐ Progetti Business in Evidenza
 
-### 💻 Programmazione Core
+### 🏦 Core Java Development
 
-<table>
-<tr>
-<td width="50%">
+| Progetto | Categoria | Tecnologie | Descrizione | Status |
+|----------|-----------|------------|-------------|--------|
+| **[JavaBank](docs/03-business-applications/java-bank.md)** | Banking System | OOP, Collections | Sistema bancario con gestione conti e transazioni | ✅ |
+| **[LocalMarketDB](docs/03-business-applications/local-market-db.md)** | E-commerce | JDBC, SQLite, SQL | Piattaforma e-commerce con integrazione database | ✅ |
+| **[JavItaAirline](docs/03-business-applications/javita-airline.md)** | Airline System | OOP, Date/Time API | Sistema di prenotazione e gestione voli | ✅ |
+| **[MonsterHotel](docs/03-business-applications/monster-hotel.md)** | Hotel Management | MVC, Service Layer | Prenotazione hotel con gestione camere | ✅ |
+| **[SchoolManagement v2](docs/03-business-applications/school-management-v2.md)** | Education | Design Patterns | Gestione studenti e corsi con DAO pattern | ✅ |
+| **[NerdLibrary](docs/03-business-applications/nerd-library.md)** | Library System | Collections, File I/O | Gestione prestiti libri e membri | ✅ |
 
-#### Fondamenti Java
-- ✅ Variabili e tipi di dati
-- ✅ Strutture di controllo (if/else, switch)
-- ✅ Cicli (for, while, do-while)
-- ✅ Array e Collections
-- ✅ String manipulation
-- ✅ Exception handling
+### 🚆 Transportation & Ticketing Systems
 
-</td>
-<td width="50%">
+| Progetto | Tipo | Concetti Chiave | Descrizione | Status |
+|----------|------|-----------------|-------------|--------|
+| **[BrianzaTaxiService](docs/04-advanced-projects/brianza-taxi-service.md)** | Taxi Service | Inheritance, Polymorphism | Sistema prenotazione taxi con calcolo tariffe | ✅ |
+| **[MilanoLeccoTrains4](docs/04-advanced-projects/milano-lecco-trains4.md)** | Train System | Abstract Classes, Enums | Sistema biglietti treno multi-classe | ✅ |
+| **[MonzaMetro](docs/04-advanced-projects/monza-metro.md)** | Metro System | OOP, BigDecimal | Biglietteria metro con livelli di prezzo | ✅ |
+| **[DiscotecaTicket](docs/04-advanced-projects/discoteca-ticket.md)** | Event Ticketing | Input Validation, Date API | Biglietti eventi con restrizioni età | ✅ |
 
-#### OOP Avanzato
-- ✅ Classi e Oggetti
-- ✅ Incapsulamento
-- ✅ Ereditarietà
-- ✅ Polimorfismo
-- ✅ Classi Astratte
-- ✅ Interfacce
+### 🎓 Technical Skills Matrix
 
-</td>
-</tr>
-</table>
-
-### 🏗️ Architettura Software
-
-- **MVC Pattern** - Separazione Model-View-Controller
-- **Repository/DAO Pattern** - Accesso ai dati
-- **Service Layer** - Logica di business
-- **Dependency Injection** - Gestione dipendenze
-- **Singleton Pattern** - Gestione istanze uniche
-- **Lazy Loading** - Ottimizzazione caricamento dati
-- **Template-based Rendering** - Generazione output
-
-### 🗄️ Database e Persistenza
-
-- **JDBC** - Java Database Connectivity
-- **SQLite** - Database embedded
-- **SQL Queries** - SELECT, INSERT, UPDATE, DELETE
-- **Database Design** - Normalizzazione e relazioni
-- **Transaction Management** - Gestione transazioni
-
-### 💼 Sviluppo Applicazioni Business
-
-- **Calcoli Finanziari** - Uso di BigDecimal per precisione
-- **Gestione Date e Tempo** - LocalDate, LocalDateTime, DateTimeFormatter
-- **Validazione Input** - Sanitizzazione e controllo dati
-- **File I/O** - Lettura e scrittura file
-- **Enum Avanzati** - Enum con attributi e metodi
-
-### 🧪 Testing e Qualità
-
-- **JUnit Testing** - Unit test e test cases
-- **Test-Driven Development** - TDD approach
-- **Code Quality** - Clean code principles
-- **Best Practices** - Convenzioni di naming e organizzazione
+| Skill Category | Tecnologie | Proficiency | Progetti Applicati |
+|----------------|------------|-------------|-------------------|
+| **Object-Oriented Programming** | Java, Classes, Inheritance, Polymorphism | Avanzato | Tutti i progetti (40+) |
+| **Database Management** | JDBC, SQLite, SQL | Intermedio | LocalMarketDB, SchoolManagement |
+| **Design Patterns** | Singleton, DAO, MVC, Dependency Injection | Intermedio | MonsterHotel, SchoolManagement, NerdLibrary |
+| **Financial Calculations** | BigDecimal, Precision Arithmetic | Intermedio | BrianzaTaxi, MonzaMetro, JavaBank |
+| **Date & Time Handling** | LocalDate, LocalDateTime, Formatting | Intermedio | JavItaAirline, DiscotecaTicket |
+| **Testing** | JUnit, Unit Testing | Base | Progetti multipli |
+| **Collections Framework** | ArrayList, HashMap, LinkedList | Avanzato | Tutte le applicazioni business |
 
 ---
 

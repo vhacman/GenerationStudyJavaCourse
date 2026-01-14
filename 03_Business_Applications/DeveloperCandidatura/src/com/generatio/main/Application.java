@@ -151,115 +151,38 @@ public class Application
     }
     
     // Getter e Setter
-    
-    public String getName()
-    {
-        return name;
-    }
-    
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-    
-    public String getSurname()
-    {
-        return surname;
-    }
-    
-    public void setSurname(String surname)
-    {
-        this.surname = surname;
-    }
-    
-    public int getBirthYear()
-    {
-        return birthYear;
-    }
-    
-    public void setBirthYear(int birthYear)
-    {
-        this.birthYear = birthYear;
-        this.age = LocalDate.now().getYear() - birthYear;
-    }
-    
-    public int getAge()
-    {
-        return age;
-    }
-    
-    public String getProvince()
-    {
-        return province;
-    }
-    
-    public void setProvince(String province)
-    {
-        this.province = province;
-    }
-    
-    public String getDegree()
-    {
-        return degree;
-    }
-    
-    public void setDegree(String degree)
-    {
-        this.degree = degree;
-    }
-    
-    public String getSubject()
-    {
-        return subject;
-    }
-    
-    public void setSubject(String subject)
-    {
-        this.subject = subject;
-    }
-    
-    public int getExperienceYears()
-    {
-        return experienceYears;
-    }
-    
-    public void setExperienceYears(int experienceYears)
-    {
-        this.experienceYears = experienceYears;
-    }
-    
-    public boolean isAvailableToTravel()
-    {
-        return availableToTravel;
-    }
-    
-    public void setAvailableToTravel(boolean availableToTravel)
-    {
-        this.availableToTravel = availableToTravel;
-    }
-    
-    public boolean isKnowsJava()
-    {
-        return knowsJava;
-    }
-    
-    public void setKnowsJava(boolean knowsJava)
-    {
-        this.knowsJava = knowsJava;
-    }
-    
-    public int getScore()
-    {
-        return score;
-    }
-    
-    public LocalDate getApplicationDate()
-    {
-        return applicationDate;
-    }
-    
-    public void setApplicationDate(LocalDate applicationDate)
-    {
-        this.applicationDate = applicationDate;
-    }
+
+    public String     getName()                                  { return name; }
+    public void       setName(String name)                       { this.name = name; }
+
+    public String     getSurname()                               { return surname; }
+    public void       setSurname(String surname)                 { this.surname = surname; }
+
+    public int        getBirthYear()                             { return birthYear; }
+    public void       setBirthYear(int birthYear)                { this.birthYear = birthYear; this.age = LocalDate.now().getYear() - birthYear; }
+
+    public int        getAge()                                   { return age; }
+
+    public String     getProvince()                              { return province; }
+    public void       setProvince(String province)               { this.province = province; }
+
+    public String     getDegree()                                { return degree; }
+    public void       setDegree(String degree)                   { this.degree = degree; }
+
+    public String     getSubject()                               { return subject; }
+    public void       setSubject(String subject)                 { this.subject = subject; }
+
+    public int        getExperienceYears()                       { return experienceYears; }
+    public void       setExperienceYears(int experienceYears)    { this.experienceYears = experienceYears; }
+
+    public boolean    isAvailableToTravel()                      { return availableToTravel; }
+    public void       setAvailableToTravel(boolean availableToTravel) { this.availableToTravel = availableToTravel; }
+
+    public boolean    isKnowsJava()                              { return knowsJava; }
+    public void       setKnowsJava(boolean knowsJava)            { this.knowsJava = knowsJava; }
+
+    public int        getScore()                                 { return score; }
+
+    public LocalDate  getApplicationDate()                       { return applicationDate; }
+    public void       setApplicationDate(LocalDate applicationDate) { this.applicationDate = applicationDate; }
 }
