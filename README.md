@@ -118,39 +118,67 @@ GenerationStudyJavaCourse/
 
 ---
 
-## ⭐ Progetti Business in Evidenza
+## 💼 Business Applications - Progetti Principali
 
-### 🏦 Core Java Development
+### Sistemi Bancari e Finanziari
+| Progetto | Categoria | Tecnologie Chiave | Status |
+|----------|-----------|-------------------|--------|
+| **[JavaBank](docs/03-business-applications/java-bank.md)** | Sistema Bancario | OOP, Collections, Transactions | ✅ |
 
-| Progetto | Categoria | Tecnologie | Descrizione | Status |
-|----------|-----------|------------|-------------|--------|
-| **[JavaBank](docs/03-business-applications/java-bank.md)** | Banking System | OOP, Collections | Sistema bancario con gestione conti e transazioni | ✅ |
-| **[LocalMarketDB](docs/03-business-applications/local-market-db.md)** | E-commerce | JDBC, SQLite, SQL | Piattaforma e-commerce con integrazione database | ✅ |
-| **[JavItaAirline](docs/03-business-applications/javita-airline.md)** | Airline System | OOP, Date/Time API | Sistema di prenotazione e gestione voli | ✅ |
-| **[MonsterHotel](docs/03-business-applications/monster-hotel.md)** | Hotel Management | MVC, Service Layer | Prenotazione hotel con gestione camere | ✅ |
-| **[SchoolManagement v2](docs/03-business-applications/school-management-v2.md)** | Education | Design Patterns | Gestione studenti e corsi con DAO pattern | ✅ |
-| **[NerdLibrary](docs/03-business-applications/nerd-library.md)** | Library System | Collections, File I/O | Gestione prestiti libri e membri | ✅ |
+### E-commerce e Retail
+| Progetto | Categoria | Tecnologie Chiave | Status |
+|----------|-----------|-------------------|--------|
+| **[LocalMarket](docs/03-business-applications/local-market.md)** | E-commerce Base | Shopping Cart, Products | ✅ |
+| **[LocalMarketDB](docs/03-business-applications/local-market-db.md)** | E-commerce con Database | JDBC, SQLite, SQL | ✅ |
+| **[PCWizard](docs/03-business-applications/pc-wizard.md)** | Negozio Computer | Inventory Management | ✅ |
 
-### 🚆 Transportation & Ticketing Systems
+### Trasporti e Logistica
+| Progetto | Categoria | Tecnologie Chiave | Status |
+|----------|-----------|-------------------|--------|
+| **[JavaBus](docs/03-business-applications/java-bus.md)** | Gestione Flotta Bus | Fleet Management | ✅ |
+| **[JavItaAirline](docs/03-business-applications/javita-airline.md)** | Sistema Compagnia Aerea | Date/Time API, Booking System | ✅ |
+| **[BrianzaTrainsObjects](docs/03-business-applications/brianza-trains-objects.md)** | Treni con Oggetti | Advanced OOP | ✅ |
 
-| Progetto | Tipo | Concetti Chiave | Descrizione | Status |
-|----------|------|-----------------|-------------|--------|
-| **[BrianzaTaxiService](docs/04-advanced-projects/brianza-taxi-service.md)** | Taxi Service | Inheritance, Polymorphism | Sistema prenotazione taxi con calcolo tariffe | ✅ |
-| **[MilanoLeccoTrains4](docs/04-advanced-projects/milano-lecco-trains4.md)** | Train System | Abstract Classes, Enums | Sistema biglietti treno multi-classe | ✅ |
-| **[MonzaMetro](docs/04-advanced-projects/monza-metro.md)** | Metro System | OOP, BigDecimal | Biglietteria metro con livelli di prezzo | ✅ |
-| **[DiscotecaTicket](docs/04-advanced-projects/discoteca-ticket.md)** | Event Ticketing | Input Validation, Date API | Biglietti eventi con restrizioni età | ✅ |
+### Hospitality e Turismo
+| Progetto | Categoria | Tecnologie Chiave | Status |
+|----------|-----------|-------------------|--------|
+| **[MonsterHotel](docs/03-business-applications/monster-hotel.md)** | Gestione Hotel | MVC, Service Layer | ✅ |
+| **[SBHotel](docs/03-business-applications/sb-hotel.md)** | Sistema Alberghiero | Room Management | ✅ |
+| **[LeccoB&B](docs/03-business-applications/lecco-bb.md)** | Bed & Breakfast | Booking System | ✅ |
+| **[GrottammareB&B](docs/03-business-applications/grottammare-bb.md)** | Bed & Breakfast | Booking System | ✅ |
+| **[ProlocoLakeComo](docs/03-business-applications/proloco-lake-como.md)** | Turismo Lago Como | Tourism Management | ✅ |
+| **[VacanzeRomane](docs/03-business-applications/vacanze-romane.md)** | Agenzia Viaggi | Travel Booking | ✅ |
+| **[VillaMelzi](docs/03-business-applications/villa-melzi.md)** | Gestione Villa | Property Management | ✅ |
 
-### 🎓 Technical Skills Matrix
+### Educazione e Biblioteche
+| Progetto | Categoria | Tecnologie Chiave | Status |
+|----------|-----------|-------------------|--------|
+| **[SchoolManagement v1](docs/03-business-applications/school-management-v1.md)** | Gestione Scolastica | Basic CRUD | ✅ |
+| **[SchoolManagement v2](docs/03-business-applications/school-management-v2.md)** | Gestione Scolastica Avanzata | DAO Pattern, Advanced Design | ✅ |
+| **[NerdLibrary](docs/03-business-applications/nerd-library.md)** | Gestione Biblioteca | Collections, File I/O | ✅ |
 
-| Skill Category | Tecnologie | Proficiency | Progetti Applicati |
-|----------------|------------|-------------|-------------------|
-| **Object-Oriented Programming** | Java, Classes, Inheritance, Polymorphism | Avanzato | Tutti i progetti (40+) |
-| **Database Management** | JDBC, SQLite, SQL | Intermedio | LocalMarketDB, SchoolManagement |
-| **Design Patterns** | Singleton, DAO, MVC, Dependency Injection | Intermedio | MonsterHotel, SchoolManagement, NerdLibrary |
-| **Financial Calculations** | BigDecimal, Precision Arithmetic | Intermedio | BrianzaTaxi, MonzaMetro, JavaBank |
-| **Date & Time Handling** | LocalDate, LocalDateTime, Formatting | Intermedio | JavItaAirline, DiscotecaTicket |
-| **Testing** | JUnit, Unit Testing | Base | Progetti multipli |
-| **Collections Framework** | ArrayList, HashMap, LinkedList | Avanzato | Tutte le applicazioni business |
+### Servizi e Riparazioni
+| Progetto | Categoria | Tecnologie Chiave | Status |
+|----------|-----------|-------------------|--------|
+| **[RepairShop](docs/03-business-applications/repair-shop.md)** | Officina Riparazioni | Service Tracking | ✅ |
+
+### Biglietteria e Eventi
+| Progetto | Categoria | Tecnologie Chiave | Status |
+|----------|-----------|-------------------|--------|
+| **[MuseumTicket](docs/03-business-applications/museum-ticket.md)** | Biglietteria Museo | Pricing Tiers | ✅ |
+
+### Sistemi Gestionali
+| Progetto | Categoria | Tecnologie Chiave | Status |
+|----------|-----------|-------------------|--------|
+| **[NSMI](docs/03-business-applications/nsmi.md)** | Sistema Gestionale | Business Logic | ✅ |
+| **[NSMPI](docs/03-business-applications/nsmpi.md)** | Sistema Gestionale Polimorfismo | Advanced OOP, Interfaces, Factory Pattern, Strategy Pattern, ETL | ✅ |
+| **[DeveloperCandidatura](docs/03-business-applications/developer-candidatura.md)** | Sistema Candidature | Form Processing | ✅ |
+
+### Utility e Tools
+| Progetto | Categoria | Tecnologie Chiave | Status |
+|----------|-----------|-------------------|--------|
+| **[PrintLabel](docs/03-business-applications/print-label.md)** | Stampa Etichette | Template Rendering | ✅ |
+| **[PokeDex](docs/03-business-applications/pokedex.md)** | Database Pokemon | Collections, Search | ✅ |
 
 ---
 
