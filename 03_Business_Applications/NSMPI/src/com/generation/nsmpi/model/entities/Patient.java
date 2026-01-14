@@ -12,6 +12,8 @@ public class Patient extends Person
 {
 	protected String        history;
 	protected List<String>  allergies = new ArrayList<>();
+	protected double		height;
+	protected double		weight;
 
 	public Patient() {}
 
@@ -24,8 +26,10 @@ public class Patient extends Person
 	 * @param gender Genere
 	 * @param history Anamnesi clinica
 	 * @param allergies Lista di allergie
+	 * @param height Altezza in metri
+	 * @param weight Peso in kg
 	 */
-    public Patient(int id, String firstName, String lastName, String dob ,String gender, String history, String allergies)
+    public Patient(int id, String firstName, String lastName, String dob ,String gender, String history, String allergies, double height, double weight)
     {
         this.id = id;
         this.firstName = firstName;
@@ -33,6 +37,8 @@ public class Patient extends Person
         this.setGender(gender);
         this.setDob(dob);
         this.setHistory(history);
+        this.height = height;
+        this.weight = weight;
         for(int i=0;i<allergies.split(",").length;i++)
             this.getAllergies().add(allergies.split(",")[i]);
     }
@@ -45,21 +51,42 @@ public class Patient extends Person
 	 * @param dob Data di nascita
 	 * @param gender Genere
 	 * @param history Anamnesi clinica
+	 * @param height Altezza in metri
+	 * @param weight Peso in kg
 	 */
-	public Patient(String firstName, String lastName, LocalDate dob, Gender gender, String history)
+	public Patient(String firstName, String lastName, LocalDate dob, Gender gender, String history, double height, double weight)
 	{
 		super(firstName, lastName, dob, gender);
 		this.history = history;
+		this.height = height;
+		this.weight = weight;
 	}
 
 	public String        getHistory()                      		{ return history;                 }
 	public List<String>  getAllergies()                    		{ return allergies;               }
-	
+	public double        getHeight()                       		{ return height;                  }
+	public double        getWeight()                       		{ return weight;                  }
+
 	public void          setHistory(String history)        		{ this.history = history;         }
 	public void          setAllergies(List<String> allergies) 	{ this.allergies = allergies;     }
+	public void          setHeight(double height)          		{ this.height = height;           }
+	public void          setWeight(double weight)          		{ this.weight = weight;           }
 	
 	public void          addAllergy(String allergy)       		{ this.allergies.add(allergy);    }
 	public void          removeAllergy(String allergy)    		{ this.allergies.remove(allergy); }
+
+	/**
+	 * Calcola il Body Mass Index (BMI) del paziente.
+	 * Formula: BMI = peso (kg) / (altezza (m))²
+	 *
+	 * @return BMI del paziente, 0 se altezza non valida
+	 */
+	public double getBMI()
+	{
+		if (height <= 0)
+			return 0;
+		return weight / (height * height);
+	}
 
 	/**
 	 * Valida anagrafica e anamnesi del paziente.
@@ -95,7 +122,7 @@ public class Patient extends Person
 	@Override
 	public String toString()
 	{
-		return super.toString() + " Patient [history=" + history + ", allergies=" + allergies + ", valido=" + isValid() + "]";
+		return super.toString() + " Patient [history=" + history + ", allergies=" + allergies + ", height=" + height + "m, weight=" + weight + "kg, BMI=" + String.format("%.2f", getBMI()) + ", valido=" + isValid() + "]";
 	}
 
 }

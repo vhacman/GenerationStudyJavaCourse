@@ -51,6 +51,18 @@ public abstract class Person extends Entity
 	public void       setDob(String dob)              { this.dob = LocalDate.parse(dob);       }
 
 	/**
+	 * Calcola l'età della persona in anni.
+	 *
+	 * @return Età in anni, 0 se data di nascita non valida
+	 */
+	public int getAge()
+	{
+		if (dob == null)
+			return 0;
+		return LocalDate.now().getYear() - dob.getYear();
+	}
+
+	/**
 	 * Valida l'anagrafica verificando presenza di tutti i campi obbligatori.
 	 * Implementa il contratto astratto definito da Entity.
 	 *

@@ -95,6 +95,10 @@ NSMPI/
 │       │   ├── DoctorExtractor.java
 │       │   └── *Factory.java
 │       │
+│       ├── listexamples/        # Esempi operazioni su liste
+│       │   ├── PatientListExamples.java  # Esercizi guidati
+│       │   └── DoctorListExamples.java   # Implementazioni complete
+│       │
 │       ├── demo/                # Applicazioni demo
 │       └── test/                # Unit tests
 │
@@ -132,14 +136,19 @@ Entity (abstract)
 
 **Attributi comuni**: firstName, lastName, dob, gender
 **Validazione**: Controllo campi obbligatori
+**Metodi utili**: `getAge()` - Calcola l'età in anni dalla data di nascita
 
 ### Patient
 
 **Attributi specifici**:
 - `String history` - Anamnesi clinica
 - `List<String> allergies` - Lista allergie
+- `double height` - Altezza in metri
+- `double weight` - Peso in kg
 
-**Metodi**: `addAllergy()`, `removeAllergy()`
+**Metodi**:
+- `addAllergy()`, `removeAllergy()` - Gestione allergie
+- `getBMI()` - Calcola Body Mass Index (peso / altezza²)
 
 ### Doctor
 
@@ -266,6 +275,40 @@ public interface DoctorExtractor {
 
 ---
 
+## 📚 Esempi di Operazioni su Liste
+
+Il progetto include moduli didattici per apprendere operazioni fondamentali su collezioni:
+
+### PatientListExamples (src/com/generation/nsmpi/listexamples/)
+
+**Esercizi guidati** con TODO per implementare:
+
+| Operazione | Descrizione | Concetto |
+|------------|-------------|----------|
+| `countMen()`, `countWomen()` | Conta pazienti per genere | **Riduzione** (counting) |
+| `countOverweight()` | Conta pazienti con BMI > 26.5 | **Filtraggio** con condizione |
+| `filterWomen()` | Estrae solo pazienti donne | **Filtraggio** |
+| `calculateAverageAge()` | Calcola età media | **Riduzione** (aggregazione) |
+| `generateVaccinationLetters()` | Crea lettere di invito | **Mappatura** (trasformazione) |
+| `filterBirthdayToday()` | Trova compleanni odierni | **Filtraggio** con date |
+
+### DoctorListExamples (implementazione completa)
+
+**Esempi funzionanti** che dimostrano:
+
+| Funzionalità | Implementazione |
+|--------------|-----------------|
+| Conteggio per genere | `countMen()`, `countWomen()`, `countNonBinary()` |
+| Statistiche salariali | `calculateTotalSalary()`, `calculateMenSalary()`, `calculateWomenSalary()` |
+| Analisi gender gap | `calculateGenderGap()` - calcola differenza percentuale salari |
+| Generazione documenti | `generatePayslips()` - crea buste paga |
+| Ricerca per specialità | `countCardiologists()`, `countPsychiatrists()` |
+| Filtri combinati | `filterYoungWomen()` - dottoresse under 30 |
+
+**Obiettivo didattico**: Apprendere pattern di manipolazione liste (Map, Filter, Reduce) senza Stream API, usando cicli tradizionali.
+
+---
+
 ## ⚙️ Funzionalità Principali
 
 ### Gestione Pazienti
@@ -349,6 +392,22 @@ java -cp bin com.generation.nsmpi.view.DemoDoctor
 ```
 
 **Funzionalità**: Mostra rendering con vista completa e finanziaria
+
+### Demo List Examples
+
+```bash
+# Esercizi guidati per pazienti (da completare)
+java -cp bin com.generation.nsmpi.listexamples.PatientListExamples
+
+# Esempi completi per dottori
+java -cp bin com.generation.nsmpi.listexamples.DoctorListExamples
+```
+
+**Funzionalità**:
+- Operazioni di conteggio e filtraggio
+- Calcoli statistici (età media, gender gap)
+- Generazione documenti (lettere, buste paga)
+- Ricerca per attributi e specialità
 
 ---
 
@@ -471,6 +530,9 @@ Questo progetto dimostra:
 ✅ **Design Patterns** - Factory, Strategy, Template Method
 ✅ **SOLID Principles** - Codice manutenibile ed estensibile
 ✅ **Separazione delle Responsabilità** - MVC, layer ben definiti
+✅ **Operazioni su Collezioni** - Map, Filter, Reduce con cicli tradizionali
+✅ **Calcoli Statistici** - BMI, età, medie, aggregazioni
+✅ **Analisi Dati** - Gender gap, distribuzione per genere e specialità
 
 ---
 
