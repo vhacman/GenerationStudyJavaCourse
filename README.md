@@ -1,19 +1,19 @@
 # 🎓 Corso Java - Generation Italy
 
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
+[1]
+[2]
+
+
 
 Questa repository contiene tutti i miei progetti, esercizi ed esempi di programmazione Java sviluppati durante il bootcamp Full Stack Java Developer di Generation Italy.
 
----
+***
 
 ## 🔗 Link Rapidi
 
 📚 **Materiali del Corso:** [Accedi alla mia cartella Drive con tutti gli appunti e materiali](https://drive.google.com/drive/folders/1f54Eu_EK2zw2XcMK-9qJH4ZErLXtV8Rj?hl=it)
 
----
+***
 
 ## 📁 Struttura della Repository
 
@@ -27,7 +27,7 @@ GenerationStudyJavaCourse/
 └── 🎯 04_Exercises_Practice/         # Esercizi extra e pratica
 ```
 
----
+***
 
 ## 📖 Documentazione Completa
 
@@ -78,29 +78,30 @@ GenerationStudyJavaCourse/
 
 | Progetto | Categoria | Tecnologie Chiave |
 |----------|-----------|-------------------|
-| [JavaBank](docs/03-business-applications/java-bank.md) | Sistema Bancario | OOP, Collections, Transactions |
-| [JavaBus](docs/03-business-applications/java-bus.md) | Gestione Flotta Bus | Fleet Management |
-| [JavItaAirline](docs/03-business-applications/javita-airline.md) | Sistema Compagnia Aerea | Date/Time API, Booking System |
-| [LocalMarket](docs/03-business-applications/local-market.md) | E-commerce Base | Shopping Cart, Products |
-| [LocalMarketDB](docs/03-business-applications/local-market-db.md) | E-commerce con Database | JDBC, SQLite, SQL |
-| [MonsterHotel](docs/03-business-applications/monster-hotel.md) | Gestione Hotel | MVC, Service Layer |
-| [SBHotel](docs/03-business-applications/sb-hotel.md) | Sistema Alberghiero | Room Management |
-| [NerdLibrary](docs/03-business-applications/nerd-library.md) | Gestione Biblioteca | Collections, File I/O |
-| [SchoolManagement v1](docs/03-business-applications/school-management-v1.md) | Gestione Scolastica | Basic CRUD |
-| [SchoolManagement v2](docs/03-business-applications/school-management-v2.md) | Gestione Scolastica Avanzata | DAO Pattern, Advanced Design |
-| [PokeDex](docs/03-business-applications/pokedex.md) | Database Pokemon | Collections, Search |
-| [PCWizard](docs/03-business-applications/pc-wizard.md) | Negozio Computer | Inventory Management |
-| [RepairShop](docs/03-business-applications/repair-shop.md) | Officina Riparazioni | Service Tracking |
-| [MuseumTicket](docs/03-business-applications/museum-ticket.md) | Biglietteria Museo | Pricing Tiers |
-| [DeveloperCandidatura](docs/03-business-applications/developer-candidatura.md) | Sistema Candidature | Form Processing |
-| [BrianzaTrainsObjects](docs/03-business-applications/brianza-trains-objects.md) | Treni con Oggetti | Advanced OOP |
-| [LeccoB&B](docs/03-business-applications/lecco-bb.md) | Bed & Breakfast | Booking System |
-| [NSMI](docs/03-business-applications/nsmi.md) | Sistema Gestionale | Business Logic |
-| [NSMPI](docs/03-business-applications/nsmpi.md) | Sistema Gestionale Polimorfismo | Advanced OOP, Interfaces, Factory Pattern, Strategy Pattern, ETL |
-| [PrintLabel](docs/03-business-applications/print-label.md) | Stampa Etichette | Template Rendering |
-| [ProlocoLakeComo](docs/03-business-applications/proloco-lake-como.md) | Turismo Lago Como | Tourism Management |
-| [VacanzeRomane](docs/03-business-applications/vacanze-romane.md) | Agenzia Viaggi | Travel Booking |
-| [VillaMelzi](docs/03-business-applications/villa-melzi.md) | Gestione Villa | Property Management |
+| [JavaBank](docs/03-business-applications/java-bank.md)[5] | Sistema Bancario | OOP, Collections, Transactions |
+| [JavaBus](docs/03-business-applications/java-bus.md)[6] | Gestione Flotta Bus | Fleet Management |
+| [JavItaAirline](docs/03-business-applications/javita-airline.md)[8] | Sistema Compagnia Aerea | Date/Time API, Booking System |
+| [LocalMarket](docs/03-business-applications/local-market.md)[10] | E-commerce Base | Shopping Cart, Products |
+| [LocalMarketDB](docs/03-business-applications/local-market-db.md)[11] | E-commerce con Database | JDBC, SQLite, SQL |
+| [MonsterHotel](docs/03-business-applications/monster-hotel.md)[13] | Gestione Hotel | MVC, Service Layer |
+| [SBHotel](docs/03-business-applications/sb-hotel.md)[20] | Sistema Alberghiero | Room Management |
+| [NerdLibrary](docs/03-business-applications/nerd-library.md)[15] | Gestione Biblioteca | Collections, File I/O |
+| [SchoolManagement v1](docs/03-business-applications/school-management-v1.md)[23] | Gestione Scolastica | Basic CRUD |
+| [SchoolManagement v2](docs/03-business-applications/school-management-v2.md)[24] | Gestione Scolastica Avanzata | DAO Pattern, Advanced Design |
+| [PokeDex](docs/03-business-applications/pokedex.md)[16] | Database Pokemon | Collections, Search |
+| [PCWizard](docs/03-business-applications/pc-wizard.md)[22] | Negozio Computer | Inventory Management |
+| [RepairShop](docs/03-business-applications/repair-shop.md)[21] | Officina Riparazioni | Service Tracking |
+| [MuseumTicket](docs/03-business-applications/museum-ticket.md)[12] | Biglietteria Museo | Pricing Tiers |
+| [DeveloperCandidatura](docs/03-business-applications/developer-candidatura.md)[3] | Sistema Candidature | Form Processing |
+| [BrianzaTrainsObjects](docs/03-business-applications/brianza-trains-objects.md)[4] | Treni con Oggetti | Advanced OOP |
+| [LeccoB&B](docs/03-business-applications/lecco-bb.md)[9] | Bed & Breakfast | Booking System |
+| [NSMI](docs/03-business-applications/nsmi.md)[14] | Sistema Gestionale | Business Logic |
+| [NSMPI](docs/03-business-applications/nsmpi.md)[17] | Sistema Gestionale Polimorfismo | Advanced OOP, Interfaces, Factory Pattern, Strategy Pattern, ETL |
+| [PrintLabel](docs/03-business-applications/print-label.md)[18] | Stampa Etichette | Template Rendering |
+| [ProlocoLakeComo](docs/03-business-applications/proloco-lake-como.md)[19] | Turismo Lago Como | Tourism Management |
+| [GrottammareB&B](docs/03-business-applications/grottammareBB.md)[7] | Bed & Breakfast Avanzato | Repository Pattern, Factory DI, Validazione CF Italiano, MVC |
+| [VacanzeRomane](docs/03-business-applications/vacanze-romane.md)[26] | Agenzia Viaggi | Travel Booking |
+| [VillaMelzi](docs/03-business-applications/villa-melzi.md)[25] | Gestione Villa | Property Management |
 
 </details>
 
@@ -116,71 +117,71 @@ GenerationStudyJavaCourse/
 
 </details>
 
----
+***
 
 ## 💼 Business Applications - Progetti Principali
 
 ### Sistemi Bancari e Finanziari
 | Progetto | Categoria | Tecnologie Chiave | Status |
 |----------|-----------|-------------------|--------|
-| **[JavaBank](docs/03-business-applications/java-bank.md)** | Sistema Bancario | OOP, Collections, Transactions | ✅ |
+| **[JavaBank](docs/03-business-applications/java-bank.md)**[5] | Sistema Bancario | OOP, Collections, Transactions | ✅ |
 
 ### E-commerce e Retail
 | Progetto | Categoria | Tecnologie Chiave | Status |
 |----------|-----------|-------------------|--------|
-| **[LocalMarket](docs/03-business-applications/local-market.md)** | E-commerce Base | Shopping Cart, Products | ✅ |
-| **[LocalMarketDB](docs/03-business-applications/local-market-db.md)** | E-commerce con Database | JDBC, SQLite, SQL | ✅ |
-| **[PCWizard](docs/03-business-applications/pc-wizard.md)** | Negozio Computer | Inventory Management | ✅ |
+| **[LocalMarket](docs/03-business-applications/local-market.md)**[10] | E-commerce Base | Shopping Cart, Products | ✅ |
+| **[LocalMarketDB](docs/03-business-applications/local-market-db.md)**[11] | E-commerce con Database | JDBC, SQLite, SQL | ✅ |
+| **[PCWizard](docs/03-business-applications/pc-wizard.md)**[22] | Negozio Computer | Inventory Management | ✅ |
 
 ### Trasporti e Logistica
 | Progetto | Categoria | Tecnologie Chiave | Status |
 |----------|-----------|-------------------|--------|
-| **[JavaBus](docs/03-business-applications/java-bus.md)** | Gestione Flotta Bus | Fleet Management | ✅ |
-| **[JavItaAirline](docs/03-business-applications/javita-airline.md)** | Sistema Compagnia Aerea | Date/Time API, Booking System | ✅ |
-| **[BrianzaTrainsObjects](docs/03-business-applications/brianza-trains-objects.md)** | Treni con Oggetti | Advanced OOP | ✅ |
+| **[JavaBus](docs/03-business-applications/java-bus.md)**[6] | Gestione Flotta Bus | Fleet Management | ✅ |
+| **[JavItaAirline](docs/03-business-applications/javita-airline.md)**[8] | Sistema Compagnia Aerea | Date/Time API, Booking System | ✅ |
+| **[BrianzaTrainsObjects](docs/03-business-applications/brianza-trains-objects.md)**[4] | Treni con Oggetti | Advanced OOP | ✅ |
 
 ### Hospitality e Turismo
 | Progetto | Categoria | Tecnologie Chiave | Status |
 |----------|-----------|-------------------|--------|
-| **[MonsterHotel](docs/03-business-applications/monster-hotel.md)** | Gestione Hotel | MVC, Service Layer | ✅ |
-| **[SBHotel](docs/03-business-applications/sb-hotel.md)** | Sistema Alberghiero | Room Management | ✅ |
-| **[LeccoB&B](docs/03-business-applications/lecco-bb.md)** | Bed & Breakfast | Booking System | ✅ |
-| **[GrottammareB&B](docs/03-business-applications/grottammare-bb.md)** | Bed & Breakfast | Booking System | ✅ |
-| **[ProlocoLakeComo](docs/03-business-applications/proloco-lake-como.md)** | Turismo Lago Como | Tourism Management | ✅ |
-| **[VacanzeRomane](docs/03-business-applications/vacanze-romane.md)** | Agenzia Viaggi | Travel Booking | ✅ |
-| **[VillaMelzi](docs/03-business-applications/villa-melzi.md)** | Gestione Villa | Property Management | ✅ |
+| **[MonsterHotel](docs/03-business-applications/monster-hotel.md)**[13] | Gestione Hotel | MVC, Service Layer | ✅ |
+| **[SBHotel](docs/03-business-applications/sb-hotel.md)**[20] | Sistema Alberghiero | Room Management | ✅ |
+| **[LeccoB&B](docs/03-business-applications/lecco-bb.md)**[9] | Bed & Breakfast | Booking System | ✅ |
+| **[GrottammareB&B](docs/03-business-applications/grottammareBB.md)**[7] | Bed & Breakfast Avanzato | Repository Pattern, Factory DI, MVC | ✅ |
+| **[ProlocoLakeComo](docs/03-business-applications/proloco-lake-como.md)**[19] | Turismo Lago Como | Tourism Management | ✅ |
+| **[VacanzeRomane](docs/03-business-applications/vacanze-romane.md)**[26] | Agenzia Viaggi | Travel Booking | ✅ |
+| **[VillaMelzi](docs/03-business-applications/villa-melzi.md)**[25] | Gestione Villa | Property Management | ✅ |
 
 ### Educazione e Biblioteche
 | Progetto | Categoria | Tecnologie Chiave | Status |
 |----------|-----------|-------------------|--------|
-| **[SchoolManagement v1](docs/03-business-applications/school-management-v1.md)** | Gestione Scolastica | Basic CRUD | ✅ |
-| **[SchoolManagement v2](docs/03-business-applications/school-management-v2.md)** | Gestione Scolastica Avanzata | DAO Pattern, Advanced Design | ✅ |
-| **[NerdLibrary](docs/03-business-applications/nerd-library.md)** | Gestione Biblioteca | Collections, File I/O | ✅ |
+| **[SchoolManagement v1](docs/03-business-applications/school-management-v1.md)**[23] | Gestione Scolastica | Basic CRUD | ✅ |
+| **[SchoolManagement v2](docs/03-business-applications/school-management-v2.md)**[24] | Gestione Scolastica Avanzata | DAO Pattern, Advanced Design | ✅ |
+| **[NerdLibrary](docs/03-business-applications/nerd-library.md)**[15] | Gestione Biblioteca | Collections, File I/O | ✅ |
 
 ### Servizi e Riparazioni
 | Progetto | Categoria | Tecnologie Chiave | Status |
 |----------|-----------|-------------------|--------|
-| **[RepairShop](docs/03-business-applications/repair-shop.md)** | Officina Riparazioni | Service Tracking | ✅ |
+| **[RepairShop](docs/03-business-applications/repair-shop.md)**[21] | Officina Riparazioni | Service Tracking | ✅ |
 
 ### Biglietteria e Eventi
 | Progetto | Categoria | Tecnologie Chiave | Status |
 |----------|-----------|-------------------|--------|
-| **[MuseumTicket](docs/03-business-applications/museum-ticket.md)** | Biglietteria Museo | Pricing Tiers | ✅ |
+| **[MuseumTicket](docs/03-business-applications/museum-ticket.md)**[12] | Biglietteria Museo | Pricing Tiers | ✅ |
 
 ### Sistemi Gestionali
 | Progetto | Categoria | Tecnologie Chiave | Status |
 |----------|-----------|-------------------|--------|
-| **[NSMI](docs/03-business-applications/nsmi.md)** | Sistema Gestionale | Business Logic | ✅ |
-| **[NSMPI](docs/03-business-applications/nsmpi.md)** | Sistema Gestionale Polimorfismo | Advanced OOP, Interfaces, Factory Pattern, Strategy Pattern, ETL | ✅ |
-| **[DeveloperCandidatura](docs/03-business-applications/developer-candidatura.md)** | Sistema Candidature | Form Processing | ✅ |
+| **[NSMI](docs/03-business-applications/nsmi.md)**[14] | Sistema Gestionale | Business Logic | ✅ |
+| **[NSMPI](docs/03-business-applications/nsmpi.md)**[17] | Sistema Gestionale Polimorfismo | Advanced OOP, Interfaces, Factory Pattern, Strategy Pattern, ETL | ✅ |
+| **[DeveloperCandidatura](docs/03-business-applications/developer-candidatura.md)**[3] | Sistema Candidature | Form Processing | ✅ |
 
 ### Utility e Tools
 | Progetto | Categoria | Tecnologie Chiave | Status |
 |----------|-----------|-------------------|--------|
-| **[PrintLabel](docs/03-business-applications/print-label.md)** | Stampa Etichette | Template Rendering | ✅ |
-| **[PokeDex](docs/03-business-applications/pokedex.md)** | Database Pokemon | Collections, Search | ✅ |
+| **[PrintLabel](docs/03-business-applications/print-label.md)**[18] | Stampa Etichette | Template Rendering | ✅ |
+| **[PokeDex](docs/03-business-applications/pokedex.md)**[16] | Database Pokemon | Collections, Search | ✅ |
 
----
+***
 
 ## 📊 Statistiche Progetti
 
@@ -188,39 +189,39 @@ GenerationStudyJavaCourse/
 |-----------|----------------|---------|
 | 📘 Fondamentali | 11 moduli | Principiante |
 | 🚆 Trasporti | 9 progetti | Intermedio |
-| 💼 Business | 23 progetti | Intermedio/Avanzato |
+| 💼 Business | **24 progetti** | Intermedio/Avanzato |
 | 🎯 Esercizi | 4 progetti | Vario |
-| **TOTALE** | **47 progetti** | **Completo** |
+| **TOTALE** | **48 progetti** | **Completo** |
 
----
+***
 
 ## 🛠️ Tecnologie Utilizzate
 
 <div align="center">
 
-![Java](https://img.shields.io/badge/Java_17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
-![JDBC](https://img.shields.io/badge/JDBC-ED8B00?style=for-the-badge&logo=java&logoColor=white)
-![JUnit](https://img.shields.io/badge/JUnit_5-25A162?style=for-the-badge&logo=junit5&logoColor=white)
-![IntelliJ](https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellijidea&logoColor=white)
-![Eclipse](https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=eclipse&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+
+
+
+
+
+
+
+
+
 
 </div>
 
----
+***
 
 ## 👨‍💻 Autore
 
 **Hacman Viorica Gabriela**
 - 🎓 Studentessa Generation Italy - Java Full Stack Developer Bootcamp
 - 💼 [LinkedIn](https://www.linkedin.com/in/viorica-gabriela-hacman-63a412267/)
-- 📧 Email: hacmanvioricagabriela@gmail.com
+- 📧 Email: [hacmanvioricagabriela@gmail.com](mailto:hacmanvioricagabriela@gmail.com)
 - 🐙 GitHub: [@vhacman](https://github.com/vhacman)
 
----
+***
 
 ## 📝 Licenza
 
@@ -229,7 +230,7 @@ GenerationStudyJavaCourse/
 Questo repository è stato creato per scopi educativi come parte del bootcamp Generation Italy.
 Sentiti libero di esplorare, imparare e trarre ispirazione, ma rispetta il lavoro degli altri studenti.
 
----
+***
 
 ## 🙏 Ringraziamenti
 
@@ -238,14 +239,10 @@ Un ringraziamento speciale a:
 - **I docenti e mentor** per la guida e il supporto
 - **I compagni di corso** per la collaborazione e lo scambio di conoscenze
 
----
+***
 
 <div align="center">
 
-### ⭐ Se trovi utile questo repository, lascia una stella!
-
-**Made with ☕ and 💻 during Generation Italy Bootcamp**
-
-[![Generation Italy](https://img.shields.io/badge/Generation-Italy-FF6B35?style=for-the-badge&logo=java&logoColor=white)](https://italy.generation.org/)
+[
 
 </div>
