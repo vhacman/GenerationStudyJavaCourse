@@ -1,9 +1,5 @@
 # 🎓 Corso Java - Generation Italy
 
-[1]
-[2]
-
-
 
 Questa repository contiene tutti i miei progetti, esercizi ed esempi di programmazione Java sviluppati durante il bootcamp Full Stack Java Developer di Generation Italy.
 
