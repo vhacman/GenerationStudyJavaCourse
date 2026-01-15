@@ -99,7 +99,7 @@ GenerationStudyJavaCourse/
 | [NSMPI](docs/03-business-applications/nsmpi.md)[17] | Sistema Gestionale Polimorfismo | Advanced OOP, Interfaces, Factory Pattern, Strategy Pattern, ETL |
 | [PrintLabel](docs/03-business-applications/print-label.md)[18] | Stampa Etichette | Template Rendering |
 | [ProlocoLakeComo](docs/03-business-applications/proloco-lake-como.md)[19] | Turismo Lago Como | Tourism Management |
-| [GrottammareB&B](docs/03-business-applications/grottammareBB.md)[7] | Bed & Breakfast Avanzato | Repository Pattern, Factory DI, Validazione CF Italiano, MVC |
+| [GrottammareB&B](docs/03-business-applications/grottammareBB.md)[7] | Bed & Breakfast Avanzato | Repository Pattern, Factory DI, ETL Pattern, Service Layer, Expense Management, CSV Import, MVC |
 | [VacanzeRomane](docs/03-business-applications/vacanze-romane.md)[26] | Agenzia Viaggi | Travel Booking |
 | [VillaMelzi](docs/03-business-applications/villa-melzi.md)[25] | Gestione Villa | Property Management |
 
@@ -146,7 +146,7 @@ GenerationStudyJavaCourse/
 | **[MonsterHotel](docs/03-business-applications/monster-hotel.md)**[13] | Gestione Hotel | MVC, Service Layer | ✅ |
 | **[SBHotel](docs/03-business-applications/sb-hotel.md)**[20] | Sistema Alberghiero | Room Management | ✅ |
 | **[LeccoB&B](docs/03-business-applications/lecco-bb.md)**[9] | Bed & Breakfast | Booking System | ✅ |
-| **[GrottammareB&B](docs/03-business-applications/grottammareBB.md)**[7] | Bed & Breakfast Avanzato | Repository Pattern, Factory DI, MVC | ✅ |
+| **[GrottammareB&B](docs/03-business-applications/grottammareBB.md)**[7] | Bed & Breakfast Avanzato | Repository Pattern, Factory DI, ETL Pattern, Service Layer, Expense Management, CSV Import | ✅ |
 | **[ProlocoLakeComo](docs/03-business-applications/proloco-lake-como.md)**[19] | Turismo Lago Como | Tourism Management | ✅ |
 | **[VacanzeRomane](docs/03-business-applications/vacanze-romane.md)**[26] | Agenzia Viaggi | Travel Booking | ✅ |
 | **[VillaMelzi](docs/03-business-applications/villa-melzi.md)**[25] | Gestione Villa | Property Management | ✅ |

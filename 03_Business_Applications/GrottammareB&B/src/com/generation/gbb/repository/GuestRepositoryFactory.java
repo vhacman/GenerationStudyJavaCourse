@@ -10,7 +10,7 @@ public class GuestRepositoryFactory
      * Singleton instance of dummy repository for development/testing.
      * Lazy initialization not needed for simplicity.
      */
-    static GuestRepository dummyGuestRepo = new DummyGuestRepositoryFactory();
+    static GuestRepository dummyGuestRepo = new DummyGuestRepository();
 
     /**
      * Creates and returns a GuestRepository instance.

@@ -1,9 +1,11 @@
 package com.generation.gbb.model.entities;
 
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 import com.generation.library.Entity;
@@ -110,21 +112,115 @@ public class Guest extends Entity
 		return errors;
 	}
 
+	
 	/**
-     * Generates a human-readable string representation of the room.
-     * Useful for logging, debugging, and display purposes.
-     * 
-     * @return Formatted string with all room attributes
-     */
-    @Override
+	 * Generates a hash code for this guest based on its attributes.
+	 * Consistent with equals(): if two guests are equal, they must have the same hash code.
+	 * Used by hash-based collections like HashMap and HashSet.
+	 * 
+	 * @return Hash code value for this guest
+	 */
+	@Override
+	public int hashCode()
+	{
+	    return Objects.hash(address, city, dob, firstName, lastName, ssn);
+	}
+
+
+	/*
+	 * TEORIA: Metodo equals() - Confronto per Uguaglianza
+	 * =====================================================
+	 * 
+	 * DEFINIZIONE:
+	 * Il metodo equals() è definito nella classe Object e deve essere sovrascritto per confrontare
+	 * il contenuto logico di due oggetti anziché i loro riferimenti in memoria.
+	 * 
+	 * CONTRATTO equals():
+	 * - Riflessivo: x.equals(x) deve essere true
+	 * - Simmetrico: se x.equals(y) è true, allora y.equals(x) deve essere true
+	 * - Transitivo: se x.equals(y) e y.equals(z) sono true, allora x.equals(z) deve essere true
+	 * - Consistente: invocazioni multiple devono restituire lo stesso risultato
+	 * - Null-safe: x.equals(null) deve essere false
+	 * 
+	 * PATTERN DI IMPLEMENTAZIONE:
+	 * 1. Controllo identità (this == obj): ottimizzazione per stesso riferimento
+	 * 2. Controllo null: prevenzione NullPointerException
+	 * 3. Controllo tipo (instanceof): verifica compatibilità tipo
+	 * 4. Cast sicuro: conversione a tipo specifico
+	 * 5. Confronto attributi: uguaglianza campo per campo
+	 * 
+	 * RELAZIONE CON hashCode():
+	 * Se equals() viene sovrascritto, hashCode() DEVE essere sovrascritto coerentemente:
+	 * - Se a.equals(b) è true, allora a.hashCode() == b.hashCode()
+	 * - Necessario per corretto funzionamento di HashMap, HashSet, Hashtable
+	 * 
+	 * CONFRONTO STRINGHE:
+	 * - Operatore ==: confronta riferimenti in memoria (identity)
+	 * - Metodo equals(): confronta contenuto caratteri (equality)
+	 * - Per tipi primitivi usare ==, per oggetti usare equals()
+	 */
+
+	/**
+	 * Compares this guest with another object for equality.
+	 * Two guests are considered equal if all their attributes match.
+	 * 
+	 * @param obj The object to compare with this guest
+	 * @return true if the objects are equal, false otherwise
+	 */
+	@Override
+	public boolean equals(Object obj)
+	{
+	    // FASE 1: Controllo identità
+	    // Se this e obj puntano allo stesso indirizzo di memoria, sono identici
+	    // Ottimizzazione: evita confronti inutili se è lo stesso oggetto
+	    if(this == obj)
+	        return true;
+	    
+	    // FASE 2: Controllo null
+	    // Prevenzione NullPointerException: equals() non deve lanciare eccezioni con null
+	    // Per contratto, nessun oggetto è uguale a null
+	    if(obj == null)
+	        return false;
+	    
+	    // FASE 3: Controllo tipo
+	    // Verifica che obj sia effettivamente un'istanza di Guest
+	    // instanceof restituisce false se obj è null o tipo incompatibile
+	    if(!(obj instanceof Guest))
+	        return false;
+	    
+	    // FASE 4: Cast sicuro
+	    // Dopo instanceof, il cast è garantito sicuro (no ClassCastException)
+	    // Convertiamo Object in Guest per accedere ai campi specifici
+	    Guest other = (Guest) obj;
+	    
+	    // FASE 5: Confronto attributi
+	    // Uguaglianza semantica: tutti i campi devono corrispondere
+	    // String.equals() confronta il contenuto, non i riferimenti
+	    // Allineamento verticale migliora leggibilità operatori logici
+	    return this.firstName.equals(other.firstName)  &&
+	           this.lastName.equals(other.lastName)    &&
+	           this.ssn.equals(other.ssn)              &&
+	           this.dob.equals(other.dob)              &&
+	           this.address.equals(other.address)      &&
+	           this.city.equals(other.city);
+	}
+
+
+	/**
+	 * Generates a human-readable string representation of the guest.
+	 * Includes all guest attributes, calculated age, and validation status.
+	 * Useful for logging, debugging, and display purposes.
+	 * 
+	 * @return Formatted string with all guest attributes
+	 */
+	@Override
 	public String toString()
 	{
-		return "Guests [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName +
-				", ssn=" + ssn + ", dob=" + dob + ", age=" + getAge() +
-				", address=" + address + ", city=" + city + ", valido=" + isValid() + "]";
+	    return "Guest [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName +
+	           ", ssn=" + ssn + ", dob=" + dob + ", age=" + getAge() +
+	           ", address=" + address + ", city=" + city + ", valid=" + isValid() + "]";
 	}
-	
-	
+
 	/**
 	 * Returns the guest's first name.
 	 * @return First name as String.

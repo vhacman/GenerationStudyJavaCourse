@@ -44,10 +44,15 @@ Il Modulo 10 è un esempio completo di programmazione orientata agli oggetti che
 Modulo10/
 ├── src/
 │   └── com/generation/
-│       ├── library/
-│       │   └── Console.java              # Utilità I/O
+│       ├── library/                      # 📚 LIBRERIA RIUTILIZZABILE
+│       │   ├── Console.java              # Utilità I/O console
+│       │   ├── Entity.java               # Classe base entità con validazione
+│       │   ├── FileReader.java           # Lettura file line-by-line
+│       │   ├── FileWriter.java           # Scrittura file
+│       │   └── Template.java             # Template rendering engine
 │       └── school/
 │           ├── Main.java                 # Entry point
+│           ├── Lesson020.java            # Esempi avanzati polimorfismo
 │           ├── Validable.java            # Interfaccia validazione
 │           ├── Person.java               # Classe astratta base
 │           ├── Employee.java             # Classe astratta dipendente
@@ -57,7 +62,7 @@ Modulo10/
 
 ### Package Principali
 
-- **`com.generation.library`** - Libreria utilità per input/output
+- **`com.generation.library`** - 📚 **Libreria riutilizzabile** per progetti Java (Entity, I/O, Template)
 - **`com.generation.school`** - Gerarchia di classi per la gestione scolastica
 
 ---
@@ -187,6 +192,148 @@ if (person instanceof Teacher) {
 │  + toString(): String                   │
 └─────────────────────────────────────────┘
 ```
+
+---
+
+## 📚 Libreria Riutilizzabile (com.generation.library)
+
+Il Modulo 10 include una **libreria di utilità riutilizzabile** che può essere impiegata in qualsiasi progetto Java. Questa libreria implementa pattern comuni e best practices.
+
+### 1. Entity - Classe Base con Validazione
+
+Classe astratta che implementa il **Template Method Pattern** per la validazione:
+
+```java
+public abstract class Entity {
+    protected int id;
+
+    // Template Method: definisce l'algoritmo di validazione
+    public boolean isValid() {
+        return getErrors().isEmpty();  // Delega alle sottoclassi
+    }
+
+    // Metodo astratto - sottoclassi definiscono criteri specifici
+    public abstract List<String> getErrors();
+
+    // Utility methods per validazione
+    protected boolean notMissing(String s) {
+        return s != null && !s.isBlank();
+    }
+
+    protected boolean isMissing(String s) {
+        return s == null || s.isBlank();
+    }
+}
+```
+
+**Utilizzo:** Usata in progetti come GrottammareB&B e NSMPI per entità del dominio.
+
+### 2. FileReader - Lettura File Line-by-Line
+
+Wrapper per `Scanner` che semplifica la lettura di file di testo:
+
+```java
+public class FileReader {
+    private Scanner scanner;
+
+    public FileReader(String filename) throws FileNotFoundException {
+        File file = new File(filename);
+        scanner = new Scanner(file);
+    }
+
+    public boolean hasNext() {
+        return scanner.hasNextLine();
+    }
+
+    public String readString() {
+        return scanner.nextLine();
+    }
+
+    public void close() {
+        scanner.close();
+    }
+}
+```
+
+**Utilizzo:** Import CSV, lettura configurazioni, processing batch di file.
+
+### 3. FileWriter - Scrittura File
+
+Wrapper per `PrintWriter` con gestione semplificata:
+
+```java
+public class FileWriter {
+    private PrintWriter writer;
+
+    public FileWriter(String filename) throws FileNotFoundException {
+        File file = new File(filename);
+        writer = new PrintWriter(file);
+    }
+
+    public void writeLine(String line) {
+        writer.println(line);
+    }
+
+    public void close() {
+        writer.close();
+    }
+}
+```
+
+**Utilizzo:** Export dati, generazione report, logging file.
+
+### 4. Template - Template Rendering Engine
+
+Sistema di template semplice per rendering dinamico di testo:
+
+```java
+public class Template {
+    private String templateContent;
+
+    public Template(String filename) throws FileNotFoundException {
+        // Carica template da file
+        FileReader reader = new FileReader(filename);
+        StringBuilder sb = new StringBuilder();
+        while(reader.hasNext()) {
+            sb.append(reader.readString()).append("\n");
+        }
+        templateContent = sb.toString();
+    }
+
+    public String render(Map<String, String> data) {
+        String result = templateContent;
+        for(Map.Entry<String, String> entry : data.entrySet()) {
+            result = result.replace("{{" + entry.getKey() + "}}", entry.getValue());
+        }
+        return result;
+    }
+}
+```
+
+**Utilizzo:** Generazione HTML/email, report formattati, document generation.
+
+### 5. Console - I/O Utilities
+
+Utilità per input/output console con gestione errori:
+
+```java
+public class Console {
+    public static void print(String message) {
+        System.out.println(message);
+    }
+
+    public static String readLine(String prompt) {
+        System.out.print(prompt);
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+}
+```
+
+**Integrazione con altri progetti:**
+- ✅ **GrottammareB&B**: Entity, FileReader per CSV import
+- ✅ **NSMPI**: Entity, Template per rendering viste
+- ✅ **Progetti futuri**: Libreria plug-and-play
 
 ---
 
