@@ -131,7 +131,6 @@ public class SQLExpenseRepository implements ExpenseRepository
 	            
 	            result.add(intoExpenseObject);
 	        }
-
 	        readCmdFromSQLString.close();
 	        expenseRow.close();
 
