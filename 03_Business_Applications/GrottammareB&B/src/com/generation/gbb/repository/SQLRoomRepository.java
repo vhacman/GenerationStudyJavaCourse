@@ -176,8 +176,7 @@ public class SQLRoomRepository implements RoomRepository
 			 
 			 newRoom.setId(getNewId());
 			 return newRoom;
-			 
-			
+
 		}
 		catch (Exception e)
 		{
@@ -187,28 +186,66 @@ public class SQLRoomRepository implements RoomRepository
 	}
 
 	/**
+	 * Recupera l'ultimo ID generato dal database.
+	 * Metodo PRIVATE di supporto per sincronizzare l'id dopo un inserimento.
+	 * @return l'ID massimo presente nella tabella room
+	 */
+	private int getNewId()
+	{
+		try
+	    {
+	        // Recupera il valore massimo della colonna id
+	        // "as m" crea un alias per leggere facilmente il risultato
+	        PreparedStatement   readCmd = connection.prepareStatement("SELECT MAX(id) AS m FROM room");
+	        ResultSet           rs      = readCmd.executeQuery();
+	        
+	        // Legge il valore dalla colonna con alias "m"
+	        int                 res     = rs.getInt("m");
+	        
+	        // Rilascio risorse JDBC
+	        readCmd.close();
+	        rs.close();
+	        
+	        return res;
+	    }
+	    catch(Exception e)
+	    {
+	        e.printStackTrace();
+	        throw new RuntimeException("Error reading");
+	    }
+	}
+	
+	
+	/**
 	 * Aggiorna i dati di una stanza esistente.
 	 * @param newVersion l'oggetto Room con i dati aggiornati
 	 * @return l'oggetto Room aggiornato
-	 * RIFERIMENTO: SQLGuestRepository.java:310-346
 	 */
 	@Override
 	public Room update(Room newVersion)
 	{
-		// TODO: try-catch
-		// TODO: String sql = "update room set name=?, description=?, size=?, floor=?, price=? where id=?";
-		// TODO: PreparedStatement updateCmd = connection.prepareStatement(sql);
-		// TODO: updateCmd.setString(1, newVersion.getName());
-		// TODO: updateCmd.setString(2, newVersion.getDescription());
-		// TODO: updateCmd.setDouble(3, newVersion.getSize());
-		// TODO: updateCmd.setInt(4, newVersion.getFloor());
-		// TODO: updateCmd.setDouble(5, newVersion.getPrice());
-		// TODO: updateCmd.setInt(6, newVersion.getId());  // WHERE id=? (parametro 6)
-		// TODO: updateCmd.execute();
-		// TODO: updateCmd.close();
-		// TODO: return newVersion;
-		// TODO: catch → throw new RuntimeException("Error saving");
-		return null;
+		try
+		{									//AGGIORNA tabella ROOM e SET ai campi per ex: 'name'='?' --> al campo name
+																											//il valore del placeholder(vedi riga 234
+			String sqlString = "UPDATE Room SET name=?, description=?, size=?, floor=?, price=? WHERE id=?";
+			PreparedStatement 	updateCmd = connection.prepareStatement(sqlString);
+			
+			updateCmd.setString(1, newVersion.getName());
+			updateCmd.setString(2, newVersion.getDescription());
+			updateCmd.setDouble(3, newVersion.getSize());
+			updateCmd.setInt(4, newVersion.getFloor());
+			updateCmd.setDouble(5, newVersion.getPrice());
+			updateCmd.setInt(6, newVersion.getId());
+			
+			updateCmd.execute();
+			updateCmd.close();
+			return newVersion;
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			throw new RuntimeException("Error saving");
+		}
 	}
 
 	/**
@@ -218,36 +255,23 @@ public class SQLRoomRepository implements RoomRepository
 	 * RIFERIMENTO: SQLGuestRepository.java:354-382
 	 */
 	@Override
-	public boolean delete(int id)
+	public boolean delete(int id) 
 	{
-		// TODO: try-catch
-		// TODO: String sql = "delete from room where id = ?";
-		// TODO: PreparedStatement deleteCmd = connection.prepareStatement(sql);
-		// TODO: deleteCmd.setInt(1, id);
-		// TODO: deleteCmd.execute();
-		// TODO: deleteCmd.close();
-		// TODO: return true;
-		// TODO: catch → return false;
-		return false;
+		try
+		{
+			String				sqlString = "DELETE from Room WHERE id = ?";
+
+			PreparedStatement deleteCmd = connection.prepareStatement(sqlString);
+			deleteCmd.setInt(1, id);
+			deleteCmd.execute();
+			deleteCmd.close();
+			return true;
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
 	}
 
-	/**
-	 * Recupera l'ultimo ID generato dal database.
-	 * Metodo PRIVATE di supporto per sincronizzare l'id dopo un inserimento.
-	 * @return l'ID massimo presente nella tabella room
-	 * RIFERIMENTO: SQLGuestRepository.java:274-302
-	 */
-	private int getNewId()
-	{
-		// TODO: try-catch
-		// TODO: String sql = "select max(id) as m from room";
-		// TODO: PreparedStatement readCmd = connection.prepareStatement(sql);
-		// TODO: ResultSet rs = readCmd.executeQuery();
-		// TODO: rs.next();
-		// TODO: int res = rs.getInt("m");
-		// TODO: readCmd.close(); rs.close();
-		// TODO: return res;
-		// TODO: catch → throw new RuntimeException("Error reading");
-		return 0;
-	}
+
 }

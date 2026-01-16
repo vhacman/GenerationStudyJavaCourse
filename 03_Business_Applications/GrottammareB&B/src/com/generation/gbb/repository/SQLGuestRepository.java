@@ -101,19 +101,6 @@ public class SQLGuestRepository implements GuestRepository
 	{
 		try
 		{
-			/*
-			 * Pattern Query Object con parametrizzazione:
-			 * 
-			 * Placeholder (?) → Valore dinamico (id)
-			 * PreparedStatement.setInt() → Binding sicuro del parametro
-			 * 
-			 * Vantaggi:
-			 * - Prevenzione SQL Injection → parametri escapati automaticamente
-			 * - Type Safety → conversione tipo gestita dal driver JDBC
-			 * - Performance → query precompilata riutilizzabile
-			 * 
-			 * ResultSet.next() ritorna true se esiste una riga, false altrimenti.
-			 */
 			String sql = "select * from Guest where id = ?";
 			PreparedStatement readCmd = connection.prepareStatement(sql);
 			readCmd.setInt(1, id);
@@ -308,18 +295,6 @@ public class SQLGuestRepository implements GuestRepository
 	{
 		try
 		{
-			/*
-			 * Pattern Update Command:
-			 * 
-			 * UPDATE SQL → Modifica record esistente tramite WHERE clause
-			 * ID come chiave → Identifica univocamente il record target
-			 * 
-			 * Mapping bidirezionale:
-			 * Oggetto Java (Guest) → Record Database
-			 * 
-			 * Nota: Non verifica se l'ID esiste. Una validazione preliminare
-			 * (es. findById) renderebbe l'operazione più robusta.
-			 */
 			String sql = 
 				"update guest set firstname=?, lastname=?, ssn=?, dob=?, city=?, address=? where id=?";
 			
