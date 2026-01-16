@@ -6,67 +6,51 @@ import java.sql.DriverManager;
 import com.generation.library.Console;
 
 /**
- * L'interfaccia esiste già!
- * E' nella libreria che abbiamo importato
- * e si chiama Connection
+ * Factory per la gestione della connessione al database SQLite.
+ * Implementa il pattern Singleton per garantire una singola istanza
+ * della connessione durante il ciclo di vita dell'applicazione.
  */
 public class ConnectionFactory 
 {
-
-	static Connection connection = null;
-	
-	/**
-	 * Crea o restituisce l'istanza singleton della connessione al database SQLite.
-	 * Implementa il pattern Singleton per garantire una singola connessione attiva.
-	 * Utilizza il DriverManager come Factory Method per ottenere la connessione appropriata.
-	 *
-	 * @return l'istanza unica di Connection al database grottammare.db
-	 */
-	public static Connection make()
-	{
-		/*
-		 * ******************************************************************************
-		 * Relazione tra Design Pattern e Principi OOP in questo metodo:
-		 *
-		 *      Singleton Pattern  →  Garantisce una sola istanza di Connection
-		 *      - Verifica se connection == null prima di creare una nuova istanza
-		 *      - Riutilizza la stessa connessione per tutte le richieste successive
-		 *      - Evita spreco di risorse mantenendo un'unica connessione attiva
-		 *
-		 *      Factory Method Pattern  →  Delega la creazione a DriverManager
-		 *      - DriverManager.getConnection() è una factory che crea l'implementazione
-		 *        corretta di Connection in base al protocollo JDBC specificato
-		 *      - ConnectionFactory nasconde la complessità della creazione
-		 *      - Il client riceve un'interfaccia Connection senza conoscere l'implementazione
-		 *
-		 *      Astrazione  →  Connection (interfaccia JDBC standard)
-		 *      Implementazione  →  SQLite JDBC Driver (org.sqlite.JDBC)
-		 *
-		 * Questa classe applica il principio di Incapsulamento nascondendo i dettagli
-		 * della connessione al database e fornendo un punto di accesso centralizzato.
-		 * ******************************************************************************
-		 */
-		if(connection==null)
-		{
-			try
-			{
-				// Carica il driver JDBC SQLite nella JVM
-				Class.forName("org.sqlite.JDBC");
-
-				// Crea la connessione utilizzando DriverManager come Factory Method
-				// jdbc:sqlite:grottammare.db indica il protocollo e il percorso del database
-				connection = DriverManager.getConnection("jdbc:sqlite:grottammare.db");
-			}
-			catch(Exception e)
-			{
-				Console.print("Cannot create connection");
-				e.printStackTrace();
-				System.exit(-1); // Termina l'applicazione in caso di errore critico
-			}
-		}
-		return connection;
-	}
-	
-	
-	
+    static Connection connection = null;
+    
+    /**
+     * Crea o restituisce l'istanza esistente della connessione al database.
+     * Utilizza lazy initialization per creare la connessione solo quando necessaria.
+     * 
+     * @return l'istanza singleton della connessione al database SQLite
+     */
+    public static Connection make()
+    {
+        if(connection == null)
+        {
+            try
+            {
+                /*
+                 * Relazione tra Pattern e Principi OOP:
+                 * 
+                 * Singleton Pattern → Garantisce istanza unica
+                 * Factory Pattern → Delega creazione a DriverManager
+                 * Astrazione → Connection nasconde dettagli implementativi del DB
+                 * Incapsulamento → Logica di connessione isolata in questa classe
+                 * 
+                 * Il metodo coordina due factory:
+                 * 1. ConnectionFactory (questa classe) → gestisce il ciclo di vita
+                 * 2. DriverManager.getConnection() → crea l'implementazione specifica
+                 * 
+                 * Class.forName() verifica il caricamento del driver JDBC prima
+                 * della connessione, garantendo fail-fast in caso di dipendenze mancanti.
+                 */
+                Class.forName("org.sqlite.JDBC");
+                connection = DriverManager.getConnection("jdbc:sqlite:grottammare.db");	
+            }
+            catch(Exception e) 
+            {
+                Console.print("Cannot create connection");
+                e.printStackTrace();
+                System.exit(-1);
+            }
+        }
+        return connection;
+    }
 }
