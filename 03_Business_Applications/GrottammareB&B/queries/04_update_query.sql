@@ -1,0 +1,62 @@
+/****************************************************************
+ * UPDATE - Operazione di Modifica (Update)
+ * 
+ * Relazione con le operazioni CRUD:
+ * 
+ * → CREATE    ≡  INSERT INTO
+ * → READ      ≡  SELECT
+ * → UPDATE    ≡  UPDATE        ← siamo qui
+ * → DELETE    ≡  DELETE
+ * 
+ * L'UPDATE modifica lo STATO di uno o più oggetti già esistenti.
+ * È l'equivalente di chiamare i metodi setter su un'istanza
+ * e poi persistere le modifiche.
+ ****************************************************************/
+
+/****************************************************************
+ * ANATOMIA DELL'UPDATE
+ * 
+ * UPDATE [tabella]             → QUALE tabella modifico
+ * SET [colonna] = [valore]     → COSA modifico (nuovo stato)
+ * WHERE [condizione]           → QUALI righe modifico
+ * 
+ * ⚠️  ATTENZIONE: senza WHERE, TUTTE le righe vengono modificate!
+ *     Questo è uno degli errori più pericolosi in SQL.
+ ****************************************************************/
+
+/****************************************************************
+ * EQUIVALENTE JAVA (Repository Pattern)
+ * 
+ * // Con JDBC
+ * String sql = "UPDATE guest SET firstname=?, lastname=? WHERE id=?";
+ * PreparedStatement ps = connection.prepareStatement(sql);
+ * ps.setString(1, "Mario");
+ * ps.setString(2, "Valle");
+ * ps.setInt(3, 9);
+ * int rowsAffected = ps.executeUpdate();
+ * 
+ * // Con Spring Data JPA (approccio OOP)
+ * Guest guest = guestRepository.findById(9).orElseThrow();
+ * guest.setFirstname("Mario");
+ * guest.setLastname("Valle");
+ * guestRepository.save(guest);    // persist delle modifiche
+ * 
+ * Principio OOP → L'incapsulamento protegge lo stato:
+ *                 le modifiche passano attraverso i setter.
+ ****************************************************************/
+
+-- Modifica il guest con id=9, impostando nuovo nome e cognome
+UPDATE guest SET firstname = 'Mario', lastname = 'Valle' WHERE id = 9;
+
+/****************************************************************
+ * VARIANTI UTILI
+ ****************************************************************/
+
+-- Modificare un solo campo
+UPDATE guest SET city = 'Milano' WHERE id = 9;
+
+-- Modificare più righe con una condizione
+UPDATE guest SET city = 'Catania' WHERE city = 'Palermo';
+
+-- ⚠️ ERRORE COMUNE: UPDATE senza WHERE (modifica TUTTO!)
+-- UPDATE guest SET city = 'Roma';  -- PERICOLOSO: cambia TUTTE le righe!
