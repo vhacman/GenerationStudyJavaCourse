@@ -12,6 +12,8 @@ public class GuestRepositoryFactory
      */
     static GuestRepository dummyGuestRepo = new DummyGuestRepository();
 
+    
+    static GuestRepository sqlRepo = new SQLGuestRepository();
     /**
      * Creates and returns a GuestRepository instance.
      * Currently always returns dummy repository for testing.
@@ -21,6 +23,6 @@ public class GuestRepositoryFactory
      */
     public static GuestRepository make()
     { 
-        return dummyGuestRepo;
+        return sqlRepo;
     }
 }
