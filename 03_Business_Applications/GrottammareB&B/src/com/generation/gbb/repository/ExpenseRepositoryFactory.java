@@ -13,6 +13,8 @@ public class ExpenseRepositoryFactory
      */
     static ExpenseRepository dummyExpenseRepo = new DummyExpenseRepository();
 
+    static ExpenseRepository sqlExpenseRepo = new SQLExpenseRepository();
+
     /**
      * Creates and returns an ExpenseRepository instance.
      * Currently always returns dummy repository for testing.
@@ -22,6 +24,6 @@ public class ExpenseRepositoryFactory
      */
     public static ExpenseRepository make()
     {
-        return dummyExpenseRepo;
+        return sqlExpenseRepo;
     }
 }
