@@ -11,11 +11,11 @@ public class SQLGuestRepository implements GuestRepository
 	//il repository ha bisogno della CONNECTION
 	/**
 	 * SENZA CONNECTION NON LAVORA
-	 * 
-	 * 
-	 * LA CONNECTION È UNA DIPENDENZA DEL REPOSITORY 
-	 * 
-	 * 
+	 *
+	 *
+	 * LA CONNECTION È UNA DIPENDENZA DEL REPOSITORY
+	 *
+	 *
 	 */
 	Connection connection = ConnectionFactory.make();
 
@@ -66,5 +66,5 @@ public class SQLGuestRepository implements GuestRepository
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 }

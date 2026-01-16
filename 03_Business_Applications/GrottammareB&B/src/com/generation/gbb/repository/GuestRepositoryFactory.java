@@ -11,6 +11,8 @@ public class GuestRepositoryFactory
      * Lazy initialization not needed for simplicity.
      */
     static GuestRepository dummyGuestRepo = new DummyGuestRepository();
+    
+    static GuestRepository sqlRepo = new SQLGuestRepository();
 
     
     static GuestRepository sqlRepo = new SQLGuestRepository();
