@@ -11,6 +11,8 @@ public class GuestRepositoryFactory
      * Lazy initialization not needed for simplicity.
      */
     static GuestRepository dummyGuestRepo = new DummyGuestRepository();
+    
+    static GuestRepository sqlRepo = new SQLGuestRepository();
 
     /**
      * Creates and returns a GuestRepository instance.
@@ -21,6 +23,6 @@ public class GuestRepositoryFactory
      */
     public static GuestRepository make()
     { 
-        return dummyGuestRepo;
+        return sqlRepo;
     }
 }
