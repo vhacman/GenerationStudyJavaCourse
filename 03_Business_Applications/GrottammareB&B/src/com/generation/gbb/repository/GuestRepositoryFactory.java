@@ -14,8 +14,6 @@ public class GuestRepositoryFactory
     
     static GuestRepository sqlRepo = new SQLGuestRepository();
 
-    
-    static GuestRepository sqlRepo = new SQLGuestRepository();
     /**
      * Creates and returns a GuestRepository instance.
      * Currently always returns dummy repository for testing.
