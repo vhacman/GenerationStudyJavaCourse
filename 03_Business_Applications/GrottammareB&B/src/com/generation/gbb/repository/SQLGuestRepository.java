@@ -205,8 +205,7 @@ public class SQLGuestRepository implements GuestRepository
 		List<Guest> res = new ArrayList<Guest>();
 		for(Guest g : findAll())
 			if(g.getCity().contains(city))
-				res.add(g);
-		
+				res.add(g);		
 		return res;
 	}
 
@@ -256,7 +255,8 @@ public class SQLGuestRepository implements GuestRepository
 			insertCmd.setString(6, newGuest.getAddress());
 			insertCmd.execute();
 			insertCmd.close();
-			newGuest.setId(getNewId());
+			int res = getNewId();
+			newGuest.setId(res);
 			return newGuest;
 		}		
 		catch(Exception e)
@@ -279,11 +279,7 @@ public class SQLGuestRepository implements GuestRepository
 			 * Strategia ID Generation:
 			 * 
 			 * MAX(id) → Recupero ultimo identificativo assegnato
-			 * 
-			 * Limitazioni:
-			 * - Race condition in ambienti concorrenti
-			 * - Non garantisce l'ID esatto dell'ultima INSERT
-			 * 
+		
 			 * Soluzione migliore:
 			 * - SQLite: last_insert_rowid()
 			 * - JDBC: Statement.RETURN_GENERATED_KEYS

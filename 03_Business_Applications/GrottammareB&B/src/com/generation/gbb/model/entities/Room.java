@@ -25,6 +25,7 @@ public class Room extends Entity
 
     public Room()
     {
+    	
     }
 
     /**
