@@ -50,12 +50,16 @@ public class ExpenseExtractorCSV implements ExpenseExtractor
      */
     private Expense convertToObject(String line)
     {
-    	String[] parts = line.split(",");
+        String[] parts = line.split(",");
+        if(parts.length < 4)
+            throw new IllegalArgumentException("Invalid CSV format: expected 4 fields, got " + parts.length);
+        
         Expense e = new Expense();
-        e.setDate(LocalDate.parse(parts[0]));
-        e.setDescription(parts[1]);
-        e.setValue(Integer.valueOf(parts[2]));
-        e.setCategory(ExpenseCategory.valueOf(parts[3]));
+        e.setDate(LocalDate.parse(parts[0].trim()));
+        e.setDescription(parts[1].trim());
+        e.setValue(Integer.parseInt(parts[2].trim()));
+        e.setCategory(ExpenseCategory.valueOf(parts[3].trim()));
         return e;
     }
+
 }

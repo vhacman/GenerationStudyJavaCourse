@@ -1,10 +1,11 @@
-package com.generation.gbb.repository;
+package com.generation.gbb.DUMMY;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.generation.gbb.model.entities.Guest;
 import com.generation.gbb.model.entities.Room;
+import com.generation.gbb.repository.interfaces.RoomRepository;
 
 /**
  * In-memory repository implementation for Room management. Uses mockData list

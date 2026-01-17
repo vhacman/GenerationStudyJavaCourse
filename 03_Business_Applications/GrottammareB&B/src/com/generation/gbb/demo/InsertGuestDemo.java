@@ -1,8 +1,8 @@
 package com.generation.gbb.demo;
 
 import com.generation.gbb.model.entities.Guest;
-import com.generation.gbb.repository.GuestRepository;
-import com.generation.gbb.repository.GuestRepositoryFactory;
+import com.generation.gbb.repository.factory.GuestRepositoryFactory;
+import com.generation.gbb.repository.interfaces.GuestRepository;
 import com.generation.library.Console;
 
 public class InsertGuestDemo

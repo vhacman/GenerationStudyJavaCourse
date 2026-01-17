@@ -1,13 +1,17 @@
 package com.generation.gbb.repository;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.generation.gbb.model.database.ConnectionFactory;
 import com.generation.gbb.model.entities.Room;
+import com.generation.gbb.repository.interfaces.RoomRepository;
+import com.generation.library.Console;
 
 /**
  * Implementazione SQL del repository per la gestione delle stanze.
@@ -19,6 +23,30 @@ public class SQLRoomRepository implements RoomRepository
 {
 	Connection connection = ConnectionFactory.make();
 
+	
+	/**
+	 * Verifica se la tabella trip esiste nel database.
+	 */
+	private void checkTable()
+	{
+		try
+		{
+			DatabaseMetaData meta = connection.getMetaData();
+			ResultSet rs = meta.getTables(null, null, "room", null);
+
+			if (!rs.next())
+			{
+				throw new RuntimeException("Tabella 'room' non trovata. Eseguire comando 33 (CREATETABLEROOM)");
+			}
+
+			rs.close();
+		}
+		catch (SQLException e)
+		{
+			throw new RuntimeException("Errore verifica tabella room");
+		}
+	}
+	
 	/**
 	 * Recupera tutte le stanze dal database.
 	 * @return lista contenente tutte le stanze presenti nel database
@@ -27,6 +55,7 @@ public class SQLRoomRepository implements RoomRepository
 	@Override
 	public List<Room> findAll()
 	{
+		checkTable();
 		try
 		{
 			String  			sqlString 				= "select * from room";
@@ -67,6 +96,8 @@ public class SQLRoomRepository implements RoomRepository
 	@Override
 	public Room findById(int id)
 	{	
+		checkTable();
+
 		try
 	    {
 	        // Query parametrizzata: il "?" è un placeholder sicuro
@@ -112,17 +143,25 @@ public class SQLRoomRepository implements RoomRepository
 	 * Cerca stanze il cui nome O descrizione contiene una determinata stringa.
 	 * @param part la porzione di testo da cercare
 	 * @return lista di stanze con nome o descrizione corrispondente
+	 * @throws IllegalArgumentException se la stringa di ricerca è null o vuota
 	 */
 	@Override
 	public List<Room> findByNameOrDescriptionContaining(String part)
 	{
-		
-		List<Room> 			result = new ArrayList<>();	
+		checkTable();
+
+		// VALIDAZIONE: stringa di ricerca non può essere null o vuota
+		if (part == null || part.trim().isEmpty())
+		{
+			throw new IllegalArgumentException("La stringa di ricerca non può essere vuota");
+		}
+
+		List<Room> 			result = new ArrayList<>();
 		for (Room room : findAll())
 		{
 			if(room.getName().contains(part) || room.getDescription().contains(part))
 				result.add(room);
-		}	
+		}
 		return result;
 	}
 
@@ -130,17 +169,26 @@ public class SQLRoomRepository implements RoomRepository
 	 * Cerca stanze con prezzo inferiore al budget specificato.
 	 * @param budget il prezzo massimo
 	 * @return lista di stanze con prezzo inferiore
+	 * @throws IllegalArgumentException se il budget non è positivo
 	 * RIFERIMENTO: SQLGuestRepository.java:196-211
 	 */
 	@Override
 	public List<Room> findByPriceLesserThan(int budget)
 	{
+		checkTable();
+
+		// VALIDAZIONE: budget deve essere positivo
+		if (budget <= 0)
+		{
+			throw new IllegalArgumentException("Il budget deve essere maggiore di zero");
+		}
+
 		List<Room>			result = new ArrayList<>();
 		for(Room room : findAll())
 		{
 			if(room.getPrice() < budget)
 				result.add(room);
-		}		
+		}
 		return result;
 	}
 
@@ -149,16 +197,43 @@ public class SQLRoomRepository implements RoomRepository
 	 * @param newRoom l'oggetto Room da persistere
 	 * @return l'oggetto Room con l'id generato dal database
 	 * @throws RuntimeException se la stanza non è valida o ha già un id
+	 * @throws IllegalArgumentException se i campi obbligatori non sono validi
 	 * RIFERIMENTO: SQLGuestRepository.java:220-266
 	 */
 	@Override
 	public Room insert(Room newRoom)
 	{
+		checkTable();
+
+		// VALIDAZIONE: nome non può essere vuoto
+		if (newRoom.getName() == null || newRoom.getName().trim().isEmpty())
+		{
+			throw new IllegalArgumentException("Il nome della stanza non può essere vuoto");
+		}
+
+		// VALIDAZIONE: dimensione deve essere positiva
+		if (newRoom.getSize() <= 0)
+		{
+			throw new IllegalArgumentException("La dimensione deve essere maggiore di zero");
+		}
+
+		// VALIDAZIONE: piano deve essere valido (0-6)
+		if (newRoom.getFloor() < 0 || newRoom.getFloor() > 6)
+		{
+			throw new IllegalArgumentException("Il piano deve essere compreso tra 0 e 6");
+		}
+
+		// VALIDAZIONE: prezzo deve essere positivo
+		if (newRoom.getPrice() <= 0)
+		{
+			throw new IllegalArgumentException("Il prezzo deve essere maggiore di zero");
+		}
+
 		if(!newRoom.isValid())
 			throw new RuntimeException("Invalid room");
 		if(newRoom.getId() != 0)
 			throw new RuntimeException("Cannot save a room with a previous id");
-		
+
 		try
 		{
 			 String				sqlString         	= 
@@ -220,10 +295,32 @@ public class SQLRoomRepository implements RoomRepository
 	 * Aggiorna i dati di una stanza esistente.
 	 * @param newVersion l'oggetto Room con i dati aggiornati
 	 * @return l'oggetto Room aggiornato
+	 * @throws IllegalArgumentException se la room non è valida o l'ID non esiste
 	 */
 	@Override
 	public Room update(Room newVersion)
 	{
+		checkTable();
+
+		// VALIDAZIONE: la room deve essere valida
+		if (!newVersion.isValid())
+		{
+			throw new IllegalArgumentException("Invalid room data");
+		}
+
+		// VALIDAZIONE: deve avere un ID valido per l'update
+		if (newVersion.getId() <= 0)
+		{
+			throw new IllegalArgumentException("Cannot update a room without a valid id");
+		}
+
+		// VALIDAZIONE: verifica che l'ID esista nel database
+		Room existingRoom = findById(newVersion.getId());
+		if (existingRoom == null)
+		{
+			throw new IllegalArgumentException("Room con ID " + newVersion.getId() + " non trovata nel database");
+		}
+
 		try
 		{									//AGGIORNA tabella ROOM e SET ai campi per ex: 'name'='?' --> al campo name
 																											//il valore del placeholder(vedi riga 234
@@ -252,11 +349,27 @@ public class SQLRoomRepository implements RoomRepository
 	 * Elimina una stanza dal database.
 	 * @param id l'identificativo della stanza da eliminare
 	 * @return true se l'eliminazione ha successo, false altrimenti
+	 * @throws IllegalArgumentException se l'ID non è valido o non esiste
 	 * RIFERIMENTO: SQLGuestRepository.java:354-382
 	 */
 	@Override
-	public boolean delete(int id) 
+	public boolean delete(int id)
 	{
+		checkTable();
+
+		// VALIDAZIONE: ID deve essere positivo
+		if (id <= 0)
+		{
+			throw new IllegalArgumentException("ID non valido: " + id);
+		}
+
+		// VALIDAZIONE: verifica che l'ID esista
+		Room existingRoom = findById(id);
+		if (existingRoom == null)
+		{
+			throw new IllegalArgumentException("Room con ID " + id + " non trovata nel database");
+		}
+
 		try
 		{
 			String				sqlString = "DELETE from Room WHERE id = ?";
@@ -273,5 +386,31 @@ public class SQLRoomRepository implements RoomRepository
 		}
 	}
 
+	/**
+	 * Crea la tabella room nel database se non esiste già.
+	 * Utilizza la connessione esistente del repository.
+	 */
+	public void initTable()
+	{
+		try
+		{
+			String createTableSQL = "CREATE TABLE IF NOT EXISTS room (" +
+									"id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+									"name VARCHAR(100) NOT NULL, " +
+									"description TEXT, " +
+									"size REAL NOT NULL, " +
+									"floor INTEGER NOT NULL, " +
+									"price REAL NOT NULL)";
+
+			PreparedStatement statement = connection.prepareStatement(createTableSQL);
+			statement.executeUpdate();
+			statement.close();
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+			throw new RuntimeException("Errore nella creazione della tabella room");
+		}
+	}
 
 }

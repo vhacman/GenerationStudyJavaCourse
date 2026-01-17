@@ -1,15 +1,18 @@
 package com.generation.gbb.repository;
 
-import java.sql.Statement;
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.generation.gbb.model.database.ConnectionFactory;
 import com.generation.gbb.model.entities.Guest;
+import com.generation.gbb.repository.interfaces.GuestRepository;
+import com.generation.library.Console;
 
 /**
  * Implementazione SQL del repository per la gestione degli ospiti.
@@ -20,6 +23,30 @@ public class SQLGuestRepository implements GuestRepository
 {
 	Connection connection = ConnectionFactory.make();
 
+	
+	/**
+	 * Verifica se la tabella trip esiste nel database.
+	 */
+	private void checkTable()
+	{
+		try
+		{
+			DatabaseMetaData meta = connection.getMetaData();
+			ResultSet rs = meta.getTables(null, null, "guest", null);
+
+			if (!rs.next())
+			{
+				throw new RuntimeException("Tabella 'guest' non trovata. Eseguire comando 32 (CREATETABLEGUEST)");
+			}
+
+			rs.close();
+		}
+		catch (SQLException e)
+		{
+			throw new RuntimeException("Errore verifica tabella guest");
+		}
+	}
+	
 	/**
 	 * Recupera tutti gli ospiti dal database.
 	 * 
@@ -28,6 +55,8 @@ public class SQLGuestRepository implements GuestRepository
 	@Override
 	public List<Guest> findAll() 
 	{
+		checkTable();
+
 		try
 		{
 			/*
@@ -99,6 +128,8 @@ public class SQLGuestRepository implements GuestRepository
 	@Override
 	public Guest findById(int id) 
 	{
+		checkTable();
+
 		try
 		{
 			String sql = "select * from Guest where id = ?";
@@ -135,14 +166,22 @@ public class SQLGuestRepository implements GuestRepository
 	 * @return l'oggetto Guest se trovato, null altrimenti
 	 */
 	@Override
-	public Guest findBySSN(String ssn) 
+	public Guest findBySSN(String ssn)
 	{
+		checkTable();
+
+		// VALIDAZIONE: SSN non può essere null o vuoto
+		if (ssn == null || ssn.trim().isEmpty())
+		{
+			throw new IllegalArgumentException("Il codice fiscale non può essere vuoto");
+		}
+
 		/*
 		 * Trade-off tra Performance e Semplicità:
-		 * 
+		 *
 		 * Approccio attuale → Filtraggio in-memory con findAll()
 		 * Approccio ottimale → Query SQL con WHERE ssn = ?
-		 * 
+		 *
 		 * Questa implementazione carica tutti i record (N+1 problem),
 		 * accettabile per dataset piccoli. Per produzione, preferire
 		 * una query diretta con PreparedStatement per ridurre overhead.
@@ -150,7 +189,7 @@ public class SQLGuestRepository implements GuestRepository
 		for(Guest g : findAll())
 			if(g.getSsn().equals(ssn))
 				return g;
-		
+
 		return null;
 	}
 
@@ -161,14 +200,22 @@ public class SQLGuestRepository implements GuestRepository
 	 * @return lista di ospiti con cognome corrispondente
 	 */
 	@Override
-	public List<Guest> findBySurnameContaining(String part) 
+	public List<Guest> findBySurnameContaining(String part)
 	{
+		checkTable();
+
+		// VALIDAZIONE: la stringa da cercare non può essere null o vuota
+		if (part == null || part.trim().isEmpty())
+		{
+			throw new IllegalArgumentException("La stringa di ricerca non può essere vuota");
+		}
+
 		/*
 		 * Pattern Filter in-memory:
-		 * 
+		 *
 		 * Approccio attuale → Stream implicito (enhanced for) + predicato
 		 * Alternativa SQL → WHERE lastname LIKE '%?%'
-		 * 
+		 *
 		 * L'implementazione corrente privilegia semplicità rispetto a efficienza.
 		 * Per dataset grandi (>1000 record), migrare a query SQL con LIKE operator.
 		 */
@@ -176,7 +223,7 @@ public class SQLGuestRepository implements GuestRepository
 		for(Guest g : findAll())
 			if(g.getLastName().contains(part))
 				res.add(g);
-		
+
 		return res;
 	}
 
@@ -187,12 +234,20 @@ public class SQLGuestRepository implements GuestRepository
 	 * @return lista di ospiti residenti nella città specificata
 	 */
 	@Override
-	public List<Guest> findByCity(String city) 
+	public List<Guest> findByCity(String city)
 	{
+		checkTable();
+
+		// VALIDAZIONE: città non può essere null o vuota
+		if (city == null || city.trim().isEmpty())
+		{
+			throw new IllegalArgumentException("La città da cercare non può essere vuota");
+		}
+
 		List<Guest> res = new ArrayList<Guest>();
 		for(Guest g : findAll())
 			if(g.getCity().contains(city))
-				res.add(g);		
+				res.add(g);
 		return res;
 	}
 
@@ -204,14 +259,40 @@ public class SQLGuestRepository implements GuestRepository
 	 * @throws RuntimeException se l'ospite non è valido o ha già un id
 	 */
 	@Override
-	public Guest insert(Guest newGuest) 
+	public Guest insert(Guest newGuest)
 	{
+		checkTable();
+
+		// VALIDAZIONE: nome non può essere vuoto
+		if (newGuest.getFirstName() == null || newGuest.getFirstName().trim().isEmpty())
+		{
+			throw new IllegalArgumentException("Il nome non può essere vuoto");
+		}
+
+		// VALIDAZIONE: cognome non può essere vuoto
+		if (newGuest.getLastName() == null || newGuest.getLastName().trim().isEmpty())
+		{
+			throw new IllegalArgumentException("Il cognome non può essere vuoto");
+		}
+
+		// VALIDAZIONE: codice fiscale non può essere vuoto
+		if (newGuest.getSsn() == null || newGuest.getSsn().trim().isEmpty())
+		{
+			throw new IllegalArgumentException("Il codice fiscale non può essere vuoto");
+		}
+
+		// VALIDAZIONE: data di nascita non può essere nel futuro
+		if (newGuest.getDob() != null && newGuest.getDob().isAfter(LocalDate.now()))
+		{
+			throw new IllegalArgumentException("La data di nascita non può essere nel futuro");
+		}
+
 		if(!newGuest.isValid())
 			throw new RuntimeException("Invalid guest");
-		
+
 		if(newGuest.getId() != 0)
 			throw new RuntimeException("Cannot save a guest with a previous id");
-		
+
 		try
 		{
 			/*
@@ -291,8 +372,29 @@ public class SQLGuestRepository implements GuestRepository
 	 * @return l'oggetto Guest aggiornato
 	 */
 	@Override
-	public Guest update(Guest newVersion) 
+	public Guest update(Guest newVersion)
 	{
+		checkTable();
+
+		// VALIDAZIONE: il guest deve essere valido
+		if (!newVersion.isValid())
+		{
+			throw new IllegalArgumentException("Invalid guest data");
+		}
+
+		// VALIDAZIONE: deve avere un ID valido per l'update
+		if (newVersion.getId() <= 0)
+		{
+			throw new IllegalArgumentException("Cannot update a guest without a valid id");
+		}
+
+		// VALIDAZIONE: verifica che l'ID esista nel database
+		Guest existingGuest = findById(newVersion.getId());
+		if (existingGuest == null)
+		{
+			throw new IllegalArgumentException("Guest con ID " + newVersion.getId() + " non trovato nel database");
+		}
+
 		try
 		{
 			String sql = 
@@ -323,8 +425,23 @@ public class SQLGuestRepository implements GuestRepository
 	 * @return true se l'eliminazione ha successo, false altrimenti
 	 */
 	@Override
-	public boolean delete(int id) 
+	public boolean delete(int id)
 	{
+		checkTable();
+
+		// VALIDAZIONE: ID deve essere positivo
+		if (id <= 0)
+		{
+			throw new IllegalArgumentException("ID non valido: " + id);
+		}
+
+		// VALIDAZIONE: verifica che l'ID esista
+		Guest existingGuest = findById(id);
+		if (existingGuest == null)
+		{
+			throw new IllegalArgumentException("Guest con ID " + id + " non trovato nel database");
+		}
+
 		try
 		{
 			/*
@@ -349,6 +466,33 @@ public class SQLGuestRepository implements GuestRepository
 		catch(Exception e)
 		{
 			return false;
+		}
+	}
+
+	/**
+	 * Crea la tabella guest nel database se non esiste già.
+	 * Utilizza la connessione esistente del repository.
+	 */
+	public void initTable()
+	{
+		try
+		{
+			String createTableSQL = "CREATE TABLE IF NOT EXISTS guest (" +
+									"id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+									"firstname VARCHAR(100) NOT NULL, " +
+									"lastname VARCHAR(100) NOT NULL, " +
+									"fiscalcode VARCHAR(16) NOT NULL UNIQUE, " +
+									"email VARCHAR(100) NOT NULL, " +
+									"phone VARCHAR(20))";
+
+			PreparedStatement statement = connection.prepareStatement(createTableSQL);
+			statement.executeUpdate();
+			statement.close();
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+			throw new RuntimeException("Errore nella creazione della tabella guest");
 		}
 	}
 }

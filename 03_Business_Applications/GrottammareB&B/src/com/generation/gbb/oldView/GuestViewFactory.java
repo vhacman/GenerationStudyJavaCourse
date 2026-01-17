@@ -1,4 +1,4 @@
-package com.generation.gbb.view;
+package com.generation.gbb.oldView;
 
 /**
  * Scelgo quale SOTTOCLASSE, SOTTOTIPO

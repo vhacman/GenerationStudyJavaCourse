@@ -1,15 +1,19 @@
 package com.generation.gbb.repository;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.generation.gbb.model.database.ConnectionFactory;
 import com.generation.gbb.model.entities.Expense;
 import com.generation.gbb.model.entities.ExpenseCategory;
-import com.generation.gbb.model.entities.Room;
+import com.generation.gbb.repository.interfaces.ExpenseRepository;
+import com.generation.library.Console;
 
 /**
  * Implementazione SQL del repository per la gestione delle spese.
@@ -26,11 +30,36 @@ public class SQLExpenseRepository implements ExpenseRepository
 	Connection connection = ConnectionFactory.make();
 
 	/**
+	 * Verifica se la tabella trip esiste nel database.
+	 */
+	private void checkTable()
+	{
+		try
+		{
+			DatabaseMetaData meta = connection.getMetaData();
+			ResultSet rs = meta.getTables(null, null, "expense", null);
+
+			if (!rs.next())
+			{
+				throw new RuntimeException("Tabella 'expense' non trovata. Eseguire comando 34 (CREATETABLEEXPENSE)");
+			}
+
+			rs.close();
+		}
+		catch (SQLException e)
+		{
+			throw new RuntimeException("Errore verifica tabella expense");
+		}
+	}
+	
+	/**
 	 * Recupera tutte le spese dal database.
 	 * @return lista contenente tutte le spese presenti nel database
 	 */
 	public List<Expense> findAll()
 	{
+		checkTable();
+
 	    try
 	    {
 	        String              sqlString               = "SELECT * FROM expense";
@@ -69,6 +98,8 @@ public class SQLExpenseRepository implements ExpenseRepository
 	@Override
 	public Expense findById(int id)
 	{
+		checkTable();
+
 	    try
 	    {
 	        String              sqlString               = "SELECT * FROM expense WHERE id = ?";
@@ -105,10 +136,19 @@ public class SQLExpenseRepository implements ExpenseRepository
 	 * Cerca spese appartenenti a una specifica categoria.
 	 * @param category la categoria delle spese (FOOD, SERVICES, SALARIES)
 	 * @return lista di spese della categoria specificata
+	 * @throws IllegalArgumentException se la categoria è null
 	 */
 	@Override
 	public List<Expense> findByCategory(ExpenseCategory category)
 	{
+		checkTable();
+
+		// VALIDAZIONE: categoria non può essere null
+		if (category == null)
+		{
+			throw new IllegalArgumentException("La categoria non può essere null");
+		}
+
 	    try
 	    {
 	        String              sqlString               = "SELECT * FROM expense WHERE category = ?";
@@ -148,10 +188,41 @@ public class SQLExpenseRepository implements ExpenseRepository
 	 * @param newExpense l'oggetto Expense da persistere
 	 * @return l'oggetto Expense con l'id generato dal database
 	 * @throws RuntimeException se la spesa non è valida o ha già un id
+	 * @throws IllegalArgumentException se i campi obbligatori non sono validi
 	 */
 	@Override
 	public Expense insert(Expense newExpense)
 	{
+		checkTable();
+
+		// VALIDAZIONE: descrizione non può essere vuota
+		if (newExpense.getDescription() == null || newExpense.getDescription().trim().isEmpty())
+		{
+			throw new IllegalArgumentException("La descrizione non può essere vuota");
+		}
+
+		// VALIDAZIONE: valore deve essere positivo
+		if (newExpense.getValue() <= 0)
+		{
+			throw new IllegalArgumentException("Il valore deve essere maggiore di zero");
+		}
+
+		// VALIDAZIONE: categoria non può essere null
+		if (newExpense.getCategory() == null)
+		{
+			throw new IllegalArgumentException("La categoria non può essere null");
+		}
+
+		// VALIDAZIONE: data non può essere null o nel futuro
+		if (newExpense.getDate() == null)
+		{
+			throw new IllegalArgumentException("La data non può essere null");
+		}
+		if (newExpense.getDate().isAfter(LocalDate.now()))
+		{
+			throw new IllegalArgumentException("La data non può essere nel futuro");
+		}
+
 	    if(!newExpense.isValid())
 	        throw new RuntimeException("Invalid expense");
 	    if(newExpense.getId() != 0)
@@ -215,10 +286,32 @@ public class SQLExpenseRepository implements ExpenseRepository
 	 * Aggiorna i dati di una spesa esistente.
 	 * @param newVersion l'oggetto Expense con i dati aggiornati
 	 * @return l'oggetto Expense aggiornato
+	 * @throws IllegalArgumentException se l'expense non è valida o l'ID non esiste
 	 */
 	@Override
 	public Expense update(Expense newVersion)
 	{
+		checkTable();
+
+		// VALIDAZIONE: l'expense deve essere valida
+		if (!newVersion.isValid())
+		{
+			throw new IllegalArgumentException("Invalid expense data");
+		}
+
+		// VALIDAZIONE: deve avere un ID valido per l'update
+		if (newVersion.getId() <= 0)
+		{
+			throw new IllegalArgumentException("Cannot update an expense without a valid id");
+		}
+
+		// VALIDAZIONE: verifica che l'ID esista nel database
+		Expense existingExpense = findById(newVersion.getId());
+		if (existingExpense == null)
+		{
+			throw new IllegalArgumentException("Expense con ID " + newVersion.getId() + " non trovata nel database");
+		}
+
 	    try
 	    {
 	        String              sqlString = "UPDATE expense SET date=?, description=?, value=?, category=? WHERE id=?";
@@ -245,15 +338,31 @@ public class SQLExpenseRepository implements ExpenseRepository
 	 * Elimina una spesa dal database.
 	 * @param id l'identificativo della spesa da eliminare
 	 * @return true se l'eliminazione ha successo, false altrimenti
+	 * @throws IllegalArgumentException se l'ID non è valido o non esiste
 	 */
 	@Override
 	public boolean delete(int id)
 	{
+		checkTable();
+
+		// VALIDAZIONE: ID deve essere positivo
+		if (id <= 0)
+		{
+			throw new IllegalArgumentException("ID non valido: " + id);
+		}
+
+		// VALIDAZIONE: verifica che l'ID esista
+		Expense existingExpense = findById(id);
+		if (existingExpense == null)
+		{
+			throw new IllegalArgumentException("Expense con ID " + id + " non trovata nel database");
+		}
+
 	    try
 	    {
 	        String              sqlString = "DELETE FROM expense WHERE id = ?";
 	        PreparedStatement   deleteCmd = connection.prepareStatement(sqlString);
-	        
+
 	        deleteCmd.setInt(1, id);
 	        deleteCmd.execute();
 	        deleteCmd.close();
@@ -263,6 +372,32 @@ public class SQLExpenseRepository implements ExpenseRepository
 	    {
 	        return false;
 	    }
+	}
+
+	/**
+	 * Crea la tabella expense nel database se non esiste già.
+	 * Utilizza la connessione esistente del repository.
+	 */
+	public void initTable()
+	{
+		try
+		{
+			String createTableSQL = "CREATE TABLE IF NOT EXISTS expense (" +
+									"id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+									"date DATE NOT NULL, " +
+									"description VARCHAR(255) NOT NULL, " +
+									"value REAL NOT NULL, " +
+									"category VARCHAR(50) NOT NULL)";
+
+			PreparedStatement statement = connection.prepareStatement(createTableSQL);
+			statement.executeUpdate();
+			statement.close();
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+			throw new RuntimeException("Errore nella creazione della tabella expense");
+		}
 	}
 
 }

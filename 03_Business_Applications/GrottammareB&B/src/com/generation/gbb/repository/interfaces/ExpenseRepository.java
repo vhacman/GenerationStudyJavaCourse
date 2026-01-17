@@ -1,4 +1,4 @@
-package com.generation.gbb.repository;
+package com.generation.gbb.repository.interfaces;
 
 import java.util.List;
 import com.generation.gbb.model.entities.Expense;
@@ -66,4 +66,6 @@ public interface ExpenseRepository
      * @return true if deletion successful, false otherwise
      */
     boolean delete(int id);
+    
+	public void initTable();
 }

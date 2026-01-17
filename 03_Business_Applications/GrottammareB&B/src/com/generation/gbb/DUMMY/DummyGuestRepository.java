@@ -1,9 +1,10 @@
-package com.generation.gbb.repository;
+package com.generation.gbb.DUMMY;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.generation.gbb.model.entities.Guest;
+import com.generation.gbb.repository.interfaces.GuestRepository;
 
 /**
  * In-memory repository for guest management. Uses mockData list to simulate

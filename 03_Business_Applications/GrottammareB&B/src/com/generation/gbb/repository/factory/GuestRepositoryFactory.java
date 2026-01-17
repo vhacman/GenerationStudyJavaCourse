@@ -1,4 +1,8 @@
-package com.generation.gbb.repository;
+package com.generation.gbb.repository.factory;
+
+import com.generation.gbb.DUMMY.DummyGuestRepository;
+import com.generation.gbb.repository.SQLGuestRepository;
+import com.generation.gbb.repository.interfaces.GuestRepository;
 
 /**
  * Factory for creating GuestRepository instances.

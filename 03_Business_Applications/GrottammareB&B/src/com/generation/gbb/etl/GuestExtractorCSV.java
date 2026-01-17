@@ -71,6 +71,10 @@ public class GuestExtractorCSV implements GuestExtractor
     private Guest convertToObject(String line)
     {
     	String[] fields = line.split(",");
+    	
+    	if(fields.length < 6)
+            throw new IllegalArgumentException("Invalid CSV format: expected 6 fields, got " + fields.length);
+    	
     	Guest g = new Guest();
     	g.setFirstName(fields[0].trim());
      	g.setLastName(fields[1].trim());

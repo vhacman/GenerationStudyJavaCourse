@@ -1,4 +1,8 @@
-package com.generation.gbb.repository;
+package com.generation.gbb.repository.factory;
+
+import com.generation.gbb.DUMMY.DummyExpenseRepository;
+import com.generation.gbb.repository.SQLExpenseRepository;
+import com.generation.gbb.repository.interfaces.ExpenseRepository;
 
 /**
  * Factory for creating ExpenseRepository instances.

@@ -1,4 +1,8 @@
-package com.generation.gbb.repository;
+package com.generation.gbb.repository.factory;
+
+import com.generation.gbb.DUMMY.DummyRoomRepository;
+import com.generation.gbb.repository.SQLRoomRepository;
+import com.generation.gbb.repository.interfaces.RoomRepository;
 
 /**
  * Factory for creating RoomRepository instances.

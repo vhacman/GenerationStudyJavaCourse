@@ -1,10 +1,11 @@
-package com.generation.gbb.repository;
+package com.generation.gbb.DUMMY;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.generation.gbb.model.entities.Expense;
 import com.generation.gbb.model.entities.ExpenseCategory;
+import com.generation.gbb.repository.interfaces.ExpenseRepository;
 
 public class DummyExpenseRepository implements ExpenseRepository
 {

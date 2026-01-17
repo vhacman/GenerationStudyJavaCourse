@@ -1,4 +1,4 @@
-package com.generation.gbb.view;
+package com.generation.gbb.oldView;
 
 import com.generation.gbb.model.entities.Room;
 
