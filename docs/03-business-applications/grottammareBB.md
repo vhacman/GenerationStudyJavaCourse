@@ -1,6 +1,6 @@
 # Grottammare B&B - Sistema Gestionale Completo
 
-Sistema console-based per la gestione completa di un Bed & Breakfast che implementa architettura MVC, Repository Pattern, Factory per Dependency Injection, Service Layer ed ETL Pattern. Include validazione dati con regex per Codice Fiscale italiano, gestione spese con import CSV e controllo età maggiorenne.[1][2][11]
+Sistema console-based per la gestione completa di un Bed & Breakfast che implementa architettura MVC, Repository Pattern, Factory per Dependency Injection, Service Layer ed ETL Pattern. Include validazione dati con regex per Codice Fiscale italiano, gestione spese con import CSV e controllo età maggiorenne.
 
 ## Architettura Software
 
@@ -50,7 +50,7 @@ public interface ExpenseRepository {
 }
 ```
 
-**Vantaggi**: Testability (mock), estendibilità (JDBC, JPA), inversione dipendenze.[6]
+**Vantaggi**: Testability (mock), estendibilità (JDBC, JPA), inversione dipendenze.
 
 ### 2. Factory Pattern
 ```java
@@ -66,7 +66,7 @@ public class ExpenseExtractorFactory {
     }
 }
 ```
-Permette sostituzione implementazioni senza modificare `Main` o `Service`.[8]
+Permette sostituzione implementazioni senza modificare `Main` o `Service`.
 
 ### 3. ETL Pattern (Extract-Transform-Load)
 Interfaccia `ExpenseExtractor` astrae l'estrazione dati da diverse fonti:
@@ -133,7 +133,7 @@ public List<String> getErrors() {
     return errors;
 }
 ```
-`isValid()` = `getErrors().isEmpty()`[2]
+`isValid()` = `getErrors().isEmpty()`
 
 ## Modello Dati
 
@@ -280,24 +280,9 @@ public void testExpenseExtractorCSV() throws FileNotFoundException {
 
 Coverage: validazione incrementale campi, edge cases (minorenne, CF malformato, importi negativi, categorie invalide)[10]
 
-## Estendibilità
 
-### Repository Layer
-Il design permette sostituzione `DummyRepository` con:
-- **JDBC**: Database relazionale (MySQL, PostgreSQL)
-- **JPA/Hibernate**: ORM completo
-- **NoSQL**: MongoDB, Redis
-- **REST API**: Integrazione microservizi
 
-### ETL Layer
-`ExpenseExtractor` estensibile a:
-- **JSON**: `ExpenseExtractorJSON`
-- **XML**: `ExpenseExtractorXML`
-- **REST API**: `ExpenseExtractorAPI`
-- **Excel**: `ExpenseExtractorXLSX` (Apache POI)
-- **Database**: `ExpenseExtractorJDBC` (migrazione dati)
-
-Tutte le modifiche avvengono tramite Factory senza toccare `Main` o `Service`.[5][6]
+Tutte le modifiche avvengono tramite Factory senza toccare `Main` o `Service`.
 
 ## Compilazione ed Esecuzione
 
@@ -343,5 +328,5 @@ GrottammareB&B/
 - **Collections**: ArrayList, List, Stream potenziali
 - **Exception Handling**: FileNotFoundException, validazione robusta
 
-**Progetto didattico Generation Italy** - Dimostrazione completa di Repository Pattern, Service Layer, ETL Pattern, Dependency Injection, MVC e validazione enterprise in Java.[11][1]
+**Progetto didattico Generation Italy** - Dimostrazione completa di Repository Pattern, Service Layer, ETL Pattern, Dependency Injection, MVC e validazione enterprise in Java.
 
