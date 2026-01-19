@@ -86,25 +86,6 @@ public class Room extends Entity
                this.price == other.price;
     }
 
-
-    /**
-     * Genera un hash code per questa stanza basato sui suoi attributi.
-     * Coerente con equals(): stanze uguali hanno lo stesso hash code.
-     *
-     * @return Hash code value per questa stanza
-     */
-    @Override
-    public int hashCode()
-    {
-        /*
-         * Relazione → equals() + hashCode() (Contratto):
-         *      Se equals() restituisce true  →  hashCode() DEVE essere uguale
-         *      Necessario per HashMap, HashSet, Hashtable
-         *      Objects.hash() garantisce coerenza automatica
-         */
-        return Objects.hash(name, description, size, floor, price);
-    }
-
     /**
      * Valida tutti gli attributi della stanza secondo le regole di business.
      * Controlla campi obbligatori mancanti e valori non validi.
@@ -123,11 +104,11 @@ public class Room extends Entity
          */
         List<String>    errors = new ArrayList<>();
 
-        if (isMissing(name))            errors.add("Nome stanza obbligatorio");
-        if (isMissing(description))     errors.add("Descrizione stanza obbligatoria");
-        if (size <= 0)                  errors.add("Dimensione deve essere positiva (mq)");
-        if (floor < 0 || floor > 6)     errors.add("Piano non può essere negativo o maggiore di 6");
-        if (price <= 0)                 errors.add("Prezzo per notte deve essere positivo");
+        if (isMissing(name))            errors.add("Invalid value for for name");
+        if (isMissing(description))     errors.add("Invalid value for for description");
+        if (size <= 0)                  errors.add("Invalid value for for size (mq)");
+        if (floor < 0)     				errors.add("Invalid value for floor");
+        if (price < 0)                 	errors.add("Invalid value for description");
 
         return errors;
     }

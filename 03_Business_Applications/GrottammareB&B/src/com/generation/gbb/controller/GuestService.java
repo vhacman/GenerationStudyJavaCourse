@@ -2,6 +2,7 @@ package com.generation.gbb.controller;
 
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -10,7 +11,6 @@ import com.generation.gbb.etl.GuestExtractor;
 import com.generation.gbb.etl.GuestExtractorFactory;
 import com.generation.gbb.model.entities.Guest;
 import com.generation.gbb.repository.SQLGuestRepository;
-import com.generation.gbb.repository.SQLTripRepository;
 import com.generation.gbb.repository.interfaces.GuestRepository;
 import com.generation.gbb.view.EntityViewBasic;
 import com.generation.gbb.view.ViewFactory;
@@ -52,8 +52,17 @@ public class GuestService
 			g.setFirstName(Console.readString());
 			Console.print("Inserire cognome:");
 			g.setLastName(Console.readString());
-			Console.print("Inserire data di nascita (YYYY-MM-DD):");
-			g.setDob(LocalDate.parse(Console.readString()));
+			//fortificazione del codice - hardening 
+			try
+			{
+				Console.print("Inserire data di nascita (YYYY-MM-DD):");
+				g.setDob(LocalDate.parse(Console.readString()));
+			}
+			catch (DateTimeParseException e)
+			{
+				Console.print("data non valida");
+				return;
+			}
 			Console.print("Inserire città:");
 			g.setCity(Console.readString());
 			Console.print("Inserire indirizzo:");
@@ -145,20 +154,28 @@ public class GuestService
 	 */
 	public void findGuestById(String format)
 	{
-		Console.print("Inserire id ospite:");
-		int id = Console.readInt();
-		Guest g = guestRepo.findById(id);
-
-		if (g == null)
-			Console.print("Non trovato");
-		else
+		try
 		{
-			EntityViewBasic<Guest> view = ViewFactory.makeView("guest", "full", format);
-			Console.print(view.render(g));
+			Console.print("Inserire id ospite:");
+			int id = Console.readInt();
+			Guest g = guestRepo.findById(id);
+	
+			if (g == null)
+				Console.print("Non trovato");
+			else
+			{
+				EntityViewBasic<Guest> view = ViewFactory.makeView("guest", "full", format);
+				Console.print(view.render(g));
+			}
+		}
+		catch (NumberFormatException e)
+		{
+			Console.print("Id non valido. Inserire un valore numerico");
 		}
 	}
 
 	/**
+	 * 
 	 * Overload con formato TXT di default.
 	 */
 	public void findGuestById()
