@@ -18,12 +18,6 @@ GenerationStudyJavaCourse/
 ```
 
 ***
-
-## 📖 Documentazione Completa
-
-### 🚀 Inizia Qui
-- [Setup e Esecuzione Programmi](docs/01-getting-started.md)
-
 ### 📚 Librerie e Framework (00_Libraries/)
 
 <details>
