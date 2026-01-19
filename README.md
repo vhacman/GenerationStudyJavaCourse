@@ -3,13 +3,6 @@
 
 Questa repository contiene tutti i miei progetti, esercizi ed esempi di programmazione Java sviluppati durante il bootcamp Full Stack Java Developer di Generation Italy.
 
-***
-
-## 🔗 Link Rapidi
-
-📚 **Materiali del Corso:** [Accedi alla mia cartella Drive con tutti gli appunti e materiali](https://drive.google.com/drive/folders/1f54Eu_EK2zw2XcMK-9qJH4ZErLXtV8Rj?hl=it)
-
-***
 
 ## 📁 Struttura della Repository
 
