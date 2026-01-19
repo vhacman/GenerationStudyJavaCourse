@@ -21,6 +21,7 @@ import com.generation.gbb.repository.interfaces.RoomRepository;
 public class SQLRoomRepository implements RoomRepository
 {
 	Connection				connection	= ConnectionFactory.make();
+	//full caching.
 	TotalCache<Room>		cache		= new TotalCache<Room>();
 	
 	public SQLRoomRepository()
@@ -65,10 +66,6 @@ public class SQLRoomRepository implements RoomRepository
 		 * La prima volta viene eseguito
 		 * dalla seconda volta in poi potrebbe non essere
 		 * eseguito ma mi caricherà il content della cache.
-		 *
-		 * BUGFIX: La condizione cache.getClass() != null era sempre vera perché
-		 * getClass() non restituisce mai null su un oggetto istanziato.
-		 * Corretto controllando se il contenuto della cache è popolato.
 		 */
 		if(cache.getContent() != null && !cache.getContent().isEmpty())
 			return cache.getContent();
@@ -80,6 +77,7 @@ public class SQLRoomRepository implements RoomRepository
 			List<Room>			result					= new ArrayList<>();
 			ResultSet			roomRows				= readCmdFromsqlString.executeQuery();
 
+			ProfilingMonitor.rowsLoaded += result.size();
 			ProfilingMonitor.queryNumber++;
 
 			while (roomRows.next())
@@ -234,8 +232,7 @@ public class SQLRoomRepository implements RoomRepository
 			
 			ProfilingMonitor.queryNumber++;
 			
-			int res = rs.getInt("m");
-			
+			int res = rs.getInt("m");	
 			readCmd.close();
 			rs.close();
 			
@@ -262,9 +259,9 @@ public class SQLRoomRepository implements RoomRepository
 		if (newVersion.getId() <= 0)
 			throw new IllegalArgumentException("Cannot update a room without a valid id");
 		
-		Room existingRoom = findById(newVersion.getId());
+		Room oldVersion = findById(newVersion.getId());
 		
-		if (existingRoom == null)
+		if (oldVersion == null)
 			throw new IllegalArgumentException("Room con ID " + newVersion.getId() + " non trovata nel database");
 		
 		try
@@ -281,6 +278,11 @@ public class SQLRoomRepository implements RoomRepository
 			updateCmd.execute();
 			
 			ProfilingMonitor.queryNumber++;
+			
+			//rimuovo la vecchia version e 
+			//aggiungo la nuova versione
+			cache.getContent().remove(oldVersion);
+			cache.getContent().add(newVersion);
 			updateCmd.close();
 			
 			return newVersion;
@@ -300,16 +302,12 @@ public class SQLRoomRepository implements RoomRepository
 	{
 		checkTable();
 		
-		if (id <= 0)
-			throw new IllegalArgumentException("ID non valido: " + id);
-		
-		Room existingRoom = findById(id);
-		
-		if (existingRoom == null)
+		if (findById(id) == null)
 			throw new IllegalArgumentException("Room con ID " + id + " non trovata nel database");
 		
 		try
 		{
+			Room old = findById(id);
 			String				sqlString	= "DELETE from Room WHERE id = ?";
 			PreparedStatement	deleteCmd	= connection.prepareStatement(sqlString);
 			
@@ -317,12 +315,14 @@ public class SQLRoomRepository implements RoomRepository
 			deleteCmd.execute();
 			
 			ProfilingMonitor.queryNumber++;
+			//stiamo sincronizzando la cache con il database
+			cache.getContent().remove(old); //aggiorno la cache
 			deleteCmd.close();
-			
 			return true;
 		}
 		catch (SQLException e)
 		{
+			e.printStackTrace();
 			return false;
 		}
 	}

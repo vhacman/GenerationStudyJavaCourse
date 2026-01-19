@@ -9,10 +9,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.generation.gbb.cache.PartialCache;
 import com.generation.gbb.model.database.ConnectionFactory;
 import com.generation.gbb.model.entities.Guest;
+import com.generation.gbb.profiling.ProfilingMonitor;
 import com.generation.gbb.repository.interfaces.GuestRepository;
-import com.generation.library.Console;
 
 /**
  * Implementazione SQL del repository per la gestione degli ospiti.
@@ -21,11 +22,11 @@ import com.generation.library.Console;
  */
 public class SQLGuestRepository implements GuestRepository
 {
-	Connection connection = ConnectionFactory.make();
+	Connection 				connection = ConnectionFactory.make();
+	PartialCache<Guest> 	cache = new PartialCache<Guest>(1000);
 
-	
 	/**
-	 * Verifica se la tabella trip esiste nel database.
+	 * Verifica se la tabella guest esiste nel database.
 	 */
 	private void checkTable()
 	{
@@ -46,214 +47,157 @@ public class SQLGuestRepository implements GuestRepository
 			throw new RuntimeException("Errore verifica tabella guest");
 		}
 	}
-	
+
+	public SQLGuestRepository()
+	{
+	}
+
 	/**
 	 * Recupera tutti gli ospiti dal database.
-	 * 
+	 *
 	 * @return lista contenente tutti gli ospiti presenti nel database
 	 */
 	@Override
-	public List<Guest> findAll() 
+	public List<Guest> findAll()
 	{
-		checkTable();
-
-		try
-		{
-			/*
-			 * Relazione tra Repository Pattern e Principi OOP:
-			 * 
-			 * Astrazione → GuestRepository nasconde dettagli SQL al client
-			 * Incapsulamento → Logica JDBC isolata in questa classe
-			 * Contratto (Interface) → GuestRepository definisce il comportamento
-			 * Implementazione → SQLGuestRepository fornisce logica specifica SQL
-			 * 
-			 * Mapping Object-Relational:
-			 * Riga database (ResultSet) → Oggetto dominio (Guest)
-			 * 
-			 * PreparedStatement protegge da SQL injection e migliora le performance
-			 * grazie alla precompilazione della query. ResultSet mantiene il cursore
-			 * sulle righe restituite, permettendo l'iterazione con next().
-			 */
-			// Query SQL per selezionare tutti i record dalla tabella Guest
-			String sql = "select * from Guest";
-
-			// PreparedStatement: oggetto comando che incapsula la query SQL
-			// Protegge da SQL injection e permette la precompilazione della query
-			PreparedStatement readCmd = connection.prepareStatement(sql);
-
-			// Lista che conterrà tutti gli oggetti Guest mappati dal database
-			List<Guest> res = new ArrayList<Guest>();
-
-			// executeQuery(): esegue la SELECT e restituisce un ResultSet
-			// ResultSet: cursore che punta alle righe risultanti dalla query
-			ResultSet guestRows = readCmd.executeQuery();
-
-			// Ciclo di iterazione sulle righe del ResultSet
-			// next(): sposta il cursore alla riga successiva, ritorna false quando non ci sono più righe
-			while(guestRows.next())
-			{
-			    // Crea una nuova istanza Guest per ogni riga del database
-			    Guest g = new Guest();
-			    
-			    // Mapping colonna → proprietà oggetto
-			    // getInt/getString: estrae il valore tipizzato dalla colonna specificata
-			    g.setId(guestRows.getInt("id"));                                    // Estrae la colonna 'id' come intero
-			    g.setFirstName(guestRows.getString("firstname"));                   // Estrae 'firstname' come stringa
-			    g.setLastName(guestRows.getString("lastname"));                     // Estrae 'lastname' come stringa
-			    g.setDob(LocalDate.parse(guestRows.getString("dob")));             // Converte la stringa 'dob' in LocalDate
-			    g.setSsn(guestRows.getString("ssn"));                              // Estrae 'ssn' come stringa
-			    g.setCity(guestRows.getString("city"));                            // Estrae 'city' come stringa
-			    g.setAddress(guestRows.getString("address"));                      // Estrae 'address' come stringa
-			    
-			    // Aggiunge l'oggetto Guest popolato alla lista dei risultati
-			    res.add(g);
-			}
-
-			readCmd.close();
-			guestRows.close();
-			return res;
-		}
-		catch(Exception e)
-		{
-			throw new RuntimeException("Error reading");
-		}
+		//proposizione che è semore vera, va bene anche id >= 0
+		return findWhere("1=1");
 	}
 
 	/**
 	 * Cerca un ospite specifico tramite identificativo.
-	 * 
+	 * Utilizza la cache parziale per ridurre le query al database.
+	 *
 	 * @param id l'identificativo univoco dell'ospite
 	 * @return l'oggetto Guest se trovato, null altrimenti
 	 */
 	@Override
-	public Guest findById(int id) 
+	public Guest findById(int id)
 	{
-		checkTable();
+		Guest cached = cache.findById(id);
+		if (cached != null)
+			return cached;
 
-		try
+		List<Guest> results = findWhere("id = " + id);
+		if (!results.isEmpty())
 		{
-			String sql = "select * from Guest where id = ?";
-			PreparedStatement readCmd = connection.prepareStatement(sql);
-			readCmd.setInt(1, id);
-
-			ResultSet guestRow = readCmd.executeQuery();
-			Guest res = null;
-			if(guestRow.next())
-			{
-				res = new Guest();
-				res.setId(guestRow.getInt("id"));
-				res.setFirstName(guestRow.getString("firstname"));
-				res.setLastName(guestRow.getString("lastname"));
-				res.setDob(LocalDate.parse(guestRow.getString("dob")));
-				res.setSsn(guestRow.getString("ssn"));
-				res.setCity(guestRow.getString("city"));
-				res.setAddress(guestRow.getString("address"));
-			}
-			readCmd.close();
-			guestRow.close();
-			return res;			
+			Guest found = results.get(0);
+			cache.addElement(found);
+			return found;
 		}
-		catch(Exception e)
-		{
-			throw new RuntimeException("Error reading");
-		}
+		return null;
 	}
 
 	/**
 	 * Cerca un ospite tramite codice fiscale.
-	 * 
+	 * Aggiunge il risultato alla cache se trovato.
+	 *
 	 * @param ssn il codice fiscale dell'ospite
 	 * @return l'oggetto Guest se trovato, null altrimenti
 	 */
 	@Override
 	public Guest findBySSN(String ssn)
 	{
-		checkTable();
-
-		// VALIDAZIONE: SSN non può essere null o vuoto
-		if (ssn == null || ssn.trim().isEmpty())
+		List<Guest> results = findWhere("ssn = '" + ssn + "'");
+		if (!results.isEmpty())
 		{
-			throw new IllegalArgumentException("Il codice fiscale non può essere vuoto");
+			Guest found = results.get(0);
+			cache.addElement(found);
+			return found;
 		}
-
-		/*
-		 * Trade-off tra Performance e Semplicità:
-		 *
-		 * Approccio attuale → Filtraggio in-memory con findAll()
-		 * Approccio ottimale → Query SQL con WHERE ssn = ?
-		 *
-		 * Questa implementazione carica tutti i record (N+1 problem),
-		 * accettabile per dataset piccoli. Per produzione, preferire
-		 * una query diretta con PreparedStatement per ridurre overhead.
-		 */
-		for(Guest g : findAll())
-			if(g.getSsn().equals(ssn))
-				return g;
-
 		return null;
 	}
 
 	/**
 	 * Cerca ospiti il cui cognome contiene una determinata stringa.
-	 * 
+	 * Aggiunge i risultati alla cache per ottimizzare ricerche successive.
+	 *
 	 * @param part la porzione di testo da cercare nel cognome
 	 * @return lista di ospiti con cognome corrispondente
 	 */
 	@Override
 	public List<Guest> findBySurnameContaining(String part)
 	{
-		checkTable();
-
-		// VALIDAZIONE: la stringa da cercare non può essere null o vuota
-		if (part == null || part.trim().isEmpty())
-		{
-			throw new IllegalArgumentException("La stringa di ricerca non può essere vuota");
-		}
-
-		/*
-		 * Pattern Filter in-memory:
-		 *
-		 * Approccio attuale → Stream implicito (enhanced for) + predicato
-		 * Alternativa SQL → WHERE lastname LIKE '%?%'
-		 *
-		 * L'implementazione corrente privilegia semplicità rispetto a efficienza.
-		 * Per dataset grandi (>1000 record), migrare a query SQL con LIKE operator.
-		 */
-		List<Guest> res = new ArrayList<Guest>();
-		for(Guest g : findAll())
-			if(g.getLastName().contains(part))
-				res.add(g);
-
-		return res;
+		List<Guest> matches = findWhere("lastName LIKE '%" + part + "%'");
+		for(Guest g : matches)
+			cache.addElement(g);
+		return matches;
 	}
 
 	/**
 	 * Cerca ospiti residenti in una determinata città.
-	 * 
+	 * Aggiunge i risultati alla cache per ottimizzare ricerche successive.
+	 *
 	 * @param city il nome della città
 	 * @return lista di ospiti residenti nella città specificata
 	 */
 	@Override
 	public List<Guest> findByCity(String city)
 	{
+		List<Guest> matches = findWhere("city LIKE '%" + city + "%'");
+		for(Guest g : matches)
+			cache.addElement(g);
+		return matches;
+	}
+
+	/**
+	 * Converte una riga del ResultSet in un oggetto Guest.
+	 *
+	 * @param guestRow la riga del ResultSet contenente i dati del guest
+	 * @return oggetto Guest popolato con i dati della riga
+	 * @throws SQLException se si verifica un errore nell'accesso ai dati
+	 */
+	private Guest rowToGuest(ResultSet guestRow) throws SQLException
+	{
+		Guest result = new Guest();
+
+		result.setId(guestRow.getInt("id"));
+		result.setFirstName(guestRow.getString("firstName"));
+		result.setLastName(guestRow.getString("lastName"));
+		result.setDob(LocalDate.parse(guestRow.getString("dob")));
+		result.setSsn(guestRow.getString("ssn"));
+		result.setCity(guestRow.getString("city"));
+		result.setAddress(guestRow.getString("address"));
+
+		return result;
+	}
+
+	/**
+	 * Metodo generico per recuperare ospiti con una condizione WHERE personalizzata.
+	 *
+	 * @param condition la condizione SQL da applicare (senza la parola chiave WHERE)
+	 * @return lista di ospiti che soddisfano la condizione
+	 */
+	private List<Guest> findWhere(String condition)
+	{
 		checkTable();
 
-		// VALIDAZIONE: città non può essere null o vuota
-		if (city == null || city.trim().isEmpty())
+		try
 		{
-			throw new IllegalArgumentException("La città da cercare non può essere vuota");
-		}
+			String 				sql 		= "SELECT * FROM guest WHERE " + condition;
+			PreparedStatement 	readCmd 	= connection.prepareStatement(sql);
+			List<Guest> 		res 		= new ArrayList<Guest>();
+			ResultSet 			guestRows	= readCmd.executeQuery();
+			ProfilingMonitor.queryNumber++;
 
-		List<Guest> res = new ArrayList<Guest>();
-		for(Guest g : findAll())
-			if(g.getCity().contains(city))
-				res.add(g);
-		return res;
+			while(guestRows.next())
+				res.add(rowToGuest(guestRows));
+
+			ProfilingMonitor.rowsLoaded += res.size();
+			readCmd.close();
+			guestRows.close();
+			return res;
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+			throw new RuntimeException("Error reading");
+		}
 	}
 
 	/**
 	 * Inserisce un nuovo ospite nel database.
-	 * 
+	 *
 	 * @param newGuest l'oggetto Guest da persistere
 	 * @return l'oggetto Guest con l'id generato dal database
 	 * @throws RuntimeException se l'ospite non è valido o ha già un id
@@ -263,57 +207,16 @@ public class SQLGuestRepository implements GuestRepository
 	{
 		checkTable();
 
-		// VALIDAZIONE: nome non può essere vuoto
-		if (newGuest.getFirstName() == null || newGuest.getFirstName().trim().isEmpty())
-		{
-			throw new IllegalArgumentException("Il nome non può essere vuoto");
-		}
-
-		// VALIDAZIONE: cognome non può essere vuoto
-		if (newGuest.getLastName() == null || newGuest.getLastName().trim().isEmpty())
-		{
-			throw new IllegalArgumentException("Il cognome non può essere vuoto");
-		}
-
-		// VALIDAZIONE: codice fiscale non può essere vuoto
-		if (newGuest.getSsn() == null || newGuest.getSsn().trim().isEmpty())
-		{
-			throw new IllegalArgumentException("Il codice fiscale non può essere vuoto");
-		}
-
-		// VALIDAZIONE: data di nascita non può essere nel futuro
-		if (newGuest.getDob() != null && newGuest.getDob().isAfter(LocalDate.now()))
-		{
-			throw new IllegalArgumentException("La data di nascita non può essere nel futuro");
-		}
-
 		if(!newGuest.isValid())
-			throw new RuntimeException("Invalid guest");
+			throw new RuntimeException("Invalid guest: " + newGuest.getErrors());
 
 		if(newGuest.getId() != 0)
 			throw new RuntimeException("Cannot save a guest with a previous id");
 
 		try
 		{
-			/*
-			 * Pattern Command per operazioni DML:
-			 * 
-			 * PreparedStatement → Command Object (incapsula richiesta SQL)
-			 * setString/setInt → Binding parametri (Type-safe)
-			 * execute() → Invocazione comando
-			 * 
-			 * Flusso Persist:
-			 * 1. Validazione entità → Fail-fast se dati inconsistenti
-			 * 2. Mapping Object → SQL parameters
-			 * 3. Execute INSERT → Persistenza su DB
-			 * 4. Recupero ID generato → Sincronizzazione stato oggetto
-			 * 
-			 * Il metodo getNewId() recupera l'ultimo ID assegnato,
-			 * necessario per mantenere coerenza tra oggetto e record DB.
-			 */
-			String sql = 
-				"insert into Guest (firstname, lastname, ssn, dob, city, address) values(?,?,?,?,?,?)";
-			
+			String sql = "INSERT INTO guest (firstName, lastName, ssn, dob, city, address) VALUES (?,?,?,?,?,?)";
+
 			PreparedStatement insertCmd = connection.prepareStatement(sql);
 			insertCmd.setString(1, newGuest.getFirstName());
 			insertCmd.setString(2, newGuest.getLastName());
@@ -322,52 +225,54 @@ public class SQLGuestRepository implements GuestRepository
 			insertCmd.setString(5, newGuest.getCity());
 			insertCmd.setString(6, newGuest.getAddress());
 			insertCmd.execute();
+			ProfilingMonitor.queryNumber++;
+			ProfilingMonitor.rowsLoaded++;
 			insertCmd.close();
+
 			int res = getNewId();
 			newGuest.setId(res);
+
+			cache.addElement(newGuest);
+
 			return newGuest;
-		}		
-		catch(Exception e)
+		}
+		catch(SQLException e)
 		{
+			e.printStackTrace();
 			throw new RuntimeException("Error saving");
-		}	
+		}
 	}
 
 	/**
 	 * Recupera l'ultimo ID generato dal database.
 	 * Metodo di supporto per sincronizzare l'id dopo un inserimento.
-	 * 
+	 *
 	 * @return l'ID massimo presente nella tabella Guest
 	 */
 	private int getNewId()
 	{
 		try
 		{
-			/*
-			 * Strategia ID Generation:
-			 * 
-			 * MAX(id) → Recupero ultimo identificativo assegnato
-		
-			 * Soluzione migliore:
-			 * - SQLite: last_insert_rowid()
-			 * - JDBC: Statement.RETURN_GENERATED_KEYS
-			 */
-			PreparedStatement readCmd = connection.prepareStatement("select max(id) as m from Guest");
+			PreparedStatement readCmd = connection.prepareStatement("SELECT MAX(id) AS m FROM guest");
 			ResultSet rs = readCmd.executeQuery();
+			ProfilingMonitor.queryNumber++;
+			ProfilingMonitor.rowsLoaded++;
 			int res = rs.getInt("m");
 			readCmd.close();
 			rs.close();
 			return res;
 		}
-		catch(Exception e)
+		catch(SQLException e)
 		{
+			e.printStackTrace();
 			throw new RuntimeException("Error reading");
 		}
 	}
-	
+
 	/**
 	 * Aggiorna i dati di un ospite esistente.
-	 * 
+	 * Rimuove la vecchia versione dalla cache e aggiunge quella nuova.
+	 *
 	 * @param newVersion l'oggetto Guest con i dati aggiornati
 	 * @return l'oggetto Guest aggiornato
 	 */
@@ -376,30 +281,20 @@ public class SQLGuestRepository implements GuestRepository
 	{
 		checkTable();
 
-		// VALIDAZIONE: il guest deve essere valido
 		if (!newVersion.isValid())
-		{
-			throw new IllegalArgumentException("Invalid guest data");
-		}
+			throw new IllegalArgumentException("Invalid guest data: " + newVersion.getErrors());
 
-		// VALIDAZIONE: deve avere un ID valido per l'update
 		if (newVersion.getId() <= 0)
-		{
 			throw new IllegalArgumentException("Cannot update a guest without a valid id");
-		}
 
-		// VALIDAZIONE: verifica che l'ID esista nel database
-		Guest existingGuest = findById(newVersion.getId());
-		if (existingGuest == null)
-		{
+		Guest oldVersion = findById(newVersion.getId());
+		if (oldVersion == null)
 			throw new IllegalArgumentException("Guest con ID " + newVersion.getId() + " non trovato nel database");
-		}
 
 		try
 		{
-			String sql = 
-				"update guest set firstname=?, lastname=?, ssn=?, dob=?, city=?, address=? where id=?";
-			
+			String sql = "UPDATE guest SET firstName=?, lastName=?, ssn=?, dob=?, city=?, address=? WHERE id=?";
+
 			PreparedStatement updateCmd = connection.prepareStatement(sql);
 			updateCmd.setString(1, newVersion.getFirstName());
 			updateCmd.setString(2, newVersion.getLastName());
@@ -409,18 +304,36 @@ public class SQLGuestRepository implements GuestRepository
 			updateCmd.setString(6, newVersion.getAddress());
 			updateCmd.setInt(7, newVersion.getId());
 			updateCmd.execute();
+			ProfilingMonitor.queryNumber++;
+			ProfilingMonitor.rowsLoaded++;
 			updateCmd.close();
+
+			// Sincronizza la cache: rimuovi la vecchia versione SOLO se presente
+			if(cache.contains(oldVersion))
+			{
+				cache.removeElement(oldVersion);
+				cache.addElement(newVersion);
+			}
+			else
+			{
+				// Se non era in cache, aggiungila per ottimizzare accessi futuri
+				cache.addElement(newVersion);
+			}
+
 			return newVersion;
-		}		
-		catch(Exception e)
+		}
+		catch(SQLException e)
 		{
+			e.printStackTrace();
 			throw new RuntimeException("Error saving");
-		}	
+		}
 	}
 
 	/**
 	 * Elimina un ospite dal database.
-	 * 
+	 * Controlla prima la cache, poi il database.
+	 * Rimuove l'elemento dalla cache se presente.
+	 *
 	 * @param id l'identificativo dell'ospite da eliminare
 	 * @return true se l'eliminazione ha successo, false altrimenti
 	 */
@@ -429,41 +342,28 @@ public class SQLGuestRepository implements GuestRepository
 	{
 		checkTable();
 
-		// VALIDAZIONE: ID deve essere positivo
-		if (id <= 0)
-		{
-			throw new IllegalArgumentException("ID non valido: " + id);
-		}
+		// Cerca prima nella cache o nel database
+		Guest toDelete = findById(id);
 
-		// VALIDAZIONE: verifica che l'ID esista
-		Guest existingGuest = findById(id);
-		if (existingGuest == null)
-		{
+		if(toDelete == null)
 			throw new IllegalArgumentException("Guest con ID " + id + " non trovato nel database");
-		}
 
 		try
 		{
-			/*
-			 * Pattern Delete Command:
-			 * 
-			 * DELETE SQL → Rimozione fisica del record
-			 * 
-			 * Considerazioni:
-			 * - Hard delete → Record rimosso permanentemente
-			 * - Soft delete (alternativa) → Flag "deleted" per audit trail
-			 * 
-			 * Il metodo non verifica se l'ID esiste, restituisce true anche
-			 * per ID inesistenti. Usare executeUpdate() per contare righe
-			 * affette renderebbe il feedback più preciso.
-			 */
-			PreparedStatement deleteCmd = connection.prepareStatement("delete from Guest where id = ?");
+			PreparedStatement deleteCmd = connection.prepareStatement("DELETE FROM guest WHERE id = ?");
 			deleteCmd.setInt(1, id);
 			deleteCmd.execute();
+			ProfilingMonitor.queryNumber++;
+			ProfilingMonitor.rowsLoaded++;
 			deleteCmd.close();
+
+			// Rimuovi dalla cache SOLO se presente (evita operazioni inutili)
+			if(cache.contains(toDelete))
+				cache.removeElement(toDelete);
+
 			return true;
 		}
-		catch(Exception e)
+		catch(SQLException e)
 		{
 			return false;
 		}
@@ -479,14 +379,17 @@ public class SQLGuestRepository implements GuestRepository
 		{
 			String createTableSQL = "CREATE TABLE IF NOT EXISTS guest (" +
 									"id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-									"firstname VARCHAR(100) NOT NULL, " +
-									"lastname VARCHAR(100) NOT NULL, " +
-									"fiscalcode VARCHAR(16) NOT NULL UNIQUE, " +
-									"email VARCHAR(100) NOT NULL, " +
-									"phone VARCHAR(20))";
+									"firstName VARCHAR(100) NOT NULL, " +
+									"lastName VARCHAR(100) NOT NULL, " +
+									"ssn VARCHAR(16) NOT NULL UNIQUE, " +
+									"dob VARCHAR(10) NOT NULL, " +
+									"address VARCHAR(200) NOT NULL, " +
+									"city VARCHAR(100) NOT NULL)";
 
 			PreparedStatement statement = connection.prepareStatement(createTableSQL);
 			statement.executeUpdate();
+			ProfilingMonitor.queryNumber++;
+			ProfilingMonitor.rowsLoaded++;
 			statement.close();
 		}
 		catch (SQLException e)

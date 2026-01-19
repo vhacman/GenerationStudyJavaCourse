@@ -13,10 +13,11 @@ Questa repository contiene tutti i miei progetti, esercizi ed esempi di programm
 
 ## 📁 Struttura della Repository
 
-I progetti sono organizzati in 4 categorie tematiche:
+I progetti sono organizzati in 5 categorie tematiche:
 
 ```
 GenerationStudyJavaCourse/
+├── 📚 00_Libraries/                  # Framework e librerie riutilizzabili
 ├── 📘 01_Fundamentals_Examples/      # Concetti base e strutture di controllo
 ├── 🚆 02_Tickets_Transportation/     # Sistemi di biglietteria e trasporti
 ├── 💼 03_Business_Applications/      # Applicazioni business e gestionali
@@ -29,6 +30,24 @@ GenerationStudyJavaCourse/
 
 ### 🚀 Inizia Qui
 - [Setup e Esecuzione Programmi](docs/01-getting-started.md)
+
+### 📚 Librerie e Framework (00_Libraries/)
+
+<details>
+<summary><b>Clicca per vedere tutte le librerie</b></summary>
+
+| Libreria | Descrizione | Pattern Implementati |
+|----------|-------------|----------------------|
+| [GenerationLibrary](00_Libraries/GenerationLibrary/README.md) | Framework Repository Pattern con Generics | Template Method, Repository Pattern, Generics, JDBC |
+
+**GenerationLibrary** fornisce:
+- Classe base `Entity` con validazione incorporata
+- Repository generico `SQLEntityRepository<T extends Entity>` per operazioni CRUD
+- Implementazioni concrete: Car, Pet, Plant
+- Test JUnit 5 completi
+- Database SQLite embedded
+
+</details>
 
 ### 📘 Fondamentali (01_Fundamentals_Examples/)
 
@@ -95,7 +114,7 @@ GenerationStudyJavaCourse/
 | [NSMPI](docs/03-business-applications/nsmpi.md) | Sistema Gestionale Polimorfismo | Advanced OOP, Interfaces, Factory Pattern, Strategy Pattern, ETL |
 | [PrintLabel](docs/03-business-applications/print-label.md) | Stampa Etichette | Template Rendering |
 | [ProlocoLakeComo](docs/03-business-applications/proloco-lake-como.md) | Turismo Lago Como | Tourism Management |
-| [GrottammareB&B](docs/03-business-applications/grottammareBB.md) | Bed & Breakfast Avanzato | Repository Pattern, Factory DI, ETL Pattern, Service Layer, Expense Management, CSV Import, MVC |
+| [GrottammareB&B](docs/03-business-applications/grottammareBB.md) | Bed & Breakfast Avanzato | Repository Pattern, Factory DI, ETL Pattern, Service Layer, Expense Management, CSV Import, MVC, Asset Management, Caching |
 | [VacanzeRomane](docs/03-business-applications/vacanze-romane.md) | Agenzia Viaggi | Travel Booking |
 | [VillaMelzi](docs/03-business-applications/villa-melzi.md) | Gestione Villa | Property Management |
 
@@ -142,7 +161,7 @@ GenerationStudyJavaCourse/
 | **[MonsterHotel](docs/03-business-applications/monster-hotel.md)** | Gestione Hotel | MVC, Service Layer | ✅ |
 | **[SBHotel](docs/03-business-applications/sb-hotel.md)** | Sistema Alberghiero | Room Management | ✅ |
 | **[LeccoB&B](docs/03-business-applications/lecco-bb.md)** | Bed & Breakfast | Booking System | ✅ |
-| **[GrottammareB&B](docs/03-business-applications/grottammareBB.md)** | Bed & Breakfast Avanzato | Repository Pattern, Factory DI, ETL Pattern, Service Layer, Expense Management, CSV Import | ✅ |
+| **[GrottammareB&B](docs/03-business-applications/grottammareBB.md)** | Bed & Breakfast Avanzato | Repository Pattern, Factory DI, ETL Pattern, Service Layer, Expense Management, CSV Import, MVC, Asset Management, Caching | ✅ |
 | **[ProlocoLakeComo](docs/03-business-applications/proloco-lake-como.md)** | Turismo Lago Como | Tourism Management | ✅ |
 | **[VacanzeRomane](docs/03-business-applications/vacanze-romane.md)** | Agenzia Viaggi | Travel Booking | ✅ |
 | **[VillaMelzi](docs/03-business-applications/villa-melzi.md)** | Gestione Villa | Property Management | ✅ |
@@ -183,11 +202,12 @@ GenerationStudyJavaCourse/
 
 | Categoria | Numero Progetti | Livello |
 |-----------|----------------|---------|
+| 📚 Librerie | 1 framework | Avanzato |
 | 📘 Fondamentali | 11 moduli | Principiante |
 | 🚆 Trasporti | 9 progetti | Intermedio |
 | 💼 Business | **24 progetti** | Intermedio/Avanzato |
 | 🎯 Esercizi | 4 progetti | Vario |
-| **TOTALE** | **48 progetti** | **Completo** |
+| **TOTALE** | **49 progetti** | **Completo** |
 
 ***
 
