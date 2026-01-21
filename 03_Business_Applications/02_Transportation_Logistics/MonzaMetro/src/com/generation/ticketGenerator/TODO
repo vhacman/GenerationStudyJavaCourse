@@ -1,0 +1,31 @@
+Obiettivo del Progetto
+Sviluppare un sistema software in Java per la generazione automatica di biglietti ferroviari con gestione dei dati del passeggero, calcolo del prezzo in base all'età e stampa del biglietto completo.Requisiti Funzionali1. Gestione Passeggero
+
+Acquisire i dati anagrafici del passeggero: nome, cognome ed età
+Validare l'età inserita (deve essere un numero positivo)
+Memorizzare le informazioni del passeggero in un oggetto dedicato
+2. Gestione Viaggio
+
+Richiedere la stazione di partenza
+Acquisire data e ora di partenza del treno (giorno, mese, anno, ora, minuti)
+Registrare automaticamente l'ora di timbratura del biglietto (check-in)
+3. Calcolo del Prezzo
+Implementare una politica tariffaria differenziata per età:
+
+Bambini (0-10 anni): €1.30
+Adulti (11-69 anni): €1.90
+Anziani (70+ anni): €0.00
+4. Generazione Biglietto
+
+Assegnare un ID univoco casuale al biglietto (range: 1-999999)
+Creare un oggetto Ticket contenente tutte le informazioni raccolte
+Formattare e stampare il biglietto in modo leggibile
+5. Output
+Produrre un biglietto formattato contenente:
+
+ID del biglietto
+Dati del passeggero (nome, cognome, età)
+Stazione di partenza
+Data e ora di partenza
+Data e ora di timbratura
+Prezzo del biglietto

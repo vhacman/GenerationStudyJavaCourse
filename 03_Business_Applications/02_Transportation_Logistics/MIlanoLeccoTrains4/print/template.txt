@@ -1,0 +1,13 @@
++----------------------------------+
+|          BIGLIETTO               |
++----------------------------------+
+| Nome: [fullName]                 |
+| Tratta: [departure] → [arrival]  |
+| Età: [age]                       |
+| Classe: [level]                  |
+| Distanza: [km] km                |
+| Prezzo: €[price]                 |
+| Data: [date]                     |
+| Ora: [hour]                      |
+| Carta Verde: [greenCard]         |
++----------------------------------+
