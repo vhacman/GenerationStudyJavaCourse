@@ -2,138 +2,86 @@ package com.generation.library;
 
 import java.util.List;
 
-/*
- * ═══════════════════════════════════════════════════════════════════════
- * TEORIA: CLASSI ASTRATTE (Abstract Class)
- * ═══════════════════════════════════════════════════════════════════════
- * Definizione: Classe che non può essere istanziata direttamente, progettata
- *              per essere estesa da sottoclassi concrete. Può contenere metodi
- *              astratti (senza implementazione) e concreti (con implementazione).
- *
- * Scopo: Definire un contratto base + comportamento comune per una gerarchia
- *        di classi correlate. Impone obblighi alle sottoclassi (metodi astratti)
- *        fornendo anche funzionalità riutilizzabili (metodi concreti).
- *
- * Metodi principali:
- *   - Dichiarazione metodo astratto: `public abstract TipoRitorno nomeMetodo();`
- *   - Implementazione metodo concreto: fornisce logica comune alle sottoclassi
- *   - Override nelle sottoclassi: `@Override public TipoRitorno nomeMetodo() {...}`
- *
- * Pattern utilizzato: Template Method
- *   - Classe astratta definisce l'algoritmo generale (es. isValid())
- *   - Sottoclassi forniscono implementazioni specifiche (es. getErrors())
- * ═══════════════════════════════════════════════════════════════════════
- */
-
 /**
- * Entità base del dominio con identificativo e validazione.
- * Classe astratta che delega getErrors() alle sottoclassi (Template Method).
+ * Classe base astratta per tutte le entità del dominio.
+ * Definisce stato e comportamento comuni (ID, validazione).
  */
 public abstract class Entity
 {
-	protected int id;
 
-	public Entity() {}
+	protected int  id;
+
 
 	/**
-	 * Inizializza l'entità con un identificativo specifico.
-	 *
-	 * @param id Identificativo univoco dell'entità
+	 * Restituisce l'identificativo dell'entità.
+	 * @return ID dell'entità
 	 */
-	public Entity(int id)
-	{
-		super();
-		this.id = id;
-	}
+	public int getId() { return id; }
 
-	public int  getId()       { return id;     }
-	public void setId(int id) { this.id = id;  }
 
-	/*
-	 * ═══════════════════════════════════════════════════════════════════════
-	 * TEORIA: METODI ASTRATTI (Abstract Methods)
-	 * ═══════════════════════════════════════════════════════════════════════
-	 * Definizione: Metodo dichiarato senza implementazione (solo firma).
-	 *              Obbliga tutte le sottoclassi concrete a fornire implementazione.
+	/**
+	 * Imposta l'identificativo dell'entità.
+	 * @param id Nuovo ID
+	 */
+	public void setId(int id) { this.id = id; }
+
+
+	/**
+	 * Metodo astratto per ottenere gli errori di validazione.
+	 * Ogni sottoclasse implementa le proprie regole di validazione.
 	 *
-	 * Sintassi: `public abstract TipoRitorno nomeMetodo(parametri);`
-	 *
-	 * Scopo: Definire un contratto che garantisce comportamento uniforme
-	 *        ma con implementazione specifica per ogni sottoclasse.
-	 *
-	 * Nel nostro caso:
-	 *   - Entity definisce che ogni entità deve poter restituire errori
-	 *   - Ogni sottoclasse (Car, Pet, ecc.) decide cosa validare
-	 * ═══════════════════════════════════════════════════════════════════════
+	 * @return Lista di messaggi di errore (vuota se valido)
 	 */
 	public abstract List<String> getErrors();
 
+
 	/**
-	 * Verifica se l'entità è valida (nessun errore).
-	 * Implementa il pattern Template Method delegando la validazione specifica a getErrors().
+	 * Verifica se l'entità è in uno stato valido.
 	 *
-	 * @return true se la lista di errori è vuota, false altrimenti
+	 * @return true se non ci sono errori di validazione
 	 */
 	public boolean isValid()
 	{
 		/*
-		 * Pattern Template Method:
-		 *      * Classe Astratta (Entity)  →  Definisce l'algoritmo di validazione
-		 *      * Sottoclassi Concrete      →  Implementano i criteri specifici (getErrors)
-		 *
-		 * Questo metodo fornisce un'interfaccia uniforme per verificare la validità,
-		 * delegando la logica specifica di validazione alle sottoclassi tramite getErrors().
-		 * Principio OCP (Open-Closed): aperto all'estensione, chiuso alla modifica.
+		 * Template Method Pattern:
+		 * → isValid() fornisce l'algoritmo uniforme
+		 * → getErrors() è delegato alle sottoclassi
+		 * → Lista vuota = entità valida
 		 */
 		return getErrors().isEmpty();
 	}
 
+
 	/**
-	 * Verifica presenza di una stringa (non-null e non-vuota).
-	 * Metodo di utilità per la validazione comune a tutte le entità.
+	 * Verifica se una stringa ha un valore valido (non null e non vuota).
 	 *
 	 * @param s Stringa da verificare
-	 * @return true se presente, false altrimenti
+	 * @return true se la stringa è valida
 	 */
 	protected boolean notMissing(String s)
 	{
 		/*
-		 * Incapsulamento e Riuso:
-		 *      * Logica Comune        →  Centralizzata nella classe base
-		 *      * Protected Visibility →  Accessibile solo alle sottoclassi
-		 *
-		 * Questo metodo evita duplicazione di codice nelle sottoclassi,
-		 * fornendo una validazione standardizzata per campi stringa.
-		 * Principio DRY (Don't Repeat Yourself).
+		 * Protected utility method:
+		 * → Visibile alle sottoclassi
+		 * → Incapsula logica di validazione riutilizzabile
 		 */
 		return s != null && !s.isBlank();
 	}
 
+
 	/**
-	 * Verifica assenza di una stringa (null o vuota).
-	 * Metodo di utilità per la validazione comune a tutte le entità.
+	 * Verifica se una stringa è null o vuota.
 	 *
 	 * @param s Stringa da verificare
-	 * @return true se mancante, false altrimenti
+	 * @return true se la stringa manca
 	 */
 	protected boolean isMissing(String s)
 	{
 		/*
-		 * Incapsulamento e Riuso:
-		 *      * Logica Comune        →  Centralizzata nella classe base
-		 *      * Protected Visibility →  Accessibile solo alle sottoclassi
-		 *
-		 * Metodo complementare a notMissing(), segue il principio di coesione
-		 * mantenendo la logica di validazione in un unico punto della gerarchia.
-		 * Principio DRY (Don't Repeat Yourself).
+		 * Complemento semantico di notMissing():
+		 * → if(isMissing(title)) → lettura più naturale
 		 */
 		return s == null || s.isBlank();
 	}
 
-
-	@Override
-	public String toString()
-	{
-		return "Entity [id=" + id + "]";
-	}
 }

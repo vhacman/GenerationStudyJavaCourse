@@ -1,17 +1,26 @@
-# GenerationLibrary - Repository Pattern Framework
+# GenerationLibrary - Enterprise Framework per Java
 
-Framework riutilizzabile per la gestione di entità con pattern Repository, Template Method e JDBC. Fornisce una base generica per operazioni CRUD su database SQLite con validazione incorporata.
+Framework riutilizzabile per lo sviluppo di applicazioni Java con pattern architetturali enterprise. Fornisce:
+- **Repository Pattern** generico con supporto JDBC
+- **Caching** (full/partial) per ottimizzazione performance
+- **Database utilities** per gestione connessioni e profiling
+- **View utilities** per interfacce utente
+- **I/O utilities** (Console, FileReader, FileWriter, Template)
 
 ## Architettura
 
 ```
 Entity (Abstract Base Class)
-   ↓ extends
-Car, Pet, Plant (Concrete Entities)
-   ↓ uses
-SQLEntityRepository<T> (Generic Abstract Repository)
-   ↓ implements
-SQLCarRepository, SQLPetRepository, SQLPlantRepository
+   ↓
+SQLEntityRepository<X extends Entity>
+   ├── FullCacheSQLEntityRepository<X>    (Caching completo)
+   └── PartialCacheSQLEntityRepository<X> (Caching parziale)
+
+Supporto:
+   ├── database/    (Gestione connessioni e profiling)
+   ├── cache/       (Sistema di caching)
+   ├── view/        (Utilities per interfacce)
+   └── I/O          (Console, FileReader, FileWriter, Template)
 ```
 
 ## Design Patterns Implementati
@@ -37,35 +46,18 @@ public abstract class Entity {
 }
 ```
 
-Ogni entità concreta implementa la propria logica di validazione:
-
-```java
-public class Car extends Entity {
-    private String model, plate;
-    private double price;
-
-    @Override
-    public List<String> getErrors() {
-        List<String> errors = new ArrayList<>();
-        if (isMissing(model)) errors.add("Modello mancante");
-        if (isMissing(plate)) errors.add("Targa mancante");
-        if (price <= 0) errors.add("Prezzo deve essere positivo");
-        return errors;
-    }
-}
-```
-
 ### 2. Repository Pattern con Generics
 `SQLEntityRepository<X extends Entity>` fornisce implementazione CRUD generica:
 
 ```java
 public abstract class SQLEntityRepository<X extends Entity> {
-    protected String tableName;
     protected Connection connection;
+    private String table;
 
     // Metodi CRUD implementati (comuni a tutte le entità)
     public List<X> findAll() { /* SQL SELECT */ }
     public X findById(int id) { /* SQL SELECT WHERE id */ }
+    public List<X> findWhere(String condition) { /* SELECT con WHERE custom */ }
     public void insert(X entity) { /* SQL INSERT con validazione */ }
     public void update(X entity) { /* SQL UPDATE con validazione */ }
     public void delete(int id) { /* SQL DELETE */ }
@@ -78,90 +70,77 @@ public abstract class SQLEntityRepository<X extends Entity> {
 }
 ```
 
-Sottoclassi concrete implementano solo il mapping specifico:
+### 3. Caching Pattern
+Il framework fornisce due strategie di caching:
 
+#### Full Cache
 ```java
-public class SQLCarRepository extends SQLEntityRepository<Car> {
-    public SQLCarRepository(String tableName, Connection connection) {
-        super(tableName, connection);
-    }
-
-    @Override
-    protected Car rowToX(ResultSet rs) throws SQLException {
-        return new Car(rs.getInt("id"), rs.getString("model"),
-                       rs.getString("plate"), rs.getDouble("price"));
-    }
-
-    @Override
-    protected PreparedStatement getInsertCmd(Car car) throws SQLException {
-        PreparedStatement ps = connection.prepareStatement(
-            "INSERT INTO car (model, plate, price) VALUES (?, ?, ?)"
-        );
-        ps.setString(1, car.getModel());
-        ps.setString(2, car.getPlate());
-        ps.setDouble(3, car.getPrice());
-        return ps;
-    }
-
-    @Override
-    protected PreparedStatement getUpdateCmd(Car car) throws SQLException {
-        PreparedStatement ps = connection.prepareStatement(
-            "UPDATE car SET model=?, plate=?, price=? WHERE id=?"
-        );
-        ps.setString(1, car.getModel());
-        ps.setString(2, car.getPlate());
-        ps.setDouble(3, car.getPrice());
-        ps.setInt(4, car.getId());
-        return ps;
-    }
+public abstract class FullCacheSQLEntityRepository<X extends Entity>
+    extends SQLEntityRepository<X> {
+    // Cache completa: tutte le entità in memoria
+    // Ottimale per tabelle piccole con accessi frequenti
 }
 ```
 
-## Entità Implementate
+#### Partial Cache
+```java
+public abstract class PartialCacheSQLEntityRepository<X extends Entity>
+    extends SQLEntityRepository<X> {
+    // Cache parziale: solo entità accedute di recente
+    // Ottimale per tabelle grandi
+}
+```
 
-### Car (Automobile)
-- **Attributi**: `model` (String), `plate` (String), `price` (double)
-- **Validazione**: model non vuoto, plate non vuoto, price > 0
-- **Database**: `car.db` con tabella `car`
+## Componenti Principali
 
-### Pet (Animale Domestico)
-- **Attributi**: `name` (String), `species` (String)
-- **Validazione**: name non vuoto, species non vuoto
-- **Database**: `pet.db` con tabella `pet`
+### Core
+- **Entity**: Classe base astratta per tutte le entità del dominio
+- **SQLEntityRepository**: Repository generico con operazioni CRUD via JDBC
 
-### Plant (Pianta)
-- **Attributi**: `species` (String), `length` (int), `cost` (double)
-- **Validazione**: species non vuoto, length > 0, cost > 0
-- **Database**: `plant.db` con tabella `plant`
+### Caching
+- **FullCacheSQLEntityRepository**: Caching completo in memoria
+- **PartialCacheSQLEntityRepository**: Caching LRU per entità frequenti
+
+### Database
+- **Utilità di connessione**: Gestione pool connessioni
+- **Profiling**: Monitoraggio performance query SQL
+
+### View
+- **Utilities per interfacce**: Helper per UI e presentazione dati
+
+### I/O
+- **Console**: Input/output da console con validazione
+- **FileReader**: Lettura file con gestione encoding
+- **FileWriter**: Scrittura file thread-safe
+- **Template**: Sistema di templating per generazione testo
 
 ## Struttura Directory
 
 ```
 GenerationLibrary/
-├── src/
-│   └── com/generation/library/
-│       ├── Entity.java                    # Classe base astratta
-│       ├── model/entities/
-│       │   ├── Car.java                   # Entità Car + validazione
-│       │   ├── Pet.java                   # Entità Pet + validazione
-│       │   └── Plant.java                 # Entità Plant + validazione
-│       ├── repository/
-│       │   ├── SQLEntityRepository.java   # Repository generico astratto
-│       │   ├── SQLCarRepository.java      # Repository concreto Car
-│       │   ├── SQLPetRepository.java      # Repository concreto Pet
-│       │   └── SQLPlantRepository.java    # Repository concreto Plant
-│       ├── demo/repository/
-│       │   ├── DemoCarRepository.java     # Demo CRUD Car
-│       │   ├── DemoPetRepository.java     # Demo CRUD Pet
-│       │   └── DemoPlantRepository.java   # Demo CRUD Plant
-│       └── test/
-│           ├── SQLCarRepositoryTest.java  # JUnit 5 test Car
-│           ├── PetRepositoryTest.java     # JUnit 5 test Pet
-│           └── PlantRepositoryTest.java   # JUnit 5 test Plant
-├── bin/                                   # Classi compilate
-├── car.db                                 # Database SQLite Car
-├── pet.db                                 # Database SQLite Pet
-└── plant.db                               # Database SQLite Plant
+├── src/com/generation/library/
+│   ├── Entity.java                              # Classe base astratta
+│   │
+│   ├── repository/
+│   │   ├── SQLEntityRepository.java             # Repository generico base
+│   │   ├── FullCacheSQLEntityRepository.java    # Repository con cache completa
+│   │   └── PartialCacheSQLEntityRepository.java # Repository con cache parziale
+│   │
+│   ├── cache/                                   # Sistema di caching
+│   │   └── [implementazioni cache]
+│   │
+│   ├── database/                                # Gestione database
+│   │   └── [connection pool, profiling]
+│   │
+│   ├── view/                                    # Utilities per UI
+│   │   └── [helper per presentazione]
+│   │
+│   ├── Console.java                             # I/O console
+│   ├── FileReader.java                          # Lettura file
+│   ├── FileWriter.java                          # Scrittura file
+│   └── Template.java                            # Sistema templating
+│
+└── bin/                                         # Classi compilate
 ```
 
 ## Operazioni CRUD Disponibili
@@ -172,7 +151,7 @@ Ogni repository implementa i seguenti metodi:
 // Ricerca
 List<X> findAll()                          // Tutti i record
 X findById(int id)                         // Ricerca per ID
-List<X> findWhere(String condition)        // Ricerca con condizione SQL custom
+List<X> findWhere(String condition)        // Ricerca con condizione WHERE custom
 
 // Inserimento
 void insert(X entity)                      // Insert con validazione automatica
@@ -187,39 +166,114 @@ void delete(int id)                        // Delete per ID
 int getNewId()                             // Recupera ultimo ID auto-increment
 ```
 
+## Utilities I/O
+
+### Console
+```java
+// Input con validazione
+String input = Console.readString("Inserisci nome: ");
+int number = Console.readInt("Inserisci età: ");
+```
+
+### FileReader/FileWriter
+```java
+// Lettura file
+String content = FileReader.read("path/to/file.txt");
+
+// Scrittura file
+FileWriter.write("path/to/file.txt", content);
+```
+
+### Template
+```java
+// Sistema di templating
+Template template = new Template("template.txt");
+template.set("nome", "Mario");
+template.set("cognome", "Rossi");
+String output = template.render();
+```
+
 ## Esempio di Utilizzo
 
+### Repository Base
 ```java
-// 1. Connessione al database
-Connection connection = DriverManager.getConnection("jdbc:sqlite:car.db");
+// 1. Definisci la tua entità
+public class Product extends Entity {
+    private String name;
+    private double price;
 
-// 2. Creazione repository
-SQLCarRepository carRepo = new SQLCarRepository("car", connection);
-
-// 3. Inserimento con validazione automatica
-Car newCar = new Car(0, "Tesla Model 3", "AB123CD", 45000.0);
-if (newCar.isValid()) {
-    carRepo.insert(newCar);  // ID assegnato automaticamente
-    System.out.println("Auto inserita con ID: " + newCar.getId());
-} else {
-    System.out.println("Errori: " + newCar.getErrors());
+    @Override
+    public List<String> getErrors() {
+        List<String> errors = new ArrayList<>();
+        if (isMissing(name)) errors.add("Nome mancante");
+        if (price <= 0) errors.add("Prezzo non valido");
+        return errors;
+    }
 }
 
-// 4. Ricerca
-List<Car> allCars = carRepo.findAll();
-Car car = carRepo.findById(1);
+// 2. Crea repository concreto
+public class SQLProductRepository extends SQLEntityRepository<Product> {
+    public SQLProductRepository(String table, Connection connection) {
+        super(connection, table);
+    }
 
-// 5. Aggiornamento
-car.setPrice(42000.0);
-if (car.isValid()) {
-    carRepo.update(car);
+    @Override
+    protected Product rowToX(ResultSet rs) throws SQLException {
+        Product p = new Product();
+        p.setId(rs.getInt("id"));
+        p.setName(rs.getString("name"));
+        p.setPrice(rs.getDouble("price"));
+        return p;
+    }
+
+    @Override
+    protected PreparedStatement getInsertCmd(Product p) throws SQLException {
+        PreparedStatement cmd = connection.prepareStatement(
+            "INSERT INTO product (name, price) VALUES (?, ?)"
+        );
+        cmd.setString(1, p.getName());
+        cmd.setDouble(2, p.getPrice());
+        return cmd;
+    }
+
+    @Override
+    protected PreparedStatement getUpdateCmd(Product p) throws SQLException {
+        PreparedStatement cmd = connection.prepareStatement(
+            "UPDATE product SET name=?, price=? WHERE id=?"
+        );
+        cmd.setString(1, p.getName());
+        cmd.setDouble(2, p.getPrice());
+        cmd.setInt(3, p.getId());
+        return cmd;
+    }
 }
 
-// 6. Eliminazione
-carRepo.delete(1);
+// 3. Utilizzo
+Connection connection = DriverManager.getConnection("jdbc:sqlite:shop.db");
+SQLProductRepository repo = new SQLProductRepository("product", connection);
 
-// 7. Chiusura connessione
-connection.close();
+Product p = new Product("Laptop", 899.99);
+if (p.isValid()) {
+    repo.insert(p);
+    System.out.println("Prodotto inserito con ID: " + p.getId());
+}
+
+List<Product> products = repo.findAll();
+Product found = repo.findById(1);
+repo.delete(1);
+```
+
+### Repository con Cache
+```java
+// Per tabelle piccole con accessi frequenti
+public class CachedProductRepository extends FullCacheSQLEntityRepository<Product> {
+    // Implementa i metodi astratti come sopra
+}
+
+// Per tabelle grandi
+public class PartialCachedProductRepository extends PartialCacheSQLEntityRepository<Product> {
+    // Implementa i metodi astratti come sopra
+}
 ```
 
 ## Test Unitari (JUnit 5)
@@ -227,14 +281,15 @@ connection.close();
 Pattern di test comune:
 
 ```java
-public class SQLCarRepositoryTest {
+public class SQLProductRepositoryTest {
     private Connection connection;
-    private SQLCarRepository repository;
+    private SQLProductRepository repository;
 
     @BeforeEach
     void setUp() throws SQLException {
-        connection = DriverManager.getConnection("jdbc:sqlite:car.db");
-        repository = new SQLCarRepository("car", connection);
+        connection = DriverManager.getConnection("jdbc:sqlite::memory:");
+        // Crea schema di test
+        repository = new SQLProductRepository("product", connection);
     }
 
     @AfterEach
@@ -245,14 +300,22 @@ public class SQLCarRepositoryTest {
 
     @Test
     void testInsert() throws SQLException {
-        Car car = new Car(0, "Fiat 500", "XY789ZW", 15000.0);
-        assertTrue(car.isValid());
+        Product p = new Product("Mouse", 25.99);
+        assertTrue(p.isValid());
 
-        repository.insert(car);
-        assertTrue(car.getId() > 0);  // ID assegnato
+        repository.insert(p);
+        assertTrue(p.getId() > 0);
 
-        Car found = repository.findById(car.getId());
-        assertEquals("Fiat 500", found.getModel());
+        Product found = repository.findById(p.getId());
+        assertEquals("Mouse", found.getName());
+        assertEquals(25.99, found.getPrice(), 0.01);
+    }
+
+    @Test
+    void testValidation() {
+        Product invalid = new Product("", -10);
+        assertFalse(invalid.isValid());
+        assertEquals(2, invalid.getErrors().size());
     }
 }
 ```
@@ -260,16 +323,17 @@ public class SQLCarRepositoryTest {
 ## Compilazione ed Esecuzione
 
 ```bash
-# Compilazione
+# Compilazione completa
 javac -d bin src/com/generation/library/**/*.java
 
-# Esecuzione demo
-java -cp bin com.generation.library.demo.repository.DemoCarRepository
+# Compilazione con dipendenze esterne
+javac -cp lib/sqlite-jdbc.jar -d bin src/com/generation/library/**/*.java
 
-# Esecuzione test JUnit
-javac -cp bin:junit-jupiter.jar src/com/generation/library/test/*.java
-java -cp bin:junit-jupiter.jar org.junit.platform.console.ConsoleLauncher \
-     --scan-classpath
+# Esecuzione con classpath
+java -cp bin:lib/sqlite-jdbc.jar com.your.package.Main
+
+# Creazione JAR
+jar cvf generation-library.jar -C bin .
 ```
 
 ## Tecnologie e Concetti
@@ -277,6 +341,7 @@ java -cp bin:junit-jupiter.jar org.junit.platform.console.ConsoleLauncher \
 ### Design Patterns
 - **Template Method**: Validazione gerarchica con hook methods
 - **Repository Pattern**: Astrazione accesso dati
+- **Caching Pattern**: Full cache e partial cache (LRU)
 - **Generics (Parametric Polymorphism)**: Type-safety e riuso codice
 - **Bounded Type Parameter**: `<X extends Entity>` garantisce contratto comune
 
@@ -285,28 +350,38 @@ java -cp bin:junit-jupiter.jar org.junit.platform.console.ConsoleLauncher \
 - **Abstract Classes**: Contratto + implementazione parziale
 - **Generics**: Repository parametrizzato su tipo Entity
 - **JDBC**: Connection, PreparedStatement, ResultSet
-- **Collections**: ArrayList, List
+- **Collections**: ArrayList, List, Map (cache)
 - **Exception Handling**: SQLException gestito nei repository
+- **I/O Streams**: FileReader, FileWriter con encoding
 
 ### Database
 - **SQLite**: Database embedded leggero
-- **JDBC Driver**: `org.sqlite.JDBC` (sqlite-jdbc-3.51.1.0.jar)
-- **Auto-increment**: Gestione automatica ID tramite `ROWID`
+- **JDBC Driver**: `org.sqlite.JDBC`
+- **Auto-increment**: Gestione automatica ID
+- **Connection Pool**: Gestione efficiente connessioni
+- **Query Profiling**: Monitoraggio performance
 
 ## Vantaggi del Framework
 
 1. **Riusabilità**: Aggiungere nuove entità richiede solo:
    - Estendere `Entity` con validazione
-   - Estendere `SQLEntityRepository<NewEntity>`
+   - Estendere `SQLEntityRepository<NewEntity>` (o varianti con cache)
    - Implementare 3 metodi (rowToX, getInsertCmd, getUpdateCmd)
 
-2. **Type-Safety**: Generics impediscono errori di tipo a compile-time
+2. **Performance**:
+   - Caching full/partial per ridurre query database
+   - Query profiling per identificare bottleneck
+   - Connection pooling per ottimizzare risorse
 
-3. **Validazione Centralizzata**: Logica di validazione nell'entità stessa
+3. **Type-Safety**: Generics impediscono errori di tipo a compile-time
 
-4. **Testabilità**: Pattern Repository facilita mock e test
+4. **Validazione Centralizzata**: Logica di validazione nell'entità stessa
 
-5. **Manutenibilità**: Modifiche CRUD comuni in un solo punto
+5. **Testabilità**: Pattern Repository facilita mock e test
+
+6. **Manutenibilità**: Modifiche CRUD comuni in un solo punto
+
+7. **Utilities Complete**: Console, File I/O, Template engine pronti all'uso
 
 ## Estensione: Aggiungere Nuova Entità
 
@@ -323,28 +398,70 @@ public class Book extends Entity {
         List<String> errors = new ArrayList<>();
         if (isMissing(title)) errors.add("Titolo mancante");
         if (isMissing(author)) errors.add("Autore mancante");
+        if (isMissing(isbn)) errors.add("ISBN mancante");
         if (year < 1000 || year > LocalDate.now().getYear())
             errors.add("Anno non valido");
         return errors;
     }
+
+    // Getters e Setters
 }
 
-// 2. Repository concreto
+// 2. Repository base (senza cache)
 public class SQLBookRepository extends SQLEntityRepository<Book> {
     // Implementare rowToX, getInsertCmd, getUpdateCmd
 }
 
-// 3. Demo e test
-public class DemoBookRepository { /* ... */ }
+// 3. Repository con cache (opzionale)
+public class CachedBookRepository extends FullCacheSQLEntityRepository<Book> {
+    // Implementare rowToX, getInsertCmd, getUpdateCmd
+    // La cache è gestita automaticamente dalla superclasse
+}
+
+// 4. Test
 public class BookRepositoryTest { /* ... */ }
 ```
+
+## Scelta della Strategia di Caching
+
+| Repository | Quando usare |
+|-----------|-------------|
+| `SQLEntityRepository` | Tabelle grandi, accessi rari |
+| `FullCacheSQLEntityRepository` | Tabelle piccole (<1000 record), letture frequenti |
+| `PartialCacheSQLEntityRepository` | Tabelle medie, accesso a subset frequente (es. utente corrente) |
 
 ## Configurazione Tecnica
 
 - **JDK**: JavaSE-21
-- **Database**: SQLite 3.x
-- **JDBC Driver**: sqlite-jdbc-3.51.1.0.jar
-- **Testing**: JUnit Jupiter 5
-- **IDE**: Eclipse / IntelliJ compatible
+- **Database**: SQLite 3.x (supporto per altri DBMS via JDBC)
+- **JDBC Driver**: sqlite-jdbc (verificare versione in lib/)
+- **Testing**: JUnit Jupiter 5 (opzionale)
+- **IDE**: Eclipse / IntelliJ IDEA / VS Code compatible
 
-**Progetto didattico Generation Italy** - Framework riutilizzabile che dimostra Template Method, Repository Pattern con Generics, JDBC e validazione enterprise in Java.
+## Dipendenze
+
+```xml
+<!-- Maven example -->
+<dependency>
+    <groupId>org.xerial</groupId>
+    <artifactId>sqlite-jdbc</artifactId>
+    <version>3.42.0.0</version>
+</dependency>
+```
+
+## Changelog
+
+### v2.0 (2026-01-21)
+- ✨ Aggiunto sistema di caching (Full/Partial)
+- ✨ Utilities database (profiling, connection pool)
+- ✨ View utilities per interfacce
+- ✨ I/O utilities (Console, FileReader, FileWriter, Template)
+- 🔧 Refactoring Entity e SQLEntityRepository (codice più conciso)
+- 🗑️ Rimossi esempi specifici (Car, Pet, Plant) - focus su framework generico
+
+### v1.0
+- 🎉 Release iniziale con Repository Pattern e Template Method
+
+---
+
+**Progetto didattico Generation Italy** - Framework enterprise riutilizzabile che dimostra Template Method, Repository Pattern con Generics, Caching, JDBC e validazione in Java.
