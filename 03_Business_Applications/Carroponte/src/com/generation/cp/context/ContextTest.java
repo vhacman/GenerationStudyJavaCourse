@@ -20,7 +20,7 @@ public class ContextTest
 	{
 		/*
 		 * ═══════════════════════════════════════════════════════════════
-		 * RIFLESSIONE ARCHITETTURALE - Dependency Injection in azione
+		 * Dependency Injection in azione
 		 * ═══════════════════════════════════════════════════════════════
 		 *
 		 * Context (IoC Container) → Client riceve dipendenze → Usa servizi

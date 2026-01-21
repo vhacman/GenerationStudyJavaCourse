@@ -48,6 +48,7 @@ GenerationStudyJavaCourse/
 - [Modulo 8 - Ereditarietà](docs/02-fundamentals/modulo8.md)
 - [Modulo 9 - Astrazione](docs/02-fundamentals/modulo9.md)
 - [Modulo 10 - Polimorfismo e Interfacce](docs/02-fundamentals/modulo10.md)
+- [Modulo 11 - Interfacce Funzionali e Lambda](01_Fundamentals_Examples/Modulo11/README.md)
 - [Recap - Lezioni di Ripasso](docs/02-fundamentals/recap.md)
 - [Sequenza e Selezione](docs/02-fundamentals/sequenza-selezione.md)
 - [Cicli While](docs/02-fundamentals/while.md)
@@ -153,6 +154,11 @@ GenerationStudyJavaCourse/
 | **[VacanzeRomane](docs/03-business-applications/vacanze-romane.md)** | Agenzia Viaggi | Travel Booking | ✅ |
 | **[VillaMelzi](docs/03-business-applications/villa-melzi.md)** | Gestione Villa | Property Management | ✅ |
 
+### Eventi e Intrattenimento
+| Progetto | Categoria | Tecnologie Chiave | Status |
+|----------|-----------|-------------------|--------|
+| **[Carroponte](03_Business_Applications/Carroponte/README.md)** | Gestione Eventi | Dependency Injection, Repository Pattern, Command Pattern, Caching Strategy, IoC Container, Lambda Expressions | ✅ |
+
 ### Educazione e Biblioteche
 | Progetto | Categoria | Tecnologie Chiave | Status |
 |----------|-----------|-------------------|--------|
@@ -190,11 +196,11 @@ GenerationStudyJavaCourse/
 | Categoria | Numero Progetti | Livello |
 |-----------|----------------|---------|
 | 📚 Librerie | 1 framework | Avanzato |
-| 📘 Fondamentali | 11 moduli | Principiante |
+| 📘 Fondamentali | 12 moduli | Principiante |
 | 🚆 Trasporti | 9 progetti | Intermedio |
-| 💼 Business | **24 progetti** | Intermedio/Avanzato |
+| 💼 Business | **25 progetti** | Intermedio/Avanzato |
 | 🎯 Esercizi | 4 progetti | Vario |
-| **TOTALE** | **49 progetti** | **Completo** |
+| **TOTALE** | **51 progetti** | **Completo** |
 
 ***
 

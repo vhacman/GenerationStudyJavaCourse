@@ -28,7 +28,7 @@ public class Context
 	{
 		/*
 		 * ═══════════════════════════════════════════════════════════════
-		 * RIFLESSIONE ARCHITETTURALE - Dependency Injection Container
+		 * Dependency Injection Container
 		 * ═══════════════════════════════════════════════════════════════
 		 *
 		 * Contenitore IoC → Dipendenze registrate → Fornite su richiesta
@@ -79,7 +79,7 @@ public class Context
 	{
 		/*
 		 * ═══════════════════════════════════════════════════════════════
-		 * RIFLESSIONE ARCHITETTURALE - Dependency Injection + Service Locator
+		 * Dependency Injection + Service Locator
 		 * ═══════════════════════════════════════════════════════════════
 		 *
 		 * Client → Context (Service Locator) → Dipendenze registrate

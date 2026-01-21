@@ -34,7 +34,7 @@ public class XORCypher implements Cypher
 	{
 		/*
 		 * ═══════════════════════════════════════════════════════════════
-		 * RIFLESSIONE ARCHITETTURALE - Strategy Pattern
+		 * Strategy Pattern
 		 * ═══════════════════════════════════════════════════════════════
 		 *
 		 * Interfaccia (Cypher) → Implementazione algoritmo (XORCypher)

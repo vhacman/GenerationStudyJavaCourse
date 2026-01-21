@@ -25,7 +25,7 @@ public class Main
 	{
 		/*
 		 * ═══════════════════════════════════════════════════════════════
-		 * RIFLESSIONE ARCHITETTURALE - Dependency Injection + Command Pattern
+		 * Dependency Injection + Command Pattern
 		 * ═══════════════════════════════════════════════════════════════
 		 *
 		 * Context (IoC) → Main (Controller) → EventRepository (Model)

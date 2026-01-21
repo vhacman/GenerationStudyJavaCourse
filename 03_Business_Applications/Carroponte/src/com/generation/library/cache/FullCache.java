@@ -25,23 +25,7 @@ public class FullCache<X extends Entity> implements EntityCache<X>
 	/**
 	 * Costruttore vuoto che crea una cache senza dati iniziali.
 	 */
-	public FullCache()
-	{
-		/*
-		 * ═══════════════════════════════════════════════════════════════
-		 * Inizializzazione lazy
-		 * ═══════════════════════════════════════════════════════════════
-		 *
-		 * Costruttore vuoto per inizializzazione posticipata (lazy initialization).
-		 * La lista content verrà popolata successivamente tramite il costruttore
-		 * parametrizzato o tramite operazioni di insert.
-		 *
-		 * Principio applicato:
-		 * → Lazy Initialization: I dati vengono caricati solo quando necessario
-		 *
-		 * ═══════════════════════════════════════════════════════════════
-		 */
-	}
+	public FullCache() {}
 
 
 	/**
@@ -112,11 +96,6 @@ public class FullCache<X extends Entity> implements EntityCache<X>
 		 * → X estende Entity, quindi ha garantito il metodo getId()
 		 * → Il tipo di ritorno X è type-safe, non serve casting
 		 * → Il compilatore verifica la correttezza dei tipi a compile-time
-		 *
-		 * Complessità:
-		 * - Tempo: O(n) nel caso peggiore (elemento non trovato o in fondo)
-		 * - Spazio: O(1) nessuna memoria aggiuntiva
-		 *
 		 * Ottimizzazioni possibili:
 		 * → HashMap<Integer, X> per accesso O(1)
 		 * → Binary Search se la lista è ordinata per ID
