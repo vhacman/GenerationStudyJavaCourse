@@ -79,33 +79,23 @@ GenerationStudyJavaCourse/
 <details>
 <summary><b>Clicca per vedere tutte le applicazioni business</b></summary>
 
-| Progetto | Categoria | Tecnologie Chiave |
-|----------|-----------|-------------------|
-| [JavaBank](docs/03-business-applications/java-bank.md) | Sistema Bancario | OOP, Collections, Transactions |
-| [JavaBus](docs/03-business-applications/java-bus.md) | Gestione Flotta Bus | Fleet Management |
-| [JavItaAirline](docs/03-business-applications/javita-airline.md) | Sistema Compagnia Aerea | Date/Time API, Booking System |
-| [LocalMarket](docs/03-business-applications/local-market.md) | E-commerce Base | Shopping Cart, Products |
-| [LocalMarketDB](docs/03-business-applications/local-market-db.md) | E-commerce con Database | JDBC, SQLite, SQL |
-| [MonsterHotel](docs/03-business-applications/monster-hotel.md) | Gestione Hotel | MVC, Service Layer |
-| [SBHotel](docs/03-business-applications/sb-hotel.md) | Sistema Alberghiero | Room Management |
-| [NerdLibrary](docs/03-business-applications/nerd-library.md) | Gestione Biblioteca | Collections, File I/O |
-| [SchoolManagement v1](docs/03-business-applications/school-management-v1.md) | Gestione Scolastica | Basic CRUD |
-| [SchoolManagement v2](docs/03-business-applications/school-management-v2.md) | Gestione Scolastica Avanzata | DAO Pattern, Advanced Design |
-| [PokeDex](docs/03-business-applications/pokedex.md) | Database Pokemon | Collections, Search |
-| [PCWizard](docs/03-business-applications/pc-wizard.md) | Negozio Computer | Inventory Management |
-| [RepairShop](docs/03-business-applications/repair-shop.md) | Officina Riparazioni | Service Tracking |
-| [MuseumTicket](docs/03-business-applications/museum-ticket.md) | Biglietteria Museo | Pricing Tiers |
-| [DeveloperCandidatura](docs/03-business-applications/developer-candidatura.md) | Sistema Candidature | Form Processing |
-| [BrianzaTrainsObjects](docs/03-business-applications/brianza-trains-objects.md) | Treni con Oggetti | Advanced OOP |
-| [LeccoB&B](docs/03-business-applications/lecco-bb.md) | Bed & Breakfast | Booking System |
-| [NSMI](docs/03-business-applications/nsmi.md) | Sistema Gestionale | Business Logic |
-| [NSMPI](docs/03-business-applications/nsmpi.md) | Sistema Gestionale Polimorfismo | Advanced OOP, Interfaces, Factory Pattern, Strategy Pattern, ETL |
-| [PrintLabel](docs/03-business-applications/print-label.md) | Stampa Etichette | Template Rendering |
-| [ProlocoLakeComo](docs/03-business-applications/proloco-lake-como.md) | Turismo Lago Como | Tourism Management |
-| [GrottammareB&B](docs/03-business-applications/grottammareBB.md) | Bed & Breakfast Avanzato | Repository Pattern, Factory DI, ETL Pattern, Service Layer, Expense Management, CSV Import, MVC, Asset Management, Caching |
-| [VacanzeRomane](docs/03-business-applications/vacanze-romane.md) | Agenzia Viaggi | Travel Booking |
-| [VillaMelzi](docs/03-business-applications/villa-melzi.md) | Gestione Villa | Property Management |
-| [BikeWorld](03_Business_Applications/BikeWorld/README.md) | Concessionaria Moto | Repository Pattern, State Pattern, Chain of Responsibility, ETL, CSV Import, DI Container, Workflow Management, JDBC, SQLite |
+La sezione business è organizzata in 4 sottocategorie tematiche:
+
+#### 🏨 [01_Hospitality_Tourism](03_Business_Applications/01_Hospitality_Tourism/) - Ospitalità e Turismo
+[GrottammareB&B](03_Business_Applications/01_Hospitality_Tourism/GrottammareB&B/README.md) • [LeccoB&B](03_Business_Applications/01_Hospitality_Tourism/LeccoB&B/) • [MonsterHotel](03_Business_Applications/01_Hospitality_Tourism/MonsterHotel/) • [ProlocoLakeComo](03_Business_Applications/01_Hospitality_Tourism/ProlocoLakeComo/) • [SBBB](03_Business_Applications/01_Hospitality_Tourism/SBBB/) • [SBHotel](03_Business_Applications/01_Hospitality_Tourism/SBHotel/) • [VacanzeRomane](03_Business_Applications/01_Hospitality_Tourism/VacanzeRomane/) • [VillaMelzi](03_Business_Applications/01_Hospitality_Tourism/VillaMelzi/)
+
+#### 🛒 [02_Commerce_Services](03_Business_Applications/02_Commerce_Services/) - Commercio e Servizi
+[JavaBank](03_Business_Applications/02_Commerce_Services/JavaBank/) • [LocalMarket](03_Business_Applications/02_Commerce_Services/LocalMarket/) • [LocalMarketDB](03_Business_Applications/02_Commerce_Services/LocalMarketDB/) • [PCWizard](03_Business_Applications/02_Commerce_Services/PCWizard/) • [PrintLabel](03_Business_Applications/02_Commerce_Services/PrintLabel/) • [PrivateClinic](03_Business_Applications/02_Commerce_Services/PrivateClinic/) • [RepairShop](03_Business_Applications/02_Commerce_Services/RepairShop/)
+
+#### 🚆 [03_Transportation_Logistics](03_Business_Applications/03_Transportation_Logistics/) - Trasporti e Logistica
+[BrianzaTaxi](03_Business_Applications/03_Transportation_Logistics/BrianzaTaxi/) • [BrianzaTaxiService](03_Business_Applications/03_Transportation_Logistics/BrianzaTaxiService/) • [BrianzaTrains](03_Business_Applications/03_Transportation_Logistics/BrianzaTrains/) • [BrianzaTrainsObjects](03_Business_Applications/03_Transportation_Logistics/BrianzaTrainsObjects/) • [DiscotecaTicket](03_Business_Applications/03_Transportation_Logistics/DiscotecaTicket/) • [JavaBus](03_Business_Applications/03_Transportation_Logistics/JavaBus/) • [JavItaAirline](03_Business_Applications/03_Transportation_Logistics/JavItaAirline/) • [MilanoLeccoTRains2](03_Business_Applications/03_Transportation_Logistics/MilanoLeccoTRains2/) • [MilanoLeccoTrains3](03_Business_Applications/03_Transportation_Logistics/MilanoLeccoTrains3/) • [MIlanoLeccoTrains4](03_Business_Applications/03_Transportation_Logistics/MIlanoLeccoTrains4/) • [MLTrains](03_Business_Applications/03_Transportation_Logistics/MLTrains/) • [MonzaMetro](03_Business_Applications/03_Transportation_Logistics/MonzaMetro/)
+
+#### 🎓 [04_Education_Culture](03_Business_Applications/04_Education_Culture/) - Educazione e Cultura
+[DeveloperCandidatura](03_Business_Applications/04_Education_Culture/DeveloperCandidatura/) • [MuseumTicket](03_Business_Applications/04_Education_Culture/MuseumTicket/) • [NerdLibrary](03_Business_Applications/04_Education_Culture/NerdLibrary/) • [NSMI](03_Business_Applications/04_Education_Culture/NSMI/) • [NSMPI](03_Business_Applications/04_Education_Culture/NSMPI/) • [PokeDex](03_Business_Applications/04_Education_Culture/PokeDex/) • [SchoolManagement_v1](03_Business_Applications/04_Education_Culture/SchoolManagement_v1/) • [SchoolManagement_v2](03_Business_Applications/04_Education_Culture/SchoolManagement_v2/)
+
+#### 🏍️ Progetti Speciali
+- **[BikeWorld](03_Business_Applications/BikeWorld/README.md)** - Concessionaria Moto (Repository Pattern, State Pattern, Chain of Responsibility, ETL, JDBC, SQLite)
+- **[Carroponte](03_Business_Applications/Carroponte/README.md)** - Gestione Eventi (DI, Repository Pattern, Command Pattern, Caching, IoC Container)
 
 </details>
 
@@ -123,80 +113,6 @@ GenerationStudyJavaCourse/
 
 ***
 
-## 💼 Business Applications - Progetti Principali
-
-### Sistemi Bancari e Finanziari
-| Progetto | Categoria | Tecnologie Chiave | Status |
-|----------|-----------|-------------------|--------|
-| **[JavaBank](docs/03-business-applications/java-bank.md)** | Sistema Bancario | OOP, Collections, Transactions | ✅ |
-
-### E-commerce e Retail
-| Progetto | Categoria | Tecnologie Chiave | Status |
-|----------|-----------|-------------------|--------|
-| **[LocalMarket](docs/03-business-applications/local-market.md)** | E-commerce Base | Shopping Cart, Products | ✅ |
-| **[LocalMarketDB](docs/03-business-applications/local-market-db.md)** | E-commerce con Database | JDBC, SQLite, SQL | ✅ |
-| **[PCWizard](docs/03-business-applications/pc-wizard.md)** | Negozio Computer | Inventory Management | ✅ |
-
-### Trasporti e Logistica
-| Progetto | Categoria | Tecnologie Chiave | Status |
-|----------|-----------|-------------------|--------|
-| **[JavaBus](docs/03-business-applications/java-bus.md)** | Gestione Flotta Bus | Fleet Management | ✅ |
-| **[JavItaAirline](docs/03-business-applications/javita-airline.md)** | Sistema Compagnia Aerea | Date/Time API, Booking System | ✅ |
-| **[BrianzaTrainsObjects](docs/03-business-applications/brianza-trains-objects.md)** | Treni con Oggetti | Advanced OOP | ✅ |
-
-### Hospitality e Turismo
-| Progetto | Categoria | Tecnologie Chiave | Status |
-|----------|-----------|-------------------|--------|
-| **[MonsterHotel](docs/03-business-applications/monster-hotel.md)** | Gestione Hotel | MVC, Service Layer | ✅ |
-| **[SBHotel](docs/03-business-applications/sb-hotel.md)** | Sistema Alberghiero | Room Management | ✅ |
-| **[LeccoB&B](docs/03-business-applications/lecco-bb.md)** | Bed & Breakfast | Booking System | ✅ |
-| **[GrottammareB&B](docs/03-business-applications/grottammareBB.md)** | Bed & Breakfast Avanzato | Repository Pattern, Factory DI, ETL Pattern, Service Layer, Expense Management, CSV Import, MVC, Asset Management, Caching | ✅ |
-| **[ProlocoLakeComo](docs/03-business-applications/proloco-lake-como.md)** | Turismo Lago Como | Tourism Management | ✅ |
-| **[VacanzeRomane](docs/03-business-applications/vacanze-romane.md)** | Agenzia Viaggi | Travel Booking | ✅ |
-| **[VillaMelzi](docs/03-business-applications/villa-melzi.md)** | Gestione Villa | Property Management | ✅ |
-
-### Eventi e Intrattenimento
-| Progetto | Categoria | Tecnologie Chiave | Status |
-|----------|-----------|-------------------|--------|
-| **[Carroponte](03_Business_Applications/Carroponte/README.md)** | Gestione Eventi | Dependency Injection, Repository Pattern, Command Pattern, Caching Strategy, IoC Container, Lambda Expressions | ✅ |
-
-### Vendita e Rivendita Veicoli
-| Progetto | Categoria | Tecnologie Chiave | Status |
-|----------|-----------|-------------------|--------|
-| **[BikeWorld](03_Business_Applications/BikeWorld/README.md)** | Gestione Concessionaria Moto | Repository Pattern, State Pattern, Chain of Responsibility, ETL, CSV Import, DI Container, Workflow Management, JDBC, SQLite | ✅ |
-
-### Educazione e Biblioteche
-| Progetto | Categoria | Tecnologie Chiave | Status |
-|----------|-----------|-------------------|--------|
-| **[SchoolManagement v1](docs/03-business-applications/school-management-v1.md)** | Gestione Scolastica | Basic CRUD | ✅ |
-| **[SchoolManagement v2](docs/03-business-applications/school-management-v2.md)** | Gestione Scolastica Avanzata | DAO Pattern, Advanced Design | ✅ |
-| **[NerdLibrary](docs/03-business-applications/nerd-library.md)** | Gestione Biblioteca | Collections, File I/O | ✅ |
-
-### Servizi e Riparazioni
-| Progetto | Categoria | Tecnologie Chiave | Status |
-|----------|-----------|-------------------|--------|
-| **[RepairShop](docs/03-business-applications/repair-shop.md)** | Officina Riparazioni | Service Tracking | ✅ |
-
-### Biglietteria e Eventi
-| Progetto | Categoria | Tecnologie Chiave | Status |
-|----------|-----------|-------------------|--------|
-| **[MuseumTicket](docs/03-business-applications/museum-ticket.md)** | Biglietteria Museo | Pricing Tiers | ✅ |
-
-### Sistemi Gestionali
-| Progetto | Categoria | Tecnologie Chiave | Status |
-|----------|-----------|-------------------|--------|
-| **[NSMI](docs/03-business-applications/nsmi.md)** | Sistema Gestionale | Business Logic | ✅ |
-| **[NSMPI](docs/03-business-applications/nsmpi.md)** | Sistema Gestionale Polimorfismo | Advanced OOP, Interfaces, Factory Pattern, Strategy Pattern, ETL | ✅ |
-| **[DeveloperCandidatura](docs/03-business-applications/developer-candidatura.md)** | Sistema Candidature | Form Processing | ✅ |
-
-### Utility e Tools
-| Progetto | Categoria | Tecnologie Chiave | Status |
-|----------|-----------|-------------------|--------|
-| **[PrintLabel](docs/03-business-applications/print-label.md)** | Stampa Etichette | Template Rendering | ✅ |
-| **[PokeDex](docs/03-business-applications/pokedex.md)** | Database Pokemon | Collections, Search | ✅ |
-
-***
-
 ## 📊 Statistiche Progetti
 
 | Categoria | Numero Progetti | Livello |
@@ -204,9 +120,14 @@ GenerationStudyJavaCourse/
 | 📚 Librerie | 1 framework | Avanzato |
 | 📘 Fondamentali | 12 moduli | Principiante |
 | 🚆 Trasporti | 9 progetti | Intermedio |
-| 💼 Business | **26 progetti** | Intermedio/Avanzato |
+| 💼 Business | **39 progetti** | Intermedio/Avanzato |
+| ┣━ 🏨 Hospitality & Tourism | 8 progetti | Intermedio/Avanzato |
+| ┣━ 🛒 Commerce & Services | 7 progetti | Intermedio/Avanzato |
+| ┣━ 🚆 Transportation & Logistics | 12 progetti | Intermedio |
+| ┣━ 🎓 Education & Culture | 8 progetti | Intermedio |
+| ┗━ 🏍️ Progetti Speciali | 2 progetti | Avanzato |
 | 🎯 Esercizi | 4 progetti | Vario |
-| **TOTALE** | **52 progetti** | **Completo** |
+| **TOTALE** | **65 progetti** | **Completo** |
 
 ***
 
