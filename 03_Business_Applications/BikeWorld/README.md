@@ -332,25 +332,6 @@ CREATE TABLE bike (
 - Riusabilità
 - Error handling centralizzato
 
-## Estensioni Possibili
-
-### Funzionalità Aggiuntive
-- [ ] Ricerca avanzata per marca/modello
-- [ ] Statistiche vendite per periodo
-- [ ] Gestione utenti e permessi
-- [ ] Notifiche email al cambio stato
-- [ ] Dashboard con KPI
-- [ ] Export report PDF/Excel
-- [ ] Integrazione API REST
-
-### Miglioramenti Tecnici
-- [ ] Transazioni database
-- [ ] Connection pooling
-- [ ] Logging strutturato (SLF4J)
-- [ ] Validazione Bean Validation (JSR-303)
-- [ ] Migration tool (Flyway/Liquibase)
-- [ ] Spring Boot integration
-- [ ] REST API con Spring MVC
 
 ## Testing
 
@@ -453,3 +434,4 @@ Il sistema gestisce:
 ## Licenza
 
 Progetto educativo - Generation Italy
+
