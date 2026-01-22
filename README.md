@@ -105,6 +105,7 @@ GenerationStudyJavaCourse/
 | [GrottammareB&B](docs/03-business-applications/grottammareBB.md) | Bed & Breakfast Avanzato | Repository Pattern, Factory DI, ETL Pattern, Service Layer, Expense Management, CSV Import, MVC, Asset Management, Caching |
 | [VacanzeRomane](docs/03-business-applications/vacanze-romane.md) | Agenzia Viaggi | Travel Booking |
 | [VillaMelzi](docs/03-business-applications/villa-melzi.md) | Gestione Villa | Property Management |
+| [BikeWorld](03_Business_Applications/BikeWorld/README.md) | Concessionaria Moto | Repository Pattern, State Pattern, Chain of Responsibility, ETL, CSV Import, DI Container, Workflow Management, JDBC, SQLite |
 
 </details>
 
@@ -159,6 +160,11 @@ GenerationStudyJavaCourse/
 |----------|-----------|-------------------|--------|
 | **[Carroponte](03_Business_Applications/Carroponte/README.md)** | Gestione Eventi | Dependency Injection, Repository Pattern, Command Pattern, Caching Strategy, IoC Container, Lambda Expressions | ✅ |
 
+### Vendita e Rivendita Veicoli
+| Progetto | Categoria | Tecnologie Chiave | Status |
+|----------|-----------|-------------------|--------|
+| **[BikeWorld](03_Business_Applications/BikeWorld/README.md)** | Gestione Concessionaria Moto | Repository Pattern, State Pattern, Chain of Responsibility, ETL, CSV Import, DI Container, Workflow Management, JDBC, SQLite | ✅ |
+
 ### Educazione e Biblioteche
 | Progetto | Categoria | Tecnologie Chiave | Status |
 |----------|-----------|-------------------|--------|
@@ -198,9 +204,9 @@ GenerationStudyJavaCourse/
 | 📚 Librerie | 1 framework | Avanzato |
 | 📘 Fondamentali | 12 moduli | Principiante |
 | 🚆 Trasporti | 9 progetti | Intermedio |
-| 💼 Business | **25 progetti** | Intermedio/Avanzato |
+| 💼 Business | **26 progetti** | Intermedio/Avanzato |
 | 🎯 Esercizi | 4 progetti | Vario |
-| **TOTALE** | **51 progetti** | **Completo** |
+| **TOTALE** | **52 progetti** | **Completo** |
 
 ***
 
