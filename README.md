@@ -93,7 +93,7 @@ La sezione business è organizzata in 4 sottocategorie tematiche:
 #### 🎓 [04_Education_Culture](03_Business_Applications/04_Education_Culture/) - Educazione e Cultura
 [DeveloperCandidatura](03_Business_Applications/04_Education_Culture/DeveloperCandidatura/) • [MuseumTicket](03_Business_Applications/04_Education_Culture/MuseumTicket/) • [NerdLibrary](03_Business_Applications/04_Education_Culture/NerdLibrary/) • [NSMI](03_Business_Applications/04_Education_Culture/NSMI/) • [NSMPI](03_Business_Applications/04_Education_Culture/NSMPI/) • [PokeDex](03_Business_Applications/04_Education_Culture/PokeDex/) • [SchoolManagement_v1](03_Business_Applications/04_Education_Culture/SchoolManagement_v1/) • [SchoolManagement_v2](03_Business_Applications/04_Education_Culture/SchoolManagement_v2/)
 
-#### 🏍️ Progetti Speciali
+#### 🏍️ Altri Progetti  
 - **[BikeWorld](03_Business_Applications/BikeWorld/README.md)** - Concessionaria Moto (Repository Pattern, State Pattern, Chain of Responsibility, ETL, JDBC, SQLite)
 - **[Carroponte](03_Business_Applications/Carroponte/README.md)** - Gestione Eventi (DI, Repository Pattern, Command Pattern, Caching, IoC Container)
 
@@ -125,7 +125,7 @@ La sezione business è organizzata in 4 sottocategorie tematiche:
 | ┣━ 🛒 Commerce & Services | 7 progetti | Intermedio/Avanzato |
 | ┣━ 🚆 Transportation & Logistics | 12 progetti | Intermedio |
 | ┣━ 🎓 Education & Culture | 8 progetti | Intermedio |
-| ┗━ 🏍️ Progetti Speciali | 2 progetti | Avanzato |
+| ┗━ 🏍️ Progetti - altro | 2 progetti | Avanzato |
 | 🎯 Esercizi | 4 progetti | Vario |
 | **TOTALE** | **65 progetti** | **Completo** |
 
