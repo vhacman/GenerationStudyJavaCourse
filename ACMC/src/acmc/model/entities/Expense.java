@@ -28,18 +28,28 @@ public class Expense extends Entity
 	@Override
 	public List<String> getErrors()
 	{
-		List<String> res = new ArrayList<String>();
+		List<String> res = new ArrayList<>();
 
 		if(isMissing(reason))
+		{
 			res.add("Missing reason");
+		}
 		if(date == null)
+		{
 			res.add("Missing date");
+		}
 		if(date != null && date.isAfter(LocalDate.now()))
+		{
 			res.add("Invalid date (future date)");
+		}
 		if(cost == null)
+		{
 			res.add("Missing cost");
+		}
 		if(cost != null && cost.compareTo(BigDecimal.ZERO) < 0)
+		{
 			res.add("Invalid cost (negative)");
+		}
 		return res;
 	}
 
@@ -51,11 +61,11 @@ public class Expense extends Entity
 
 	public String		getReason()						{ return reason; }
 	public void			setReason(String reason)		{ this.reason = reason; }
-	
+
 	public LocalDate	getDate()						{ return date; }
 	public void			setDate(LocalDate date)			{ this.date = date; }
 	public void			setDate(String date)			{ this.date = LocalDate.parse(date);}
-								
+
 
 	public BigDecimal	getCost()						{ return cost; }
 	public void			setCost(BigDecimal cost)		{ this.cost = cost; }

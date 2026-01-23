@@ -1,6 +1,7 @@
 package com.generation.acmc.model.repository;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 import com.generation.acmc.model.entities.Donation;
@@ -13,7 +14,7 @@ public interface DonationRepository
 {
     /**
      * Inserisce una nuova donazione nel sistema.
-     * 
+     *
      * @param donation donazione da inserire
      * @return donazione inserita, con eventuale ID generato
      * @throws SQLException se si verifica un errore durante l'inserimento
@@ -22,7 +23,7 @@ public interface DonationRepository
 
     /**
      * Aggiorna i dati di una donazione esistente.
-     * 
+     *
      * @param donation donazione da aggiornare (deve avere un ID valido)
      * @return donazione aggiornata
      * @throws SQLException se si verifica un errore durante l'aggiornamento
@@ -44,7 +45,7 @@ public interface DonationRepository
      * @param memberId identificativo del socio
      * @return lista delle donazioni del socio, mai null (può essere vuota)
      */
-    List<Donation> findByMemberId(int memberId);
+    List<Donation> findByMemberId(int memberId) throws SQLException;
 
     /**
      * Restituisce le donazioni effettuate da un socio nell'ultimo anno.
@@ -52,7 +53,16 @@ public interface DonationRepository
      * @param memberId identificativo del socio
      * @return lista delle donazioni del socio nell'ultimo anno, mai null (può essere vuota)
      */
-    List<Donation> findByMemberIdLastYear(int memberId);
-    
+    List<Donation> findByMemberIdLastYear(int memberId)throws SQLException;
+
+    /**
+     * Restituisce tutte le donazioni presenti nel sistema.
+     *
+     * @return lista di tutte le donazioni, mai null (può essere vuota)
+     * @throws SQLException se si verifica un errore durante la lettura
+     */
+    List<Donation> findAll() throws SQLException;
+    List<Donation> findDateBetween(LocalDate d1, LocalDate d2) throws Exception;
+
 }
 

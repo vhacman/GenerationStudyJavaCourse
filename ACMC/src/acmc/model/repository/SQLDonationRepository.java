@@ -31,15 +31,15 @@ public class SQLDonationRepository extends PartialCacheSQLEntityRepository<Donat
         super(table, connection, maxSize);
     }
 
-      
+
     /**
      * Prepara il comando SQL per l’inserimento di una donazione nel database.
-     * 
+     *
      * Il metodo:
      *   - crea una PreparedStatement con INSERT INTO donation(...) VALUES(?, ?, ?, ?)
      *   - associa i parametri in ordine tramite setInt, setBigDecimal, setDate, setString
      *   - non chiude la connessione: è responsabilità di chi chiama
-     * 
+     *
      * Nota sulla data: Donation usa LocalDate, mentre JDBC per il set richiede Date.
      * Per questo si usa Date.valueOf(donation.getDate()) per convertire LocalDate → Date.
      */
@@ -59,7 +59,7 @@ public class SQLDonationRepository extends PartialCacheSQLEntityRepository<Donat
 
     /**
      * Prepara il comando SQL per l’aggiornamento di una donazione nel database.
-     * 
+     *
      * Il metodo:
      *   - crea una PreparedStatement con UPDATE donation SET ... WHERE id = ?
      *   - imposta i parametri nel giusto ordine (set* prima della WHERE)
@@ -103,13 +103,12 @@ public class SQLDonationRepository extends PartialCacheSQLEntityRepository<Donat
         	rows.getInt("id"),
             Context.getDependency(MemberRepository.class).findById(rows.getInt("member_id")),
             rows.getBigDecimal("amount"),
-            rows.getString("date") != null 
+            rows.getString("date") != null
                 ? LocalDate.parse(rows.getString("date"))
                 : null,
             rows.getString("notes")
         );
     }
-
 
     /**
      * Restituisce tutte le donazioni effettuate da un socio specifico.
@@ -118,11 +117,10 @@ public class SQLDonationRepository extends PartialCacheSQLEntityRepository<Donat
      * @return lista delle donazioni del socio, mai null (può essere vuota)
      */
     @Override
-    public List<Donation> findByMemberId(int memberId)
+    public List<Donation> findByMemberId(int memberId) throws SQLException
     {
         return findWhere("member_id = " + memberId);
     }
-
     /**
      * Restituisce le donazioni effettuate da un socio nell'ultimo anno.
      * L'ultimo anno è calcolato dalla data odierna meno 365 giorni.
@@ -131,12 +129,19 @@ public class SQLDonationRepository extends PartialCacheSQLEntityRepository<Donat
      * @return lista delle donazioni del socio nell'ultimo anno, mai null (può essere vuota)
      */
     @Override
-    public List<Donation> findByMemberIdLastYear(int memberId)
+    public List<Donation> findByMemberIdLastYear(int memberId) throws SQLException
     {
         LocalDate oneYearAgo = LocalDate.now().minusYears(1);
         String whereClause = "member_id = " + memberId + " AND date >= '" + oneYearAgo.toString() + "'";
         return findWhere(whereClause);
     }
+
+
+	@Override
+	public List<Donation> findDateBetween(LocalDate d1, LocalDate d2)
+	{
+		return findWhere("date between '" +d1+"' and '"+d2+"'");
+	}
 
 
 

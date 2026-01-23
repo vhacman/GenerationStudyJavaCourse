@@ -5,24 +5,24 @@ package com.generation.acmc.model.entities;
  * L'ordine di dichiarazione determina la priorità: BRONZE (basso) → GRAY (alto).
  * BANNED è posizionato per ultimo per essere gestito separatamente nei filtri.
  */
-public enum MembershipLevel 
-{ 
-    BRONZE, 
-    SILVER, 
-    GOLD, 
-    GRAY, 
+public enum MembershipLevel
+{
+    BRONZE,
+    SILVER,
+    GOLD,
+    GRAY,
     BANNED;
-  
+
     /**
      * Verifica se il livello è attivo (esclude BANNED).
-     * 
+     *
      * @return true se il membro può accedere al sistema
      */
     public boolean isActive() { return this != BANNED; }
-    
+
     /**
      * Ottiene il livello successivo nella gerarchia (es. SILVER → GOLD).
-     * 
+     *
      * @return livello successivo o GRAY se già al massimo
      */
     public MembershipLevel nextLevel()
@@ -34,11 +34,11 @@ public enum MembershipLevel
             case BANNED -> BANNED;
         };
     }
-    
+
     /**
      * Rappresentazione leggibile del livello.
      * Usa questo metodo quando si mostra il livello all’utente.
-     * 
+     *
      * Per il salvataggio in DB: usa name() (es. "BRONZE", "GOLD")
      * Per la UI: usa toString() (es. "Bronzo", "Oro")
      */

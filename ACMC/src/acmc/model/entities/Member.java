@@ -30,24 +30,40 @@ public class Member extends Entity
 	@Override
 	public List<String> getErrors()
 	{
-		List<String> res = new ArrayList<String>();
+		List<String> res = new ArrayList<>();
 
 		if(isMissing(firstName))
+		{
 			res.add("Missing first name");
+		}
 		if(isMissing(lastName))
+		{
 			res.add("Missing last name");
+		}
 		if(isMissing(gender))
+		{
 			res.add("Missing gender");
+		}
 		if(dob == null)
+		{
 			res.add("Missing date of birth");
+		}
 		if(dob != null && dob.isAfter(LocalDate.now()))
+		{
 			res.add("Invalid date of birth (future date)");
+		}
 		if(incomeEst == null)
+		{
 			res.add("Missing income estimate");
+		}
 		if(incomeEst != null && incomeEst.compareTo(BigDecimal.ZERO) < 0)
+		{
 			res.add("Invalid income estimate (negative)");
+		}
 		if(level == null)
+		{
 			res.add("Missing membership level");
+		}
 		return res;
 	}
 
@@ -65,9 +81,9 @@ public class Member extends Entity
 	public LocalDate		getDob()								{ return dob; }
 	public BigDecimal		getIncomeEst()							{ return incomeEst; }
 	public MembershipLevel	getLevel()								{ return level; }
-	
+
 	public void				setLastName(String lastname)			{ this.lastName = lastname; }
-	public void				setFirstName(String firstName)			{ this.firstName = firstName; }	
+	public void				setFirstName(String firstName)			{ this.firstName = firstName; }
 	public void				setGender(String gender)				{ this.gender = gender; }
 	public void				setDob(LocalDate dob)					{ this.dob = dob; }
 	public void				setDob(String dob)						{ this.dob = LocalDate.parse(dob); }
@@ -76,5 +92,5 @@ public class Member extends Entity
 	public void				setLevel(MembershipLevel level)			{ this.level = level; }
 	public void				setLevel(String level)					{ this.level = MembershipLevel.valueOf(level); }
 
-	
+
 }

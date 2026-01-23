@@ -1,16 +1,14 @@
 package com.generation.acmc.test;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import java.math.BigDecimal;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.time.LocalDate;
-import java.util.function.Consumer;
+
 import org.junit.jupiter.api.Test;
+
 import com.generation.acmc.context.Context;
 import com.generation.acmc.model.entities.Donation;
 import com.generation.acmc.model.entities.Member;
-import com.generation.acmc.model.repository.DonationRepository;
 import com.generation.acmc.model.repository.SQLDonationRepository;
 
 // Assicurati che Mockito sia nel classpath: mockito-core

@@ -30,18 +30,28 @@ public class Donation extends Entity
 	@Override
 	public List<String> getErrors()
 	{
-		List<String> res = new ArrayList<String>();
+		List<String> res = new ArrayList<>();
 
 		if(member == null)
+		{
 			res.add("Missing donor");
+		}
 		if(amount == null)
+		{
 			res.add("Missing amount");
+		}
 		if(amount != null && amount.compareTo(BigDecimal.ZERO) <= 0)
+		{
 			res.add("Invalid amount (must be positive)");
+		}
 		if(date == null)
+		{
 			res.add("Missing date");
+		}
 		if(date != null && date.isAfter(LocalDate.now()))
+		{
 			res.add("Invalid date (future date)");
+		}
 		return res;
 	}
 
@@ -54,7 +64,7 @@ public class Donation extends Entity
 
 	public Member		getMember()						{ return member; }
 	public void			setMember(Member donor)			{ this.member = donor; }
-	
+
 	public BigDecimal	getAmount()						{ return amount; }
 	public void			setAmount(BigDecimal amount)	{ this.amount = amount; }
 	public void			setAmount(String amount)		{ this.amount = new BigDecimal(amount); }

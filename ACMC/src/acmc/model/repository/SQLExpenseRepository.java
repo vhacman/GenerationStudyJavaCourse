@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.time.LocalDate;
+
 import com.generation.acmc.model.entities.Expense;
 import com.generation.library.repository.PartialCacheSQLEntityRepository;
 
@@ -25,7 +26,7 @@ import com.generation.library.repository.PartialCacheSQLEntityRepository;
  * Nota:
  *   - I campi cost e date usano BigDecimal e LocalDate.
  */
-public class SQLExpenseRepository extends PartialCacheSQLEntityRepository<Expense> 
+public class SQLExpenseRepository extends PartialCacheSQLEntityRepository<Expense>
     implements ExpenseRepository
 {
 
@@ -52,7 +53,7 @@ public class SQLExpenseRepository extends PartialCacheSQLEntityRepository<Expens
      */
     @Override
 	public PreparedStatement getInsertCmd(Expense expense) throws SQLException
-    { 
+    {
         String sql = "INSERT INTO " + table + " (reason, date, cost) VALUES (?, ?, ?)";
         PreparedStatement ps = connection.prepareStatement(sql);
 
@@ -60,9 +61,12 @@ public class SQLExpenseRepository extends PartialCacheSQLEntityRepository<Expens
 
         // Gestione date: verifica se è nulle e salva come stringa YYYY-MM-DD per SQLite
         if (expense.getDate() != null)
-        	ps.setString(2, expense.getDate().toString());
-        else
-        	ps.setNull(2, Types.VARCHAR);
+		{
+			ps.setString(2, expense.getDate().toString());
+		} else
+		{
+			ps.setNull(2, Types.VARCHAR);
+		}
 
         ps.setBigDecimal(3, expense.getCost());
 
@@ -94,9 +98,12 @@ public class SQLExpenseRepository extends PartialCacheSQLEntityRepository<Expens
        * Salviamo come stringa YYYY-MM-DD per SQLite.
        */
         if (expense.getDate() != null)
-        	ps.setString(2, expense.getDate().toString());
-        else
-        	ps.setNull(2, Types.VARCHAR);
+		{
+			ps.setString(2, expense.getDate().toString());
+		} else
+		{
+			ps.setNull(2, Types.VARCHAR);
+		}
         ps.setBigDecimal(3, expense.getCost());
         ps.setInt(4, expense.getId());
         return ps;

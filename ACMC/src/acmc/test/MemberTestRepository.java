@@ -35,7 +35,7 @@ public class MemberTestRepository
         assertNotNull(found, "Member should not be null");
     }
 
-    
+
     @Test
     void testFindByLastNameContaining() throws Exception
     {

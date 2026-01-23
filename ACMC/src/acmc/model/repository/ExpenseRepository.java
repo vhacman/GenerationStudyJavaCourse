@@ -11,9 +11,25 @@ import com.generation.acmc.model.entities.Expense;
  */
 public interface ExpenseRepository
 {
+    /**
+     * Restituisce tutte le donazioni presenti nel sistema.
+     *
+     * @return lista di tutte le expense, mai null (può essere vuota)
+     * @throws SQLException se si verifica un errore durante la lettura
+     */
+    List<Expense> findAll() throws SQLException;
+
+    /**
+	 * Restituisce il membro corrispondente all'ID specificato.
+	 *
+	 * @param id identificativo univoco del expense da cercare
+	 * @return membro trovato, null se non esiste
+	 */
+	Expense findById(int id);
+
      /**
      * Inserisce una nuova spesa nel sistema.
-     * 
+     *
      * @param expense spesa da inserire
      * @return spesa inserita, con eventuale ID generato
      * @throws SQLException se si verifica un errore durante l'inserimento
@@ -22,7 +38,7 @@ public interface ExpenseRepository
 
     /**
      * Aggiorna i dati di una spesa esistente.
-     * 
+     *
      * @param expense spesa da aggiornare (deve avere un ID valido)
      * @return spesa aggiornata
      * @throws SQLException se si verifica un errore durante l'aggiornamento
@@ -31,7 +47,7 @@ public interface ExpenseRepository
 
     /**
      * Elimina una spesa dal sistema in base al suo ID.
-     * 
+     *
      * @param id identificativo della spesa da eliminare
      * @return true se l'eliminazione è avvenuta, false se la spesa non esiste
      * @throws SQLException se si verifica un errore durante l'eliminazione
