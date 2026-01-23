@@ -1,0 +1,265 @@
+package com.generation.acmc.model.services;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+
+import com.generation.acmc.model.entities.Donation;
+import com.generation.acmc.model.entities.Member;
+import com.generation.acmc.model.entities.MembershipLevel;
+
+/**
+ * Gestisce la valutazione dei soci e l'applicazione di ban/downgrade
+ * in base alle loro donazioni
+ */
+public class MembershipManager
+{
+	private List<Member>	members;
+	private List<Donation>	donations;
+
+	public MembershipManager()
+	{
+	}
+
+	public MembershipManager(List<Member> members, List<Donation> donations)
+	{
+		this.members	= members;
+		this.donations	= donations;
+	}
+
+	// ========== CALCOLO DONAZIONI DI UN SOCIO ==========
+
+	/**
+	 * Calcola il totale delle donazioni effettuate da un socio in un determinato periodo
+	 * @param member Il socio
+	 * @param startDate Data di inizio periodo
+	 * @param endDate Data di fine periodo
+	 * @return Totale donato nel periodo
+	 */
+	public BigDecimal getTotalDonations(Member member, LocalDate startDate, LocalDate endDate)
+	{
+		// TODO: Iterare sulla lista donations
+		// TODO: Filtrare solo le donazioni di questo member (donations.getDonor().equals(member))
+		// TODO: Filtrare solo le donazioni nel periodo (data >= startDate && data <= endDate)
+		// TODO: Sommare tutti gli importi
+		// TODO: Ritornare il totale
+		return null;
+	}
+
+	/**
+	 * Conta quante donazioni ha fatto un socio in un determinato periodo
+	 * @param member Il socio
+	 * @param startDate Data di inizio periodo
+	 * @param endDate Data di fine periodo
+	 * @return Numero di donazioni nel periodo
+	 */
+	public int getDonationCount(Member member, LocalDate startDate, LocalDate endDate)
+	{
+		// TODO: Iterare sulla lista donations
+		// TODO: Filtrare solo le donazioni di questo member nel periodo
+		// TODO: Contare quante donazioni ci sono
+		// TODO: Ritornare il conteggio
+		return 0;
+	}
+
+	/**
+	 * Restituisce la data dell'ultima donazione effettuata dal socio
+	 * @param member Il socio
+	 * @return Data ultima donazione (null se non ha mai donato)
+	 */
+	public LocalDate getLastDonationDate(Member member)
+	{
+		// TODO: Iterare sulla lista donations
+		// TODO: Filtrare solo le donazioni di questo member
+		// TODO: Trovare la donazione con la data più recente
+		// TODO: Ritornare la data (o null se non ci sono donazioni)
+		return null;
+	}
+
+	// ========== VERIFICA SE UN SOCIO È IN REGOLA ==========
+
+	/**
+	 * Verifica se un socio è in regola con le donazioni
+	 * Un socio è in regola se rispetta ALMENO UNO di questi criteri:
+	 * - Ha donato almeno minTotalAmount negli ultimi periodMonths mesi
+	 * - Ha fatto almeno minDonationCount donazioni negli ultimi periodMonths mesi
+	 * - L'ultima donazione è stata fatta entro maxMonthsSinceLastDonation mesi fa
+	 *
+	 * @param member Il socio da verificare
+	 * @param minTotalAmount Importo minimo totale richiesto (es: 100€)
+	 * @param minDonationCount Numero minimo di donazioni richiesto (es: 2)
+	 * @param maxMonthsSinceLastDonation Mesi massimi dall'ultima donazione (es: 6)
+	 * @param periodMonths Periodo di valutazione in mesi (es: 12)
+	 * @return true se il socio è in regola, false altrimenti
+	 */
+	public boolean isMemberInGoodStanding(Member member, BigDecimal minTotalAmount, int minDonationCount, int maxMonthsSinceLastDonation, int periodMonths)
+	{
+		// TODO: Calcolare la data di inizio periodo (oggi - periodMonths)
+		// TODO: Usare getTotalDonations() per calcolare il totale
+		// TODO: Usare getDonationCount() per contare le donazioni
+		// TODO: Usare getLastDonationDate() per trovare l'ultima donazione
+		// TODO: Verificare se rispetta almeno uno dei criteri
+		// TODO: Ritornare true se in regola, false altrimenti
+		return false;
+	}
+
+	/**
+	 * Verifica se un socio è in regola usando criteri basati sul suo livello
+	 * Ogni livello ha requisiti diversi:
+	 * - BRONZE: criteri più bassi
+	 * - SILVER: criteri medi
+	 * - GOLD: criteri alti
+	 * - GRAY: criteri molto alti
+	 *
+	 * @param member Il socio da verificare
+	 * @return true se il socio rispetta i criteri del suo livello
+	 */
+	public boolean isMemberInGoodStandingForLevel(Member member)
+	{
+		// TODO: Ottenere il livello del socio (member.getLevel())
+		// TODO: In base al livello, definire i criteri appropriati
+		// TODO: Es: BRONZE -> min 50€ totali, SILVER -> 150€, GOLD -> 300€, GRAY -> 500€
+		// TODO: Chiamare isMemberInGoodStanding() con i criteri appropriati
+		// TODO: Ritornare il risultato
+		return false;
+	}
+
+	// ========== TROVA SOCI INADEMPIENTI ==========
+
+	/**
+	 * Trova tutti i soci che NON sono in regola con le donazioni
+	 * @param minTotalAmount Importo minimo totale richiesto
+	 * @param minDonationCount Numero minimo di donazioni richiesto
+	 * @param maxMonthsSinceLastDonation Mesi massimi dall'ultima donazione
+	 * @param periodMonths Periodo di valutazione in mesi
+	 * @return Lista dei soci inadempienti
+	 */
+	public List<Member> findNonCompliantMembers(BigDecimal minTotalAmount, int minDonationCount, int maxMonthsSinceLastDonation, int periodMonths)
+	{
+		// TODO: Creare una lista vuota per i soci inadempienti
+		// TODO: Iterare su tutti i membri
+		// TODO: Per ogni membro, chiamare isMemberInGoodStanding()
+		// TODO: Se il socio NON è in regola, aggiungerlo alla lista
+		// TODO: Ritornare la lista
+		return null;
+	}
+
+	/**
+	 * Trova tutti i soci inadempienti usando criteri basati sul livello
+	 * @return Lista dei soci che non rispettano i criteri del loro livello
+	 */
+	public List<Member> findNonCompliantMembersByLevel()
+	{
+		// TODO: Creare una lista vuota per i soci inadempienti
+		// TODO: Iterare su tutti i membri
+		// TODO: Per ogni membro, chiamare isMemberInGoodStandingForLevel()
+		// TODO: Se il socio NON è in regola, aggiungerlo alla lista
+		// TODO: Ritornare la lista
+		return null;
+	}
+
+	// ========== APPLICAZIONE PENALITÀ ==========
+
+	/**
+	 * Banna automaticamente tutti i soci che non rispettano i criteri minimi
+	 * @param minTotalAmount Importo minimo totale richiesto
+	 * @param minDonationCount Numero minimo di donazioni richiesto
+	 * @param maxMonthsSinceLastDonation Mesi massimi dall'ultima donazione
+	 * @param periodMonths Periodo di valutazione in mesi
+	 * @return Numero di soci bannati
+	 */
+	public int banNonCompliantMembers(BigDecimal minTotalAmount, int minDonationCount, int maxMonthsSinceLastDonation, int periodMonths)
+	{
+		// TODO: Usare findNonCompliantMembers() per trovare i soci inadempienti
+		// TODO: Per ogni socio, impostare level = MembershipLevel.BANNED
+		// TODO: Contare quanti soci sono stati bannati
+		// TODO: Ritornare il conteggio
+		return 0;
+	}
+
+	/**
+	 * Abbassa di un livello i soci che non rispettano i criteri del loro livello
+	 * GRAY -> GOLD -> SILVER -> BRONZE -> BANNED
+	 * @return Numero di soci downgraded
+	 */
+	public int downgradeNonCompliantMembers()
+	{
+		// TODO: Usare findNonCompliantMembersByLevel() per trovare i soci inadempienti
+		// TODO: Per ogni socio, abbassare il livello:
+		// TODO:   - Se GRAY -> GOLD
+		// TODO:   - Se GOLD -> SILVER
+		// TODO:   - Se SILVER -> BRONZE
+		// TODO:   - Se BRONZE -> BANNED
+		// TODO: Contare quanti soci sono stati downgraded
+		// TODO: Ritornare il conteggio
+		return 0;
+	}
+
+	// ========== GETTERS E SETTERS ==========
+
+	public List<Member>		getMembers()							{ return members; }
+	public void				setMembers(List<Member> members)		{ this.members = members; }
+	public List<Donation>	getDonations()							{ return donations; }
+	public void				setDonations(List<Donation> donations)	{ this.donations = donations; }
+}
+
+
+
+	// ========== METODI PER GESTIONE DONAZIONI ==========
+
+	/**
+	 * Calcola il totale delle donazioni effettuate dal socio in un determinato periodo
+	 * @param donations Lista di tutte le donazioni del club
+	 * @param startDate Data di inizio periodo
+	 * @param endDate Data di fine periodo
+	 * @return Totale donato nel periodo
+	 */
+	public BigDecimal getTotalDonations(List<Donation> donations, LocalDate startDate, LocalDate endDate)
+	{
+		// TODO: Filtrare le donazioni per questo socio nel periodo specificato
+		// TODO: Sommare tutti gli importi e ritornare il totale
+		return null;
+	}
+
+	/**
+	 * Conta quante donazioni ha fatto il socio in un determinato periodo
+	 * @param donations Lista di tutte le donazioni del club
+	 * @param startDate Data di inizio periodo
+	 * @param endDate Data di fine periodo
+	 * @return Numero di donazioni nel periodo
+	 */
+	public int getDonationCount(List<Donation> donations, LocalDate startDate, LocalDate endDate)
+	{
+		// TODO: Filtrare le donazioni per questo socio nel periodo specificato
+		// TODO: Contare quante donazioni ha fatto
+		return 0;
+	}
+
+	/**
+	 * Calcola la media mensile delle donazioni in un determinato periodo
+	 * @param donations Lista di tutte le donazioni del club
+	 * @param months Numero di mesi da considerare
+	 * @return Media mensile delle donazioni
+	 */
+	public BigDecimal getMonthlyAverageDonation(List<Donation> donations, int months)
+	{
+		// TODO: Calcolare il totale donato negli ultimi N mesi
+		// TODO: Dividere per il numero di mesi
+		return null;
+	}
+
+	/**
+	 * Restituisce la data dell'ultima donazione effettuata dal socio
+	 * @param donations Lista di tutte le donazioni del club
+	 * @return Data ultima donazione (null se non ha mai donato)
+	 */
+	public LocalDate getLastDonationDate(List<Donation> donations)
+	{
+		// TODO: Trovare la donazione più recente di questo socio
+		// TODO: Ritornare la data (o null se non ci sono donazioni)
+		return null;
+	}
+
+
+
+
