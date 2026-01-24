@@ -102,9 +102,9 @@ La sezione business è organizzata in 5 sottocategorie tematiche:
 
 #### 🏆 Progetti Enterprise (High Complexity)
 
-* **[ACMC](https://www.google.com/search?q=03_Business_Applications/ACMC/README.md)** - Gestione Associazioni (DI, IoC Container, MVC, Repository Pattern)
-* **[BikeWorld](https://www.google.com/search?q=03_Business_Applications/BikeWorld/README.md)** - Concessionaria Moto (State Pattern, Chain of Responsibility, ETL)
-* **[Carroponte](https://www.google.com/search?q=03_Business_Applications/Carroponte/README.md)** - Gestione Eventi (Command Pattern, Caching, IoC Container)
+* **[ACMC](https://github.com/vhacman/GenerationStudyJavaCourse/blob/main/03_Business_Applications/ACMC/README.md)** - Gestione Associazioni (DI, IoC Container, MVC, Repository Pattern)
+* **[BikeWorld](https://github.com/vhacman/GenerationStudyJavaCourse/blob/main/03_Business_Applications/BikeWorld/README.md)** - Concessionaria Moto (State Pattern, Chain of Responsibility, ETL)
+* **[Carroponte](https://github.com/vhacman/GenerationStudyJavaCourse/blob/main/03_Business_Applications/Carroponte/README.md)** - Gestione Eventi (Command Pattern, Caching, IoC Container)
 
 </details>
 
