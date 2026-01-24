@@ -1,9 +1,4 @@
-Certamente! Ho inserito il progetto **ACMC** nella sezione delle applicazioni Business, elevandolo come uno dei progetti di punta (insieme a BikeWorld e Carroponte) perché rappresenta il culmine dell'architettura Enterprise studiata nel corso.
-
-Ecco il README aggiornato e rifinito:
-
----
-
+ 
 # 🎓 Corso Java - Generation Italy
 
 > **Percorso formativo Full Stack Java Developer**
