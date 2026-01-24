@@ -100,11 +100,11 @@ La sezione business è organizzata in 5 sottocategorie tematiche:
 
 [DeveloperCandidatura](https://www.google.com/search?q=03_Business_Applications/04_Education_Culture/DeveloperCandidatura/) • [MuseumTicket](https://www.google.com/search?q=03_Business_Applications/04_Education_Culture/MuseumTicket/) • [NerdLibrary](https://www.google.com/search?q=03_Business_Applications/04_Education_Culture/NerdLibrary/) • [NSMI](https://www.google.com/search?q=03_Business_Applications/04_Education_Culture/NSMI/) • [NSMPI](https://www.google.com/search?q=03_Business_Applications/04_Education_Culture/NSMPI/) • [PokeDex](https://www.google.com/search?q=03_Business_Applications/04_Education_Culture/PokeDex/) • [SchoolManagement_v1](https://www.google.com/search?q=03_Business_Applications/04_Education_Culture/SchoolManagement_v1/) • [SchoolManagement_v2](https://www.google.com/search?q=03_Business_Applications/04_Education_Culture/SchoolManagement_v2/)
 
-#### 🏆 Enterprise & Pattern Oriented
+#### 🏆 Progetti Enterprise (High Complexity)
 
-* **[ACMC](https://www.google.com/search?q=03_Business_Applications/ACMC/README.md)** - Gestione Associazioni (DI, IoC Container, MVC, Repository Pattern, Template-driven UI)
-* **[BikeWorld](https://www.google.com/search?q=03_Business_Applications/BikeWorld/README.md)** - Concessionaria Moto (Repository Pattern, State Pattern, Chain of Responsibility, ETL, JDBC, SQLite)
-* **[Carroponte](https://www.google.com/search?q=03_Business_Applications/Carroponte/README.md)** - Gestione Eventi (DI, Repository Pattern, Command Pattern, Caching, IoC Container)
+* **[ACMC](https://www.google.com/search?q=03_Business_Applications/ACMC/README.md)** - Gestione Associazioni (DI, IoC Container, MVC, Repository Pattern)
+* **[BikeWorld](https://www.google.com/search?q=03_Business_Applications/BikeWorld/README.md)** - Concessionaria Moto (State Pattern, Chain of Responsibility, ETL)
+* **[Carroponte](https://www.google.com/search?q=03_Business_Applications/Carroponte/README.md)** - Gestione Eventi (Command Pattern, Caching, IoC Container)
 
 </details>
 
@@ -127,14 +127,9 @@ La sezione business è organizzata in 5 sottocategorie tematiche:
 | Categoria | Numero Progetti | Livello |
 | --- | --- | --- |
 | 📚 Librerie | 1 framework | Avanzato |
-| 📘 Fondamentali | 12 moduli | Principiante |
+| 📘 Fondamentali | 12 moduli | Base |
 | 🚆 Trasporti | 9 progetti | Intermedio |
-| 💼 Business | **40 progetti** | Intermedio/Avanzato |
-| ┣━ 🏨 Hospitality & Tourism | 8 progetti | Intermedio/Avanzato |
-| ┣━ 🛒 Commerce & Services | 7 progetti | Intermedio/Avanzato |
-| ┣━ 🚆 Transportation & Logistics | 12 progetti | Intermedio |
-| ┣━ 🎓 Education & Culture | 8 progetti | Intermedio |
-| ┗━ 🏆 Enterprise & Pattern | **5 progetti** | Avanzato |
+| 💼 Business | **40 progetti** | Avanzato |
 | 🎯 Esercizi | 4 progetti | Vario |
 | **TOTALE** | **66 progetti** | **Completo** |
 
@@ -144,23 +139,12 @@ La sezione business è organizzata in 5 sottocategorie tematiche:
 
 **Hacman Viorica Gabriela**
 
-* 🎓 Studentessa Generation Italy - Java Full Stack Developer Bootcamp
+* 🎓 Studentessa Generation Italy - Java Full Stack Developer
 * 💼 [LinkedIn](https://www.linkedin.com/in/viorica-gabriela-hacman-63a412267/)
-* 📧 Email: [hacmanvioricagabriela@gmail.com](mailto:hacmanvioricagabriela@gmail.com)
 * 🐙 GitHub: [@vhacman](https://github.com/vhacman)
 
 ---
 
-## 📝 Licenza
-
-📚 **Uso Educativo**
-
-Questo repository è stato creato per scopi educativi come parte del bootcamp Generation Italy.
-
----
-
 <div align="center">
-Sviluppato con dedizione durante il percorso Full Stack Java 2026.
+Sviluppato con dedizione durante il percorso Full Stack Java  
 </div>
-
- 
