@@ -92,10 +92,4 @@ Per garantire l'integrità dei dati, il sistema segue questo workflow rigoroso:
 * **I (Interface Segregation):** Repository divisi per entità, non un unico "God Repository".
 * **D (Dependency Inversion):** I controller dipendono dalle interfacce Repository, non dalle classi concrete.
 
----
-
-**Cosa vorresti approfondire ora?**
-
-* Posso aiutarti a generare una **guida tecnica** specifica per l'implementazione del `Context` (IoC).
-* Posso creare uno **schema SQL** dettagliato per le tabelle del database.
-* Oppure possiamo scrivere insieme una **unit test suite** per la validazione delle entità.
+--- 
