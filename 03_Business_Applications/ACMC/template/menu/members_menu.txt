@@ -1,0 +1,20 @@
+════════════════════════════════════════════
+  👥 GESTIONE SOCI 🌟
+  "La membership che conta davvero"
+════════════════════════════════════════════
+
+  1. Registra nuovo socio
+     → Reclutamento per il dominio
+  
+  2. Cerca socio per cognome
+     → Database degli eletti
+  
+  3. Cerca socio per livello
+     → Bronze, Silver, Gold o Gray?
+  
+  4. Promuovi/Retrocedi/Banna
+     → Il potere nelle tue mani
+  
+  0. ← Torna al menu principale
+
+════════════════════════════════════════════

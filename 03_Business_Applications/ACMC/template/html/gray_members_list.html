@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soci Gray - Registro Riservato</title>
+    <style>
+        :root {
+            --bg-space: #2d2d3a;
+            --mint: #b2f2bb;
+            --lavender: #d0bfff;
+            --peach: #ffc9c9;
+            --sky: #a5d8ff;
+            --text-dark: #444;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-space);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .document {
+            background-color: #fcfcfc;
+            width: 100%;
+            max-width: 1000px;
+            padding: 50px;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 20px 20px 0px rgba(0,0,0,0.2);
+            border: 2px solid #eee;
+        }
+
+        .alien-icon {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            width: 50px;
+            height: 40px;
+            background: var(--mint);
+            border-radius: 50% 50% 40% 40%;
+            border: 2px solid var(--text-dark);
+        }
+        .alien-icon::before, .alien-icon::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 18px;
+            background: var(--text-dark);
+            border-radius: 50%;
+            top: 10px;
+        }
+        .alien-icon::before { left: 8px; transform: rotate(15deg); }
+        .alien-icon::after { right: 8px; transform: rotate(-15deg); }
+
+        header {
+            border-bottom: 4px double var(--lavender);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 32px;
+            color: var(--text-dark);
+            letter-spacing: -1px;
+            text-transform: lowercase;
+            font-style: italic;
+        }
+
+        .badge-classified {
+            display: inline-block;
+            padding: 5px 15px;
+            border: 2px solid var(--peach);
+            color: var(--peach);
+            font-weight: bold;
+            font-size: 12px;
+            transform: rotate(-3deg);
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            table-layout: fixed;
+        }
+
+        /* Larghezze colonne fisse */
+        th:nth-child(1), td:nth-child(1) { width: 12%; }  /* ID */
+        th:nth-child(2), td:nth-child(2) { width: 38%; }  /* SOCIO */
+        th:nth-child(3), td:nth-child(3) { width: 20%; }  /* DATA */
+        th:nth-child(4), td:nth-child(4) { width: 30%; }  /* REDDITO */
+
+        th {
+            background-color: var(--sky);
+            color: var(--text-dark);
+            padding: 14px 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Allineamento header */
+        th:nth-child(1) { text-align: center; }
+        th:nth-child(2) { text-align: left; }
+        th:nth-child(3) { text-align: center; }
+        th:nth-child(4) { text-align: right; }
+
+        td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #eee;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Allineamento celle */
+        td:nth-child(1) { 
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            color: #888;
+        }
+        
+        td:nth-child(2) { 
+            text-align: left;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        td:nth-child(3) { 
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            color: #888;
+        }
+        
+        td:nth-child(4) { 
+            text-align: right;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #555;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #fafafa;
+        }
+
+        .total-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+            border-top: 2px solid var(--lavender);
+            padding-top: 20px;
+        }
+
+        .ufo-doodle {
+            width: 40px;
+            height: 15px;
+            background: var(--lavender);
+            border-radius: 50%;
+            position: relative;
+            border: 2px solid var(--text-dark);
+        }
+
+        .total-box {
+            font-size: 16px;
+            color: var(--text-dark);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 13px;
+        }
+
+        .total-box span {
+            background: var(--mint);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 18px;
+            margin-left: 8px;
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 11px;
+            color: #bbb;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document">
+        <div class="alien-icon"></div>
+        
+        <header>
+            <h1>soci gray.</h1>
+            <div class="subtitle" style="color: var(--lavender); font-weight: bold;">Registro Riservato • Area 51 Sector</div>
+            <div class="badge-classified">Top Secret / Level 5</div>
+        </header>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Socio</th>
+                    <th>Data di Nascita</th>
+                    <th>Reddito Stimato</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#001</td>
+                    <td>Massimo De Gray</td>
+                    <td>12.11.1975</td>
+                    <td>€ 280.000</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Alessandro Ricci</td>
+                    <td>1975-02-14</td>
+                    <td>€ 950.000</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Andrea De Luca</td>
+                    <td>1984-10-05</td>
+                    <td>€ 850.000</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>Simone Pagano</td>
+                    <td>1976-12-16</td>
+                    <td>€ 780.000</td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td>Federico Russo</td>
+                    <td>1997-02-26</td>
+                    <td>€ 920.000</td>
+                </tr>
+                <tr>
+                    <td>35</td>
+                    <td>Elon Gray</td>
+                    <td>1971-06-28</td>
+                    <td>€ 10.000.000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="total-container">
+            <div class="ufo-doodle"></div>
+            <div class="total-box">
+                Totale Membri: <span>6</span>
+            </div>
+        </div>
+
+        <footer>
+            <span>© 2026 Cosmic Mysteries Cultural Association</span>
+            <span>Documento #A51-GRY</span>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,184 +1,114 @@
+Certamente! Ho inserito il progetto **ACMC** nella sezione delle applicazioni Business, elevandolo come uno dei progetti di punta (insieme a BikeWorld e Carroponte) perché rappresenta il culmine dell'architettura Enterprise studiata nel corso.
+
+Ecco il README aggiornato e rifinito:
+
+---
+
 # 🎓 Corso Java - Generation Italy
 
+> **Percorso formativo Full Stack Java Developer**
+> Una raccolta completa di progetti, framework e architetture sviluppati durante il bootcamp di Generation Italy.
 
-Questa repository contiene tutti i miei progetti, esercizi ed esempi di programmazione Java sviluppati durante il bootcamp Full Stack Java Developer di Generation Italy.
+---
 
+## 📂 Struttura della Repository
 
-## 📁 Struttura della Repository
+L'ecosistema è suddiviso in 5 aree tematiche per facilitare la navigazione e lo studio:
 
-I progetti sono organizzati in 5 categorie tematiche:
-
-```
+```text
 GenerationStudyJavaCourse/
-├── 📚 00_Libraries/                  # Framework e librerie riutilizzabili
-├── 📘 01_Fundamentals_Examples/      # Concetti base e strutture di controllo
-├── 🚆 02_Tickets_Transportation/     # Sistemi di biglietteria e trasporti
-├── 💼 03_Business_Applications/      # Applicazioni business e gestionali
-└── 🎯 04_Exercises_Practice/         # Esercizi extra e pratica
+├── 📚 00_Libraries/           # Framework e librerie core (IoC, JDBC, Generics)
+├── 📘 01_Fundamentals/        # Basi del linguaggio e paradigmi OOP
+├── 🚆 02_Tickets_System/      # Sistemi di biglietteria e logica di trasporto
+├── 💼 03_Business_Apps/       # Gestionali Enterprise (Hospitality, Commerce, Edu)
+└── 🎯 04_Exercises/           # Esercitazioni pratiche e algoritmi extra
+
 ```
 
-***
-### 📚 Librerie e Framework (00_Libraries/)
+---
+
+## 🛠️ Sezioni Dettagliate
+
+### 📚 1. Librerie e Framework (`00_Libraries/`)
+
+Il cuore riutilizzabile del codice. Qui ho sviluppato strumenti che astraggono la complessità del database e della logica di business.
 
 <details>
-<summary><b>Clicca per vedere tutte le librerie</b></summary>
+<summary><b>Visualizza dettagli Framework</b></summary>
 
-| Libreria | Descrizione | Pattern Implementati |
-|----------|-------------|----------------------|
-| [GenerationLibrary](00_Libraries/GenerationLibrary/README.md) | Framework Repository Pattern con Generics | Template Method, Repository Pattern, Generics, JDBC |
+| Libreria | Focus Tecnologico | Pattern Core |
+| --- | --- | --- |
+| **GenerationLibrary** | Persistenza dati & Generics | Repository Pattern, Template Method, JDBC |
 
-**GenerationLibrary** fornisce:
-- Classe base `Entity` con validazione incorporata
-- Repository generico `SQLEntityRepository<T extends Entity>` per operazioni CRUD
-- Implementazioni concrete: Car, Pet, Plant
-- Test JUnit 5 completi
-- Database SQLite embedded
+**Highlight:**
+
+* **Entity Base:** Gestione automatizzata degli errori e validazione tramite Reflection.
+* **Universal Repository:** CRUD generico per qualsiasi entità (`T extends Entity`).
+* **Test Driven:** Suite completa JUnit 5 integrata.
 
 </details>
 
-### 📘 Fondamentali (01_Fundamentals_Examples/)
+### 💼 2. Applicazioni Business & Enterprise (`03_Business_Applications/`)
+
+Questa sezione contiene i progetti più complessi, dove la logica di business incontra architetture professionali.
+
+#### 🚀 Top Tier Projects (High Complexity)
+
+* **[ACMC - Management System](https://www.google.com/search?q=03_Business_Applications/ACMC/README.md)**: Sistema enterprise per la gestione di associazioni. Implementa **Dependency Injection (IoC)**, **MVC**, **Repository Pattern** e validazione entità centralizzata.
+* **[BikeWorld](https://www.google.com/search?q=03_Business_Applications/BikeWorld/README.md)**: Concessionaria Moto con implementazione di **State Pattern**, **Chain of Responsibility** ed **ETL** per il caricamento dati.
+* **[Carroponte](https://www.google.com/search?q=03_Business_Applications/Carroponte/README.md)**: Gestione Eventi avanzata con focus su **Command Pattern**, **Caching** e decoupling dei componenti.
+
+#### 🏨 Sottocategorie Business
 
 <details>
-<summary><b>Clicca per vedere tutti i moduli fondamentali</b></summary>
+<summary><b>Visualizza altri 39 progetti business</b></summary>
 
-- [Modulo Esempi Base](docs/02-fundamentals/examples.md)
-- [Modulo 4 - Cicli e Iterazioni](docs/02-fundamentals/modulo4.md)
-- [Modulo 6 - Basi OOP](docs/02-fundamentals/modulo6.md)
-- [Modulo 7 - Incapsulamento](docs/02-fundamentals/modulo7.md)
-- [Modulo 8 - Ereditarietà](docs/02-fundamentals/modulo8.md)
-- [Modulo 9 - Astrazione](docs/02-fundamentals/modulo9.md)
-- [Modulo 10 - Polimorfismo e Interfacce](docs/02-fundamentals/modulo10.md)
-- [Modulo 11 - Interfacce Funzionali e Lambda](01_Fundamentals_Examples/Modulo11/README.md)
-- [Recap - Lezioni di Ripasso](docs/02-fundamentals/recap.md)
-- [Sequenza e Selezione](docs/02-fundamentals/sequenza-selezione.md)
-- [Cicli While](docs/02-fundamentals/while.md)
+* **Hospitality & Tourism:** Gestionali per Hotel e B&B (es. *MonsterHotel*, *VacanzeRomane*).
+* **Commerce & Services:** Sistemi bancari e retail (es. *JavaBank*, *LocalMarketDB*).
+* **Education & Culture:** Piattaforme per la gestione scolastica, musei e PokeDex.
 
 </details>
 
-### 🚆 Trasporti e Biglietteria (02_Tickets_Transportation/)
+### 🚆 3. Sistemi di Trasporto (`02_Tickets_Transportation/`)
 
-<details>
-<summary><b>Clicca per vedere tutti i progetti di trasporto</b></summary>
+Esercitazioni focalizzate sulla logica di calcolo tariffe e gestione flussi passeggeri tramite l'uso di `BigDecimal` e polimorfismo.
 
-| Progetto | Descrizione | Tecnologie |
-|----------|-------------|------------|
-| [BrianzaTaxi](docs/04-advanced-projects/brianza-taxi.md) | Sistema di prenotazione taxi | OOP, Collections |
-| [BrianzaTaxiService](docs/04-advanced-projects/brianza-taxi-service.md) | Servizio taxi con calcolo tariffe | Inheritance, Polymorphism |
-| [BrianzaTrains](docs/04-advanced-projects/brianza-trains.md) | Sistema biglietti treno | Classes, Methods |
-| [DiscotecaTicket](docs/04-advanced-projects/discoteca-ticket.md) | Biglietti eventi con restrizioni età | Validation, Date API |
-| [MLTrains](docs/04-advanced-projects/ml-trains.md) | Gestione treni Milano-Lecco | OOP |
-| [MilanoLeccoTrains2](docs/04-advanced-projects/milano-lecco-trains2.md) | Sistema treni v2 | Enhanced OOP |
-| [MilanoLeccoTrains3](docs/04-advanced-projects/milano-lecco-trains3.md) | Sistema treni v3 | Advanced Features |
-| [MilanoLeccoTrains4](docs/04-advanced-projects/milano-lecco-trains4.md) | Sistema treni completo | Abstract Classes, Enums |
-| [MonzaMetro](docs/04-advanced-projects/monza-metro.md) | Biglietteria metropolitana | BigDecimal, Pricing |
+### 📘 4. Fondamentali OOP (`01_Fundamentals_Examples/`)
 
-</details>
+Il percorso di apprendimento, dai cicli semplici alle **Lambda Expressions** e **Stream API**.
 
-### 💼 Applicazioni Business (03_Business_Applications/)
+---
 
-<details>
-<summary><b>Clicca per vedere tutte le applicazioni business</b></summary>
+## 📊 Dashboard Progetti
 
-La sezione business è organizzata in 4 sottocategorie tematiche:
+Una panoramica quantitativa del lavoro svolto fino al 2026:
 
-#### 🏨 [01_Hospitality_Tourism](03_Business_Applications/01_Hospitality_Tourism/) - Ospitalità e Turismo
-[GrottammareB&B](03_Business_Applications/01_Hospitality_Tourism/GrottammareB&B/README.md) • [LeccoB&B](03_Business_Applications/01_Hospitality_Tourism/LeccoB&B/) • [MonsterHotel](03_Business_Applications/01_Hospitality_Tourism/MonsterHotel/) • [ProlocoLakeComo](03_Business_Applications/01_Hospitality_Tourism/ProlocoLakeComo/) • [SBBB](03_Business_Applications/01_Hospitality_Tourism/SBBB/) • [SBHotel](03_Business_Applications/01_Hospitality_Tourism/SBHotel/) • [VacanzeRomane](03_Business_Applications/01_Hospitality_Tourism/VacanzeRomane/) • [VillaMelzi](03_Business_Applications/01_Hospitality_Tourism/VillaMelzi/)
+| Categoria | Progetti | Livello Tecnico |
+| --- | --- | --- |
+| 📚 Frameworks | 1 | 🔴 Avanzato |
+| 📘 Fondamentali | 12 | 🟢 Base |
+| 🚆 Trasporti | 9 | 🟡 Intermedio |
+| 💼 Business & **ACMC** | **40** | 🔴 Avanzato |
+| 🎯 Pratica | 4 | 🟢/🟡 Vario |
+| **TOTALE** | **66** | **Full Stack Ready** |
 
-#### 🛒 [02_Commerce_Services](03_Business_Applications/02_Commerce_Services/) - Commercio e Servizi
-[JavaBank](03_Business_Applications/02_Commerce_Services/JavaBank/) • [LocalMarket](03_Business_Applications/02_Commerce_Services/LocalMarket/) • [LocalMarketDB](03_Business_Applications/02_Commerce_Services/LocalMarketDB/) • [PCWizard](03_Business_Applications/02_Commerce_Services/PCWizard/) • [PrintLabel](03_Business_Applications/02_Commerce_Services/PrintLabel/) • [PrivateClinic](03_Business_Applications/02_Commerce_Services/PrivateClinic/) • [RepairShop](03_Business_Applications/02_Commerce_Services/RepairShop/)
+---
 
-#### 🚆 [03_Transportation_Logistics](03_Business_Applications/03_Transportation_Logistics/) - Trasporti e Logistica
-[BrianzaTaxi](03_Business_Applications/03_Transportation_Logistics/BrianzaTaxi/) • [BrianzaTaxiService](03_Business_Applications/03_Transportation_Logistics/BrianzaTaxiService/) • [BrianzaTrains](03_Business_Applications/03_Transportation_Logistics/BrianzaTrains/) • [BrianzaTrainsObjects](03_Business_Applications/03_Transportation_Logistics/BrianzaTrainsObjects/) • [DiscotecaTicket](03_Business_Applications/03_Transportation_Logistics/DiscotecaTicket/) • [JavaBus](03_Business_Applications/03_Transportation_Logistics/JavaBus/) • [JavItaAirline](03_Business_Applications/03_Transportation_Logistics/JavItaAirline/) • [MilanoLeccoTRains2](03_Business_Applications/03_Transportation_Logistics/MilanoLeccoTRains2/) • [MilanoLeccoTrains3](03_Business_Applications/03_Transportation_Logistics/MilanoLeccoTrains3/) • [MIlanoLeccoTrains4](03_Business_Applications/03_Transportation_Logistics/MIlanoLeccoTrains4/) • [MLTrains](03_Business_Applications/03_Transportation_Logistics/MLTrains/) • [MonzaMetro](03_Business_Applications/03_Transportation_Logistics/MonzaMetro/)
+## 🔧 Stack Tecnologico
 
-#### 🎓 [04_Education_Culture](03_Business_Applications/04_Education_Culture/) - Educazione e Cultura
-[DeveloperCandidatura](03_Business_Applications/04_Education_Culture/DeveloperCandidatura/) • [MuseumTicket](03_Business_Applications/04_Education_Culture/MuseumTicket/) • [NerdLibrary](03_Business_Applications/04_Education_Culture/NerdLibrary/) • [NSMI](03_Business_Applications/04_Education_Culture/NSMI/) • [NSMPI](03_Business_Applications/04_Education_Culture/NSMPI/) • [PokeDex](03_Business_Applications/04_Education_Culture/PokeDex/) • [SchoolManagement_v1](03_Business_Applications/04_Education_Culture/SchoolManagement_v1/) • [SchoolManagement_v2](03_Business_Applications/04_Education_Culture/SchoolManagement_v2/)
+* **Core:** Java 11/17 (Lambda, Streams, LocalDate)
+* **Architecture:** Dependency Injection (IoC), MVC, Template Method
+* **Data:** JDBC, SQLite, SQL (Repository Pattern)
+* **Quality:** JUnit 5, Input Validation, Clean Code (SOLID)
 
-#### 🏍️ Altri Progetti  
-- **[BikeWorld](03_Business_Applications/BikeWorld/README.md)** - Concessionaria Moto (Repository Pattern, State Pattern, Chain of Responsibility, ETL, JDBC, SQLite)
-- **[Carroponte](03_Business_Applications/Carroponte/README.md)** - Gestione Eventi (DI, Repository Pattern, Command Pattern, Caching, IoC Container)
-
-</details>
-
-### 🎯 Esercizi e Pratica (04_Exercises_Practice/)
-
-<details>
-<summary><b>Clicca per vedere tutti gli esercizi</b></summary>
-
-- [ChristmasTime](docs/04-advanced-projects/christmas-time.md) - Progetto a tema natalizio
-- [ExtraLesson](docs/04-advanced-projects/extra-lesson.md) - Lezione extra di approfondimento
-- [ExtraLesson2](docs/04-advanced-projects/extra-lesson2.md) - Seconda lezione extra
-- [Taxes](docs/04-advanced-projects/taxes.md) - Calcolo tasse e imposte
-
-</details>
-
-***
-
-## 📊 Statistiche Progetti
-
-| Categoria | Numero Progetti | Livello |
-|-----------|----------------|---------|
-| 📚 Librerie | 1 framework | Avanzato |
-| 📘 Fondamentali | 12 moduli | Principiante |
-| 🚆 Trasporti | 9 progetti | Intermedio |
-| 💼 Business | **39 progetti** | Intermedio/Avanzato |
-| ┣━ 🏨 Hospitality & Tourism | 8 progetti | Intermedio/Avanzato |
-| ┣━ 🛒 Commerce & Services | 7 progetti | Intermedio/Avanzato |
-| ┣━ 🚆 Transportation & Logistics | 12 progetti | Intermedio |
-| ┣━ 🎓 Education & Culture | 8 progetti | Intermedio |
-| ┗━ 🏍️ Progetti - altro | 2 progetti | Avanzato |
-| 🎯 Esercizi | 4 progetti | Vario |
-| **TOTALE** | **65 progetti** | **Completo** |
-
-***
-
-## 🛠️ Tecnologie Utilizzate
-
-<div align="center">
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-***
+---
 
 ## 👨‍💻 Autore
 
 **Hacman Viorica Gabriela**
-- 🎓 Studentessa Generation Italy - Java Full Stack Developer Bootcamp
-- 💼 [LinkedIn](https://www.linkedin.com/in/viorica-gabriela-hacman-63a412267/)
-- 📧 Email: [hacmanvioricagabriela@gmail.com](mailto:hacmanvioricagabriela@gmail.com)
-- 🐙 GitHub: [@vhacman](https://github.com/vhacman)
 
-***
+* 🎓 **Bootcamp:** Generation Italy - Java Full Stack Developer
+* 🔗 **LinkedIn:** [Profilo Professionale](https://www.linkedin.com/in/viorica-gabriela-hacman-63a412267/)
+* ✉️ **Email:** [hacmanvioricagabriela@gmail.com](mailto:hacmanvioricagabriela@gmail.com)
 
-## 📝 Licenza
-
-📚 **Uso Educativo**
-
-Questo repository è stato creato per scopi educativi come parte del bootcamp Generation Italy.
-Sentiti libero di esplorare, imparare e trarre ispirazione, ma rispetta il lavoro degli altri studenti.
-
-***
-
-## 🙏 Ringraziamenti
-
-Un ringraziamento speciale a:
-- **Generation Italy** per l'opportunità di apprendimento
-- **I docenti e mentor** per la guida e il supporto
-- **I compagni di corso** per la collaborazione e lo scambio di conoscenze
-
-***
-
-<div align="center">
-
-[
-
-</div>
+ 

@@ -1,0 +1,20 @@
+═══════════════════════════════════════════════
+  💰 GESTIONE DONAZIONI 🛸
+  "Per un futuro tra le stelle"
+═══════════════════════════════════════════════
+
+  1. Registra donazione
+     → Contribuisci alla causa interplanetaria
+  
+  2. Cerca per periodo
+     → Report per Alpha Centauri
+  
+  3. Cerca per socio
+     → Chi sostiene davvero l'ACMC?
+  
+  4. Cerca per socio (ultimo anno)
+     → I veri fedeli della fratellanza
+  
+  0. ← Torna al menu principale
+
+═══════════════════════════════════════════════

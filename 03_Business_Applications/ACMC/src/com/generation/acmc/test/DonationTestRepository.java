@@ -21,7 +21,6 @@ public class DonationTestRepository
     void insertCmdTest() throws Exception {
         // Dati di test
         Member member = new Member();
-        member.setId(123);
 
         Donation donation = new Donation();
         donation.setMember(member);
@@ -39,10 +38,8 @@ public class DonationTestRepository
     void updateCmdTest() throws Exception {
         // Dati di test
         Member member = new Member();
-        member.setId(123);
 
         Donation donation = new Donation();
-        donation.setId(999L);
         donation.setMember(member);
         donation.setAmount(new BigDecimal("50.00"));
         donation.setDate(LocalDate.of(2025, 1, 1));

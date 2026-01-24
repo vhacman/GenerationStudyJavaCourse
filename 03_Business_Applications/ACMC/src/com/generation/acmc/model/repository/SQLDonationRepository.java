@@ -66,7 +66,7 @@ public class SQLDonationRepository extends PartialCacheSQLEntityRepository<Donat
      *   - restituisce il PreparedStatement pronto per essere eseguito
      */
     @Override
-    protected PreparedStatement getUpdateCmd(Donation donation) throws SQLException
+	public PreparedStatement getUpdateCmd(Donation donation) throws SQLException
     {
         // UPDATE donation SET member_id=?, amount=?, date=?, notes=? WHERE id = ?
         String sql = "UPDATE " + table + " SET member_id=?, amount=?, date=?, notes=? WHERE id = ?";

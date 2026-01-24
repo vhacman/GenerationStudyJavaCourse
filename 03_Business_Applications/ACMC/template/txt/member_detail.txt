@@ -1,0 +1,13 @@
+
+═══════════════════════════════════════
+         SCHEDA SOCIO ACMC
+═══════════════════════════════════════
+
+ID Socio:       [id]
+Nome:           [firstName] [lastName]
+Genere:         [gender]
+Data Nascita:   [dob]
+Reddito Est.:   €[incomeEst]
+Livello:        [level]
+
+═══════════════════════════════════════

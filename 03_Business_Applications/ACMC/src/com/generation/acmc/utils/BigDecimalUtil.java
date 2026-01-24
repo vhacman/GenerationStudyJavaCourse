@@ -1,3 +1,5 @@
+package com.generation.acmc.utils;
+
 import java.math.BigDecimal;
 
 public class BigDecimalUtil
@@ -9,7 +11,7 @@ public class BigDecimalUtil
      * @param bigdecimal stringa da convertire (es. "10.000,50")
      * @return stringa convertita (es. "10000.50"), o stringa vuota se l'input non è valido
      */
-    static String convertToString(String bigdecimal)
+    public static String convertToString(String bigdecimal)
     {
         try
         {

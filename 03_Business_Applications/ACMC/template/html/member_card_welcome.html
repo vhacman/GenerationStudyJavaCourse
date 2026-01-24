@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta di Benvenuto - ACMC</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            padding: 40px;
+            text-align: center;
+        }
+        .header {
+            color: #667eea;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #764ba2;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .member-info {
+            background: #f7f7f7;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        .member-name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .badge-BRONZE { background: #cd7f32; color: white; }
+        .badge-SILVER { background: #c0c0c0; color: white; }
+        .badge-GOLD { background: #ffd700; color: #333; }
+        .badge-GRAY { background: #808080; color: white; }
+        .member-id {
+            font-family: 'Courier New', monospace;
+            font-size: 20px;
+            color: #666;
+            margin-top: 15px;
+        }
+        .footer {
+            margin-top: 30px;
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">🌟 BENVENUTO! 🌟</div>
+        <div class="subtitle">Associazione Culturale Misteri Cosmici</div>
+
+        <div class="member-info">
+            <div class="member-name">[firstName] [lastName]</div>
+            <div class="badge badge-[level]">Livello [level]</div>
+            <div class="member-id">ID: ACMC-[id]</div>
+        </div>
+
+        <p style="font-size: 16px; color: #555; line-height: 1.6;">
+            Siamo lieti di darti il benvenuto nella nostra associazione!<br>
+            Grandi misteri e avventure cosmiche ti aspettano.
+        </p>
+
+        <div class="footer">
+            © ACMC - Area 51 Division<br>
+            Data di iscrizione: [dob]
+        </div>
+    </div>
+</body>
+</html>

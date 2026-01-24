@@ -1,0 +1,14 @@
+════════════════════════════════════════════
+  💸 GESTIONE SPESE 🌠
+  "Trasparenza (quasi) totale"
+════════════════════════════════════════════
+
+  1. Registra nuova spesa
+     → Dai carburante spaziale  
+  
+  2. Calcola margine annuale
+     → Il bilancio della conquista galattica
+  
+  0. ← Torna al menu principale
+
+════════════════════════════════════════════
