@@ -1,8 +1,3 @@
-Ottimo lavoro con la documentazione. Il progetto **ACMC** presenta una struttura solida, seguendo i canoni dello sviluppo Enterprise in Java. Ho riorganizzato e ripulito la formattazione dei numeri, dei pattern e dei flussi logici per renderla più professionale e leggibile.
-
-Ecco la versione revisionata e numerata correttamente:
-
----
 
 # 🏛️ ACMC - Sistema di Gestione Associazioni
 
