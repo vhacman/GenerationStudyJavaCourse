@@ -1,0 +1,19 @@
+========================================
+    SOCI GRAY - AREA 51 DIVISION
+    Grande Raduno Spaziale 31/12
+========================================
+
+ID: 2 | Giulia Bianchi | DOB: 1885-08-22 | Reddito: €2100000
+ID: 3 | Luca Verdi | DOB: 2025-03-10 | Reddito: €1050000
+ID: 4 | Sofia Romano | DOB: 1788-11-30 | Reddito: €1800000
+ID: 7 | Marco Colombo | DOB: 1487-12-05 | Reddito: €2500000
+ID: 9 | Andrea Marino | DOB: 1989-04-28 | Reddito: €1750000
+ID: 11 | Klaatu Barada | DOB: 1986-02-09 | Reddito: €2800000
+ID: 18 | Alessia Conti | DOB: 1387-01-15 | Reddito: €2300000
+ID: 22 | Beatrice Vitale | DOB: 0666-06-29 | Reddito: €2600000
+ID: 30 | Astrid Void | DOB: 1999-12-31 | Reddito: €1200000
+
+
+----------------------------------------
+Totale soci Gray: 9
+========================================

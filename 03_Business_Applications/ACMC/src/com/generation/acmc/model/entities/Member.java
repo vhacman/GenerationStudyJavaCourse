@@ -75,6 +75,7 @@ public class Member extends Entity
 									+ ", level=" + level + "]";
 	}
 
+	// getId() ereditato da Entity
 	public String			getFirstName()							{ return firstName; }
 	public String			getLastName()							{ return lastName; }
 	public String			getGender()								{ return gender; }

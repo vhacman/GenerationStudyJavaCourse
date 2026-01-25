@@ -6,6 +6,7 @@ import java.util.List;
 import com.generation.acmc.model.entities.Member;
 import com.generation.acmc.model.entities.MembershipLevel;
 import com.generation.acmc.view.ViewController;
+import com.generation.acmc.view.ViewFactory;
 import com.generation.library.Console;
 import com.generation.library.FileWriter;
 import com.generation.library.Template;
@@ -14,9 +15,14 @@ import com.generation.library.view.EntityView;
 /**
  * Controller dedicato alla gestione di report e stampe
  * Gestisce la generazione di report HTML, schede soci e carte di benvenuto/promozione
- * 
- * - Ho estratto metodi helper privati per eliminare duplicazione
- * - Ogni metodo pubblico è più leggibile e testabile
+ *
+ * APPROCCIO IBRIDO:
+ * - Usa ViewFactory (Reflection) per view semplici che mappano solo getter
+ * - Usa ViewController (Lambda) per view complesse con logica custom
+ *
+ * CRITERI DI SCELTA:
+ * ViewFactory → view automatiche senza parametri extra (member detail, welcome card, liste)
+ * ViewController → view dinamiche con parametri (promotion card), gestione null complessa (donation)
  */
 public class ReportController
 {
@@ -55,43 +61,47 @@ public class ReportController
             Console.print(menu);
     }
 
-    // GENERAZIONE REPORT  
+    // GENERAZIONE REPORT
     /**
      * Produce un elenco con tutti i soci di livello Gray e lo stampa in HTML
      * Use case: lista per evento speciale "Grande Raduno Spaziale Area 51"
+     *
+     * USA ViewFactory: lista semplice che mappa solo getter Member
      */
     private static void generateGrayMembersHTMLList()
     {
-        try 
+        try
         {
-            List<Member> 		grayMembers = MemberController.findMembersByLevel(MembershipLevel.GRAY);            
+            List<Member> 		grayMembers = MemberController.findMembersByLevel(MembershipLevel.GRAY);
             if (grayMembers.isEmpty())
             {
                 Console.print("Nessun socio Gray trovato.\n");
                 return;
             }
-            String txtOutput = ViewController.renderGrayMembersListTXT(grayMembers);
+            // ViewFactory: rendering automatico tramite Reflection usando make()
+            String txtOutput = ViewFactory.renderGrayMembersListTXT(grayMembers);
             Console.print(txtOutput);
             Console.print("\nSalvare report in formato TXT? (S/N): ");
-            String 					saveTxt = Console.readString();            
-            if (saveTxt.equalsIgnoreCase("S")) 
+            String 					saveTxt = Console.readString();
+            if (saveTxt.equalsIgnoreCase("S"))
             {
                 String 				filenameTxt = "print/txt/gray_members_" + LocalDate.now() + ".txt";
                 FileWriter.writeTo(filenameTxt, txtOutput);
                 Console.print("File TXT salvato: " + filenameTxt + "\n");
             }
             Console.print("\nSalvare report in formato HTML? (S/N): ");
-            String 					saveHtml = Console.readString();            
-            if (saveHtml.equalsIgnoreCase("S")) 
+            String 					saveHtml = Console.readString();
+            if (saveHtml.equalsIgnoreCase("S"))
             {
-                String					 htmlOutput  = ViewController.renderGrayMembersListHTML(grayMembers);
+                // ViewFactory: rendering automatico tramite Reflection
+                String					 htmlOutput  = ViewFactory.renderGrayMembersListHTML(grayMembers);
                 String 				filenameHtml = "print/html/gray_members_" + LocalDate.now() + ".html";
                 FileWriter.writeTo(filenameHtml, htmlOutput);
                 Console.print("File HTML salvato: " + filenameHtml + "\n");
-            }            
-            if (!saveTxt.equalsIgnoreCase("S") && !saveHtml.equalsIgnoreCase("S")) 
+            }
+            if (!saveTxt.equalsIgnoreCase("S") && !saveHtml.equalsIgnoreCase("S"))
                 Console.print("Nessun salvataggio effettuato.\n");
-        } 
+        }
         catch (Exception e)
         {
             Console.print("Errore nella generazione del report: " + e.getMessage() + "\n");
@@ -99,18 +109,20 @@ public class ReportController
     }
     /**
      * Produce una scheda del socio con i soli dati anagrafici
-     * 
-     * REFACTORING: Ho estratto promptAndFindMember() come helper method
+     *
+     * USA ViewFactory: view semplice che mappa solo getter Member
      */
     private static void 			generateMemberProfile()
     {
         try
         {
             Member member = promptAndFindMember("Inserisci l'ID del socio: ");
-            if (member == null) return;            
-            Console.print(ViewController.memberDetailView.render(member));
+            if (member == null) return;
+
+            // ViewFactory: rendering automatico tramite Reflection usando make()
+            Console.print(ViewFactory.make("member", "txt", "detail").render(member));
         }
-        catch (SQLException e) 
+        catch (SQLException e)
         {
             Console.print("Errore DB: " + e.getMessage() + "\n");
         }
@@ -119,22 +131,25 @@ public class ReportController
     /**
      * Stampa scheda di invito a unirsi all'associazione
      * Genera file HTML con carta di benvenuto personalizzata
+     *
+     * USA ViewFactory: view semplice che mappa solo getter Member
      */
     private static void printWelcomeCard()
     {
         try
         {
             Member member = promptAndFindMember("Inserisci l'ID del nuovo socio: ");
-            if (member == null) return;            
-            // Genera l'output HTML
-            String htmlOutput = ViewController.memberWelcomeCardView.render(member);  
+            if (member == null) return;
+
+            // ViewFactory: rendering automatico tramite Reflection usando make()
+            String htmlOutput = ViewFactory.make("member", "html", "welcome").render(member);
             Console.print("\n=== Preview Carta di Benvenuto ===\n");
             Console.print("Socio: " + member.getFirstName() + " " + member.getLastName() + "\n");
             Console.print("Livello: " + member.getLevel() + "\n");
             Console.print("Codice: ACMC-" + member.getId() + "\n");
             Console.print("\nSalvare carta di benvenuto in formato HTML? (S/N): ");
             String saveHtml = Console.readString();
-            if (saveHtml.equalsIgnoreCase("S")) 
+            if (saveHtml.equalsIgnoreCase("S"))
             {
                 String filename = "print/html/welcome_card_" + member.getId() + "_" + LocalDate.now() + ".html";
                 FileWriter.writeTo(filename, htmlOutput);
@@ -156,28 +171,32 @@ public class ReportController
     /**
      * Stampa scheda di comunicazione di promozione
      * Flow complesso: validazione -> preview -> conferma -> salvataggio + update DB
+     *
+     * USA ViewController: view dinamica con parametri extra (oldLevel, newLevel)
+     * che non possono essere mappati automaticamente tramite Reflection
      */
     private static void printPromotionCard()
     {
         try
         {
             Member member = promptAndFindMember("Inserisci l'ID del socio da promuovere: ");
-            if (member == null) return;            
+            if (member == null) return;
             MembershipLevel currentLevel = member.getLevel();
-            if (!isPromotable(currentLevel, member)) return;            
-            MembershipLevel newLevel = getNextLevel(currentLevel);        
+            if (!isPromotable(currentLevel, member)) return;
+            MembershipLevel newLevel = getNextLevel(currentLevel);
             Console.print("\n=== Preview Promozione ===\n");
             Console.print("Socio: " + member.getFirstName() + " " + member.getLastName() + "\n");
             Console.print("Livello attuale: " + currentLevel + "\n");
-            Console.print("Nuovo livello: " + newLevel + "\n");            
-            if (!confirmPromotion(member, currentLevel, newLevel)) return;            
-            // 4. Genera output HTML
-            String htmlOutput = ViewController.renderPromotionCard(member, currentLevel, newLevel);     
+            Console.print("Nuovo livello: " + newLevel + "\n");
+            if (!confirmPromotion(member, currentLevel, newLevel)) return;
+
+            // ViewController: view dinamica che accetta parametri extra
+            String htmlOutput = ViewController.renderPromotionCard(member, currentLevel, newLevel);
             Console.print("\nSalvare carta di promozione in formato HTML? (S/N): ");
-            String saveHtml = Console.readString();            
-            if (saveHtml.equalsIgnoreCase("S")) 
+            String saveHtml = Console.readString();
+            if (saveHtml.equalsIgnoreCase("S"))
             {
-                String filename = "print/html/promotion_card_" + member.getId() + "_" + 
+                String filename = "print/html/promotion_card_" + member.getId() + "_" +
                                 currentLevel + "_to_" + newLevel + "_" + LocalDate.now() + ".html";
                 FileWriter.writeTo(filename, htmlOutput);
                 Console.print("File HTML salvato: " + filename + "\n");
@@ -264,11 +283,12 @@ public class ReportController
 
     /**
      * Mostra preview e richiede conferma per la promozione
-     * 
-     * Non sa come si renderizza la card (ViewController) né come si salva (savePromotionAndUpdate)
+     *
+     * USA ViewController: view dinamica con parametri extra (oldLevel, newLevel)
      */
     private static boolean confirmPromotion(Member member, MembershipLevel oldLevel, MembershipLevel newLevel)
     {
+        // ViewController: crea view dinamica con parametri
         EntityView<Member> 	promotionView 		= ViewController.createPromotionCardView(oldLevel, newLevel);
         String            						 promotionCard	 	= promotionView.render(member);
         Console.print("\n--- PREVIEW CARTA DI PROMOZIONE ---\n");
@@ -280,14 +300,12 @@ public class ReportController
 
     /**
      * Salva la carta di promozione e aggiorna il database
-     * 
-     * - Genero carta
-     * - Salvo file
-     * - Aggiorno Member in memoria
-     * - Persisto nel DB
+     *
+     * USA ViewController: view dinamica con parametri extra (oldLevel, newLevel)
      */
     private static void 				savePromotionAndUpdate(Member member, MembershipLevel oldLevel, MembershipLevel newLevel) throws SQLException
     {
+        // ViewController: crea view dinamica con parametri
         EntityView<Member> 		promotionView 	= ViewController.createPromotionCardView(oldLevel, newLevel);
         String             						promotionCard 	= promotionView.render(member);
         String 									filename 				= "print/txt/promotion_card_" + member.getId() + ".txt";

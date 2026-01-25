@@ -1,1 +1,1 @@
-ID: [id] | [firstName] [lastName] | DOB: [dob] | Reddito: €[incomeEst]
+ID: [id] | [firstname] [lastname] | DOB: [dob] | Reddito: €[incomeest]

@@ -4,10 +4,10 @@
 ═══════════════════════════════════════
 
 ID Socio:       [id]
-Nome:           [firstName] [lastName]
+Nome:           [firstname] [lastname]
 Genere:         [gender]
 Data Nascita:   [dob]
-Reddito Est.:   €[incomeEst]
+Reddito Est.:   €[incomeest]
 Livello:        [level]
 
 ═══════════════════════════════════════
