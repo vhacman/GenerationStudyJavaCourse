@@ -25,7 +25,7 @@ public interface ExpenseRepository
 	 * @param id identificativo univoco del expense da cercare
 	 * @return membro trovato, null se non esiste
 	 */
-	Expense findById(int id);
+	Expense findById(int id) throws SQLException;
 
      /**
      * Inserisce una nuova spesa nel sistema.

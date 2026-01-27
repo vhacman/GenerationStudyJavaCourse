@@ -1,5 +1,4 @@
 package com.generation.acmc.view;
-
 import java.util.List;
 import com.generation.acmc.model.entities.Member;
 import com.generation.library.Template;
@@ -54,14 +53,6 @@ public class ViewFactory
        /**
      * Factory method: decide quale view restituire in base ai parametri.
      *
-     * FACTORY PATTERN:
-     * - Centralizzo la logica di creazione degli oggetti
-     * - Il chiamante chiede "dammi una view per X" senza sapere quale istanza specifica riceverà
-     * - Facilita la manutenzione: se cambio i template, modifico solo qui
-     *
-     * MA È PIÙ LEGGIBILE:
-     * ViewFactory.getMemberWelcomeCardHtml().render(member)
-     *
      * @param entity tipo di entità ("member", "donation", "expense")
      * @param format formato di output ("txt", "html")
      * @param purpose scopo della view ("detail", "welcome", "promotion", "receipt", "report", "row")
@@ -96,30 +87,25 @@ public class ViewFactory
         if ("donation".equals(entity))
         {
             if ("txt".equals(format))
-            {
                 switch (purpose)
                 {
                     case "receipt":     return donationReceiptTxt;
                 }
-            }
         }
         // EXPENSE views
         if ("expense".equals(entity))
         {
             if ("txt".equals(format))
-            {
                 switch (purpose)
                 {
                     case "report":      return expenseReportTxt;
                 }
-            }
         }
         // Se arrivo qui, la combinazione non è supportata
         throw new IllegalArgumentException("Combinazione entity/format/purpose non supportata: " + entity + " / " + format + " / " + purpose );
     }
 
     // Per liste complete con wrapper (header + rows + footer)
-
     /**
      * Renderizza una lista completa di membri Gray in formato TXT.
      *
@@ -146,11 +132,9 @@ public class ViewFactory
     public static String renderGrayMembersListTXT(List<Member> grayMembers)
     {
         StringBuilder rows = new StringBuilder();
-
         // Uso ReflectionView per renderizzare ogni riga (Reflection automatica!)
         for (Member member : grayMembers)
             rows.append(grayMemberRowTxt.render(member));
-
         // Carico il template wrapper e sostituisco i placeholder manualmente
         // (qui la Reflection non può aiutarmi perché [memberRows] e [totalMembers]
         //  non sono getter di Member, sono dati aggregati della lista)
@@ -169,11 +153,9 @@ public class ViewFactory
     public static String renderGrayMembersListHTML(List<Member> grayMembers)
     {
         StringBuilder rows = new StringBuilder();
-
         // Uso ReflectionView per renderizzare ogni riga
         for (Member member : grayMembers)
             rows.append(grayMemberRowHtml.render(member));
-
         // Carico il template wrapper HTML e sostituisco i placeholder
         return Template.load("template/html/gray_members_list.html")
             .replace("[memberRows]", rows.toString())

@@ -30,9 +30,10 @@ public class SQLMemberRepository extends PartialCacheSQLEntityRepository<Member>
      *
      * @param lastName Il cognome da cercare.
      * @return Il membro trovato, oppure null se non esiste.
+     * @throws SQLException 
      */
     @Override
-    public Member findByLastName(String lastName)
+    public Member findByLastName(String lastName) throws SQLException 
     {
         List<Member> members = findWhere("lastname = '" + lastName + "'");
         return members.isEmpty() ? null : members.get(0);
@@ -45,7 +46,7 @@ public class SQLMemberRepository extends PartialCacheSQLEntityRepository<Member>
      * @return Lista dei membri che soddisfano il criterio.
      */
     @Override
-    public List<Member> findByLastNameContaining(String lastName)
+    public List<Member> findByLastNameContaining(String lastName)throws SQLException 
     {
         return findWhere("lastname LIKE '%" + lastName + "%'");
     }
@@ -55,9 +56,10 @@ public class SQLMemberRepository extends PartialCacheSQLEntityRepository<Member>
      *
      * @param level Il livello di membership da cercare.
      * @return Lista dei membri che hanno il livello specificato.
+     * @throws SQLException 
      */
     @Override
-    public List<Member> findByLevel(MembershipLevel level)
+    public List<Member> findByLevel(MembershipLevel level) throws SQLException 
     {
         return findWhere("level = '" + level.name() + "'");
     }

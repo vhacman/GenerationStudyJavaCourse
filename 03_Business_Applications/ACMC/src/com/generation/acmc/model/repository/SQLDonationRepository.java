@@ -138,7 +138,7 @@ public class SQLDonationRepository extends PartialCacheSQLEntityRepository<Donat
 
 
 	@Override
-	public List<Donation> findDateBetween(LocalDate d1, LocalDate d2)
+	public List<Donation> findDateBetween(LocalDate d1, LocalDate d2) throws SQLException
 	{
 		return findWhere("date between '" +d1+"' and '"+d2+"'");
 	}

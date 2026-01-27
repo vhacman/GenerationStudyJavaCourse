@@ -102,9 +102,12 @@ La sezione business è organizzata in 5 sottocategorie tematiche:
 
 #### 🏆 Progetti Enterprise (High Complexity)
 
-* **[ACMC](https://github.com/vhacman/GenerationStudyJavaCourse/blob/main/03_Business_Applications/ACMC/README.md)** - Gestione Associazioni (DI, IoC Container, MVC, Repository Pattern)
-* **[BikeWorld](https://github.com/vhacman/GenerationStudyJavaCourse/blob/main/03_Business_Applications/BikeWorld/README.md)** - Concessionaria Moto (State Pattern, Chain of Responsibility, ETL)
-* **[Carroponte](https://github.com/vhacman/GenerationStudyJavaCourse/blob/main/03_Business_Applications/Carroponte/README.md)** - Gestione Eventi (Command Pattern, Caching, IoC Container)
+* **[ACMC](https://github.com/vhacman/GenerationStudyJavaCourse/tree/main/03_Business_Applications/ACMC)** - Gestione Associazioni (DI, IoC Container, MVC, Repository Pattern, Reflection)
+* **[ACMC2ORM](https://github.com/vhacman/GenerationStudyJavaCourse/tree/main/03_Business_Applications/ACMC2ORM)** - Custom ORM Framework (Generic Repository, FullCache/PartialCache, Bidirectional Relations)
+* **[BikeWorld](https://github.com/vhacman/GenerationStudyJavaCourse/tree/main/03_Business_Applications/BikeWorld)** - Concessionaria Moto (State Pattern, Chain of Responsibility, ETL, CSV Import)
+* **[Carroponte](https://github.com/vhacman/GenerationStudyJavaCourse/tree/main/03_Business_Applications/Carroponte)** - Gestione Eventi (Command Pattern, Caching, IoC Container)
+* **[OmegaClinic](https://github.com/vhacman/GenerationStudyJavaCourse/tree/main/03_Business_Applications/OmegaClinic)** - Sistema Gestionale Clinica (Healthcare Management, Repository Pattern, Lazy/Eager Loading)
+* **[OmegaClinicGEHENNA](https://github.com/vhacman/GenerationStudyJavaCourse/tree/main/03_Business_Applications/OmegaClinicGEHENNA)** - Clinical Scheduling System (Smart Calendar, Scheduling Algorithms, LinkedHashMap)
 
 </details>
 
@@ -129,9 +132,9 @@ La sezione business è organizzata in 5 sottocategorie tematiche:
 | 📚 Librerie | 1 framework | Avanzato |
 | 📘 Fondamentali | 12 moduli | Base |
 | 🚆 Trasporti | 9 progetti | Intermedio |
-| 💼 Business | **40 progetti** | Avanzato |
+| 💼 Business | **43 progetti** | Avanzato |
 | 🎯 Esercizi | 4 progetti | Vario |
-| **TOTALE** | **66 progetti** | **Completo** |
+| **TOTALE** | **69 progetti** | **Completo** |
 
 ---
 

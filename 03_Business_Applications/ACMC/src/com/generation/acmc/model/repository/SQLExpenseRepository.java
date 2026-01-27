@@ -26,8 +26,7 @@ import com.generation.library.repository.PartialCacheSQLEntityRepository;
  * Nota:
  *   - I campi cost e date usano BigDecimal e LocalDate.
  */
-public class SQLExpenseRepository extends PartialCacheSQLEntityRepository<Expense>
-    implements ExpenseRepository
+public class SQLExpenseRepository extends PartialCacheSQLEntityRepository<Expense> implements ExpenseRepository
 {
 
     public SQLExpenseRepository(String table, Connection connection, int maxSize)

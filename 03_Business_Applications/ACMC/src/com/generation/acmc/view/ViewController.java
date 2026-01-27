@@ -1,9 +1,5 @@
 package com.generation.acmc.view;
-
 import java.time.LocalDate;
-import java.util.List;
-import com.generation.acmc.model.entities.Donation;
-import com.generation.acmc.model.entities.Expense;
 import com.generation.acmc.model.entities.Member;
 import com.generation.acmc.model.entities.MembershipLevel;
 import com.generation.library.Template;

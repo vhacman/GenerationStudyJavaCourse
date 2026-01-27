@@ -13,7 +13,7 @@ public interface MemberRepository
 	 *
 	 * @return lista di tutti i membri registrati, mai null (può essere vuota).
 	 */
-	List<Member> findAll();
+	List<Member> findAll() throws SQLException;
 
 	/**
 	 * Restituisce il membro corrispondente all'ID specificato.
@@ -21,31 +21,34 @@ public interface MemberRepository
 	 * @param id identificativo univoco del membro da cercare
 	 * @return membro trovato, null se non esiste
 	 */
-	Member findById(int id);
+	Member findById(int id) throws SQLException;
 
 	/**
 	 * Restituisce il membro corrispondente al cognome specificato.
 	 *
 	 * @param lastName cognome del membro da cercare
 	 * @return membro trovato, null se non esiste
+	 * @throws SQLException 
 	 */
-	Member findByLastName(String lastName);
+	Member findByLastName(String lastName) throws SQLException;
 
 	/**
 	 * Restituisce tutti i membri il cui cognome contiene la sottostringa specificata.
 	 *
 	 * @param lastName sottostringa da cercare nel cognome
 	 * @return lista di membri che soddisfano il criterio, mai null (può essere vuota)
+	 * @throws SQLException 
 	 */
-	List<Member> findByLastNameContaining(String lastName);
+	List<Member> findByLastNameContaining(String lastName) throws SQLException;
 
 	/**
 	 * Restituisce tutti i membri che hanno il livello di membership specificato.
 	 *
 	 * @param level livello di membership da filtrare
 	 * @return lista di membri con il livello specificato, mai null (può essere vuota)
+	 * @throws SQLException 
 	 */
-	List<Member> findByLevel(MembershipLevel level);
+	List<Member> findByLevel(MembershipLevel level) throws SQLException;
 
 	/**
 	 * Inserisce un nuovo membro nel sistema.

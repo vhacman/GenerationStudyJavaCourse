@@ -125,20 +125,27 @@ public class MemberController
             return;
         }
 
-        List<Member> members = memberRepo.findByLastNameContaining(lastName.trim());
-        if (members.isEmpty())
-            Console.print("Nessun socio trovato.\n");
-        else
-        {
-            Console.print("Soci trovati:\n");
-            members.forEach(member -> Console.print("- ID: " + member.getId() +
-                ", Nome: " + member.getFirstName() + " " + member.getLastName() +
-                ", Livello: " + member.getLevel() +
-                ", Data di nascita: " + member.getDob() +
-                ", Reddito: " + member.getIncomeEst() + "\n")
-            );
-            Console.print("Totale soci trovati: " + members.size() + "\n");
-        }
+        List<Member> members;
+		try
+		{
+			members = memberRepo.findByLastNameContaining(lastName.trim());
+	        if (members.isEmpty())
+	            Console.print("Nessun socio trovato.\n");
+	        else
+	        {
+	            Console.print("Soci trovati:\n");
+	            members.forEach(member -> Console.print("- ID: " + member.getId() +
+	                ", Nome: " + member.getFirstName() + " " + member.getLastName() +
+	                ", Livello: " + member.getLevel() +
+	                ", Data di nascita: " + member.getDob() +
+	                ", Reddito: " + member.getIncomeEst() + "\n")
+	            );
+	            Console.print("Totale soci trovati: " + members.size() + "\n");
+	        }
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
     }
 
     /**
@@ -147,20 +154,27 @@ public class MemberController
     private static void searchMembersByLevel()
     {
         MembershipLevel level = InputValidator.readMembershipLevel();
-        List<Member> members = memberRepo.findByLevel(level);
-
-        if (members.isEmpty())
-            Console.print("Nessun socio con questo livello.\n");
-        else
-        {
-            Console.print("Soci trovati:\n");
-            members.forEach(member -> Console.print("- ID: " + member.getId() +
-                ", Nome: " + member.getFirstName() + " " + member.getLastName() +
-                ", Data nascita: " + member.getDob() +
-                ", Reddito: " + member.getIncomeEst() + "\n")
-            );
-            Console.print("Totale soci con livello " + level + ": " + members.size() + "\n");
-        }
+        List<Member> members;
+		try
+		{
+			members = memberRepo.findByLevel(level);
+	        if (members.isEmpty())
+	            Console.print("Nessun socio con questo livello.\n");
+	        else
+	        {
+	            Console.print("Soci trovati:\n");
+	            members.forEach(member -> Console.print("- ID: " + member.getId() +
+	                ", Nome: " + member.getFirstName() + " " + member.getLastName() +
+	                ", Data nascita: " + member.getDob() +
+	                ", Reddito: " + member.getIncomeEst() + "\n")
+	            );
+	            Console.print("Totale soci con livello " + level + ": " + members.size() + "\n");
+	        }
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     /**
@@ -229,7 +243,7 @@ public class MemberController
     /**
      * Metodo pubblico per ottenere tutti i soci di un certo livello
      */
-    public static List<Member> findMembersByLevel(MembershipLevel level)
+    public static List<Member> findMembersByLevel(MembershipLevel level) throws SQLException
     {
         return memberRepo.findByLevel(level);
     }

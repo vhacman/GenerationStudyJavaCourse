@@ -14,9 +14,8 @@ import com.generation.library.profiling.ProfilingMonitor;
 /**
  * @param <X> che sarà un qualche tipo di entità
  */
-public abstract class SQLEntityRepository<X extends Entity> 
+public abstract class SQLEntityRepository <     X extends Entity       >
 {
-
 	protected Connection connection;
 	protected String table;
 	

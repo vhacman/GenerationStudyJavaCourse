@@ -1,5 +1,4 @@
 package com.generation.acmc.view;
-
 import java.lang.reflect.Method;
 import java.util.List;
 import com.generation.library.Entity;
