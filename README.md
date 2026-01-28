@@ -92,32 +92,33 @@ GenerationStudyJavaCourse/
 <details>
 <summary><b>Clicca per vedere tutte le applicazioni business</b></summary>
 
-La sezione business è organizzata in 5 sottocategorie tematiche:
+La sezione business è organizzata in 4 sottocategorie tematiche:
 
-#### 🏨 [01_Hospitality_Tourism](https://www.google.com/search?q=03_Business_Applications/01_Hospitality_Tourism/) - Ospitalità e Turismo
+#### 🏨 [01_Hospitality_Tourism](03_Business_Applications/01_Hospitality_Tourism/) - Ospitalità e Turismo
 
-[GrottammareB&B](https://www.google.com/search?q=03_Business_Applications/01_Hospitality_Tourism/GrottammareB%26B/README.md) • [LeccoB&B](https://www.google.com/search?q=03_Business_Applications/01_Hospitality_Tourism/LeccoB%26B/) • [MonsterHotel](https://www.google.com/search?q=03_Business_Applications/01_Hospitality_Tourism/MonsterHotel/) • [ProlocoLakeComo](https://www.google.com/search?q=03_Business_Applications/01_Hospitality_Tourism/ProlocoLakeComo/) • [SBBB](https://www.google.com/search?q=03_Business_Applications/01_Hospitality_Tourism/SBBB/) • [SBHotel](https://www.google.com/search?q=03_Business_Applications/01_Hospitality_Tourism/SBHotel/) • [VacanzeRomane](https://www.google.com/search?q=03_Business_Applications/01_Hospitality_Tourism/VacanzeRomane/) • [VillaMelzi](https://www.google.com/search?q=03_Business_Applications/01_Hospitality_Tourism/VillaMelzi/)
+[GrottammareB&B](03_Business_Applications/01_Hospitality_Tourism/GrottammareB&B/) • [LeccoB&B](03_Business_Applications/01_Hospitality_Tourism/LeccoB&B/) • [MonsterHotel](03_Business_Applications/01_Hospitality_Tourism/MonsterHotel/) • [ProlocoLakeComo](03_Business_Applications/01_Hospitality_Tourism/ProlocoLakeComo/) • [SBBB](03_Business_Applications/01_Hospitality_Tourism/SBBB/) • [SBHotel](03_Business_Applications/01_Hospitality_Tourism/SBHotel/) • [VacanzeRomane](03_Business_Applications/01_Hospitality_Tourism/VacanzeRomane/) • [VillaMelzi](03_Business_Applications/01_Hospitality_Tourism/VillaMelzi/)
 
-#### 🛒 [02_Commerce_Services](https://www.google.com/search?q=03_Business_Applications/02_Commerce_Services/) - Commercio e Servizi
+#### 🛒 [02_Commerce_Services](03_Business_Applications/02_Commerce_Services/) - Commercio e Servizi
 
-[JavaBank](https://www.google.com/search?q=03_Business_Applications/02_Commerce_Services/JavaBank/) • [LocalMarket](https://www.google.com/search?q=03_Business_Applications/02_Commerce_Services/LocalMarket/) • [LocalMarketDB](https://www.google.com/search?q=03_Business_Applications/02_Commerce_Services/LocalMarketDB/) • [PCWizard](https://www.google.com/search?q=03_Business_Applications/02_Commerce_Services/PCWizard/) • [PrintLabel](https://www.google.com/search?q=03_Business_Applications/02_Commerce_Services/PrintLabel/) • [PrivateClinic](https://www.google.com/search?q=03_Business_Applications/02_Commerce_Services/PrivateClinic/) • [RepairShop](https://www.google.com/search?q=03_Business_Applications/02_Commerce_Services/RepairShop/)
+**Progetti Base:**
+[JavaBank](03_Business_Applications/02_Commerce_Services/JavaBank/) • [LocalMarket](03_Business_Applications/02_Commerce_Services/LocalMarket/) • [LocalMarketDB](03_Business_Applications/02_Commerce_Services/LocalMarketDB/) • [PCWizard](03_Business_Applications/02_Commerce_Services/PCWizard/) • [PrintLabel](03_Business_Applications/02_Commerce_Services/PrintLabel/) • [PrivateClinic](03_Business_Applications/02_Commerce_Services/PrivateClinic/) • [RepairShop](03_Business_Applications/02_Commerce_Services/RepairShop/)
 
-#### 🚆 [03_Transportation_Logistics](https://www.google.com/search?q=03_Business_Applications/03_Transportation_Logistics/) - Trasporti e Logistica
+**Progetti Enterprise (High Complexity):**
+* **[ACMC](03_Business_Applications/02_Commerce_Services/ACMC/)** - Gestione Associazioni (DI, IoC Container, MVC, Repository Pattern, Reflection)
+* **[ACMC2ORM](03_Business_Applications/02_Commerce_Services/ACMC2ORM/)** - Custom ORM Framework (Generic Repository, FullCache/PartialCache, Bidirectional Relations)
+* **[BikeWorld](03_Business_Applications/02_Commerce_Services/BikeWorld/)** - Concessionaria Moto (State Pattern, Chain of Responsibility, ETL, CSV Import)
+* **[Carroponte](03_Business_Applications/02_Commerce_Services/Carroponte/)** - Gestione Eventi (Command Pattern, Caching, IoC Container)
+* **[OmegaClinic](03_Business_Applications/02_Commerce_Services/OmegaClinic/)** - Sistema Gestionale Clinica (Healthcare Management, Repository Pattern, Lazy/Eager Loading)
+* **[OmegaClinicGEHENNA](03_Business_Applications/02_Commerce_Services/OmegaClinicGEHENNA/)** - Clinical Scheduling System (Smart Calendar, Scheduling Algorithms, LinkedHashMap)
 
-[BrianzaTaxi](https://www.google.com/search?q=03_Business_Applications/03_Transportation_Logistics/BrianzaTaxi/) • [BrianzaTaxiService](https://www.google.com/search?q=03_Business_Applications/03_Transportation_Logistics/BrianzaTaxiService/) • [BrianzaTrains](https://www.google.com/search?q=03_Business_Applications/03_Transportation_Logistics/BrianzaTrains/) • [BrianzaTrainsObjects](https://www.google.com/search?q=03_Business_Applications/03_Transportation_Logistics/BrianzaTrainsObjects/) • [DiscotecaTicket](https://www.google.com/search?q=03_Business_Applications/03_Transportation_Logistics/DiscotecaTicket/) • [JavaBus](https://www.google.com/search?q=03_Business_Applications/03_Transportation_Logistics/JavaBus/) • [JavItaAirline](https://www.google.com/search?q=03_Business_Applications/03_Transportation_Logistics/JavItaAirline/) • [MilanoLeccoTRains2](https://www.google.com/search?q=03_Business_Applications/03_Transportation_Logistics/MilanoLeccoTRains2/) • [MilanoLeccoTrains3](https://www.google.com/search?q=03_Business_Applications/03_Transportation_Logistics/MilanoLeccoTrains3/) • [MIlanoLeccoTrains4](https://www.google.com/search?q=03_Business_Applications/03_Transportation_Logistics/MIlanoLeccoTrains4/) • [MLTrains](https://www.google.com/search?q=03_Business_Applications/03_Transportation_Logistics/MLTrains/) • [MonzaMetro](https://www.google.com/search?q=03_Business_Applications/03_Transportation_Logistics/MonzaMetro/)
+#### 🚆 [03_Transportation_Logistics](03_Business_Applications/03_Transportation_Logistics/) - Trasporti e Logistica
 
-#### 🎓 [04_Education_Culture](https://www.google.com/search?q=03_Business_Applications/04_Education_Culture/) - Educazione e Cultura
+[BrianzaTaxi](03_Business_Applications/03_Transportation_Logistics/BrianzaTaxi/) • [BrianzaTaxiService](03_Business_Applications/03_Transportation_Logistics/BrianzaTaxiService/) • [BrianzaTrains](03_Business_Applications/03_Transportation_Logistics/BrianzaTrains/) • [BrianzaTrainsObjects](03_Business_Applications/03_Transportation_Logistics/BrianzaTrainsObjects/) • [DiscotecaTicket](03_Business_Applications/03_Transportation_Logistics/DiscotecaTicket/) • [JavaBus](03_Business_Applications/03_Transportation_Logistics/JavaBus/) • [JavItaAirline](03_Business_Applications/03_Transportation_Logistics/JavItaAirline/) • [MilanoLeccoTRains2](03_Business_Applications/03_Transportation_Logistics/MilanoLeccoTRains2/) • [MilanoLeccoTrains3](03_Business_Applications/03_Transportation_Logistics/MilanoLeccoTrains3/) • [MIlanoLeccoTrains4](03_Business_Applications/03_Transportation_Logistics/MIlanoLeccoTrains4/) • [MLTrains](03_Business_Applications/03_Transportation_Logistics/MLTrains/) • [MonzaMetro](03_Business_Applications/03_Transportation_Logistics/MonzaMetro/)
 
-[DeveloperCandidatura](https://www.google.com/search?q=03_Business_Applications/04_Education_Culture/DeveloperCandidatura/) • [MuseumTicket](https://www.google.com/search?q=03_Business_Applications/04_Education_Culture/MuseumTicket/) • [NerdLibrary](https://www.google.com/search?q=03_Business_Applications/04_Education_Culture/NerdLibrary/) • [NSMI](https://www.google.com/search?q=03_Business_Applications/04_Education_Culture/NSMI/) • [NSMPI](https://www.google.com/search?q=03_Business_Applications/04_Education_Culture/NSMPI/) • [PokeDex](https://www.google.com/search?q=03_Business_Applications/04_Education_Culture/PokeDex/) • [SchoolManagement_v1](https://www.google.com/search?q=03_Business_Applications/04_Education_Culture/SchoolManagement_v1/) • [SchoolManagement_v2](https://www.google.com/search?q=03_Business_Applications/04_Education_Culture/SchoolManagement_v2/)
+#### 🎓 [04_Education_Culture](03_Business_Applications/04_Education_Culture/) - Educazione e Cultura
 
-#### 🏆 Progetti Enterprise (High Complexity)
+[DeveloperCandidatura](03_Business_Applications/04_Education_Culture/DeveloperCandidatura/) • [MuseumTicket](03_Business_Applications/04_Education_Culture/MuseumTicket/) • [NerdLibrary](03_Business_Applications/04_Education_Culture/NerdLibrary/) • [NSMI](03_Business_Applications/04_Education_Culture/NSMI/) • [NSMPI](03_Business_Applications/04_Education_Culture/NSMPI/) • [PokeDex](03_Business_Applications/04_Education_Culture/PokeDex/) • [SchoolManagement_v1](03_Business_Applications/04_Education_Culture/SchoolManagement_v1/) • [SchoolManagement_v2](03_Business_Applications/04_Education_Culture/SchoolManagement_v2/)
 
-* **[ACMC](https://github.com/vhacman/GenerationStudyJavaCourse/tree/main/03_Business_Applications/ACMC)** - Gestione Associazioni (DI, IoC Container, MVC, Repository Pattern, Reflection)
-* **[ACMC2ORM](https://github.com/vhacman/GenerationStudyJavaCourse/tree/main/03_Business_Applications/ACMC2ORM)** - Custom ORM Framework (Generic Repository, FullCache/PartialCache, Bidirectional Relations)
-* **[BikeWorld](https://github.com/vhacman/GenerationStudyJavaCourse/tree/main/03_Business_Applications/BikeWorld)** - Concessionaria Moto (State Pattern, Chain of Responsibility, ETL, CSV Import)
-* **[Carroponte](https://github.com/vhacman/GenerationStudyJavaCourse/tree/main/03_Business_Applications/Carroponte)** - Gestione Eventi (Command Pattern, Caching, IoC Container)
-* **[OmegaClinic](https://github.com/vhacman/GenerationStudyJavaCourse/tree/main/03_Business_Applications/OmegaClinic)** - Sistema Gestionale Clinica (Healthcare Management, Repository Pattern, Lazy/Eager Loading)
-* **[OmegaClinicGEHENNA](https://github.com/vhacman/GenerationStudyJavaCourse/tree/main/03_Business_Applications/OmegaClinicGEHENNA)** - Clinical Scheduling System (Smart Calendar, Scheduling Algorithms, LinkedHashMap)
 
 </details>
 
@@ -142,9 +143,15 @@ La sezione business è organizzata in 5 sottocategorie tematiche:
 | 📚 Librerie | 1 framework | Avanzato |
 | 📘 Fondamentali | 13 moduli | Base |
 | 🚆 Trasporti | 9 progetti | Intermedio |
-| 💼 Business | **43 progetti** | Avanzato |
+| 💼 Business | **42 progetti** (8+14+12+8) | Avanzato |
 | 🎯 Esercizi | 4 progetti | Vario |
-| **TOTALE** | **70 progetti** | **Completo** |
+| **TOTALE** | **69 progetti** | **Completo** |
+
+**Business Applications - Dettaglio:**
+- 🏨 Hospitality & Tourism: 8 progetti
+- 🛒 Commerce & Services: 14 progetti (7 base + 6 enterprise + OmegaClinixMaxi)
+- 🚆 Transportation & Logistics: 12 progetti
+- 🎓 Education & Culture: 8 progetti
 
 ---
 
