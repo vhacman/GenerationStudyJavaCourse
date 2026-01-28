@@ -1,0 +1,22 @@
+_mmm_
+    dZ"   "Vb    OMEGA CLINIC
+   [____] [____] Healthcare Systems
+________________________________________________
+
+       SCHEDA ANAGRAFICA PAZIENTE
+________________________________________________
+
+ID PAZIENTE:    	[id]
+NOMINATIVO:     	[fullname]
+DATA DI NASCITA: 	[dob]
+CODICE FISCALE: 	[ssn]
+
+------------------------------------------------
+         RIEPILOGO PRESTAZIONI
+------------------------------------------------
+
+[prestations]
+
+________________________________________________
+Generato il: [date]
+Omega Clinic - Eccellenza nella cura

@@ -11,7 +11,7 @@ I progetti sono organizzati in 5 categorie tematiche:
 ```text
 GenerationStudyJavaCourse/
 ├── 📚 00_Libraries/                  # Framework e librerie riutilizzabili
-├── 📘 01_Fundamentals_Examples/      # Concetti base e strutture di controllo
+├── 📘 01_Fundamentals_Examples/      # Concetti base, strutture dati e OOP
 ├── 🚆 02_Tickets_Transportation/     # Sistemi di biglietteria e trasporti
 ├── 💼 03_Business_Applications/      # Applicazioni business e gestionali
 └── 🎯 04_Exercises_Practice/         # Esercizi extra e pratica
@@ -44,17 +44,27 @@ GenerationStudyJavaCourse/
 <details>
 <summary><b>Clicca per vedere tutti i moduli fondamentali</b></summary>
 
-* [Modulo Esempi Base](https://www.google.com/search?q=docs/02-fundamentals/examples.md)
-* [Modulo 4 - Cicli e Iterazioni](https://www.google.com/search?q=docs/02-fundamentals/modulo4.md)
-* [Modulo 6 - Basi OOP](https://www.google.com/search?q=docs/02-fundamentals/modulo6.md)
-* [Modulo 7 - Incapsulamento](https://www.google.com/search?q=docs/02-fundamentals/modulo7.md)
-* [Modulo 8 - Ereditarietà](https://www.google.com/search?q=docs/02-fundamentals/modulo8.md)
-* [Modulo 9 - Astrazione](https://www.google.com/search?q=docs/02-fundamentals/modulo9.md)
-* [Modulo 10 - Polimorfismo e Interfacce](https://www.google.com/search?q=docs/02-fundamentals/modulo10.md)
-* [Modulo 11 - Interfacce Funzionali e Lambda](https://www.google.com/search?q=01_Fundamentals_Examples/Modulo11/README.md)
-* [Recap - Lezioni di Ripasso](https://www.google.com/search?q=docs/02-fundamentals/recap.md)
-* [Sequenza e Selezione](https://www.google.com/search?q=docs/02-fundamentals/sequenza-selezione.md)
-* [Cicli While](https://www.google.com/search?q=docs/02-fundamentals/while.md)
+#### Strutture Dati e Collections
+
+* **[AlgoritmiDemo - Strutture Dati](01_Fundamentals_Examples/AlgoritmiDemo%20-%20Strutture%20Dati/README.md)** - Array, ArrayList, Set, HashMap e algoritmi base
+  - 9 demo complete su strutture dati fondamentali
+  - Pattern comuni: Counting, Grouping, Filtering, Deduplication
+  - Caso d'uso reale: Hotel Transilvania (gestione disponibilità con Map)
+  - Algoritmi di ricerca, filtraggio e conteggio
+
+#### Programmazione Base e OOP
+
+* [Modulo Esempi Base](https://www.google.com/search?q=docs/02-fundamentals/examples.md) - Sintassi base Java
+* [Sequenza e Selezione](https://www.google.com/search?q=docs/02-fundamentals/sequenza-selezione.md) - Istruzioni condizionali
+* [Cicli While](https://www.google.com/search?q=docs/02-fundamentals/while.md) - Iterazione con while
+* [Modulo 4 - Cicli e Iterazioni](https://www.google.com/search?q=docs/02-fundamentals/modulo4.md) - For loops e iterazioni
+* [Modulo 6 - Basi OOP](https://www.google.com/search?q=docs/02-fundamentals/modulo6.md) - Classi e oggetti
+* [Modulo 7 - Incapsulamento](https://www.google.com/search?q=docs/02-fundamentals/modulo7.md) - Getter, setter, visibilità
+* [Modulo 8 - Ereditarietà](https://www.google.com/search?q=docs/02-fundamentals/modulo8.md) - Extends e super
+* [Modulo 9 - Astrazione](https://www.google.com/search?q=docs/02-fundamentals/modulo9.md) - Classi astratte
+* [Modulo 10 - Polimorfismo e Interfacce](https://www.google.com/search?q=docs/02-fundamentals/modulo10.md) - Implements
+* [Modulo 11 - Interfacce Funzionali e Lambda](https://www.google.com/search?q=01_Fundamentals_Examples/Modulo11/README.md) - Lambda expressions, Stream API
+* [Recap - Lezioni di Ripasso](https://www.google.com/search?q=docs/02-fundamentals/recap.md) - Riepilogo concetti
 
 </details>
 
@@ -130,11 +140,11 @@ La sezione business è organizzata in 5 sottocategorie tematiche:
 | Categoria | Numero Progetti | Livello |
 | --- | --- | --- |
 | 📚 Librerie | 1 framework | Avanzato |
-| 📘 Fondamentali | 12 moduli | Base |
+| 📘 Fondamentali | 13 moduli | Base |
 | 🚆 Trasporti | 9 progetti | Intermedio |
 | 💼 Business | **43 progetti** | Avanzato |
 | 🎯 Esercizi | 4 progetti | Vario |
-| **TOTALE** | **69 progetti** | **Completo** |
+| **TOTALE** | **70 progetti** | **Completo** |
 
 ---
 

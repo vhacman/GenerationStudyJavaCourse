@@ -1,0 +1,13 @@
+Inserire un comando:
+1 	- Registrazione nuova prestazione
+2 	- Registrazione nuova prestazione di urgenza
+3 	- Stampa prestazioni per data
+4 	- Stampa prestazioni previste per oggi
+5 	- Calcolo guadagno per periodo
+6 	- Calcolo guadagno per anno
+7 	- Stampa scheda paziente
+8 	- Stampa prestazione per id
+9 	- Calcolo dettaglio di un periodo divisi per giorno
+10 	- Calcolo guadagni divisi per tipologia di servizio
+11  - Stampa pazienti singoli per periodo
+12  - Stampa tipologie di servizi erogati nel periodo

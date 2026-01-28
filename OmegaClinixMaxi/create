@@ -1,0 +1,53 @@
+-- Inserisci il paziente Giovanni (id=1)
+INSERT INTO patient (firstname, lastname, ssn, dob) 
+VALUES ('Giovanni', 'Bianchi', 'BNCGNN85M15F205K', '1985-08-15');
+
+-- Inserisci i servizi sanitari necessari
+INSERT INTO healthservice (name, price) 
+VALUES ('Diet', 500);
+
+INSERT INTO healthservice (name, price) 
+VALUES ('Checkup', 500);
+
+INSERT INTO healthservice (name, price) 
+VALUES ('Surgery', 1000);
+
+-- Inserisci le 3 prestazioni per Giovanni nel 2025 (totale 2000 euro)
+-- Prima prestazione (id=1): Diet - deve essere la prima per p.getPrestations().get(0)
+INSERT INTO prestation (date, price, patientid, healthserviceid) 
+VALUES ('2025-03-15', 500, 1, 1);
+
+-- Seconda prestazione: Checkup
+INSERT INTO prestation (date, price, patientid, healthserviceid) 
+VALUES ('2025-06-20', 500, 1, 2);
+
+-- Terza prestazione: Surgery
+INSERT INTO prestation (date, price, patientid, healthserviceid) 
+VALUES ('2025-09-10', 1000, 1, 3);
+/*
+-- Tabella Patient
+CREATE TABLE patient (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    firstname VARCHAR(100) NOT NULL,
+    lastname VARCHAR(100) NOT NULL,
+    ssn VARCHAR(50) NOT NULL,
+    dob DATE NOT NULL
+);
+
+-- Tabella HealthService
+CREATE TABLE healthservice (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(255) NOT NULL,
+    price INTEGER NOT NULL CHECK (price >= 0)
+);
+
+-- Tabella Prestation
+CREATE TABLE prestation (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date DATE NOT NULL,
+    price INTEGER NOT NULL CHECK (price >= 0),
+    patientid INTEGER NOT NULL,
+    healthserviceid INTEGER NOT NULL,
+    FOREIGN KEY (patientid) REFERENCES patient(id),
+    FOREIGN KEY (healthserviceid) REFERENCES healthservice(id)
+);*/
