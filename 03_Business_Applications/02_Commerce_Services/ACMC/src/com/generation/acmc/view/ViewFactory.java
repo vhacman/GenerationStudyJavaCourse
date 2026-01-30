@@ -36,19 +36,19 @@ public class ViewFactory
     // Pre-carico tutte le view Member all'avvio (static initialization)
     // Performance: template letto dal disco UNA VOLTA SOLA
     // TXT views per Member
-    static ReflectionView   memberDetailTxt           				= new ReflectionView("template/txt/member_detail.txt");
+    static ReflectionView   memberDetailTxt           	= new ReflectionView("template/txt/member_detail.txt");
     static ReflectionView   memberPromotionCardTxt    	= new ReflectionView("template/txt/member_promotion_card.txt");
-    static ReflectionView   grayMemberRowTxt          			= new ReflectionView("template/txt/gray_member_row.txt");
+    static ReflectionView   grayMemberRowTxt          	= new ReflectionView("template/txt/gray_member_row.txt");
     // HTML views per Member
     static ReflectionView   memberWelcomeCardHtml     	= new ReflectionView("template/html/member_card_welcome.html");
     static ReflectionView   memberPromotionCardHtml   	= new ReflectionView("template/html/member_promotion_card.html");
-    static ReflectionView   grayMemberRowHtml        			= new ReflectionView("template/html/gray_member_row.html");
+    static ReflectionView   grayMemberRowHtml        	= new ReflectionView("template/html/gray_member_row.html");
     // DONATION VIEWS 
     // TXT views per Donation
-    static ReflectionView   donationReceiptTxt        				= new ReflectionView("template/txt/donation_receipt.txt");
+    static ReflectionView   donationReceiptTxt        	= new ReflectionView("template/txt/donation_receipt.txt");
     // EXPENSE VIEWS
     // TXT views per Expense
-    static ReflectionView   expenseReportTxt          				= new ReflectionView("template/txt/expense_report.txt");
+    static ReflectionView   expenseReportTxt          	= new ReflectionView("template/txt/expense_report.txt");
 
        /**
      * Factory method: decide quale view restituire in base ai parametri.

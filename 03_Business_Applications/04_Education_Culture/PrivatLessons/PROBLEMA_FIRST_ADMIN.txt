@@ -1,0 +1,281 @@
+================================================================================
+PROBLEMA: PRIMO ADMIN NON VIENE CREATO ALL'AVVIO
+================================================================================
+
+SITUAZIONE ATTUALE:
+- Database admin è vuoto (0 record)
+- L'applicazione NON controlla se esiste almeno un admin
+- L'applicazione NON chiama insertFirstAdmin() automaticamente
+- Il metodo insertAdmin(boolean isFirst) esiste ma è PRIVATE in AdminMain
+
+COSA SUCCEDE ORA:
+1. Main.java parte
+2. Chiede "student/teacher/admin"
+3. Se scelgo "admin", parte AdminMain.run()
+4. AdminMain.run() chiama login() che fallisce (nessun admin nel DB)
+5. Il programma termina senza permettere di creare il primo admin
+
+================================================================================
+MODIFICHE DA FARE
+================================================================================
+
+--- MODIFICA 1: Main.java ---
+FILE: src/com/generation/pl/controller/Main.java
+
+POSIZIONE: RIGA 12, PRIMA DEL MENU (subito dopo public static void main)
+
+AZIONE: Aggiungere controllo esistenza admin
+
+TODO DETTAGLIATO:
+// ============================================================================
+// [TODO] CONTROLLO PRIMO ADMIN
+// ============================================================================
+// AGGIUNGERE PRIMA DELLA RIGA 16 ("Benvenuti in Private Lessons..."):
+//
+// 1. Importare AdminRepository e AdminRepositorySQL:
+//    import com.generation.pl.model.repository.interfaces.AdminRepository;
+//    import com.generation.pl.model.repository.SQLRepository.AdminRepositorySQL;
+//    import com.generation.context.Context;
+//    import java.sql.SQLException;
+//
+// 2. Controllare se esistono admin:
+//    try {
+//        AdminRepository adminRepo = Context.getDependency(AdminRepositorySQL.class);
+//        if (!adminRepo.existsAnyAdmin()) {
+//            Console.print("=== FIRST TIME SETUP ===");
+//            Console.print("No administrators found in the system.");
+//            Console.print("Creating first admin account...\n");
+//            AdminMain.insertFirstAdmin();  // PROBLEMA: insertAdmin è PRIVATE!
+//        }
+//    } catch (SQLException e) {
+//        Console.print("Errore nel controllo admin: " + e.getMessage());
+//    }
+//
+// PROBLEMA: insertAdmin(boolean isFirst) è PRIVATE in AdminMain (riga 400)
+// SOLUZIONE: Vedere MODIFICA 2
+
+--- MODIFICA 2: AdminMain.java ---
+FILE: src/com/generation/pl/controller/AdminMain.java
+
+POSIZIONE: RIGA 400
+
+AZIONE: Rendere insertAdmin(boolean isFirst) PUBBLICO e STATICO
+
+TODO DETTAGLIATO:
+// ============================================================================
+// [TODO] RENDERE insertAdmin() CHIAMABILE DA Main.java
+// ============================================================================
+// RIGA 400 - CAMBIARE DA:
+//   private void insertAdmin(boolean isFirst)
+//
+// A:
+//   public static void insertFirstAdmin()
+//
+// OPPURE creare un nuovo metodo:
+//
+//   public static void insertFirstAdmin()
+//   {
+//       AdminMain instance = new AdminMain();
+//       instance.insertAdmin(true);
+//   }
+//
+// NOTA: Il metodo deve essere STATIC perché verrà chiamato da Main.main()
+//       PRIMA di creare un'istanza di AdminMain
+
+ALTERNATIVA (PIÙ PULITA):
+// Aggiungere DOPO la riga 434, FUORI dalla classe (nuovo metodo static):
+
+public static void insertFirstAdmin()
+{
+    try
+    {
+        AdminRepository adminRepo = Context.getDependency(AdminRepositorySQL.class);
+
+        Console.print("\n=== FIRST ADMIN SETUP ===");
+        Console.print("No administrators found in the system.");
+        Console.print("Please create the first admin account.\n");
+
+        Admin admin = Collect.collectAdminData();
+
+        // Validazione prima dell'inserimento
+        if (!admin.isValid())
+        {
+            Console.print("Errore: dati dell'admin non validi!");
+            for (String error : admin.getErrors())
+                Console.print("- " + error);
+            return;
+        }
+
+        adminRepo.insert(admin);
+
+        Console.print("\nPrimo admin creato con successo!");
+        Console.print("Ora puoi riavviare l'applicazione e fare il login con:");
+        Console.print("Email: " + admin.getEmail());
+        Console.print("Nome: " + admin.getFirstName() + " " + admin.getLastName());
+
+        // Esce dall'applicazione dopo aver creato il primo admin
+        System.exit(0);
+    }
+    catch (SQLException e)
+    {
+        Console.print("Errore durante l'inserimento del primo admin: " + e.getMessage());
+        e.printStackTrace();
+        System.exit(1);
+    }
+}
+
+--- MODIFICA 3: Main.java (OPZIONALE MA CONSIGLIATA) ---
+FILE: src/com/generation/pl/controller/Main.java
+
+POSIZIONE: Wrappare tutto in un loop infinito
+
+TODO DETTAGLIATO:
+// ============================================================================
+// [TODO] AGGIUNGERE LOOP INFINITO
+// ============================================================================
+// Cambiare main() da:
+//
+//   public static void main(String[] args)
+//   {
+//       // controllo first admin...
+//       Console.print("Benvenuti...");
+//       String role = Console.readString();
+//       switch(role) { ... }
+//   }
+//
+// A:
+//
+//   public static void main(String[] args)
+//   {
+//       // controllo first admin...
+//
+//       boolean exit = false;
+//       while (!exit)
+//       {
+//           Console.print("\n=== PRIVATE LESSONS - MAIN MENU ===");
+//           Console.print("1. Student Login");
+//           Console.print("2. Teacher Login");
+//           Console.print("3. Admin Login");
+//           Console.print("0. Exit");
+//           Console.print("\nScegli un'opzione:");
+//
+//           String choice = Console.readString().trim();
+//
+//           switch(choice)
+//           {
+//               case "1":
+//               case "student":
+//                   new StudentMain().run();
+//                   break;
+//               case "2":
+//               case "teacher":
+//                   new TeacherMain().run();
+//                   break;
+//               case "3":
+//               case "admin":
+//                   new AdminMain().run();
+//                   break;
+//               case "0":
+//               case "exit":
+//               case "quit":
+//                   Console.print("Arrivederci!");
+//                   exit = true;
+//                   break;
+//               default:
+//                   Console.print("Opzione non valida. Riprova.");
+//           }
+//       }
+//   }
+
+================================================================================
+RIEPILOGO STEP DA SEGUIRE (IN ORDINE)
+================================================================================
+
+STEP 1: Creare metodo insertFirstAdmin() STATIC in AdminMain.java
+   - Copiare il codice da insertAdmin(true)
+   - Renderlo public static
+   - Aggiungere System.exit(0) alla fine per uscire dopo la creazione
+
+STEP 2: Modificare Main.java per controllare admin all'avvio
+   - Aggiungere import necessari
+   - PRIMA del menu, aggiungere:
+     if (!adminRepo.existsAnyAdmin()) {
+         AdminMain.insertFirstAdmin();
+     }
+
+STEP 3 (OPZIONALE): Aggiungere loop infinito in Main.java
+   - Wrappare il menu in while(!exit)
+   - Aggiungere case "0" per uscire
+
+================================================================================
+CODICE FINALE PREVISTO
+================================================================================
+
+--- Main.java (versione finale) ---
+
+package com.generation.pl.controller;
+
+import java.sql.SQLException;
+import com.generation.context.Context;
+import com.generation.library.Console;
+import com.generation.pl.model.repository.interfaces.AdminRepository;
+import com.generation.pl.model.repository.SQLRepository.AdminRepositorySQL;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        // CONTROLLO PRIMO ADMIN
+        try {
+            AdminRepository adminRepo = Context.getDependency(AdminRepositorySQL.class);
+            if (!adminRepo.existsAnyAdmin()) {
+                AdminMain.insertFirstAdmin();
+                // insertFirstAdmin() termina con System.exit(0)
+            }
+        } catch (SQLException e) {
+            Console.print("Errore nel controllo admin: " + e.getMessage());
+            return;
+        }
+
+        // LOOP MENU PRINCIPALE
+        boolean exit = false;
+        while (!exit)
+        {
+            Console.print("\n=== PRIVATE LESSONS - MAIN MENU ===");
+            Console.print("1. Student Login");
+            Console.print("2. Teacher Login");
+            Console.print("3. Admin Login");
+            Console.print("0. Exit");
+            Console.print("\nScegli un'opzione:");
+
+            String choice = Console.readString().trim();
+
+            switch(choice)
+            {
+                case "1":
+                case "student":
+                    new StudentMain().run();
+                    break;
+                case "2":
+                case "teacher":
+                    new TeacherMain().run();
+                    break;
+                case "3":
+                case "admin":
+                    new AdminMain().run();
+                    break;
+                case "0":
+                case "exit":
+                    Console.print("Arrivederci!");
+                    exit = true;
+                    break;
+                default:
+                    Console.print("Opzione non valida. Riprova.");
+            }
+        }
+    }
+}
+
+================================================================================
+FINE ISTRUZIONI
+================================================================================

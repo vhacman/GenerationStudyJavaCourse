@@ -1,0 +1,10 @@
+DETTAGLIO LEZIONE
+
+ID Lezione:     [id]
+Data:           [date]
+Ora:            [hour]:00
+Studente:       [student]
+Insegnante:     [teacher]
+Prezzo:         €[price]
+
+───────────────────────────────────────────────────────

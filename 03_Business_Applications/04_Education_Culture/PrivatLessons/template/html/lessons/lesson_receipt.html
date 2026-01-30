@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricevuta Lezione #[id]</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .receipt {
+            background: white;
+            border: 3px dashed #333;
+            padding: 40px;
+            max-width: 600px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #333;
+        }
+        .header p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            padding: 10px 0;
+            border-bottom: 1px dotted #ccc;
+        }
+        .label {
+            font-weight: bold;
+            color: #555;
+        }
+        .value {
+            color: #333;
+        }
+        .total {
+            text-align: right;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #333;
+            color: #27ae60;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #333;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="receipt">
+        <div class="header">
+            <h1>PRIVATE LESSONS</h1>
+            <p>Ricevuta Lezione Privata</p>
+            <p>N° [id]</p>
+        </div>
+
+        <div class="info-row">
+            <span class="label">Studente:</span>
+            <span class="value">[studentName]</span>
+        </div>
+
+        <div class="info-row">
+            <span class="label">Insegnante:</span>
+            <span class="value">[teacherName]</span>
+        </div>
+
+        <div class="info-row">
+            <span class="label">Data Lezione:</span>
+            <span class="value">[date]</span>
+        </div>
+
+        <div class="info-row">
+            <span class="label">Orario:</span>
+            <span class="value">[hour]:00</span>
+        </div>
+
+        <div class="total">
+            TOTALE: €[price]
+        </div>
+
+        <div class="footer">
+            <p>Grazie per aver scelto Private Lessons!</p>
+            <p>www.privatelessons.com</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+═══════════════════════════════════════════════════════
+              RICEVUTA LEZIONE PRIVATA
+═══════════════════════════════════════════════════════
+
+Numero Ricevuta:    #[id]
+
+Studente:           [studentName]
+Insegnante:         [teacherName]
+
+Data Lezione:       [date]
+Orario:             [hour]:00
+
+Importo Pagato:     €[price]
+
+───────────────────────────────────────────────────────
+
+Grazie per aver scelto Private Lessons!
+
+═══════════════════════════════════════════════════════

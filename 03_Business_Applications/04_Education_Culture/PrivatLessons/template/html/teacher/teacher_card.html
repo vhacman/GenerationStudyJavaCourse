@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profilo Insegnante</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 600px;
+        }
+        h1 {
+            color: #f5576c;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #f5576c;
+            padding-bottom: 10px;
+        }
+        .info {
+            background: #f7f7f7;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .info p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .label {
+            font-weight: bold;
+            color: #555;
+            display: inline-block;
+            width: 150px;
+        }
+        .price {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .subjects {
+            background: #fff3cd;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Prof. [firstname] [lastname]</h1>
+        <div class="info">
+            <p><span class="label">ID:</span> [id]</p>
+            <p><span class="label">Email:</span> [email]</p>
+            <p><span class="label">Biografia:</span> [bio]</p>
+            <p><span class="label">Prezzo per lezione:</span> <span class="price">€[priceperlesson]</span></p>
+            <div class="subjects">
+                <span class="label">Materie:</span> [subjects]
+            </div>
+            <p><span class="label">Stato:</span> [status]</p>
+        </div>
+    </div>
+</body>
+</html>

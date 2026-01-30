@@ -11,3 +11,11 @@ Inserire un comando:
 10 	- Calcolo guadagni divisi per tipologia di servizio
 11  - Stampa pazienti singoli per periodo
 12  - Stampa tipologie di servizi erogati nel periodo
+13  - Inserimento nuovo servizio sanitario
+14  - Modifica prezzo di un servizio
+15  - Inserimento nuovo paziente
+16  - Cancellazione prestazione per id
+17  - Stampa scheda HTML paziente
+18  - Stampa scheda HTML prestazione
+19  - Stampa HTML prestazioni di oggi
+Q   - Esci

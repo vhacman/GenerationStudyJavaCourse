@@ -40,9 +40,7 @@ public class Context
 		for (Object o : dependencies)
 		{
 			if (dependencyNeeded.isAssignableFrom(o.getClass()))
-			{
 				return dependencyNeeded.cast(o);
-			}
 		}
 		throw new RuntimeException("Dipendenza insoddisfatta per " + dependencyNeeded.getName());
 	}

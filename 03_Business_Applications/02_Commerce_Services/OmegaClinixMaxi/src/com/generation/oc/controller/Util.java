@@ -1,8 +1,18 @@
 package com.generation.oc.controller;
 
-// utility varie
-public class Util 
+/**
+ * Utility varie per il controller
+ *
+ * TODO aggiungere utility per validazione date
+ * TODO aggiungere utility per validazione codice fiscale
+ */
+public class Util
 {
+	/**
+	 * Verifica se una stringa può essere convertita in un intero
+	 * @param s stringa da verificare
+	 * @return true se la stringa è un intero valido, false altrimenti
+	 */
 	public static boolean isInteger(String s)
 	{
 		try
@@ -10,11 +20,9 @@ public class Util
 			Integer.parseInt(s);
 			return true;
 		}
-		catch(NumberFormatException e)
+		catch (NumberFormatException e)
 		{
 			return false;
 		}
 	}
-	
-
 }

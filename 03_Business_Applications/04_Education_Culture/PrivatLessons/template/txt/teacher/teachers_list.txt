@@ -1,0 +1,8 @@
+ELENCO INSEGNANTI
+
+ID  |  Nome  |  Prezzo  |  Materie
+───────────────────────────────────────────────────────────────────
+[teacherRows]
+───────────────────────────────────────────────────────────────────
+
+Totale insegnanti: [totalTeachers]

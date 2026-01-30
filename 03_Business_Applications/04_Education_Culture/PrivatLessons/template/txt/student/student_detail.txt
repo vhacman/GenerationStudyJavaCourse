@@ -1,0 +1,11 @@
+SCHEDA STUDENTE
+
+ID:             [id]
+Nome:           [firstname]
+Cognome:        [lastname]
+SSN:            [ssn]
+Email:          [email]
+Data Nascita:   [dob]
+Stato:          [status]
+
+───────────────────────────────────────────────────────

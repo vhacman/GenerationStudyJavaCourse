@@ -126,11 +126,7 @@ public class Demo003Vettori
     {
         // Trovo il massimo tra tre valori con ternari annidati
         // Prima confronto a e b, poi il risultato con c
-        int maxLength = a.length > b.length ?
-                                                            (a.length > c.length ?
-                                                                                                a.length : c.length)
-                                                            : (b.length > c.length
-                                                                                            ? b.length : c.length);
+        int maxLength = a.length > b.length ? (a.length > c.length ? a.length : c.length) : (b.length > c.length ? b.length : c.length);
 
         int[] res = new int[maxLength];
         // Sommo elemento per elemento da tutti e tre gli array

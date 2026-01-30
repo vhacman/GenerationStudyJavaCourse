@@ -110,6 +110,7 @@ La sezione business è organizzata in 4 sottocategorie tematiche:
 * **[Carroponte](03_Business_Applications/02_Commerce_Services/Carroponte/)** - Gestione Eventi (Command Pattern, Caching, IoC Container)
 * **[OmegaClinic](03_Business_Applications/02_Commerce_Services/OmegaClinic/)** - Sistema Gestionale Clinica (Healthcare Management, Repository Pattern, Lazy/Eager Loading)
 * **[OmegaClinicGEHENNA](03_Business_Applications/02_Commerce_Services/OmegaClinicGEHENNA/)** - Clinical Scheduling System (Smart Calendar, Scheduling Algorithms, LinkedHashMap)
+* **[OmegaClinixMaxi](03_Business_Applications/02_Commerce_Services/OmegaClinixMaxi/)** - Advanced Healthcare Management (Enhanced Clinical System with Database Integration)
 
 #### 🚆 [03_Transportation_Logistics](03_Business_Applications/03_Transportation_Logistics/) - Trasporti e Logistica
 
@@ -143,13 +144,13 @@ La sezione business è organizzata in 4 sottocategorie tematiche:
 | 📚 Librerie | 1 framework | Avanzato |
 | 📘 Fondamentali | 13 moduli | Base |
 | 🚆 Trasporti | 9 progetti | Intermedio |
-| 💼 Business | **42 progetti** (8+14+12+8) | Avanzato |
+| 💼 Business | **43 progetti** (8+14+12+8) | Avanzato |
 | 🎯 Esercizi | 4 progetti | Vario |
-| **TOTALE** | **69 progetti** | **Completo** |
+| **TOTALE** | **70 progetti** | **Completo** |
 
 **Business Applications - Dettaglio:**
 - 🏨 Hospitality & Tourism: 8 progetti
-- 🛒 Commerce & Services: 14 progetti (7 base + 6 enterprise + OmegaClinixMaxi)
+- 🛒 Commerce & Services: 14 progetti (7 base + 7 enterprise)
 - 🚆 Transportation & Logistics: 12 progetti
 - 🎓 Education & Culture: 8 progetti
 

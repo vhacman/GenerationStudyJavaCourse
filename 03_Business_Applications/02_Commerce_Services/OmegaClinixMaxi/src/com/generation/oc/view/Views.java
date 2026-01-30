@@ -21,7 +21,7 @@ public class Views
 
 	public static final EntityView<Prestation> PRESTATIONVIEW = 
 			p-> 	"Prestazione "+p.getId()+" " +
-					p.getHealthService().getName()+ + p.getId()+" del "+ p.getDate()+ " per "+p.getPatient().getFullname()
+					p.getHealthService().getName()+ " "+ p.getId()+" del "+ p.getDate()+ " per "+p.getPatient().getFullname()
 					+" per euro "+p.getPrice()+" "+"\n";
 			
 	// niente dati paziente

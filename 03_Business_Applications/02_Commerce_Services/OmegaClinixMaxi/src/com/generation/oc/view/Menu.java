@@ -25,8 +25,15 @@ public class Menu
 	public static final String PRINTINCOMEBYSERVICETYPE 			= "10";
 	public static final String PRINTDISTINCTPATIENTSFORPERIOD  		= "11";
 	public static final String PRINTDISTINCTSERVICESFORPERIOD 		= "12";
-	
-	
+	public static final String INSERTHEALTHSERVICE 					= "13";
+	public static final String UPDATESERVICEPRICE 					= "14";
+	public static final String INSERTPATIENT 						= "15";
+	public static final String DELETEPRESTATION 					= "16";
+	public static final String PRINTPATIENTHTML 					= "17";
+	public static final String PRINTPRESTATIONHTML 					= "18";
+	public static final String PRINTTODAYPRESTATIONSHTML 			= "19";
+
+
 	
 	public static void printLogo()
 	{

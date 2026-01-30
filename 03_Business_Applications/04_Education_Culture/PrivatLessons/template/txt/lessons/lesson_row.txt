@@ -1,0 +1,1 @@
+[id]  |  [date]  |  ore [hour]:00  |  €[price]

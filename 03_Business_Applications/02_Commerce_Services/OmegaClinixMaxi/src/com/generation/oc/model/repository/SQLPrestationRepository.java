@@ -111,10 +111,10 @@ public class SQLPrestationRepository extends SQLEntityRepository<Prestation> imp
 		// CORRETTO: carico direttamente gli oggetti Patient e HealthService dai repository
 		// usando gli ID delle foreign key presenti nel ResultSet
 		// In questo modo posso poi accedere a prestation.getPatient().getId()
-		PatientRepository 				patientRepo = Context.getDependency(PatientRepository.class);
+		PatientRepository 			patientRepo = Context.getDependency(PatientRepository.class);
 		HealthServiceRepository 	healthServiceRepo = Context.getDependency(HealthServiceRepository.class);
-		int 											patientId = rows.getInt("patientid");
-		int 											healthServiceId = rows.getInt("healthserviceid");
+		int 						patientId = rows.getInt("patientid");
+		int 						healthServiceId = rows.getInt("healthserviceid");
 		// Carico gli oggetti completi (senza le loro relazioni per evitare loop infiniti) --> collegamento ai padri
 		prestation.setPatient(patientRepo.findById(patientId, false));
 		prestation.setHealthService(healthServiceRepo.findById(healthServiceId));

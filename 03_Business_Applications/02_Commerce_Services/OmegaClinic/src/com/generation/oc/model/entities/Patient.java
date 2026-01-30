@@ -53,17 +53,17 @@ public class Patient extends Entity
         return res;
     }
 
-    public String               				getFirstName()                              								{ return firstName; }
+    public String               				getFirstName()                              				{ return firstName; }
     public void                 				setFirstName(String firstName)              				{ this.firstName = firstName; }
-    public String               				getLastName()                               								{ return lastName; }
+    public String               				getLastName()                               				{ return lastName; }
     public void                 				setLastName(String lastName)        				        { this.lastName = lastName; }
-    public String               				getSsn()                                               	 				        { return ssn; }
-    public void                 				setSsn(String ssn)                         	 							{ this.ssn = ssn; }
-    public LocalDate            			getDob()                                    									{ return dob; }
-    public void                 				setDob(LocalDate dob)                       						{ this.dob = dob; }
-    public void                 				setDob(String dob)                          							{ this.dob = LocalDate.parse(dob); }
-    public List<Prestation>     	getPrestations()                            								{ return prestations; }
-    public void                 				setPrestations(List<Prestation> prestations)		{ this.prestations = prestations; }
+    public String               				getSsn()                                               	 	{ return ssn; }
+    public void                 				setSsn(String ssn)                         	 				{ this.ssn = ssn; }
+    public LocalDate            				getDob()                                    				{ return dob; }
+    public void                 				setDob(LocalDate dob)                       				{ this.dob = dob; }
+    public void                 				setDob(String dob)                          				{ this.dob = LocalDate.parse(dob); }
+    public List<Prestation>     				getPrestations()                            				{ return prestations; }
+    public void                 				setPrestations(List<Prestation> prestations)				{ this.prestations = prestations; }
 
     @Override
 	public String toString()
