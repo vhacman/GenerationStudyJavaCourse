@@ -155,7 +155,7 @@ public class ViewFactory
         StringBuilder rows = new StringBuilder();
         for (Teacher teacher : teachers)
             rows.append(teacherRowTxt.render(teacher));
-        return Template.load("template/txt/teachers_list.txt")
+        return Template.load("template/txt/teacher/teachers_list.txt")
             .replace("[teacherRows]", rows.toString())
             .replace("[totalTeachers]", "" + teachers.size());
     }

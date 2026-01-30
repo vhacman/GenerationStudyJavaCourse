@@ -2,11 +2,14 @@ package com.generation.pl.controller;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
+
 import com.generation.context.Context;
 import com.generation.library.Console;
 import com.generation.library.Template;
 import com.generation.pl.model.entities.Admin;
 import com.generation.pl.model.entities.Student;
+import com.generation.pl.model.entities.Subject;
 import com.generation.pl.model.entities.Teacher;
 import com.generation.pl.model.entities.User;
 import com.generation.pl.model.entities.UserStatus;
@@ -19,6 +22,7 @@ import com.generation.pl.model.repository.interfaces.LessonRepository;
 import com.generation.pl.model.repository.interfaces.StudentRepository;
 import com.generation.pl.model.repository.interfaces.TeacherRepository;
 import com.generation.pl.view.ViewController;
+import com.generation.pl.view.ViewFactory;
 
 public class AdminMain
 {
@@ -306,49 +310,87 @@ public class AdminMain
 	        e.printStackTrace();
 	    }
 	}
-
-
+	
 	private void teacherEarnings()
 	{
-		try
-		{
-			Console.print("\n=== GUADAGNI TEACHER (ultimi 30 giorni) ===");
-			Console.print("Inserisci ID Teacher:");
-			int teacherId = Console.readInt();
-			Teacher teacher = teacherRepo.findById(teacherId, false);
-			if (teacher == null)
-			{
-				Console.print("Teacher non trovato!");
-				return;
-			}
-			Console.print("\nTeacher:");
-			Console.print(ViewController.teacherBasicView.render(teacher));
-			int earnings = lessonRepo.calculateEarningsByTeacherLast30Days(teacherId);
-			Console.print("Guadagni totali ultimi 30 giorni: €" + earnings);
-		}
-		catch (SQLException e)
-		{
-			Console.print("Errore: " + e.getMessage());
-		}
+	    try
+	    {
+	        Console.print("\n=== GUADAGNI TEACHER (ultimi 30 giorni) ===");
+	        List<Teacher> allTeachers = teacherRepo.findAll();	        
+	        Console.print("\n=== ELENCO INSEGNANTI ===");
+	        Console.print("─────────────────────────────────────────────────────────────");	        
+	        // Usa teacherBasicView che è già ottimizzato per console
+	        for (Teacher t : allTeachers)
+	            Console.print(ViewController.teacherBasicView.render(t));	        
+	        Console.print("─────────────────────────────────────────────────────────────");
+	        Console.print("Totale insegnanti: " + allTeachers.size());	        
+	        Console.print("\nInserisci ID Teacher per vedere i guadagni (0 per uscire):");
+	        int teacherId = Console.readInt();	        
+	        if (teacherId == 0)
+	            return;	        
+	        Teacher teacher = teacherRepo.findById(teacherId, false);	        
+	        if (teacher == null)
+	        {
+	            Console.print("Teacher non trovato!");
+	            return;
+	        }	        
+	        // Mostra guadagni
+	        int earnings = lessonRepo.calculateEarningsByTeacherLast30Days(teacherId);
+	        Console.print("\n=== GUADAGNI TEACHER ===");
+	        Console.print("Teacher: " + teacher.getFirstName() + " " + teacher.getLastName());
+	        Console.print("Guadagni ultimi 30 giorni: EUR " + earnings);	        
+	        // Opzionale: scheda completa
+	        Console.print("\nVuoi vedere la scheda completa del teacher? (s/n)");
+	        String answer = Console.readString().trim().toLowerCase();	        
+	        if (answer.equals("s") || answer.equals("si") || answer.equals("y") || answer.equals("yes"))
+	        {
+	            String teacherDetail = ViewFactory.make("teacher", "txt", "detail").render(teacher);
+	            Console.print("\n=== SCHEDA COMPLETA TEACHER ===");
+	            Console.print(teacherDetail);
+	        }
+	    }
+	    catch (SQLException e)
+	    {
+	        Console.print("Errore: " + e.getMessage());
+	    }
 	}
 
 	private void subjectEarnings()
 	{
-		try
-		{
-			Console.print("\n=== GUADAGNI PER MATERIA (ultimi 30 giorni) ===");
-			Console.print("Inserisci nome materia:");
-			String subject = Console.readString().trim();
-
-			int earnings = lessonRepo.calculateEarningsBySubjectLast30Days(subject);
-			Console.print("\nMateria: " + subject);
-			Console.print("Guadagni totali ultimi 30 giorni: €" + earnings);
-		}
-		catch (SQLException e)
-		{
-			Console.print("Errore: " + e.getMessage());
-		}
+	    try
+	    {
+	        Console.print("\n=== GUADAGNI PER MATERIA (ultimi 30 giorni) ===");	        
+	        // Mostra le materie disponibili in modo più leggibile
+	        Console.print("\n=== MATERIE DISPONIBILI ===");
+	        Subject[] subjects = Subject.values();	        
+	        // Mostra con numerazione per facilitare la scelta
+	        for (int i = 0; i < subjects.length; i++)
+	            Console.print((i + 1) + ". " + subjects[i].name());	        
+	        Console.print("\nInserisci nome materia (es. JAVA, MATH, SQL):");
+	        String subjectInput = Console.readString().trim().toUpperCase();	        
+	        // VALIDAZIONE: controlla che la materia esista
+	        Subject selectedSubject = null;
+	        try
+	        {
+	            selectedSubject = Subject.valueOf(subjectInput);
+	        }
+	        catch (IllegalArgumentException e)
+	        {
+	            Console.print("Materia non valida! Scegli tra quelle elencate sopra.");
+	            return;
+	        }	        
+	        // Calcola e mostra guadagni
+	        int earnings = lessonRepo.calculateEarningsBySubjectLast30Days(subjectInput);	        
+	        Console.print("\n=== RISULTATO ===");
+	        Console.print("Materia: " + selectedSubject.name());
+	        Console.print("Guadagni totali ultimi 30 giorni: EUR " + earnings);
+	    }
+	    catch (SQLException e)
+	    {
+	        Console.print("Errore: " + e.getMessage());
+	    }
 	}
+
 	
 	/**
 	 * Gestisce il cambio password dell'Admin loggato
