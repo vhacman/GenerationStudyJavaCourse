@@ -1,0 +1,171 @@
+TEACHER FUTURE LESSONS REPORT
+========================================================================================================================
+Generated: 2026-02-01
+Future period: 2026-02-02 to 2026-04-13 (10 weeks)
+========================================================================================================================
+
+ID     Name                      Email                               Future   Total    Future €    
+------------------------------------------------------------------------------------------------------------------------
+301    Elisa Moretti             elisa.moretti92@teacher.com         65       81       €4295       
+353    Anna Gentile              anna.gentile144@teacher.com         58       73       €5240       
+213    Elisa Moretti             elisa.moretti4@teacher.com          57       72       €3325       
+244    Sofia Bianchi             sofia.bianchi35@teacher.com         57       70       €2490       
+325    Chiara Martini            chiara.martini116@teacher.com       57       81       €2460       
+348    Antonio Colombo           antonio.colombo139@teacher.com      57       72       €2125       
+339    Elena Barbieri            elena.barbieri130@teacher.com       56       74       €2085       
+256    Marco Marino              marco.marino47@teacher.com          55       76       €3370       
+218    Marco Costa               marco.costa9@teacher.com            54       78       €2450       
+226    Chiara Romano             chiara.romano17@teacher.com         54       80       €2240       
+236    Lorenzo Barbieri          lorenzo.barbieri27@teacher.com      53       73       €4590       
+298    Silvia Fontana            silvia.fontana89@teacher.com        53       80       €3955       
+330    Davide Costa              davide.costa121@teacher.com         53       80       €2060       
+230    Francesca Bruno           francesca.bruno21@teacher.com       52       67       €1330       
+277    Beatrice Santoro          beatrice.santoro68@teacher.com      52       73       €4600       
+279    Valentina Greco           valentina.greco70@teacher.com       52       72       €4655       
+317    Martina Mancini           martina.mancini108@teacher.com      52       72       €1460       
+359    Anna Fontana              anna.fontana150@teacher.com         52       74       €1740       
+296    Alessia Marino            alessia.marino87@teacher.com        51       65       €4130       
+327    Francesca Leone           francesca.leone118@teacher.com      51       66       €2585       
+331    Sara Lombardi             sara.lombardi122@teacher.com        51       57       €4065       
+247    Antonio Fontana           antonio.fontana38@teacher.com       50       59       €1710       
+263    Matteo Leone              matteo.leone54@teacher.com          50       68       €3675       
+350    Francesca Esposito        francesca.esposito141@teacher.com   50       68       €1470       
+215    Simone Bruno              simone.bruno6@teacher.com           49       66       €1815       
+232    Matteo Ferrari            matteo.ferrari23@teacher.com        49       63       €1455       
+260    Francesca De Luca         francesca.de luca51@teacher.com     49       68       €4210       
+265    Federico Gentile          federico.gentile56@teacher.com      49       76       €3420       
+293    Valentina Mancini         valentina.mancini84@teacher.com     49       64       €3085       
+302    Anna Leone                anna.leone93@teacher.com            49       67       €2710       
+320    Elena Rossi               elena.rossi111@teacher.com          49       67       €1400       
+337    Paolo Barbieri            paolo.barbieri128@teacher.com       49       72       €1855       
+342    Federico Lombardi         federico.lombardi133@teacher.com    49       76       €2930       
+344    Federica Caruso           federica.caruso135@teacher.com      48       62       €3290       
+351    Riccardo Gentile          riccardo.gentile142@teacher.com     48       63       €4075       
+210    Beatrice Marini           beatrice.marini1@teacher.com        47       68       €2490       
+219    Federica Russo            federica.russo10@teacher.com        47       65       €3880       
+267    Francesca Giordano        francesca.giordano58@teacher.com    47       66       €2625       
+270    Simone Barbieri           simone.barbieri61@teacher.com       47       65       €1445       
+291    Francesca Giordano        francesca.giordano82@teacher.com    47       66       €3590       
+321    Riccardo Greco            riccardo.greco112@teacher.com       47       64       €3920       
+221    Davide Martini            davide.martini12@teacher.com        46       69       €1475       
+261    Giulia Costa              giulia.costa52@teacher.com          46       73       €1355       
+310    Anna Rossi                anna.rossi101@teacher.com           46       63       €1605       
+340    Gabriele Bruno            gabriele.bruno131@teacher.com       46       60       €3190       
+357    Federica Lombardi         federica.lombardi148@teacher.com    46       64       €3985       
+227    Alessandro Gentile        alessandro.gentile18@teacher.com    45       67       €1945       
+266    Andrea Rossi              andrea.rossi57@teacher.com          45       71       €2015       
+307    Laura Caruso              laura.caruso98@teacher.com          45       60       €2375       
+323    Federica Barbieri         federica.barbieri114@teacher.com    45       64       €2005       
+229    Davide Galli              davide.galli20@teacher.com          44       63       €2290       
+240    Andrea De Luca            andrea.de luca31@teacher.com        44       57       €3980       
+272    Giulia Costa              giulia.costa63@teacher.com          44       64       €2675       
+274    Giulia Gentile            giulia.gentile65@teacher.com        44       64       €1375       
+297    Elisa Rinaldi             elisa.rinaldi88@teacher.com         44       68       €2675       
+216    Chiara Gallo              chiara.gallo7@teacher.com           43       64       €1585       
+233    Martina Conti             martina.conti24@teacher.com         43       60       €2980       
+243    Riccardo Leone            riccardo.leone34@teacher.com        43       60       €2720       
+280    Giovanni Bianchi          giovanni.bianchi71@teacher.com      43       60       €2860       
+311    Davide Costa              davide.costa102@teacher.com         43       72       €3290       
+347    Paolo Ricci               paolo.ricci138@teacher.com          43       62       €2625       
+212    Lorenzo Galli             lorenzo.galli3@teacher.com          42       57       €3240       
+275    Andrea Fontana            andrea.fontana66@teacher.com        42       64       €3410       
+292    Beatrice Galli            beatrice.galli83@teacher.com        42       53       €3410       
+294    Gabriele Fontana          gabriele.fontana85@teacher.com      42       55       €1445       
+308    Riccardo Rossi            riccardo.rossi99@teacher.com        42       59       €1050       
+222    Silvia Romano             silvia.romano13@teacher.com         41       61       €2285       
+328    Alessandro De Luca        alessandro.de luca119@teacher.com   41       59       €1360       
+332    Alessandro Gallo          alessandro.gallo123@teacher.com     41       55       €1340       
+248    Davide Greco              davide.greco39@teacher.com          40       50       €2080       
+253    Federica Longo            federica.longo44@teacher.com        40       55       €2820       
+286    Alessia Rinaldi           alessia.rinaldi77@teacher.com       40       67       €2335       
+313    Valentina Gallo           valentina.gallo104@teacher.com      40       60       €1795       
+314    Sofia Galli               sofia.galli105@teacher.com          40       55       €2950       
+315    Sofia Ferrara             sofia.ferrara106@teacher.com        40       54       €3165       
+273    Elena Caruso              elena.caruso64@teacher.com          39       64       €3485       
+281    Silvia Ferrara            silvia.ferrara72@teacher.com        39       60       €1620       
+282    Giulia Caruso             giulia.caruso73@teacher.com         39       55       €2135       
+334    Beatrice Longo            beatrice.longo125@teacher.com       39       63       €1915       
+239    Stefano Marino            stefano.marino30@teacher.com        38       55       €1300       
+326    Alessandro Greco          alessandro.greco117@teacher.com     38       61       €3050       
+343    Martina Romano            martina.romano134@teacher.com       38       59       €2135       
+214    Valentina Conti           valentina.conti5@teacher.com        37       55       €2685       
+220    Chiara Gentile            chiara.gentile11@teacher.com        37       54       €3185       
+223    Valentina Ferrara         valentina.ferrara14@teacher.com     37       54       €2395       
+257    Beatrice Costa            beatrice.costa48@teacher.com        37       55       €2620       
+251    Andrea Giordano           andrea.giordano42@teacher.com       36       53       €1185       
+303    Riccardo Leone            riccardo.leone94@teacher.com        36       60       €2750       
+341    Stefano Martini           stefano.martini132@teacher.com      36       49       €2280       
+254    Riccardo Ferrara          riccardo.ferrara45@teacher.com      35       56       €3215       
+288    Martina Santoro           martina.santoro79@teacher.com       35       53       €2955       
+304    Anna Fontana              anna.fontana95@teacher.com          35       51       €1635       
+333    Francesco Lombardi        francesco.lombardi124@teacher.com   35       47       €1020       
+335    Antonio Bianchi           antonio.bianchi126@teacher.com      35       55       €980        
+246    Luca Rizzo                luca.rizzo37@teacher.com            34       55       €1445       
+322    Riccardo Ferrari          riccardo.ferrari113@teacher.com     34       52       €1740       
+346    Paolo Romano              paolo.romano137@teacher.com         34       60       €1975       
+352    Francesca Moretti         francesca.moretti143@teacher.com    34       56       €2135       
+285    Elena Romano              elena.romano76@teacher.com          33       42       €1915       
+289    Sara Mancini              sara.mancini80@teacher.com          33       55       €1245       
+329    Chiara Russo              chiara.russo120@teacher.com         33       58       €2790       
+283    Giulia Rinaldi            giulia.rinaldi74@teacher.com        32       50       €1415       
+217    Alessandro Lombardi       alessandro.lombardi8@teacher.com    31       53       €1110       
+228    Luca Rizzo                luca.rizzo19@teacher.com            31       50       €1870       
+231    Matteo Rinaldi            matteo.rinaldi22@teacher.com        31       48       €1720       
+250    Federica Marino           federica.marino41@teacher.com       31       45       €2420       
+278    Francesca Santoro         francesca.santoro69@teacher.com     31       52       €1145       
+338    Federica Leone            federica.leone129@teacher.com       31       45       €2570       
+259    Chiara Ferrara            chiara.ferrara50@teacher.com        30       55       €1830       
+264    Matteo Fontana            matteo.fontana55@teacher.com        30       43       €1320       
+276    Elena Colombo             elena.colombo67@teacher.com         30       41       €1610       
+299    Antonio Marini            antonio.marini90@teacher.com        30       46       €2015       
+234    Chiara Marino             chiara.marino25@teacher.com         29       44       €1380       
+242    Lorenzo Romano            lorenzo.romano33@teacher.com        29       50       €2410       
+255    Alessandro Colombo        alessandro.colombo46@teacher.com    29       51       €1540       
+306    Andrea Greco              andrea.greco97@teacher.com          29       43       €1015       
+224    Sara Caruso               sara.caruso15@teacher.com           28       46       €2175       
+336    Lorenzo Martini           lorenzo.martini127@teacher.com      28       44       €1275       
+358    Davide Bianchi            davide.bianchi149@teacher.com       28       45       €1470       
+235    Matteo Moretti            matteo.moretti26@teacher.com        27       41       €1530       
+345    Francesca Santoro         francesca.santoro136@teacher.com    27       46       €2100       
+290    Giorgia Caruso            giorgia.caruso81@teacher.com        26       50       €1145       
+295    Antonio Gentile           antonio.gentile86@teacher.com       26       47       €1945       
+354    Francesco Greco           francesco.greco145@teacher.com      26       49       €1515       
+225    Stefano Rinaldi           stefano.rinaldi16@teacher.com       25       42       €1470       
+237    Giulia Bruno              giulia.bruno28@teacher.com          25       37       €1750       
+252    Davide Barbieri           davide.barbieri43@teacher.com       25       42       €955        
+258    Martina Giordano          martina.giordano49@teacher.com      25       43       €1955       
+305    Francesca Longo           francesca.longo96@teacher.com       25       44       €925        
+241    Giovanni Barbieri         giovanni.barbieri32@teacher.com     24       49       €1370       
+245    Alessandro Bianchi        alessandro.bianchi36@teacher.com    24       46       €925        
+284    Sofia Fontana             sofia.fontana75@teacher.com         24       44       €1940       
+300    Simone Rinaldi            simone.rinaldi91@teacher.com        24       43       €1715       
+312    Stefano Giordano          stefano.giordano103@teacher.com     24       43       €705        
+249    Antonio Marini            antonio.marini40@teacher.com        23       41       €1085       
+262    Federico Galli            federico.galli53@teacher.com        23       43       €925        
+287    Marco Colombo             marco.colombo78@teacher.com         23       46       €1790       
+318    Alessia Ferrari           alessia.ferrari109@teacher.com      23       46       €745        
+309    Matteo Marino             matteo.marino100@teacher.com        22       47       €1610       
+319    Elisa Romano              elisa.romano110@teacher.com         22       40       €1015       
+324    Luca Gallo                luca.gallo115@teacher.com           22       38       €1745       
+271    Francesca Longo           francesca.longo62@teacher.com       21       37       €1020       
+355    Silvia Moretti            silvia.moretti146@teacher.com       21       39       €1060       
+356    Sara Moretti              sara.moretti147@teacher.com         21       46       €810        
+268    Federico Marino           federico.marino59@teacher.com       20       36       €1010       
+211    Alessandro Marino         alessandro.marino2@teacher.com      19       38       €1430       
+238    Antonio Ferrari           antonio.ferrari29@teacher.com       18       29       €920        
+269    Laura Bianchi             laura.bianchi60@teacher.com         18       35       €695        
+349    Andrea Russo              andrea.russo140@teacher.com         16       30       €1245       
+316    Antonio Ricci             antonio.ricci107@teacher.com        15       35       €605        
+------------------------------------------------------------------------------------------------------------------------
+
+SUMMARY STATISTICS
+========================================================================================================================
+Total Teachers: 150
+Total Future Lessons (next 10 weeks): 5750
+Total All Lessons: 8538
+Average Future Lessons per Teacher: 38.33
+Total Future Revenue: €327725
+Total All Revenue: €487890
+
+Min Future Lessons: 15
+Max Future Lessons: 65

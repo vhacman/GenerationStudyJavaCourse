@@ -1,0 +1,25 @@
+TEACHER LIST
+
+ID  |  Name  |  Price  |  Subjects
+───────────────────────────────────────────────────────────────────
+240  |  Prof. Andrea De Luca  |  €95/h  |  PYTHON,ITALIAN,REACT
+242  |  Prof. Lorenzo Romano  |  €95/h  |  SQL,PYTHON,ITALIAN,ENGLISH
+244  |  Prof. Sofia Bianchi  |  €40/h  |  PYTHON,ITALIAN,JAVA
+248  |  Prof. Davide Greco  |  €50/h  |  ITALIAN,REACT,JAVA,HTML
+249  |  Prof. Antonio Marini  |  €45/h  |  HISTORY,REACT,ITALIAN,SPRING
+254  |  Prof. Riccardo Ferrara  |  €95/h  |  ITALIAN,CSS,SPRING
+263  |  Prof. Matteo Leone  |  €75/h  |  CHEMISTRY,JAVASCRIPT,ITALIAN
+275  |  Prof. Andrea Fontana  |  €90/h  |  ITALIAN,HTML
+283  |  Prof. Giulia Rinaldi  |  €45/h  |  ITALIAN
+303  |  Prof. Riccardo Leone  |  €80/h  |  JAVASCRIPT,ITALIAN
+310  |  Prof. Anna Rossi  |  €25/h  |  CHEMISTRY,ITALIAN,ENGLISH,PHILOSOPHY
+316  |  Prof. Antonio Ricci  |  €35/h  |  ITALIAN,JAVA,SPRING
+330  |  Prof. Davide Costa  |  €35/h  |  JAVASCRIPT,ITALIAN,ENGLISH
+347  |  Prof. Paolo Ricci  |  €60/h  |  PYTHON,ITALIAN,ENGLISH
+348  |  Prof. Antonio Colombo  |  €30/h  |  CSS,ITALIAN
+355  |  Prof. Silvia Moretti  |  €50/h  |  ITALIAN
+358  |  Prof. Davide Bianchi  |  €45/h  |  CHEMISTRY,PYTHON,ITALIAN
+
+───────────────────────────────────────────────────────────────────
+
+Total teachers: 17

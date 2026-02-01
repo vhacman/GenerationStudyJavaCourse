@@ -1,0 +1,10 @@
+LESSON DETAILS
+
+Lesson ID:      [id]
+Date:           [date]
+Hour:           [hour]:00
+Student:        [student]
+Teacher:        [teacher]
+Price:          €[price]
+
+───────────────────────────────────────────────────────

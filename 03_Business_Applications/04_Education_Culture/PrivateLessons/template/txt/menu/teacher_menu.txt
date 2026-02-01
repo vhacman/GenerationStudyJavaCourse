@@ -1,0 +1,16 @@
+═══════════════════════════════════════════════════════════
+                    TEACHER AREA
+═══════════════════════════════════════════════════════════
+
+Welcome! Select an option to continue:
+
+  1. View all lessons history
+  2. View next week's lessons
+  3. Calculate earnings for specific period
+  4. Change password
+
+  ───────────────────────────────────────────────────────────
+
+  0. Exit teacher area
+
+>> Enter command:

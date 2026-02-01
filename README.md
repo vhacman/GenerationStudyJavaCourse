@@ -118,7 +118,7 @@ La sezione business è organizzata in 4 sottocategorie tematiche:
 
 #### 🎓 [04_Education_Culture](03_Business_Applications/04_Education_Culture/) - Educazione e Cultura
 
-[DeveloperCandidatura](03_Business_Applications/04_Education_Culture/DeveloperCandidatura/) • [MuseumTicket](03_Business_Applications/04_Education_Culture/MuseumTicket/) • [NerdLibrary](03_Business_Applications/04_Education_Culture/NerdLibrary/) • [NSMI](03_Business_Applications/04_Education_Culture/NSMI/) • [NSMPI](03_Business_Applications/04_Education_Culture/NSMPI/) • [PokeDex](03_Business_Applications/04_Education_Culture/PokeDex/) • [SchoolManagement_v1](03_Business_Applications/04_Education_Culture/SchoolManagement_v1/) • [SchoolManagement_v2](03_Business_Applications/04_Education_Culture/SchoolManagement_v2/)
+[DeveloperCandidatura](03_Business_Applications/04_Education_Culture/DeveloperCandidatura/) • [MuseumTicket](03_Business_Applications/04_Education_Culture/MuseumTicket/) • [NerdLibrary](03_Business_Applications/04_Education_Culture/NerdLibrary/) • [NSMI](03_Business_Applications/04_Education_Culture/NSMI/) • [NSMPI](03_Business_Applications/04_Education_Culture/NSMPI/) • [PokeDex](03_Business_Applications/04_Education_Culture/PokeDex/) • [PrivateLessons](03_Business_Applications/04_Education_Culture/PrivateLessons/) • [SchoolManagement_v1](03_Business_Applications/04_Education_Culture/SchoolManagement_v1/) • [SchoolManagement_v2](03_Business_Applications/04_Education_Culture/SchoolManagement_v2/)
 
 
 </details>
@@ -144,15 +144,15 @@ La sezione business è organizzata in 4 sottocategorie tematiche:
 | 📚 Librerie | 1 framework | Avanzato |
 | 📘 Fondamentali | 13 moduli | Base |
 | 🚆 Trasporti | 9 progetti | Intermedio |
-| 💼 Business | **43 progetti** (8+14+12+8) | Avanzato |
+| 💼 Business | **43 progetti** (8+14+12+9) | Avanzato |
 | 🎯 Esercizi | 4 progetti | Vario |
-| **TOTALE** | **70 progetti** | **Completo** |
+| **TOTALE** | **71 progetti** | **Completo** |
 
 **Business Applications - Dettaglio:**
 - 🏨 Hospitality & Tourism: 8 progetti
 - 🛒 Commerce & Services: 14 progetti (7 base + 7 enterprise)
 - 🚆 Transportation & Logistics: 12 progetti
-- 🎓 Education & Culture: 8 progetti
+- 🎓 Education & Culture: 9 progetti
 
 ---
 

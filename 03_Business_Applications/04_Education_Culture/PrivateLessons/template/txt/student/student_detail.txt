@@ -1,0 +1,11 @@
+STUDENT RECORD
+
+ID:             [id]
+First Name:     [firstname]
+Last Name:      [lastname]
+SSN:            [ssn]
+Email:          [email]
+Date of Birth:  [dob]
+Status:         [status]
+
+───────────────────────────────────────────────────────

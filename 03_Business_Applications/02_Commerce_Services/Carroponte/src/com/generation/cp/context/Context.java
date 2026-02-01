@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.generation.cp.cypher.XORCypher;
 import com.generation.cp.model.repository.SQLEventRepository;
+import com.generation.library.cypher.XORCypher;
 import com.generation.library.database.ConnectionFactory;
 
 /**

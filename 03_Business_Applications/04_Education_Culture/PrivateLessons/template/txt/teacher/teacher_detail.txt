@@ -1,0 +1,13 @@
+TEACHER RECORD
+
+ID:                     [id]
+First Name:             [firstname]
+Last Name:              [lastname]
+SSN:                    [ssn]
+Email:                  [email]
+Biography:              [bio]
+Price per lesson:       €[priceperlesson]
+Subjects:               [subjectscsv]
+Status:                 [status]
+
+───────────────────────────────────────────────────────

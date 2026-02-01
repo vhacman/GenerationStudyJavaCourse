@@ -1,0 +1,17 @@
+═══════════════════════════════════════════════════════════
+                     STUDENT AREA
+═══════════════════════════════════════════════════════════
+
+Welcome! Select an option to continue:
+
+  1. Search teachers by subject
+  2. Book a new lesson
+  3. View lesson history and expenses summary
+  4. Generate receipt for a lesson
+  5. Change password
+
+  ───────────────────────────────────────────────────────────
+
+  0. Exit application
+
+>> Enter command:

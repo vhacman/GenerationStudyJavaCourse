@@ -1,0 +1,19 @@
+═══════════════════════════════════════════════════════
+              PRIVATE LESSON RECEIPT
+═══════════════════════════════════════════════════════
+
+Receipt Number:     #[id]
+
+Student:            [studentName]
+Teacher:            [teacherName]
+
+Lesson Date:        [date]
+Time:               [hour]:00
+
+Amount Paid:        €[price]
+
+───────────────────────────────────────────────────────
+
+Thank you for choosing Private Lessons!
+
+═══════════════════════════════════════════════════════

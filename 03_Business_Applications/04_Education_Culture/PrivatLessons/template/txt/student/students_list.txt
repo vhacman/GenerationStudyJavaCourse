@@ -1,8 +1,0 @@
-ELENCO STUDENTI
-
-ID  |  Nome Cognome  |  Email  |  Data di Nascita
-───────────────────────────────────────────────────────────────────
-[studentRows]
-───────────────────────────────────────────────────────────────────
-
-Totale studenti: [totalStudents]

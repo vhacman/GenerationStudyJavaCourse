@@ -1,0 +1,15 @@
+═══════════════════════════════════════════════════════════
+              WELCOME TO PRIVATE LESSONS
+═══════════════════════════════════════════════════════════
+
+Select your role to log in:
+
+  1. Student Area
+  2. Teacher Area
+  3. Administrator Area
+
+  ───────────────────────────────────────────────────────────
+
+  0. Exit application
+
+>> Enter your choice:

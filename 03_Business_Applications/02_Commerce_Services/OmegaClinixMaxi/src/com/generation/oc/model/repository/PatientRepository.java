@@ -10,7 +10,7 @@ public interface PatientRepository
 	// se complete = true, caricherò anche le sue prestations
 	Patient 		findById(int id, boolean complete)	 			throws SQLException;
 	List<Patient> 	findAll() 										throws SQLException;
-	List<Patient> 	findWhere(String cond) 							throws SQLException;
+	List<Patient> 	findWhere(String cond) 							 ;
 
 	Patient 		update(Patient p) 								throws SQLException;
 	Patient 		insert(Patient p) 								throws SQLException;

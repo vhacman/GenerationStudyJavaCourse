@@ -1,7 +1,6 @@
 package com.generation.library;
 
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Wrapper semplificato per scrivere file di testo.

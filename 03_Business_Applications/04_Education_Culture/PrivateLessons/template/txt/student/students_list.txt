@@ -1,0 +1,8 @@
+STUDENT LIST
+
+ID  |  Name Surname  |  Email  |  Date of Birth
+───────────────────────────────────────────────────────────────────
+[studentRows]
+───────────────────────────────────────────────────────────────────
+
+Total students: [totalStudents]

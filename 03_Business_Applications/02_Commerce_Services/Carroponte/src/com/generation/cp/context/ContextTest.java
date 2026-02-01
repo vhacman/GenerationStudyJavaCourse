@@ -2,8 +2,8 @@ package com.generation.cp.context;
 
 import java.sql.Connection;
 
-import com.generation.cp.cypher.Cypher;
 import com.generation.library.Console;
+import com.generation.library.cypher.Cypher;
 
 /**
  * Classe di test per verificare il funzionamento del contenitore IoC Context.

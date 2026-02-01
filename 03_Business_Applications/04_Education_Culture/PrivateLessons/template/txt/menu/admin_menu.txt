@@ -1,0 +1,26 @@
+═══════════════════════════════════════════════════════════
+                  ADMINISTRATOR AREA
+═══════════════════════════════════════════════════════════
+
+Welcome! Select an option to continue:
+
+USER MANAGEMENT:
+  1. Insert new teacher
+  2. Insert new student
+  3. Insert new administrator
+  4. Change teacher status
+  5. Change student status
+  6. Change administrator status
+
+STATISTICS:
+  7. Teacher earnings last 30 days
+  8. Earnings by subject last 30 days
+
+ACCOUNT:
+  9. Change password
+
+  ───────────────────────────────────────────────────────────
+
+  0. Exit administrator area
+
+>> Enter command:

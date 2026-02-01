@@ -24,7 +24,7 @@ public class SQLPatientRepository extends SQLEntityRepository<Patient> implement
 	 * @throws SQLException se si verifica un errore durante l'accesso al database
 	 */
 	@Override
-	public List<Patient> findWhere(String cond) throws SQLException
+	public List<Patient> findWhere(String cond)  
 	{
 	    // Ottengo il repository delle prestazioni tramite dependency injection
 	    PrestationRepository 	prestationRepo = Context.getDependency(PrestationRepository.class);
@@ -34,18 +34,24 @@ public class SQLPatientRepository extends SQLEntityRepository<Patient> implement
 	     * riutilizza la logica della classe padre e la estende aggiungendo
 	     * il caricamento delle prestazioni (Template Method Pattern).*/
 	    List<Patient> 				res = super.findWhere(cond);
-	    List<Prestation> 			allPrestations = prestationRepo.findAll();	    
-	     /* Associazione Bidirezionale tra Entità:
-	     * Patient (1) → (*) Prestation   
-	     * Il pattern di associazione viene costruito manualmente confrontando gli ID.
-	     * Questo approccio materializza la relazione one-to-many tra pazienti e
-	     * prestazioni, popolando la collezione interna di ogni Patient. */
-	    for (Patient patient : res)
-			for (Prestation prestation : allPrestations)
-				// CORRETTO: confronto prestation.getPatient().getId() con l'ID del paziente
-				// Accedo all'ID del paziente tramite l'oggetto patient dentro prestation
-	            if(prestation.getPatient().getId() == patient.getId())
-					patient.addPrestations(prestation);
+	    List<Prestation> allPrestations;
+		try {
+			allPrestations = prestationRepo.findAll();
+			/* Associazione Bidirezionale tra Entità:
+			 * Patient (1) → (*) Prestation   
+			 * Il pattern di associazione viene costruito manualmente confrontando gli ID.
+			 * Questo approccio materializza la relazione one-to-many tra pazienti e
+			 * prestazioni, popolando la collezione interna di ogni Patient. */
+			for (Patient patient : res)
+				for (Prestation prestation : allPrestations)
+					// CORRETTO: confronto prestation.getPatient().getId() con l'ID del paziente
+					// Accedo all'ID del paziente tramite l'oggetto patient dentro prestation
+					if(prestation.getPatient().getId() == patient.getId())
+						patient.addPrestations(prestation);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	    
 	    return res;
 	}
 	/** Recupera un paziente in base al suo ID, con opzione per caricare o meno
