@@ -101,31 +101,6 @@ public class Context {
 
 **La mia soluzione**: Ho implementato un flag `complete` che decide la strategia di caricamento.
 
-```java
-// src/com/generation/pl/model/repository/SQLRepository/StudentRepositorySQL.java
-public Student findById(int id, boolean complete) throws SQLException {
-    return !complete ? findByIdNaked(id) : findById(id);
-}
-
-@Override
-public List<Student> findWhere(String cond) {
-    LessonRepository lessonRepo = Context.getDependency(LessonRepository.class);
-    List<Student> res = super.findWhere(cond);
-
-    // CARICO TUTTE LE LEZIONI UNA VOLTA SOLA
-    List<Lesson> allLessons = lessonRepo.findAll();
-
-    // POI LE ASSOCIO AGLI STUDENTI IN MEMORIA
-    for (Student student : res)
-        for (Lesson lesson : allLessons)
-            if (lesson.getStudent() != null &&
-                lesson.getStudent().getId() == student.getId())
-                student.getLessons().add(lesson);
-
-    return res;
-}
-```
-
 **Perché questa scelta**:
 - **Lazy loading** (`complete=false`): Query veloce quando non servono le relazioni (es. login)
 - **Eager loading** (`complete=true`): Carico tutto in **2 query** invece di N+1 (studenti + lezioni)
@@ -139,28 +114,6 @@ public List<Student> findWhere(String cond) {
 
 **La soluzione**: Un factory centralizzato che crea tutte le istanze di ReflectionView come singleton e fornisce metodi comodi per il rendering.
 
-```java
-// src/com/generation/pl/view/ViewFactory.java
-public class ViewFactory {
-    // Template caricati UNA VOLTA e riutilizzati
-    private static final ReflectionView studentDetailTxt =
-        new ReflectionView("template/txt/student/student_detail.txt");
-    private static final ReflectionView studentDetailHtml =
-        new ReflectionView("template/html/student/student_detail.html");
-    // ... altri template
-
-    public static ReflectionView make(String entity, String format, String purpose) {
-        String key = entity + "_" + format + "_" + purpose;
-        // ritorna il template corretto in base alla combinazione
-    }
-
-    // Metodi di convenienza
-    public static String renderLessonsListTXT(List<Lesson> lessons) {
-        return lessonsListTxt.render(lessons);
-    }
-}
-```
-
 **Perché questa scelta**:
 - **DRY**: Non ripeto il caricamento dei template in ogni controller
 - **Memory efficient**: Ogni template esiste una volta sola in memoria
@@ -173,39 +126,12 @@ public class ViewFactory {
 **La mia soluzione**:
 
 1. **Interface-based hashing** - Posso cambiare algoritmo senza toccare il codice
-```java
-// src/com/generation/pl/security/PasswordHasher.java
-public interface PasswordHasher {
-    String hash(String plainPassword);
-}
 
-// src/com/generation/pl/security/MD5PasswordHasher.java
-public class MD5PasswordHasher implements PasswordHasher {
-    public String hash(String plainPassword) {
-        MessageDigest md = MessageDigest.getInstance("MD5");
-        byte[] hash = md.digest(plainPassword.getBytes());
-        return bytesToHex(hash);
-    }
-}
-```
 
 2. **Metodo dedicato per cambio password** - La password NON è inclusa in `getUpdateCmd()`
-```java
-public void changePassword(int id, String oldPassword, String newPassword) throws SQLException {
-    // 1. Verifica vecchia password
-    // 2. Hash della nuova password
-    // 3. Update SOLO del campo password
-}
-```
+
 
 3. **Password expiration per Admin** - Ogni 14 giorni devono cambiarla
-```java
-public boolean needsPasswordChange() {
-    if (dateLastPasswordChange == null) return true;
-    long daysSince = ChronoUnit.DAYS.between(dateLastPasswordChange, LocalDate.now());
-    return daysSince >= 14;
-}
-```
 
 **Perché queste scelte**:
 - **Sicurezza**: Impedisco modifiche accidentali della password
@@ -218,21 +144,7 @@ public boolean needsPasswordChange() {
 
 **La mia soluzione**: Salvo le materie come CSV nel campo `subjectsCSV` della tabella teachers: `"JAVA,SQL,PYTHON"`.
 
-```java
-// src/com/generation/pl/model/entities/Teacher.java
-public void setSubjects(String subjectsCSV) {
-    String[] subjectsArray = subjectsCSV.split(",");
-    for (String subject : subjectsArray) {
-        this.subjects.add(Subject.valueOf(subject));
-    }
-}
 
-public String getSubjects() {
-    return subjects.stream()
-        .map(Subject::name)
-        .collect(Collectors.joining(","));
-}
-```
 
 **Perché questa scelta**:
 - **Semplicità**: Evito le JOIN nelle query più comuni
@@ -245,23 +157,6 @@ public String getSubjects() {
 
 **Il problema**: I report devono essere salvati in cartelle organizzate per formato (txt/html) e ruolo (admin/teachers/students).
 
-```java
-// src/com/generation/pl/controller/utils/FileExporter.java
-public static void save(String content, String format, String entity, String filename) {
-    String dirPath = "print/" + format + "/" + entity;
-    ensureDirectoryExists(dirPath);  // crea la struttura se non esiste
-    FileWriter.writeTo(dirPath + "/" + filename, content);
-}
-
-// Uso nei controller
-String lessonsListTxt = ViewFactory.renderLessonsListTXT(lessons);
-FileExporter.save(lessonsListTxt, "txt", "students", "history_" + id + ".txt");
-// Salva in: print/txt/students/history_123.txt
-
-String lessonsListHtml = ViewFactory.renderLessonsListHTML(lessons);
-FileExporter.save(lessonsListHtml, "html", "students", "history_" + id + ".html");
-// Salva in: print/html/students/history_123.html
-```
 
 **Perché questa scelta**:
 - **Organizzazione**: Non mi perdo tra centinaia di file
@@ -274,7 +169,7 @@ FileExporter.save(lessonsListHtml, "html", "students", "history_" + id + ".html"
 
 ```
 ┌──────────────────────────────────────────────┐
-│           PRESENTATION LAYER                  │
+│           PRESENTATION LAYER                 │
 │  Controllers (AdminMain, TeacherMain, etc.)  │  ← Menu e workflow utente
 └────────────────┬─────────────────────────────┘
                  │
@@ -287,12 +182,12 @@ FileExporter.save(lessonsListHtml, "html", "students", "history_" + id + ".html"
 └────────────────┬───┘  └─────────────────────┘
                  │
 ┌────────────────▼─────────────────────────────┐
-│           DATA ACCESS LAYER                   │
-│  Repository Interfaces + SQL Implementations  │  ← Abstraction del DB
+│           DATA ACCESS LAYER                  │
+│  Repository Interfaces + SQL Implementations │  ← Abstraction del DB
 └────────────────┬─────────────────────────────┘
                  │
 ┌────────────────▼─────────────────────────────┐
-│           PERSISTENCE LAYER                   │
+│           PERSISTENCE LAYER                  │
 │  SQLite Database (pl.db)                     │  ← Dati persistenti
 └──────────────────────────────────────────────┘
 ```
@@ -614,3 +509,4 @@ PrivateLessons/
 Progetto Business Applications - Generation Italy Java Course
 
 *Questo progetto rappresenta un punto di svolta nel mio percorso di apprendimento Java, dove ho iniziato a pensare in termini di pattern enterprise e soluzioni scalabili anziché solo "far funzionare il codice".*
+
