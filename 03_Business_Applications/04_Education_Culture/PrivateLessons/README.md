@@ -1,418 +1,616 @@
-# Private Lessons Management System
+# Private Lessons - Sistema di Gestione Lezioni Private
 
-A comprehensive Java-based platform for managing private lessons, teachers, students, and administrative operations with advanced reporting capabilities.
+Un sistema completo per la gestione di lezioni private che mette in pratica pattern enterprise e la Reflection API di Java. Sviluppato durante il corso Generation Italy, questo progetto rappresenta un'evoluzione significativa rispetto ai progetti precedenti, introducendo concetti avanzati come dependency injection, template rendering dinamico e strategie di caricamento dati.
 
-## 📋 Table of Contents
+## Indice
 
-- [Overview](#overview)
-- [Features](#features)
-- [System Architecture](#system-architecture)
-- [Database Schema](#database-schema)
-- [Installation](#installation)
-- [Usage](#usage)
-- [User Roles](#user-roles)
-- [Report System](#report-system)
-- [Technologies](#technologies)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
+- [Il Problema](#il-problema)
+- [Scelte di Design](#scelte-di-design)
+- [Architettura del Sistema](#architettura-del-sistema)
+- [Come Funziona](#come-funziona)
+- [Setup e Utilizzo](#setup-e-utilizzo)
+- [Struttura Database](#struttura-database)
 
-## 🎯 Overview
+## Il Problema
 
-Private Lessons is a complete management system designed to streamline the organization of educational services. The platform manages three types of users (Students, Teachers, and Administrators) with dedicated interfaces and functionalities for each role.
+Il sistema deve gestire tre tipologie di utenti (Studenti, Insegnanti, Amministratori) con workflow completamente diversi tra loro:
 
-### Key Highlights
+- Gli **studenti** cercano insegnanti per materia, prenotano lezioni e tengono traccia delle spese
+- Gli **insegnanti** gestiscono il calendario e calcolano i guadagni per periodi personalizzati
+- Gli **amministratori** creano utenti, controllano lo stato degli account e generano report sui guadagni
 
-- **Multi-role system** with distinct permissions and capabilities
-- **Advanced reporting** with both TXT and HTML export formats
-- **Template-based views** using reflection for dynamic rendering
-- **Secure authentication** with password hashing (MD5) and expiration policies
-- **SQLite database** with complete CRUD operations
-- **Earnings tracking** with customizable date ranges
-- **Subject-based teacher search** for students
+La sfida principale: evitare la duplicazione del codice mantenendo al contempo logiche separate per ogni ruolo.
 
-## ✨ Features
+## Scelte di Design
 
-### For Students
-- 🔍 Search teachers by subject
-- 📅 Book lessons with preferred teachers
-- 📊 View personal lesson history
-- 💰 Track total expenses
-- 🧾 Generate lesson receipts (HTML)
-- 📁 Export data in TXT/HTML formats
+### 1. ReflectionView - Template Rendering Dinamico
 
-### For Teachers
-- 📋 View all lessons (past and upcoming)
-- 📆 Check next week's schedule
-- 💵 Calculate earnings by custom date range
-- 📈 Generate earnings reports (TXT/HTML)
-- 👥 Manage lesson bookings
+**Il problema**: Creare un sistema di template che funzioni con qualsiasi entità senza dover scrivere codice specifico per ognuna.
 
-### For Administrators
-- 👤 Create and manage teachers, students, and admins
-- 🔄 Change user status (ACTIVE, INACTIVE, BANNED)
-- 📊 View teacher earnings (last 30 days)
-- 📚 Track earnings by subject
-- 👥 View complete user lists
-- 🔐 Enforce password change policies (2-week expiration)
+**La soluzione**: Ho implementato `ReflectionView` che usa la Reflection API di Java per scoprire automaticamente i getter di un'entità e mappare i valori ai placeholder nei template.
 
-## 🏗️ System Architecture
+```java
+// src/com/generation/pl/view/ReflectionView.java
+public String render(Entity entity) {
+    String result = content;
+    Method[] methods = entity.getClass().getMethods();
 
-### Design Patterns
-
-- **MVC Pattern**: Clear separation between Model, View, and Controller
-- **Repository Pattern**: Abstraction layer for data access
-- **Factory Pattern**: ViewFactory for centralized template management
-- **Dependency Injection**: Context-based dependency management
-- **Reflection API**: Dynamic entity rendering in views
-
-### Core Components
-
-```
-┌─────────────────┐
-│   Controllers   │  ← User interaction logic
-└────────┬────────┘
-         │
-┌────────▼────────┐
-│      Model      │  ← Business logic & entities
-│   (Entities)    │
-└────────┬────────┘
-         │
-┌────────▼────────┐
-│  Repositories   │  ← Data access layer
-│   (SQL/Demo)    │
-└────────┬────────┘
-         │
-┌────────▼────────┐
-│    Database     │  ← SQLite persistence
-│   (pl.db)       │
-└─────────────────┘
+    for (Method m : methods) {
+        if (m.getName().startsWith("get")) {
+            String fieldName = m.getName().substring(3).toLowerCase();
+            String placeholder = "[" + fieldName + "]";
+            Object value = m.invoke(entity);
+            result = result.replace(placeholder, value.toString());
+        }
+    }
+    return result;
+}
 ```
 
-## 🗄️ Database Schema
+**Perché questa scelta**:
+- **Zero duplicazione**: Un'unica classe gestisce il rendering di Student, Teacher, Lesson, Admin
+- **Manutenibilità**: Aggiungo un campo a un'entità? Il template lo riconosce automaticamente
+- **Apprendimento**: Mi ha permesso di capire come funziona la Reflection API in un contesto reale
 
-### Main Tables
+**Il trade-off**: La Reflection è più lenta dell'accesso diretto, ma ho ottimizzato caricando i template **una sola volta** nel costruttore invece di leggerli dal disco ogni volta.
 
-**users**
-- Common fields for all user types (id, firstName, lastName, email, password, ssn, status)
+### 2. Context - Dependency Injection "Fatta in Casa"
 
-**teachers**
-- Extends users with: bio, pricePerLesson, subjectsCSV
+**Il problema**: Evitare che ogni controller crei le proprie istanze dei repository, causando connessioni multiple al database e sprechi di memoria.
 
-**students**
-- Extends users (inherits all fields from users table)
+**La soluzione**: Ho creato un container IoC (Inversion of Control) statico che inizializza tutte le dipendenze una volta sola e le fornisce ai controller tramite generics.
 
-**admins**
-- Extends users with: dateLastPasswordChange
+```java
+// src/com/generation/context/Context.java
+public class Context {
+    private static List<Object> dependencies = new ArrayList<>();
 
-**lessons**
-- id, teacherId, studentId, date, hour, price
-- Foreign keys to teachers and students
+    static {
+        Connection connection = ConnectionFactory.make("pl.db");
+        dependencies.add(connection);
+        dependencies.add(new MD5PasswordHasher());
+        dependencies.add(new TeacherRepositorySQL(...));
+        dependencies.add(new StudentRepositorySQL(...));
+        dependencies.add(new LessonRepositorySQL(...));
+        dependencies.add(new AdminRepositorySQL(...));
+    }
 
-### Subject Enum
-Supported subjects: JAVA, PYTHON, JAVASCRIPT, SQL, HTML, CSS, REACT, ANGULAR, SPRING, NODEJS
-
-## 📦 Installation
-
-### Prerequisites
-
-- Java JDK 11 or higher
-- SQLite JDBC driver (included in `lib/`)
-- Generation Library (custom framework)
-
-### Setup Steps
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/private-lessons.git
-   cd private-lessons
-   ```
-
-2. **Verify dependencies**
-   ```bash
-   ls lib/
-   # Should show: sqlite-jdbc-*.jar, generation-library.jar
-   ```
-
-3. **Compile the project**
-   ```bash
-   javac -cp ".:lib/*" -d bin src/com/generation/pl/**/*.java
-   ```
-
-4. **Initialize the database**
-   - The database `pl.db` will be created automatically on first run
-   - Or use the provided database file if available
-
-5. **Run the application**
-   ```bash
-   java -cp ".:lib/*:bin" com.generation.pl.controller.Main
-   ```
-
-## 🚀 Usage
-
-### First Time Setup
-
-On first launch, if no administrators exist, you'll be prompted to create the first admin account:
-
-```
-=== FIRST ADMIN SETUP ===
-No administrators found in the system.
-Please create the first admin account.
-
-Enter first name: John
-Enter last name: Doe
-Enter email: admin@privatelessons.com
-Enter SSN: 123456789
-Enter password: ********
-Confirm password: ********
-
-First admin created successfully!
-You can now restart the application and login.
+    @SuppressWarnings("unchecked")
+    public static <T> T getDependency(Class<T> type) {
+        for (Object dep : dependencies) {
+            if (type.isInstance(dep)) {
+                return (T) dep;
+    }
+        }
+        return null;
+    }
+}
 ```
 
-### Main Menu
+**Perché questa scelta**:
+- **Singleton Pattern**: Una sola connessione al database per tutta l'applicazione
+- **Type Safety**: I generics garantiscono che ricevo l'oggetto del tipo corretto
+- **Centralizzazione**: Modifico le dipendenze in un solo punto
+- **Semplicità**: Più semplice di Spring ma stesso principio
 
-```
-╔════════════════════════════════════════╗
-║     PRIVATE LESSONS MANAGEMENT         ║
-╚════════════════════════════════════════╝
+**Il vantaggio nascosto**: Posso facilmente sostituire `TeacherRepositorySQL` con `DemoTeacherRepository` per i test senza toccare il codice dei controller.
 
-1. Login as STUDENT
-2. Login as TEACHER
-3. Login as ADMIN
-0. Exit
+### 3. Eager vs Lazy Loading - Il Problema N+1
 
-Choose option:
-```
+**Il problema classico**: Se carico 100 studenti e per ognuno carico le sue lezioni, faccio 101 query (1 per gli studenti + 100 per le lezioni di ognuno). Questo è il famoso problema **N+1**.
 
-### Example Workflow
+**La mia soluzione**: Ho implementato un flag `complete` che decide la strategia di caricamento.
 
-**Student Booking a Lesson:**
-1. Login as student
-2. Search for teacher by subject (e.g., JAVA)
-3. View available teachers with prices
-4. Book a lesson by entering teacher ID, date, and hour
-5. Generate receipt for the booked lesson
+```java
+// src/com/generation/pl/model/repository/SQLRepository/StudentRepositorySQL.java
+public Student findById(int id, boolean complete) throws SQLException {
+    return !complete ? findByIdNaked(id) : findById(id);
+}
 
-**Teacher Checking Earnings:**
-1. Login as teacher
-2. Select "Calculate Earnings"
-3. Enter date range (e.g., 2025-01-01 to 2025-12-31)
-4. View earnings summary
-5. Reports saved automatically in `print/txt/teachers/` and `print/html/teachers/`
+@Override
+public List<Student> findWhere(String cond) {
+    LessonRepository lessonRepo = Context.getDependency(LessonRepository.class);
+    List<Student> res = super.findWhere(cond);
 
-## 👥 User Roles
+    // CARICO TUTTE LE LEZIONI UNA VOLTA SOLA
+    List<Lesson> allLessons = lessonRepo.findAll();
 
-### Student
-- **Primary Goal**: Find and book lessons with qualified teachers
-- **Key Actions**: Search, book, view history, generate receipts
-- **Reports**: Lesson history, expense tracking
+    // POI LE ASSOCIO AGLI STUDENTI IN MEMORIA
+    for (Student student : res)
+        for (Lesson lesson : allLessons)
+            if (lesson.getStudent() != null &&
+                lesson.getStudent().getId() == student.getId())
+                student.getLessons().add(lesson);
 
-### Teacher
-- **Primary Goal**: Manage lesson schedule and track earnings
-- **Key Actions**: View lessons, check schedule, calculate earnings
-- **Reports**: Lesson history, next week schedule, earnings by period
-
-### Administrator
-- **Primary Goal**: Oversee platform operations and user management
-- **Key Actions**: Create users, change status, view earnings analytics
-- **Reports**: Teacher earnings, subject earnings, user lists
-- **Security**: Password expiration (14 days), forced password changes
-
-## 📊 Report System
-
-All reports are automatically saved in both **TXT** and **HTML** formats for maximum flexibility.
-
-### Output Directory Structure
-
-```
-print/
-├── txt/
-│   ├── admin/
-│   │   ├── all_teachers.txt
-│   │   ├── teacher_earnings_{id}.txt
-│   │   └── subject_earnings_{subject}.txt
-│   ├── teachers/
-│   │   ├── history_{id}.txt
-│   │   ├── nextweek_{id}.txt
-│   │   └── earnings_{id}.txt
-│   └── students/
-│       ├── teachers_{subject}.txt
-│       └── history_{id}.txt
-├── html/
-│   ├── admin/
-│   │   ├── all_teachers.html
-│   │   ├── teacher_earnings_{id}.html
-│   │   └── subject_earnings_{subject}.html
-│   ├── teachers/
-│   │   ├── history_{id}.html
-│   │   ├── nextweek_{id}.html
-│   │   └── earnings_{id}.html
-│   ├── students/
-│   │   ├── teachers_{subject}.html
-│   │   ├── history_{id}.html
-│   │   └── student_lesson_history_{id}.html
-│   └── lessons/
-│       └── ricevuta_lesson_{id}.html
+    return res;
+}
 ```
 
-### Report Templates
+**Perché questa scelta**:
+- **Lazy loading** (`complete=false`): Query veloce quando non servono le relazioni (es. login)
+- **Eager loading** (`complete=true`): Carico tutto in **2 query** invece di N+1 (studenti + lezioni)
+- **Flessibilità**: Scelgo la strategia in base al contesto
 
-Templates are stored in `template/` directory and use placeholder replacement:
+**Il trade-off**: L'eager loading usa più memoria (carica anche lezioni di studenti che non mi servono), ma evita il problema N+1 che rallenterebbe molto il sistema.
 
-- **TXT Templates**: Plain text with `[placeholder]` syntax
-- **HTML Templates**: Styled HTML5 with modern CSS
-- **Reflection-based rendering**: Automatic getter mapping to placeholders
+### 4. ViewFactory - Pattern Factory per i Template
 
-## 🛠️ Technologies
+**Il problema**: Ogni controller deve sapere quale template usare in base al formato (TXT/HTML) e al tipo di entità (Student/Teacher/Lesson).
 
-### Core Technologies
-- **Java 11+**: Main programming language
-- **SQLite**: Embedded database
-- **JDBC**: Database connectivity
-- **Reflection API**: Dynamic template rendering
+**La soluzione**: Un factory centralizzato che crea tutte le istanze di ReflectionView come singleton e fornisce metodi comodi per il rendering.
 
-### Custom Framework
-- **Generation Library**: Custom MVC framework
-  - `Entity` base class for all models
-  - `Template` engine for view rendering
-  - `Console` utility for I/O operations
-  - `Context` for dependency injection
+```java
+// src/com/generation/pl/view/ViewFactory.java
+public class ViewFactory {
+    // Template caricati UNA VOLTA e riutilizzati
+    private static final ReflectionView studentDetailTxt =
+        new ReflectionView("template/txt/student/student_detail.txt");
+    private static final ReflectionView studentDetailHtml =
+        new ReflectionView("template/html/student/student_detail.html");
+    // ... altri template
 
-### Security
-- **MD5 Password Hashing**: Secure password storage
-- **Password Expiration**: 14-day policy for admins
-- **Session Management**: Login attempt limits (3 max)
-- **Status-based Access**: ACTIVE, INACTIVE, BANNED user states
+    public static ReflectionView make(String entity, String format, String purpose) {
+        String key = entity + "_" + format + "_" + purpose;
+        // ritorna il template corretto in base alla combinazione
+    }
 
-## 📁 Project Structure
+    // Metodi di convenienza
+    public static String renderLessonsListTXT(List<Lesson> lessons) {
+        return lessonsListTxt.render(lessons);
+    }
+}
+```
+
+**Perché questa scelta**:
+- **DRY**: Non ripeto il caricamento dei template in ogni controller
+- **Memory efficient**: Ogni template esiste una volta sola in memoria
+- **API pulita**: `ViewFactory.renderLessonsListTXT(lessons)` è molto più chiaro di costruire manualmente le view
+
+### 5. Password Security - Separazione di Responsabilità
+
+**Il problema**: Le password non devono MAI essere salvate in chiaro e non devono essere modificabili tramite update normali.
+
+**La mia soluzione**:
+
+1. **Interface-based hashing** - Posso cambiare algoritmo senza toccare il codice
+```java
+// src/com/generation/pl/security/PasswordHasher.java
+public interface PasswordHasher {
+    String hash(String plainPassword);
+}
+
+// src/com/generation/pl/security/MD5PasswordHasher.java
+public class MD5PasswordHasher implements PasswordHasher {
+    public String hash(String plainPassword) {
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        byte[] hash = md.digest(plainPassword.getBytes());
+        return bytesToHex(hash);
+    }
+}
+```
+
+2. **Metodo dedicato per cambio password** - La password NON è inclusa in `getUpdateCmd()`
+```java
+public void changePassword(int id, String oldPassword, String newPassword) throws SQLException {
+    // 1. Verifica vecchia password
+    // 2. Hash della nuova password
+    // 3. Update SOLO del campo password
+}
+```
+
+3. **Password expiration per Admin** - Ogni 14 giorni devono cambiarla
+```java
+public boolean needsPasswordChange() {
+    if (dateLastPasswordChange == null) return true;
+    long daysSince = ChronoUnit.DAYS.between(dateLastPasswordChange, LocalDate.now());
+    return daysSince >= 14;
+}
+```
+
+**Perché queste scelte**:
+- **Sicurezza**: Impedisco modifiche accidentali della password
+- **Auditability**: So sempre quando è stata cambiata
+- **Flessibilità**: Domani posso passare a BCrypt cambiando solo `MD5PasswordHasher`
+
+### 6. CSV per le Materie - Denormalizzazione Pratica
+
+**Il problema**: Un insegnante può insegnare più materie (relazione many-to-many). La soluzione "corretta" sarebbe una tabella `teacher_subjects` di join.
+
+**La mia soluzione**: Salvo le materie come CSV nel campo `subjectsCSV` della tabella teachers: `"JAVA,SQL,PYTHON"`.
+
+```java
+// src/com/generation/pl/model/entities/Teacher.java
+public void setSubjects(String subjectsCSV) {
+    String[] subjectsArray = subjectsCSV.split(",");
+    for (String subject : subjectsArray) {
+        this.subjects.add(Subject.valueOf(subject));
+    }
+}
+
+public String getSubjects() {
+    return subjects.stream()
+        .map(Subject::name)
+        .collect(Collectors.joining(","));
+}
+```
+
+**Perché questa scelta**:
+- **Semplicità**: Evito le JOIN nelle query più comuni
+- **Performance**: `SELECT * FROM teachers WHERE subjectsCSV LIKE '%JAVA%'` è veloce
+- **Pragmatismo**: Il numero di materie è limitato (enum), non ho milioni di combinazioni
+
+**Il trade-off**: Non posso fare query complesse tipo "trova insegnanti che insegnano JAVA ma non SQL" senza parsing della stringa. Ma nel mio caso d'uso non serve.
+
+### 7. FileExporter - Organizzazione Automatica
+
+**Il problema**: I report devono essere salvati in cartelle organizzate per formato (txt/html) e ruolo (admin/teachers/students).
+
+```java
+// src/com/generation/pl/controller/utils/FileExporter.java
+public static void save(String content, String format, String entity, String filename) {
+    String dirPath = "print/" + format + "/" + entity;
+    ensureDirectoryExists(dirPath);  // crea la struttura se non esiste
+    FileWriter.writeTo(dirPath + "/" + filename, content);
+}
+
+// Uso nei controller
+String lessonsListTxt = ViewFactory.renderLessonsListTXT(lessons);
+FileExporter.save(lessonsListTxt, "txt", "students", "history_" + id + ".txt");
+// Salva in: print/txt/students/history_123.txt
+
+String lessonsListHtml = ViewFactory.renderLessonsListHTML(lessons);
+FileExporter.save(lessonsListHtml, "html", "students", "history_" + id + ".html");
+// Salva in: print/html/students/history_123.html
+```
+
+**Perché questa scelta**:
+- **Organizzazione**: Non mi perdo tra centinaia di file
+- **Automazione**: Le directory si creano da sole
+- **Consistenza**: La struttura è sempre la stessa
+
+## Architettura del Sistema
+
+### Layer dell'Applicazione
+
+```
+┌──────────────────────────────────────────────┐
+│           PRESENTATION LAYER                  │
+│  Controllers (AdminMain, TeacherMain, etc.)  │  ← Menu e workflow utente
+└────────────────┬─────────────────────────────┘
+                 │
+                 ├─────────────┐
+                 │             │
+┌────────────────▼───┐  ┌──────▼──────────────┐
+│   BUSINESS LAYER   │  │    VIEW LAYER       │
+│  Entities + Logic  │  │  ReflectionView     │  ← Template rendering
+│  (Student, etc.)   │  │  ViewFactory        │
+└────────────────┬───┘  └─────────────────────┘
+                 │
+┌────────────────▼─────────────────────────────┐
+│           DATA ACCESS LAYER                   │
+│  Repository Interfaces + SQL Implementations  │  ← Abstraction del DB
+└────────────────┬─────────────────────────────┘
+                 │
+┌────────────────▼─────────────────────────────┐
+│           PERSISTENCE LAYER                   │
+│  SQLite Database (pl.db)                     │  ← Dati persistenti
+└──────────────────────────────────────────────┘
+```
+
+### Pattern Implementati
+
+1. **MVC (Model-View-Controller)**: Separazione netta tra logica, presentazione e dati
+2. **Repository Pattern**: Astrazione dell'accesso ai dati
+3. **Factory Pattern**: `ViewFactory` centralizza la creazione dei template
+4. **Dependency Injection**: `Context` fornisce le dipendenze
+5. **Strategy Pattern**: Eager/Lazy loading come strategie intercambiabili
+6. **Template Method**: `SQLEntityRepository<T>` definisce il template delle operazioni CRUD
+
+## Come Funziona
+
+### 1. Workflow Studente - Prenotare una Lezione
+
+```
+1. Login → StudentRepositorySQL.findWhere("email=? AND password=?")
+   ↓
+2. Cerca insegnanti → TeacherRepositorySQL.findWhere("subjectsCSV LIKE '%JAVA%'")
+   ↓
+3. Visualizza lista → ViewFactory.renderTeachersListTXT(teachers)
+   ↓
+4. Prenota lezione → LessonRepositorySQL.save(newLesson)
+   ↓
+5. Genera ricevuta → ViewFactory.renderLessonReceiptHTML(lesson)
+   ↓
+6. Salva file → FileExporter.save(receipt, "html", "lessons", "ricevuta_" + id + ".html")
+```
+
+### 2. Workflow Insegnante - Calcolo Guadagni
+
+```
+1. Login → TeacherRepositorySQL.findById(teacherId, complete=false)
+   ↓
+2. Input date → Console.readLine("Start date: ") / Console.readLine("End date: ")
+   ↓
+3. Calcolo guadagni → LessonRepository.calculateEarningsByTeacherIdAndPeriod(id, start, end)
+   Query SQL: SELECT SUM(price) FROM lessons
+              WHERE teacherId=? AND date BETWEEN ? AND ?
+   ↓
+4. Rendering report → ViewFactory.renderTeacherEarningsTXT(teacher, earnings, start, end)
+   ↓
+5. Export doppio → FileExporter.save(..., "txt", ...) + FileExporter.save(..., "html", ...)
+```
+
+### 3. Workflow Admin - Creazione Utente
+
+```
+1. Login + check expiration → admin.needsPasswordChange()
+   ↓ se true
+2. Cambio password forzato → AdminRepositorySQL.changePassword(...)
+   ↓
+3. Menu admin → Scelta "Create Teacher"
+   ↓
+4. Raccolta dati → Collect.collectTeacherData() (DRY: riusa collectUserBaseData())
+   ↓
+5. Validazione → teacher.isValid() [controlla email, SSN, ecc.]
+   ↓
+6. Hash password → MD5PasswordHasher.hash(password)
+   ↓
+7. Salvataggio → TeacherRepositorySQL.save(teacher)
+```
+
+### 4. Sistema di Template - Come Funziona Internamente
+
+**Template di partenza** (`template/html/lessons/lesson_row.html`):
+```html
+<tr>
+    <td>[id]</td>
+    <td>[date]</td>
+    <td>[hour]</td>
+    <td>[teacher.firstname] [teacher.lastname]</td>
+    <td>[subject]</td>
+    <td>€ [price]</td>
+</tr>
+```
+
+**Processo di rendering**:
+```java
+// 1. ReflectionView carica il template (UNA VOLTA nel costruttore)
+private String content = Template.read("template/html/lessons/lesson_row.html");
+
+// 2. Il controller chiede il rendering
+String html = ViewFactory.renderLessonRowHTML(lesson);
+
+// 3. ReflectionView usa reflection per trovare i getter
+Method[] methods = lesson.getClass().getMethods();
+// → getId(), getDate(), getHour(), getTeacher(), getSubject(), getPrice()
+
+// 4. Per ogni metodo sostituisce il placeholder
+for (Method m : methods) {
+    if (m.getName().equals("getId")) {
+        String value = m.invoke(lesson); // es. "42"
+        content = content.replace("[id]", value);
+    }
+    if (m.getName().equals("getTeacher")) {
+        Teacher teacher = (Teacher) m.invoke(lesson);
+        content = content.replace("[teacher.firstname]", teacher.getFirstname());
+        content = content.replace("[teacher.lastname]", teacher.getLastname());
+    }
+    // ... altri campi
+}
+
+// 5. Risultato finale
+<tr>
+    <td>42</td>
+    <td>2025-02-15</td>
+    <td>14:00</td>
+    <td>Marco Rossi</td>
+    <td>JAVA</td>
+    <td>€ 50.00</td>
+</tr>
+```
+
+**Il vantaggio**: Aggiungo il campo `duration` a `Lesson`? Basta aggiungere `[duration]` nel template, nessuna modifica al codice Java.
+
+## Setup e Utilizzo
+
+### Requisiti
+
+- Java 11+
+- SQLite JDBC Driver (incluso in `lib/`)
+- Generation Library (framework custom del corso)
+
+### Prima Configurazione
+
+Al primo avvio, se non esistono amministratori, il sistema entra in modalità setup:
+
+```
+=== PRIMA CONFIGURAZIONE ===
+Nessun amministratore trovato nel sistema.
+Crea il primo account admin.
+
+Nome: Mario
+Cognome: Rossi
+Email: admin@privatelessons.com
+SSN: 123456789
+Password: ********
+Conferma password: ********
+
+Primo admin creato con successo!
+```
+
+### Compilazione ed Esecuzione
+
+```bash
+# Compila
+javac -cp ".:lib/*" -d bin src/com/generation/**/*.java
+
+# Esegui
+java -cp ".:lib/*:bin" com.generation.pl.controller.Main
+```
+
+### Funzionalità Principali
+
+**Studenti**:
+- Cerca insegnanti per materia (es. `JAVA`, `SQL`)
+- Prenota lezioni indicando data e ora
+- Visualizza storico lezioni e spesa totale
+- Genera ricevute in formato HTML
+
+**Insegnanti**:
+- Visualizza tutte le lezioni (passate e future)
+- Controlla calendario della prossima settimana
+- Calcola guadagni per periodo personalizzato
+- Esporta report in TXT e HTML
+
+**Amministratori**:
+- Crea e gestisce utenti (studenti, insegnanti, altri admin)
+- Cambia stato utenti (ACTIVE, INACTIVE, SUSPENDED)
+- Visualizza guadagni insegnanti ultimi 30 giorni
+- Traccia guadagni per materia
+- Password expiration automatica ogni 14 giorni
+
+## Struttura Database
+
+### Schema Principale
+
+```sql
+-- Tabella base per tutti gli utenti
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    firstName TEXT NOT NULL,
+    lastName TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,  -- MD5 hash
+    ssn TEXT UNIQUE NOT NULL,
+    dob TEXT,
+    status TEXT DEFAULT 'ACTIVE'  -- ACTIVE, INACTIVE, SUSPENDED
+);
+
+-- Estensione per insegnanti
+CREATE TABLE teachers (
+    id INTEGER PRIMARY KEY,
+    bio TEXT,
+    pricePerLesson REAL NOT NULL,
+    subjectsCSV TEXT NOT NULL,  -- "JAVA,SQL,PYTHON"
+    FOREIGN KEY (id) REFERENCES users(id)
+);
+
+-- Estensione per studenti (eredita solo da users)
+CREATE TABLE students (
+    id INTEGER PRIMARY KEY,
+    FOREIGN KEY (id) REFERENCES users(id)
+);
+
+-- Estensione per admin
+CREATE TABLE admins (
+    id INTEGER PRIMARY KEY,
+    dateLastPasswordChange TEXT,
+    FOREIGN KEY (id) REFERENCES users(id)
+);
+
+-- Lezioni
+CREATE TABLE lessons (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    teacherId INTEGER NOT NULL,
+    studentId INTEGER NOT NULL,
+    date TEXT NOT NULL,
+    hour TEXT NOT NULL,
+    price REAL NOT NULL,
+    subject TEXT NOT NULL,
+    FOREIGN KEY (teacherId) REFERENCES teachers(id),
+    FOREIGN KEY (studentId) REFERENCES students(id)
+);
+```
+
+### Enum Supportati
+
+**Subject**: `JAVA`, `PYTHON`, `JAVASCRIPT`, `SQL`, `HTML`, `CSS`, `REACT`, `ANGULAR`, `SPRING`, `NODEJS`
+
+**UserStatus**: `ACTIVE`, `INACTIVE`, `SUSPENDED`
+
+## Struttura Progetto
 
 ```
 PrivateLessons/
-├── src/
-│   └── com/generation/
-│       ├── context/
-│       │   └── Context.java
-│       └── pl/
-│           ├── controller/
-│           │   ├── Main.java
-│           │   ├── AdminMain.java
-│           │   ├── TeacherMain.java
-│           │   ├── StudentMain.java
-│           │   └── utils/
-│           │       ├── Collect.java
-│           │       ├── FileExporter.java
-│           │       └── InputValidator.java
-│           ├── model/
-│           │   ├── entities/
-│           │   │   ├── User.java
-│           │   │   ├── Admin.java
-│           │   │   ├── Teacher.java
-│           │   │   ├── Student.java
-│           │   │   ├── Lesson.java
-│           │   │   ├── Subject.java (enum)
-│           │   │   └── UserStatus.java (enum)
-│           │   └── repository/
-│           │       ├── interfaces/
-│           │       │   ├── AdminRepository.java
-│           │       │   ├── TeacherRepository.java
-│           │       │   ├── StudentRepository.java
-│           │       │   └── LessonRepository.java
-│           │       └── SQLRepository/
-│           │           ├── AdminRepositorySQL.java
-│           │           ├── TeacherRepositorySQL.java
-│           │           ├── StudentRepositorySQL.java
-│           │           └── LessonRepositorySQL.java
-│           ├── view/
-│           │   ├── ReflectionView.java
-│           │   ├── ViewController.java
-│           │   └── ViewFactory.java
-│           └── security/
-│               ├── PasswordHasher.java
-│               └── MD5PasswordHasher.java
+├── src/com/generation/
+│   ├── context/
+│   │   └── Context.java                    # IoC Container
+│   └── pl/
+│       ├── controller/
+│       │   ├── Main.java                    # Entry point
+│       │   ├── AdminMain.java               # Menu admin
+│       │   ├── TeacherMain.java             # Menu insegnanti
+│       │   ├── StudentMain.java             # Menu studenti
+│       │   └── utils/
+│       │       ├── Collect.java             # Input utente (DRY)
+│       │       └── FileExporter.java        # Export organizzato
+│       ├── model/
+│       │   ├── entities/
+│       │   │   ├── User.java                # Classe base
+│       │   │   ├── Admin.java               # + password expiration
+│       │   │   ├── Teacher.java             # + bio, price, subjects
+│       │   │   ├── Student.java             # + lessons list
+│       │   │   ├── Lesson.java              # + teacher, student refs
+│       │   │   ├── Subject.java (enum)
+│       │   │   └── UserStatus.java (enum)
+│       │   └── repository/
+│       │       ├── interfaces/
+│       │       │   ├── AdminRepository.java
+│       │       │   ├── TeacherRepository.java
+│       │       │   ├── StudentRepository.java
+│       │       │   └── LessonRepository.java
+│       │       └── SQLRepository/
+│       │           ├── AdminRepositorySQL.java
+│       │           ├── TeacherRepositorySQL.java   # + eager loading
+│       │           ├── StudentRepositorySQL.java   # + eager loading
+│       │           └── LessonRepositorySQL.java    # + earnings queries
+│       ├── view/
+│       │   ├── ReflectionView.java          # Template engine (reflection)
+│       │   ├── ViewController.java
+│       │   └── ViewFactory.java             # Template singleton factory
+│       └── security/
+│           ├── PasswordHasher.java          # Interface
+│           └── MD5PasswordHasher.java       # Implementazione
 ├── template/
+│   ├── txt/                                 # Template testo
+│   │   ├── menu/ admin/ teacher/ student/ lessons/
+│   └── html/                                # Template HTML + CSS
+│       ├── admin/ teacher/ student/ lessons/
+├── print/                                   # Output generato
 │   ├── txt/
-│   │   ├── menu/
-│   │   ├── admin/
-│   │   ├── teacher/
-│   │   ├── student/
-│   │   └── lessons/
+│   │   ├── admin/ teachers/ students/
 │   └── html/
-│       ├── admin/
-│       ├── teacher/
-│       ├── student/
-│       └── lessons/
-├── print/
-│   ├── txt/
-│   └── html/
+│       ├── admin/ teachers/ students/ lessons/
 ├── lib/
-│   ├── sqlite-jdbc-*.jar
-│   └── generation-library.jar
-├── pl.db
+│   ├── sqlite-jdbc-3.x.x.jar
+│   └── generation-library.jar              # Framework custom corso
+├── pl.db                                    # Database SQLite
 └── README.md
 ```
 
-## 🔒 Security Features
+## Cosa Ho Imparato
 
-### Password Security
-- **MD5 Hashing**: All passwords stored as hashed values
-- **Password Confirmation**: Double-entry verification on creation
-- **Expiration Policy**: 14-day forced change for admins
-- **Old Password Verification**: Required for password changes
+1. **Reflection API**: Come usarla per creare soluzioni generiche e riutilizzabili
+2. **Dependency Injection**: Il principio IoC senza framework esterni
+3. **Strategie di Caricamento**: Differenza tra eager e lazy loading e quando usarli
+4. **Denormalizzazione Pratica**: A volte violare le regole di normalizzazione migliora le performance
+5. **Separazione di Responsabilità**: Ogni classe ha un compito preciso
+6. **Template Pattern**: Come separare la struttura dal contenuto
+7. **Security Best Practices**: Hash delle password, expiration policy, metodi dedicati
+8. **Performance Optimization**: Caching dei template, singleton per le connessioni
 
-### Access Control
-- **Role-based Access**: Distinct menus and permissions per role
-- **Status Management**: ACTIVE/INACTIVE/BANNED user states
-- **Session Security**: Login attempt limits
-- **Data Isolation**: Users can only access their own data
+## Tecnologie
 
-### Input Validation
-- **Email Format**: Regex validation for email addresses
-- **SSN Format**: 9-digit numeric validation
-- **Date Format**: ISO 8601 (YYYY-MM-DD) validation
-- **Subject Validation**: Enum-based subject verification
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these guidelines:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Code Style
-- Follow Java naming conventions
-- Use meaningful variable names
-- Add JavaDoc comments for public methods
-- Keep methods focused and concise
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👨‍💻 Author
-
-**Viorica Gabriela Hacman**
-
-- GitHub: [@vhacman](https://github.com/vhacman)
-- Project: Generation Italy Java Course - Business Applications Module
-
-## 🙏 Acknowledgments
-
-- Generation Italy for the Java development course
-- Custom Generation Library framework
-- SQLite team for the embedded database
-- All contributors and testers
-
-## 📞 Support
-
-For issues, questions, or suggestions:
-- Open an issue on GitHub
-- Contact the author directly
-- Check the documentation in the `docs/` folder
+- **Java 11** - Linguaggio principale
+- **SQLite** - Database embedded
+- **JDBC** - Connettività database
+- **Reflection API** - Rendering dinamico
+- **Generation Library** - Framework MVC custom
+- **MD5** - Hashing password (nota: in produzione userei BCrypt)
 
 ---
 
-**Built with ☕ and passion for education**
+**Sviluppato da Viorica Gabriela Hacman**
+Progetto Business Applications - Generation Italy Java Course
+
+*Questo progetto rappresenta un punto di svolta nel mio percorso di apprendimento Java, dove ho iniziato a pensare in termini di pattern enterprise e soluzioni scalabili anziché solo "far funzionare il codice".*
