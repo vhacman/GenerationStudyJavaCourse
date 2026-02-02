@@ -1,0 +1,17 @@
+# Application properties
+**/application.properties
+**/application-*.properties
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.DS_Store
+
+# Build
+target/
+build/
+*.class
+
+# Logs
+*.log
