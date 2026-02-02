@@ -14,7 +14,8 @@ GenerationStudyJavaCourse/
 ├── 📘 01_Fundamentals_Examples/      # Concetti base, strutture dati e OOP
 ├── 🚆 02_Tickets_Transportation/     # Sistemi di biglietteria e trasporti
 ├── 💼 03_Business_Applications/      # Applicazioni business e gestionali
-└── 🎯 04_Exercises_Practice/         # Esercizi extra e pratica
+├── 🎯 04_Exercises_Practice/         # Esercizi extra e pratica
+└── 🌱 05_Spring/                     # Spring Boot, JPA e Database
 
 ```
 
@@ -135,6 +136,31 @@ La sezione business è organizzata in 4 sottocategorie tematiche:
 
 </details>
 
+### 🌱 Progetti Spring Boot (05_Spring/)
+
+<details>
+<summary><b>Clicca per vedere i progetti Spring</b></summary>
+
+| Progetto | Descrizione | Tecnologie |
+| --- | --- | --- |
+| **[Emergency](05_Spring/emergency/README.md)** | Sistema gestione pronto soccorso ospedaliero | Spring Boot 4.0.2, Spring Data JPA, Thymeleaf, MySQL, Maven |
+
+**Caratteristiche Emergency:**
+- Gestione ospedali con code pronto soccorso
+- Controller MVC con Thymeleaf
+- REST API per integrazione dati
+- Repository Pattern con Spring Data JPA
+- Entità JPA con annotazioni (@Entity, @Id, @GeneratedValue)
+- Dependency Injection con Spring IoC Container
+
+**Pattern Implementati:**
+- MVC Pattern (Model-View-Controller)
+- Repository Pattern
+- RESTful API Design
+- IoC (Inversion of Control)
+
+</details>
+
 ---
 
 ## 📊 Statistiche Progetti
@@ -146,13 +172,17 @@ La sezione business è organizzata in 4 sottocategorie tematiche:
 | 🚆 Trasporti | 9 progetti | Intermedio |
 | 💼 Business | **43 progetti** (8+14+12+9) | Avanzato |
 | 🎯 Esercizi | 4 progetti | Vario |
-| **TOTALE** | **71 progetti** | **Completo** |
+| 🌱 Spring | 1 progetto | Spring Boot |
+| **TOTALE** | **72 progetti** | **Completo** |
 
 **Business Applications - Dettaglio:**
 - 🏨 Hospitality & Tourism: 8 progetti
 - 🛒 Commerce & Services: 14 progetti (7 base + 7 enterprise)
 - 🚆 Transportation & Logistics: 12 progetti
 - 🎓 Education & Culture: 9 progetti
+
+**Spring Boot Projects:**
+- 🌱 Spring Boot & JPA: 1 progetto (Emergency System)
 
 ---
 
