@@ -1,0 +1,240 @@
+<!--
+================================================================================
+CONCETTI TEORICI FONDAMENTALI - HTML, CSS, JAVASCRIPT
+================================================================================
+
+HTML - LA STRUTTURA
+-------------------
+HTML è composto da TAG (o ELEMENTI) che sono i mattoni della pagina.
+Struttura: <html> contiene <head> (info non visibili: title, script, style)
+e <body> (contenuto visibile all'utente).
+
+ATTRIBUTI: Ogni tag può avere attributi (type, name, value) che forniscono
+proprietà specifiche. I FORM sono contenitori di controlli input per raccogliere
+dati dall'utente.
+
+
+JAVASCRIPT - L'INTERATTIVITÀ
+-----------------------------
+LINGUAGGIO PARASSITARIO: Vive dentro HTML ma ha regole proprie. Rende la pagina
+dinamica e interattiva.
+
+TIPIZZAZIONE DEBOLE: Il tipo di una variabile dipende dal suo contenuto.
+Se metti un numero, diventa numero. Se metti una stringa, diventa stringa.
+
+MODELLO DOM: Ciò che per HTML è un TAG, per JavaScript è un OGGETTO.
+Un tag <form name="formfood"> crea automaticamente l'oggetto "formfood".
+Un input con name="carbs" diventa "formfood.carbs".
+JavaScript accede direttamente agli elementi tramite i loro nomi.
+
+EVENTI E GESTORI: Un EVENTO è un'azione (click, modifica campo, ecc.).
+Le funzioni vengono DEFINITE ma NON ESEGUITE subito. Restano in attesa di essere
+RICHIAMATE da un evento. "onChange" specifica quale funzione eseguire quando
+cambia il contenuto. La funzione è il GESTORE dell'evento.
+
+FLUSSO INPUT/OUTPUT:
+1. INPUT: JavaScript legge dati dai controlli form
+2. ELABORAZIONE: Esegue calcoli sui dati
+3. OUTPUT: Aggiorna la pagina (modifica valori, abilita/disabilita controlli)
+
+
+CSS - LA PRESENTAZIONE
+----------------------
+SECONDO LINGUAGGIO PARASSITARIO: Si occupa della grafica degli elementi HTML.
+Linguaggio diverso con sintassi propria.
+
+REGOLE CSS: Composte da SELETTORE (quali elementi) + PROPRIETÀ (come stilizzarli).
+
+SELETTORI:
+- Per tipo: BODY, H1, DIV (tutti gli elementi di quel tipo)
+- Per attributo: INPUT[type=text] (elementi con specifici attributi)
+- Per ID: #info (elemento con id specifico)
+- Per stato: :focus (elemento in focus)
+- Per gerarchia: #info>i (elemento i dentro elemento con id=info)
+
+PROPRIETÀ: Controllano colori, dimensioni, spaziature, bordi, font, posizionamento
+(display, margin, padding, background-color, color, ecc.)
+
+
+VALIDAZIONE LATO CLIENT
+------------------------
+JavaScript valida i dati prima di inviarli al server. Controlla campi obbligatori,
+valori numerici corretti, formati validi. Abilita/disabilita controlli (es. pulsante
+"save") in base alla validità dei dati. Proprietà "disabled" rende un controllo
+non interattivo.
+
+
+INTEGRAZIONE
+------------
+- HTML: struttura e contenuto
+- CSS: presentazione e estetica
+- JavaScript: logica e interattività
+
+Tre linguaggi diversi che lavorano insieme in modo sinergico per creare
+l'esperienza web completa.
+
+================================================================================
+-->
+
+<html>
+	<!-- tag o ELEMENTI -->
+	<head>
+		<title> Food Registration Form </title>
+		<script>
+
+			function checkForm()
+			{
+				let valid = formfood.carbs.value >= 0        &&
+							formfood.proteins.value >= 0     &&
+							formfood.fats.value     >= 0     &&
+							formfood.name.value     !=      '';
+
+				formfood.savebutton.disabled = !valid;
+
+			}
+			function updateCalories()
+			{
+				// Javascript ha accesso agli elementi della pagina
+				// quelli che per la pagina sono tag, per javascript sono oggetti
+
+				// Javascript NON è tipizzato. O meglio è a tipizzazione debole
+				// il tipo di una variabile è dato dal suo contenuto
+				// ho messo un numero in carbs, carbs è diventato un numero
+				// PRENDO TRE DATI DALLA FORM. FASE DI INPUT
+				let carbs = formfood.carbs.value;
+				let proteins = formfood.proteins.value;
+				let fats = formfood.fats.value;
+
+				let calories = carbs * 4 + proteins * 4 + fats * 9;
+
+				// AGGIORNO LA FORM
+				// COL MIO RISULTATO
+				// FASE DI OUTPUT
+				formfood.calories.value = calories;
+				checkForm();
+			} // è DEFINITA QUI
+			// non è RICHIAMATA QUI
+			// verrà richiamata quando qualcuno cambierà
+			// carboidrati, proteine o grassi
+		</script>
+		<style>
+			/**
+				primo mitocondrio inserito
+				primo linguaggio parassitario DENTRO html
+				CSS. Linguaggio completamente diverso
+				con regole diverse
+				che però grafica gli ELEMENTI della pagina!
+				CSS è composto di REGOLE di GRAFICA
+				scriverete CSS ovunque. In HTML, fuori
+				in cielo, nel javascript...
+			*/
+
+			BODY, H1, DIV
+			{
+				font-family:'Arial';
+			}
+
+			BODY
+			{
+				padding-left:1em;
+			}
+
+			/*
+				sto dicendo alle caselle di testo che devono prendere
+				una riga da sole. display:block
+			*/
+			INPUT[type=text], INPUT[type=number]
+			{
+				display:block;
+				margin-top:0.2em;
+				margin-bottom:0.8em;
+				border:0px;
+				padding:0.2em;
+				background-color:rgb(221, 221, 249);
+				width:100%;
+				color:#222;
+			}
+
+			INPUT[type=button]
+			{
+				width:100%;
+				border:0px;
+				padding:0.2em;
+				font-size:110%;
+			}
+
+			INPUT:focus
+			{
+				color:black;
+				font-weight:bold;
+			}
+
+			H1
+			{
+				border-bottom:2px solid black;
+				padding-bottom:0.1em;
+			}
+
+			/*
+				ora grafico per id
+				elemento con id = info
+			*/
+			#info
+			{
+				text-align:justify;
+				font-size:90%;
+			}
+			/*
+				l'elemento i dentro l'elemento con id = info
+			*/
+			#info>i
+			{
+				color:blue;
+			}
+
+		</style>
+	</head>
+	<body>
+		<!-- h1 => Header 1, titolo principale -->
+		<h1> Food Registration Form </h1>
+
+		<!-- scatola da graficare o da riempire -->
+		<div>
+			<!-- quando io ho creato il tag form per Javascript è nato un oggetto formfood -->
+			<form name="formfood">
+				<!-- MODULO DI INSERIMENTO DATI -->
+				Nome
+				<!-- questo è un "controllo", un tag di input -->
+				<!-- name = Console.readString() -->
+				<!-- type e name sono ATTRIBUTI del tag input -->
+
+				<input type="text" name="name" onChange="checkForm()" />
+				Carboidrati
+				<!-- quando ho creato questo tag per javascript è nato formfood.carbs-->
+				<!-- formfood.carbs = new Input("carbs", "number", 0)-->
+				<!-- gli attributi sono proprietà degli oggetti -->
+				<input type="number" name="carbs" value="0" onChange="updateCalories()" />
+				<!-- updateCalories() è il GESTORE dell'evento change -->
+				<!-- evento: l'utente ha cambiato i carboidrati -->
+				<!-- onchange = quando accade esegui updateCalories() -->
+				Proteine
+				<input type="number" name="proteins" value="0" onChange="updateCalories()" />
+				Fats
+				<input type="number" name="fats" value="0" onChange="updateCalories()" />
+				Calories
+				<input type="number" name="calories" value="0" readonly />
+
+				<input type="button" name="savebutton" value="save" disabled />
+
+				</form>
+			<div id="info">
+				Si prega di inserire le componenti del cibo in grammi. Si prega
+				di verificare che i dati siano corretti prima di inviarli. Il sistema cercherà
+				di validare per quanto possibile ma non possiamo correggere gli errori umani
+				oltre un certo livello. <br />
+				<br />
+				<i>@FoodIndustry, 2026</i>
+			</div>
+		</div>
+	</body>
+</html>

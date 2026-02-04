@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BMI Calculator</title>
+	<script>
+		function checkForm()
+		{
+			let valid = BMIForm.height.value	>= 0		&&
+						BMIForm.weight.value	>= 0		&&
+						BMIForm.name.value		!=	  		'';
+			BMIForm.savebutton.disabled = !valid;
+		}
+
+		function calculateBMI()
+		{
+			let height = BMIForm.height.value / 100; //converte da centimetri a metri
+
+			let weight = BMIForm.weight.value;
+			let bmi = weight / (height * height);
+			// TODO: Calcolare il BMI in base al sesso biologico (maschio/femmina)
+			// Le soglie delle categorie potrebbero variare in base al sesso
+			bmi = bmi.toFixed(2); // arrotonda a due decimali
+
+			BMIForm.BMI.value = bmi; // mostra il risultato nel campo BMI
+
+			// Determina la categoria BMI
+			let category = '';
+			if (bmi < 18.5)
+				category = 'Sottopeso';
+			else if (bmi >= 18.5 && bmi < 25)
+				category = 'Normopeso';
+			else if (bmi >= 25 && bmi < 30)
+				category = 'Sovrappeso';
+			else
+				category = 'Obeso';
+			BMIForm.category.value = category; // mostra la categoria
+			checkForm();
+		}
+
+	</script>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f0f0f0;
+			text-align: center;
+			padding: 20px;
+		}
+
+		h1 {
+			color: #333;
+			margin-bottom: 30px;
+		}
+
+		div {
+			max-width: 400px;
+			margin: 0 auto;
+			background-color: white;
+			padding: 30px;
+			border-radius: 10px;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+		}
+
+		form {
+			text-align: left;
+		}
+
+		input[type="text"] {
+			padding: 8px;
+			width: 250px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin: 5px 0;
+			display: block;
+		}
+
+		input[type="button"], input[type="reset"] {
+			padding: 10px 20px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			margin: 5px;
+		}
+
+		input[type="button"]:hover, input[type="reset"]:hover {
+			background-color: #45a049;
+		}
+
+		#info {
+			margin-top: 15px;
+			color: #666;
+			font-size: 12px;
+			background-color: transparent;
+			box-shadow: none;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<h1> BMI Calculator </h1>
+
+	<div>
+		<form name="BMIForm">
+			Nome
+			<input type="text" name="name" onchange="checkForm()"/>
+			<br><br>
+
+			Altezza (cm)
+			<input type="text" name="height" onchange="checkForm()"/>
+			<br><br>
+
+			Peso (kg)
+			<input type="text" name="weight" onchange="checkForm()"/>
+			<br><br>
+
+			BMI
+			<input type="text" name="BMI" readonly/>
+			<br><br>
+
+			Categoria
+			<input type="text" name="category" readonly/>
+			<br><br>
+
+			<input type="button" name="savebutton" value="Calcola BMI" onclick="calculateBMI()" disabled/>
+			<br><br>
+		</form>
+
+		<div id="info">
+				<br />
+				<br />
+				<i>@BMICalculator, 2026</i>
+		</div>
+	</div>
+</body>
+</html>
+

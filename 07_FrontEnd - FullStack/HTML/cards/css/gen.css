@@ -1,0 +1,85 @@
+.card img
+	{
+		width:50px;
+		height:50px;
+	}
+
+	.card
+	{
+		display:inline-block;
+		border:1px solid black;
+		margin-left:0.5em;
+	}
+
+	.card .value
+	{
+		width:30px;
+		font-size:30px;
+	}
+
+	.card:hover
+	{
+		background-color:#EEE;
+	}
+
+/*
+==============================================================
+TEORIA - gen.css
+==============================================================
+
+1. SELETTORE CLASSE (.nome)
+   - Il punto (.) indica che si seleziona un elemento
+     in base al suo attributo class.
+   - Esempio: .card → seleziona tutti gli elementi
+     con class="card" (nel codice: la <table> generata da Card.render()).
+
+2. SELETTORE DISCENDENTE (A B)
+   - Seleziona B solo se è contenuto dentro A, a qualsiasi livello.
+   - Esempio: .card img → seleziona gli <img> che sono
+     dentro un elemento con class="card".
+   - Esempio: .card .value → seleziona gli elementi con
+     class="value" dentro un elemento con class="card".
+
+3. PSEUDO-CLASSE :hover
+   - Si attiva quando il cursore del mouse è sopra l'elemento.
+   - Sintassi: .card:hover { ... }
+   - Usata per cambiare lo sfondo della carta al passaggio del mouse.
+
+4. DISPLAY: INLINE-BLOCK
+   - Comportamento ibrido tra inline e block.
+   - Inline: gli elementi si affiancano orizzontalmente (come le carte).
+   - Block: si possono comunque impostare width, height, margin, border.
+   - Usato su .card per far stare le carte una accanto all'altra.
+
+5. BORDER
+   - Sintassi: border: spessore stile colore
+   - Esempio: 1px solid black → linea continua nera da 1 pixel.
+
+6. MARGIN-LEFT
+   - Spazio esterno a sinistra dell'elemento.
+   - Usato per separare le carte tra loro.
+
+7. UNITA' DI MISURA: PX e EM
+   - px (pixel): unità assoluta, dimensione fissa sullo schermo.
+   - em: unità relativa alla font-size del contenitore genitore.
+     1em = dimensione del carattere del genitore.
+   - Esempio: margin-left: 0.5em → metà della dimensione
+     del carattere corrente.
+
+8. WIDTH / HEIGHT
+   - Definiscono larghezza e altezza dell'elemento.
+   - Usati su .card img per ridimensionare le immagini dei semi
+     a 50x50 pixel.
+
+9. FONT-SIZE
+   - Dimensione del testo in un elemento.
+   - Usata su .card .value per rendere il numero della carta grande (30px).
+
+10. BACKGROUND-COLOR
+    - Colore dello sfondo dell'elemento.
+    - #EEE è un colore esadecimale: grigio chiaro.
+    - Formato esadecimale: #RRGGBB (Red, Green, Blue),
+      dove ogni coppia va da 00 (minimo) a FF (massimo).
+
+==============================================================
+*/

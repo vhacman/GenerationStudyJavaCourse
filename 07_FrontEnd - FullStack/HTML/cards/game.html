@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="css/gen.css">
+<script src="js/Card.js"></script>
+<script src="js/Deck.js"></script>
+<script src="js/Hand.js"></script>
+<script src="js/Controller.js"></script>
+
+
+<input type="button" value="draw" onClick="controller.draw()" />
+<input type="button" value="stop" onClick="controller.stop()" />
+<div id="playerhand">
+
+</div>
+
+<script>
+    controller.init();
+</script>
+
+<!--
+==============================================================
+TEORIA - game.html
+==============================================================
+
+1. LINK (collegamento CSS)
+   - <link rel="stylesheet" href="..."> collega un foglio di stile
+     esterno alla pagina.
+   - Posto in alto: il browser inizia a caricare i CSS
+     prima di renderizzare il corpo della pagina.
+
+2. SCRIPT (collegamento JS esterno)
+   - <script src="..."></script> carica un file JavaScript esterno.
+   - L'ORDINE conta: Card.js viene caricato prima di Deck.js
+     perché Deck usa la classe Card.
+   - Controller.js è ultimo perché dipende da Hand e Deck.
+
+3. INPUT TYPE="BUTTON"
+   - Crea un bottone cliccabile nella pagina.
+   - 'value' definisce il testo visualizzato sul bottone.
+
+4. ONCLICK (event handler inline)
+   - Attributo HTML che specifica codice JS da eseguire
+     quando l'elemento viene cliccato.
+   - Esempio: onClick="controller.draw()"
+     → al click chiama il metodo draw() dell'oggetto controller.
+   - Detto "inline" perché il codice è scritto direttamente
+     nell'attributo HTML (alternativa agli addEventListener).
+
+5. DIV E ATTRIBUTO ID
+   - <div> è un contenitore generico a blocco.
+   - L'attributo 'id' assegna un identificatore unico all'elemento.
+   - Questo id viene usato dal JS per selezionare l'elemento:
+       document.getElementById('playerhand')
+     → riferimento diretto a questo div.
+
+6. SCRIPT INLINE A FONDO PAGINA
+   - Il blocco <script> con controller.init() è posto DOPO
+     tutti gli elementi HTML.
+   - Motivo: il browser esegue il JS man mano che lo incontro.
+     Se init() fosse in alto, il div 'playerhand' non
+     esisterebbe ancora nel DOM e la manipolazione fallirebbe.
+
+==============================================================
+-->
+

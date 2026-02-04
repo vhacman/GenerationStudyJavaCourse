@@ -6,7 +6,7 @@ Questa repository contiene tutti i miei progetti, esercizi ed esempi di programm
 
 ## 📁 Struttura della Repository
 
-I progetti sono organizzati in 5 categorie tematiche:
+I progetti sono organizzati in 7 categorie tematiche:
 
 ```text
 GenerationStudyJavaCourse/
@@ -15,7 +15,9 @@ GenerationStudyJavaCourse/
 ├── 🚆 02_Tickets_Transportation/     # Sistemi di biglietteria e trasporti
 ├── 💼 03_Business_Applications/      # Applicazioni business e gestionali
 ├── 🎯 04_Exercises_Practice/         # Esercizi extra e pratica
-└── 🌱 05_Spring/                     # Spring Boot, JPA e Database
+├── 🌱 05_Spring/                     # Spring Boot, JPA e Database
+├── 🗄️  06_Database - MySql/          # Corso fondamentali MySQL (DDL, DML, query)
+└── 🎨 07_FrontEnd - FullStack/       # Applicazioni web HTML/CSS/JavaScript
 
 ```
 
@@ -161,19 +163,74 @@ La sezione business è organizzata in 4 sottocategorie tematiche:
 
 </details>
 
+### 🗄️ Database MySQL (06_Database - MySql/)
+
+<details>
+<summary><b>Clicca per vedere il contenuto del corso MySQL</b></summary>
+
+Materiale didattico sul corso di fondamentali MySQL, organizzato in una sequenza progressiva di script SQL (`Mod:01-02-03-04/`):
+
+| File | Descrizione |
+| --- | --- |
+| `01_create_table.sql` | Creazione della tabella `PEOPLE` (id, firstname, lastname, dob, city, role, salary, gender) |
+| `02_insert_10_people.sql` | Inserimento dei primi 10 records con 3 città, 3 minori e ruolo default EXPLORER |
+| `03_update_roles.sql` | Aggiornamento ruoli: ids 1-5 → RESEARCHER, ids 6-10 → FOREST GUARDIAN |
+| `04_delete_minors.sql` | Eliminazione dei minori (età < 18) usando calcolo DATEDIFF |
+| `05_insert_10_more.sql` | Inserimento di altri 10 records (ids 11-20) con ruoli e salari variati |
+| `06_select_queries.sql` | 6 query SELECT progressive: filtri per città, età, salario, ordinamento, LIKE e concatenazione campi |
+| `07_aggregate_queries.sql` | 5 query aggregate: AVG/MIN/MAX salary raggruppate per role e gender, con filtri e ordinamento |
+
+**Concetti trattati:** DDL (CREATE TABLE), DML (INSERT, UPDATE, DELETE), SELECT con WHERE, ORDER BY, LIKE, GROUP BY, HAVING, funzioni aggregate (AVG, MIN, MAX, COUNT), DATEDIFF, CONCAT.
+
+</details>
+
+### 🎨 Frontend - FullStack (07_FrontEnd - FullStack/)
+
+<details>
+<summary><b>Clicca per vedere i progetti frontend</b></summary>
+
+Applicazioni web didattiche sviluppate con HTML, CSS e JavaScript vanilla:
+
+#### Applicazioni Standalone
+
+| Applicazione | File | Descrizione |
+| --- | --- | --- |
+| Calcolatore BMI | `bmi.html` | Calcola il BMI (peso/altezza²) con validazione form e classificazione (Sottopeso / Normopeso / Sovrappeso / Obeso) |
+| Registrazione Cibi | `food.html` | Calcola le calorie da macronutrienti (carboidrati×4, proteine×4, grassi×9) con form e styling CSS |
+
+#### Gioco di Carte (`cards/`)
+
+Implementazione di un gioco di carte italiano a 40 carte con architettura MVC in JavaScript:
+
+| File | Ruolo | Descrizione |
+| --- | --- | --- |
+| `game.html` | View | Pagina principale: carica moduli JS e CSS, contiene pulsanti draw/stop e area di visualizzazione della mano |
+| `js/Card.js` | Model | Classe `Card`: rappresenta una carta con valore, seme e calcolo del game value (1-7 per figure, 0.5 per 8-10) |
+| `js/Deck.js` | Model | Classe `Deck`: mazza da 40 carte (10 valori × 4 semi: denari/coppe/spade/bastoni), con shuffle e draw |
+| `js/Hand.js` | Model | Classe `Hand`: gestisce la mano del giocatore, calcola lo score e verifica se si può continuare (score ≤ 7.5) |
+| `js/Controller.js` | Controller | Singleton `Controller`: orchestra il flusso di gioco, aggiorna il DOM, gestisce stato (playerHand, pcHand, deck) |
+| `css/gen.css` | Style | Styling delle carte: layout inline-block, immagini 50×50px, hover effect |
+| `images/` | Assets | 4 immagini dei semi italiani: bastoni, coppe, denari, spade |
+
+**Concetti trattati:** HTML5 semantico, CSS selettori e pseudo-classi, JavaScript classi (ES6), Singleton pattern, manipolazione DOM, template literals, gestione eventi.
+
+</details>
+
 ---
 
 ## 📊 Statistiche Progetti
 
-| Categoria | Numero Progetti | Livello |
+| Categoria | Numero Progetti / Moduli | Livello |
 | --- | --- | --- |
 | 📚 Librerie | 1 framework | Avanzato |
-| 📘 Fondamentali | 13 moduli | Base |
+| 📘 Fondamentali | 14 moduli | Base → Avanzato |
 | 🚆 Trasporti | 9 progetti | Intermedio |
 | 💼 Business | **43 progetti** (8+14+12+9) | Avanzato |
 | 🎯 Esercizi | 4 progetti | Vario |
 | 🌱 Spring | 1 progetto | Spring Boot |
-| **TOTALE** | **72 progetti** | **Completo** |
+| 🗄️ Database MySQL | 7 script SQL | Intermedio |
+| 🎨 Frontend | 3 applicazioni web | Base → Intermedio |
+| **TOTALE** | **78+ progetti e moduli** | **Full Stack** |
 
 **Business Applications - Dettaglio:**
 - 🏨 Hospitality & Tourism: 8 progetti
@@ -183,6 +240,10 @@ La sezione business è organizzata in 4 sottocategorie tematiche:
 
 **Spring Boot Projects:**
 - 🌱 Spring Boot & JPA: 1 progetto (Emergency System)
+
+**Database & Frontend:**
+- 🗄️ MySQL: 7 script SQL coprenti DDL, DML, SELECT e query aggregate
+- 🎨 Frontend: Calcolatore BMI, Registrazione Cibi, Gioco di Carte (40 carte, architettura MVC)
 
 ---
 
