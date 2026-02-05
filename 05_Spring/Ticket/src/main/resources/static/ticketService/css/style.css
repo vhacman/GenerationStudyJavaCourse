@@ -1,0 +1,40 @@
+/*
+	stile esterno per tutto il nostro sito
+	lo applicheremo a tutte le pagine
+	lo decideremo una volta per tutte
+	e lo daremo a tutte le pagine
+	che potrebbero anche avere altri fogli di stile tutti loro
+	
+
+*/
+
+BODY, DIV, H1, H2
+{
+	font-family:Tahoma;
+	padding:0.2em;
+}
+
+BODY
+{
+	font-size:16px;
+}
+
+.stdbtn
+{
+	padding:0.5em;
+	font-size:18px;
+	background-color:#AEA;
+	border:0px;
+}
+
+.stdinput
+{
+	width:50%;
+	font-size:18px;
+	border:0px;
+	background-color:#EEE;
+	font-weight:bold;
+	padding:0.2em;
+	display:block;
+	margin:0.3em;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuovo Ordine - Dinner Service</title>
+    <link rel="stylesheet" href="/dinnerservice/css/style.css">
+    <script src="/dinnerservice/js/newdinner.js"></script>
+</head>
+<body>
+
+    <h1>Nuovo Ordine</h1>
+
+    <div class="form-container">
+        <form name="form1">
+            <label>Scegli il piatto</label>
+            <input type="text" name="description" id="description" list="dinner-suggestions" 
+                   class="stdinput" placeholder="Inizia a scrivere..." 
+                   onInput="controller.updatePrice()" onChange="controller.checkForm()" />
+
+            <datalist id="dinner-suggestions"></datalist>
+
+            <label>Costo (€)</label>
+            <input type="number" name="cost" class="stdinput" placeholder="0" readonly />
+
+            <label>Stato</label>
+            <input type="text" name="status" class="stdinput" value="pending" readonly />
+
+            <input type="button" id="savebtn" value="INVIA ORDINE" class="stdbtn" 
+                   disabled onClick="controller.prepareAndSend()" />
+        </form>
+    </div>
+
+</body>
+</html>
