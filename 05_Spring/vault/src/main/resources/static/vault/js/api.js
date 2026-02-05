@@ -16,5 +16,10 @@ let api =
 	{
 		"url":"/vault/api/membershiprequests",
 		"method":"GET"
+	},
+	viewPending:
+	{
+		"url":"/vault/api/membershiprequests/pending",
+		"method":"GET"
 	}
 }

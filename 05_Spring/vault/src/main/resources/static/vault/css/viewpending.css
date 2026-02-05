@@ -1,0 +1,26 @@
+#pending {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.request {
+    background: linear-gradient(135deg, var(--vt-blue), #0066cc);
+    color: white;
+    padding: 20px 30px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 74, 153, 0.3);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.request:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 20px rgba(0, 74, 153, 0.5);
+}
+
+h1 {
+    margin-bottom: 30px;
+}
