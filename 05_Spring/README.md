@@ -2,20 +2,13 @@
 
 Questa sezione contiene progetti sviluppati con **Spring Boot**, **Spring Data JPA**, e **gestione database**.
 
-## 📋 Progetto
+## 📋 Progetti
 
-### Emergency - Sistema Gestione Pronto Soccorso
-
-**📁 Cartella:** `emergency/`
+### [Emergency](Emergency/README.md) 🏥 - Sistema Gestione Pronto Soccorso
 
 Sistema web per la gestione delle emergenze ospedaliere con Spring Boot.
 
-**Tecnologie:**
-- Spring Boot 4.0.2
-- Spring Data JPA
-- Thymeleaf (Template Engine)
-- MySQL Database
-- Maven
+**Tecnologie:** Spring Boot 4.0.2, Spring Data JPA, Thymeleaf, MySQL, Maven
 
 **Caratteristiche:**
 - Gestione ospedali con code pronto soccorso
@@ -23,15 +16,48 @@ Sistema web per la gestione delle emergenze ospedaliere con Spring Boot.
 - API REST per integrazione dati esterni
 - Repository Pattern con JPA
 
-**Struttura:**
-```
-emergency/
-├── model/
-│   ├── entities/      # Entità JPA (Hospital)
-│   └── repository/    # Repository Spring Data
-├── controller/        # Controller MVC (OperatorController)
-└── api/              # REST API (HospitalAPI, QuoteAPI)
-```
+---
+
+### [Dinner](Dinner/README.md) 🍽️ - Sistema Gestione Ristorante
+
+Sistema di gestione ordini per ristorante con tracciamento costi e mance.
+
+**Tecnologie:** Spring Boot 4.0.2, Spring Data JPA, Thymeleaf, MySQL, Maven
+
+**Caratteristiche:**
+- Gestione ordini con descrizione, costo e mancia
+- Stati ordine (nuovo, in preparazione, servito, pagato)
+- Interfaccia web per inserimento ordini
+- REST API per integrazione sistemi esterni
+
+---
+
+### [Ticket](Ticket/README.md) 🎫 - Sistema Gestione Segnalazioni
+
+Sistema di gestione ticket e segnalazioni per help desk e facility management.
+
+**Tecnologie:** Spring Boot 4.0.2, Spring Data JPA, Thymeleaf, MySQL, Maven
+
+**Caratteristiche:**
+- Tracciamento ticket per stanza/area
+- Timestamp apertura/chiusura con LocalDateTime
+- Gestione stati (aperto, in lavorazione, chiuso)
+- Interfaccia web e REST API
+
+---
+
+### [Vault](vault/README.md) 🏛️ - Sistema Membership Vault-Tec
+
+Sistema di gestione richieste membership ispirato all'universo Fallout.
+
+**Tecnologie:** Spring Boot 4.0.2, Spring Data JPA, MySQL, Maven
+
+**Caratteristiche:**
+- Gestione richieste ammissione ai Vault
+- Valutazione candidati per reddito e criteri
+- Assegnazione a Vault specifici
+- Stati richiesta (pending, approved, rejected, waitlist)
+- REST API completa
 
 ---
 

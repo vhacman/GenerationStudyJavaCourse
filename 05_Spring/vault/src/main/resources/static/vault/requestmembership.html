@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>Vault-Tec - Il tuo futuro 50 metri sotto terra</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/requestmembership.css" />
+    <script src="js/api.js"></script>
+    <script src="js/requestmembership.js"></script>
+</head>
+<body>
+    <div class="card">
+        <header>
+            <img src="https://placeholder.com/vault-tec-logo.png" alt="Vault-Tec Logo" style="width: 80px;">
+            <h1>Request Membership</h1>
+        </header>
+
+        <div class="registrationtext">
+            <p>
+                The world is a dangerous place! War, famine, trap music 
+                and instagram influencers will threaten your happiness...
+            </p>
+            <p>	
+                Please provide income and gender data below, for 
+                absolutely no evil plan.
+            </p>
+        </div>
+
+        <div class="basicform">
+            <form name="form1">
+                <label>First name</label>
+                <input type="text" name="firstname" placeholder="Ex. Overseer" onChange="controller.checkForm()" />
+                
+                <label>Last name</label>
+                <input type="text" name="lastname" placeholder="Ex. Barter" onChange="controller.checkForm()" />
+                
+                <label>Gender</label>
+                <select name="gender" onChange="controller.checkForm()">
+                    <option value="">Select gender</option>
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                    <option value="N">None of your ****ing business</option>
+                </select>
+                
+                <label>Yearly income (Caps)</label>
+                <input type="number" name="income" placeholder="0" onChange="controller.checkForm()" />
+                
+                <label>Assigned Vault</label>
+                <select name="vault" onChange="controller.checkForm()">
+                    <option value="">Select your vault</option>
+                    <option value="Vault 13">Vault 13 - Water Chip</option>
+                    <option value="Vault 21">Vault 21 - Gambling Paradise</option>
+                    <option value="Vault 101">Vault 101 - Capital Wasteland</option>
+                </select>
+
+                <input name="savebtn" type="button" class="submit-btn" value="Register Now!" disabled onClick="controller.sendForm()" />
+            </form>
+        </div>
+    </div>
+</body>	
+</html>

@@ -145,21 +145,25 @@ La sezione business è organizzata in 4 sottocategorie tematiche:
 
 | Progetto | Descrizione | Tecnologie |
 | --- | --- | --- |
-| **[Emergency](05_Spring/emergency/README.md)** | Sistema gestione pronto soccorso ospedaliero | Spring Boot 4.0.2, Spring Data JPA, Thymeleaf, MySQL, Maven |
+| **[Emergency](05_Spring/Emergency/README.md)** | Sistema gestione pronto soccorso ospedaliero | Spring Boot 4.0.2, Spring Data JPA, Thymeleaf, MySQL |
+| **[Dinner](05_Spring/Dinner/README.md)** | Sistema di gestione ordini ristorante | Spring Boot 4.0.2, Spring Data JPA, Thymeleaf, MySQL |
+| **[Ticket](05_Spring/Ticket/README.md)** | Sistema di gestione ticket e segnalazioni | Spring Boot 4.0.2, Spring Data JPA, Thymeleaf, MySQL |
+| **[Vault](05_Spring/vault/README.md)** | Sistema gestione membership Vault-Tec (Fallout) | Spring Boot 4.0.2, Spring Data JPA, MySQL |
 
-**Caratteristiche Emergency:**
-- Gestione ospedali con code pronto soccorso
-- Controller MVC con Thymeleaf
-- REST API per integrazione dati
+**Caratteristiche comuni:**
+- Controller MVC con Thymeleaf per interfacce web
+- REST API per integrazione sistemi esterni (JSON)
 - Repository Pattern con Spring Data JPA
 - Entità JPA con annotazioni (@Entity, @Id, @GeneratedValue)
 - Dependency Injection con Spring IoC Container
+- Database MySQL con Hibernate
 
 **Pattern Implementati:**
 - MVC Pattern (Model-View-Controller)
 - Repository Pattern
 - RESTful API Design
 - IoC (Inversion of Control)
+- ORM (Object-Relational Mapping)
 
 </details>
 
@@ -227,10 +231,10 @@ Implementazione di un gioco di carte italiano a 40 carte con architettura MVC in
 | 🚆 Trasporti | 9 progetti | Intermedio |
 | 💼 Business | **43 progetti** (8+14+12+9) | Avanzato |
 | 🎯 Esercizi | 4 progetti | Vario |
-| 🌱 Spring | 1 progetto | Spring Boot |
+| 🌱 Spring | **4 progetti** | Spring Boot |
 | 🗄️ Database MySQL | 7 script SQL | Intermedio |
 | 🎨 Frontend | 3 applicazioni web | Base → Intermedio |
-| **TOTALE** | **78+ progetti e moduli** | **Full Stack** |
+| **TOTALE** | **81+ progetti e moduli** | **Full Stack** |
 
 **Business Applications - Dettaglio:**
 - 🏨 Hospitality & Tourism: 8 progetti
@@ -239,7 +243,7 @@ Implementazione di un gioco di carte italiano a 40 carte con architettura MVC in
 - 🎓 Education & Culture: 9 progetti
 
 **Spring Boot Projects:**
-- 🌱 Spring Boot & JPA: 1 progetto (Emergency System)
+- 🌱 Spring Boot & JPA: 4 progetti (Emergency, Dinner, Ticket, Vault)
 
 **Database & Frontend:**
 - 🗄️ MySQL: 7 script SQL coprenti DDL, DML, SELECT e query aggregate
