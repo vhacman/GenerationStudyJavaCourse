@@ -1,0 +1,114 @@
+/* Reset e Font */
+.formconfigurator {
+	font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+	background-color: #ffffff;
+	color: #000000;
+	max-width: 450px;
+	margin: 40px auto;
+	padding: 30px;
+	border: 2px solid #000000;
+	border-radius: 12px;
+	box-shadow: 10px 10px 0px #000000; /* Effetto "brutalista" moderno */
+}
+
+.formconfigurator h2 {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 1.5rem;
+	margin-bottom: 25px;
+	border-bottom: 3px solid #000000;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+/* Stile dei campi */
+.field {
+	margin-bottom: 20px;
+}
+
+.field label {
+	display: block;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 0.85rem;
+	margin-bottom: 8px;
+}
+
+/* Input e Select */
+.field input[type="text"],
+.field select {
+	width: 100%;
+	padding: 12px;
+	border: 2px solid #000000;
+	background-color: #ffffff;
+	color: #000000;
+	font-size: 1rem;
+	border-radius: 4px;
+	transition: all 0.2s ease;
+	outline: none;
+	box-sizing: border-box; /* Evita che escano dai bordi */
+}
+
+input[type= bytton]
+{
+
+}
+
+/* Input e Select */
+ input[type="button"],
+t {
+	width: 100%;
+	padding: 12px;
+	border: 2px solid #000000;
+	background-color: #ffffff;
+	color: #000000;
+	font-size: 1rem;
+	border-radius: 4px;
+	transition: all 0.2s ease;
+	outline: none;
+	box-sizing: border-box; /* Evita che escano dai bordi */
+}
+
+/* Focus: quando l'utente clicca sui campi */
+.field input:focus,
+.field select:focus {
+	background-color: #000000;
+	color: #ffffff;
+}
+
+/* Placeholder */
+::placeholder {
+	color: #999999;
+}
+
+/* Bottone (se ne aggiungerai uno nel form) */
+button {
+	width: 100%;
+	padding: 15px;
+	background-color: #000000;
+	color: #ffffff;
+	border: none;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: transform 0.1s, background-color 0.3s;
+}
+
+button:hover {
+	background-color: #333333;
+}
+
+button:active {
+	transform: scale(0.98);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+	.formconfigurator {
+		margin: 10px;
+		box-shadow: 5px 5px 0px #000000;
+	}
+}
+

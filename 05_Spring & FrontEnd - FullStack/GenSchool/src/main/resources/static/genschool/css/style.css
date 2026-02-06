@@ -1,0 +1,53 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #004d4d; /* Verde Petrolio */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Riga Bianca orizzontale */
+.header-line {
+    width: 100%;
+    background-color: #ffffff; /* La riga bianca */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Contenitore interno alla riga per allineare logo e link */
+.header-container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px; /* L'altezza della riga è data dal padding + altezza logo */
+}
+
+.main-logo {
+    height: 60px; /* Altezza del logo che definisce la riga */
+    width: auto;
+}
+
+.home-link {
+    color: #004d4d; /* Testo verde petrolio sulla riga bianca */
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    border: 2px solid #004d4d;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.home-link:hover {
+    background-color: #004d4d;
+    color: #ffffff;
+}

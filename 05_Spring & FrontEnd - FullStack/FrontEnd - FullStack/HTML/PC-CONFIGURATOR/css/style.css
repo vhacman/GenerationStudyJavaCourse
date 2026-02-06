@@ -1,0 +1,16 @@
+.menu IMG
+{
+	width:150px;
+	height:150px;
+	display:block;
+}
+
+.menu .link
+{
+	padding-left:20px;
+}
+
+BODY
+{
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title> Pc Configurator </title>
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/pcconfigurator.css" />
+	</head>
+	<body>
+		<div class="menu">
+			<img src="img/logo.jpg" />
+			<span class="link">
+				Home | Pc Configurator
+			</span>
+		</div>
+		<div class="formconfigurator">
+			<h2>Configura il tuo GenPC</h2>
+			<form id="pcForm" name="pcForm">
+				<div class="field">
+					<label for="firstName">Nome</label>
+					<input type="text" id="firstName" name="firstName" placeholder="Es. Mario">
+				</div>
+
+				<div class="field">
+					<label for="lastName">Cognome</label>
+					<input type="text" id="lastName" name="lastName" placeholder="Es. Rossi">
+				</div>
+
+				<div class="field">
+					<label for="processor">Processore</label>
+					<select id="processor" name="processor">
+						<option value="">Seleziona...</option>
+						<option value="i3">Intel i3</option>
+						<option value="i5">Intel i5</option>
+						<option value="i7">Intel i7</option>
+					</select>
+				</div>
+
+				<div class="field">
+					<label for="ram">RAM (GB)</label>
+					<select id="ram" name="ram">
+						<option value="">Seleziona...</option>
+						<option value="8">8 GB</option>
+						<option value="16">16 GB</option>
+						<option value="32">32 GB</option>
+					</select>
+				</div>
+
+				<div class="field">
+					<label for="ssd">SSD (GB)</label>
+					<select id="ssd" name="ssd">
+						<option value="">Seleziona...</option>
+						<option value="1000">1000 GB (1TB)</option>
+						<option value="2000">2000 GB (2TB)</option>
+					</select>
+				</div>
+
+			</form>
+		</div>
+	</body>
+</html>

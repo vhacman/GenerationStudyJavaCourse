@@ -10,14 +10,14 @@ I progetti sono organizzati in 7 categorie tematiche:
 
 ```text
 GenerationStudyJavaCourse/
-├── 📚 00_Libraries/                  # Framework e librerie riutilizzabili
-├── 📘 01_Fundamentals_Examples/      # Concetti base, strutture dati e OOP
-├── 🚆 02_Tickets_Transportation/     # Sistemi di biglietteria e trasporti
-├── 💼 03_Business_Applications/      # Applicazioni business e gestionali
-├── 🎯 04_Exercises_Practice/         # Esercizi extra e pratica
-├── 🌱 05_Spring/                     # Spring Boot, JPA e Database
-├── 🗄️  06_Database - MySql/          # Corso fondamentali MySQL (DDL, DML, query)
-└── 🎨 07_FrontEnd - FullStack/       # Applicazioni web HTML/CSS/JavaScript
+├── 📚 00_Libraries/                         # Framework e librerie riutilizzabili
+├── 📘 01_Fundamentals_Examples/             # Concetti base, strutture dati e OOP
+├── 🚆 02_Tickets_Transportation/            # Sistemi di biglietteria e trasporti
+├── 💼 03_Business_Applications/             # Applicazioni business e gestionali
+├── 🎯 04_Exercises_Practice/                # Esercizi extra e pratica
+├── 🌱 05_Spring & FrontEnd - FullStack/     # Spring Boot, JPA, Database e Frontend
+├── 🗄️  06_Database - MySql/                 # Corso fondamentali MySQL (DDL, DML, query)
+└── 🎨 07_FrontEnd - FullStack/              # Applicazioni web HTML/CSS/JavaScript
 
 ```
 
@@ -138,17 +138,17 @@ La sezione business è organizzata in 4 sottocategorie tematiche:
 
 </details>
 
-### 🌱 Progetti Spring Boot (05_Spring/)
+### 🌱 Progetti Spring Boot (05_Spring & FrontEnd - FullStack/)
 
 <details>
 <summary><b>Clicca per vedere i progetti Spring</b></summary>
 
 | Progetto | Descrizione | Tecnologie |
 | --- | --- | --- |
-| **[Emergency](05_Spring/Emergency/README.md)** | Sistema gestione pronto soccorso ospedaliero | Spring Boot 4.0.2, Spring Data JPA, Thymeleaf, MySQL |
-| **[Dinner](05_Spring/Dinner/README.md)** | Sistema di gestione ordini ristorante | Spring Boot 4.0.2, Spring Data JPA, Thymeleaf, MySQL |
-| **[Ticket](05_Spring/Ticket/README.md)** | Sistema di gestione ticket e segnalazioni | Spring Boot 4.0.2, Spring Data JPA, Thymeleaf, MySQL |
-| **[Vault](05_Spring/vault/README.md)** | Sistema gestione membership Vault-Tec (Fallout) | Spring Boot 4.0.2, Spring Data JPA, MySQL |
+| **[Emergency](05_Spring%20&%20FrontEnd%20-%20FullStack/Emergency/README.md)** | Sistema gestione pronto soccorso ospedaliero | Spring Boot 4.0.2, Spring Data JPA, Thymeleaf, MySQL |
+| **[Dinner](05_Spring%20&%20FrontEnd%20-%20FullStack/Dinner/README.md)** | Sistema di gestione ordini ristorante | Spring Boot 4.0.2, Spring Data JPA, Thymeleaf, MySQL |
+| **[Ticket](05_Spring%20&%20FrontEnd%20-%20FullStack/Ticket/README.md)** | Sistema di gestione ticket e segnalazioni | Spring Boot 4.0.2, Spring Data JPA, Thymeleaf, MySQL |
+| **[Vault](05_Spring%20&%20FrontEnd%20-%20FullStack/vault/README.md)** | Sistema gestione membership Vault-Tec (Fallout) | Spring Boot 4.0.2, Spring Data JPA, MySQL |
 
 **Caratteristiche comuni:**
 - Controller MVC con Thymeleaf per interfacce web
