@@ -1,6 +1,3 @@
-# Application properties
-**/application.properties
-**/application-*.properties
 
 # IDE
 .idea/
