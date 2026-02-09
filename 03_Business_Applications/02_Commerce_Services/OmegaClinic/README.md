@@ -1,6 +1,12 @@
-# OmegaClinic - Sistema Gestionale Clinica
+<div align="center">
 
-**Healthcare Management System per gestione pazienti, servizi sanitari e prestazioni cliniche**
+# OmegaClinic — Sistema Gestionale Clinica
+
+**Healthcare Management System: pazienti, servizi sanitari, prestazioni cliniche**
+
+</div>
+
+---
 
 Sistema completo per la gestione di una clinica medica che traccia pazienti, catalogo servizi sanitari e prestazioni erogate, con particolare attenzione alla persistenza dati e gestione relazioni tra entità.
 
@@ -556,3 +562,11 @@ BigDecimal total = price1.add(price2);
 - Tabelle: `lowercase` (patient, healthservice)
 - Colonne: `camelCase` (firstName, patient_id)
 - Foreign keys: `<table>_id` (patient_id, healthservice_id)
+
+---
+
+<div align="center">
+
+[Torna a Commerce & Services](../README.md) · [README principale](../../../../README.md)
+
+</div>

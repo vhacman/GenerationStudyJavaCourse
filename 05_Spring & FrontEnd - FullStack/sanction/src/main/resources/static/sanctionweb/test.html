@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        ARCHITETTURA FRONTEND - SEPARAZIONE RESPONSABILITÀ:
+        
+        HTML     →  Struttura della pagina
+        CSS      →  Presentazione e stile
+        JS       →  Comportamento e logica
+        
+        Questa pagina implementa il pattern MVC nel browser:
+            - Model:      Sanction.js (struttura dati)
+            - View:       HTML + CSS (presentazione)
+            - Controller: Logica inline (recupero dati API)
+    -->
+    <script src="js/sanction.js"></script>
+    <link rel="stylesheet" href="css/sanctionstyle.css">
+    <title>Sanction Management</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        /*
+         * FETCH API - COMUNICAZIONE ASINCRONA:
+         * 
+         *     Promise-based  →  Gestione asincrona moderna
+         *     .then()        →  Catena di trasformazioni dati
+         *     DOM Update     →  Renderizzazione dinamica
+         *     Component      →  Istanziazione model + render
+         */
+        fetch('/sanction/api/sanctions')
+            .then(response => response.json())
+            .then(data => {
+                let res = "";
+                for (let sDTO of data) {
+                    let s = new Sanction(sDTO);
+                    res += s.render();
+                }
+                document.getElementById('container').innerHTML = res;
+            });
+    </script>
+</body>
+</html>

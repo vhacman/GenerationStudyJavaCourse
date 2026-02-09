@@ -1,6 +1,12 @@
-# Modulo 11 - Interfacce Funzionali e Lambda Expressions
+<div align="center">
+
+# Modulo 11 — Lambda Expressions e Interfacce Funzionali
 
 Modulo dedicato all'apprendimento delle interfacce funzionali, lambda expressions e metodi default in Java 8+.
+
+</div>
+
+---
 
 ## Descrizione
 
@@ -261,3 +267,13 @@ Il modulo utilizza componenti dalla Generation Library:
 - I metodi default permettono evoluzione delle interfacce
 - Le lambda catturano variabili effectively final
 - L'operator ternario è utile per Strategy Pattern compatto
+
+---
+
+<div align="center">
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna a Fundamentals Examples](../README.md) · [README principale](../../README.md)
+
+</div>

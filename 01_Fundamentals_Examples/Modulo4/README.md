@@ -1,30 +1,60 @@
-# 📝 Modulo4 - Cicli e Iterazioni
+<div align="center">
 
-Modulo dedicato all'apprendimento dei cicli e delle iterazioni in Java.
+# Modulo 4 — Cicli e Iterazioni
+
+Cicli `for` determinati, `for-each` e pattern di iterazione in Java.
+
+</div>
+
+---
 
 ## Argomenti
 
-- Cicli for determinati
-- Cicli for-each
-- Iterazione su array
+- Ciclo `for` standard
+- Ciclo `for-each` (enhanced for)
+- Iterazione su array e collezioni
+- `break` e `continue`
 - Pattern comuni di iterazione
+
+---
+
+## Concetti Chiave
+
+### for standard
+
+```java
+for (int i = 0; i < array.length; i++) {
+    System.out.println(array[i]);
+}
+```
+
+### for-each
+
+```java
+for (String element : collection) {
+    System.out.println(element);
+}
+```
+
+---
 
 ## Struttura
 
 ```
 Modulo4/
-├── src/
-└── .settings/
+└── src/
 ```
 
-## Concetti Chiave
+## Tecnologie
 
-- Ciclo `for` standard
-- Ciclo `for-each` (enhanced for)
-- Iterazione su array
-- Break e continue
+- **Java** 17+ | **IDE:** Eclipse
 
 ---
 
-**Autore:** Hacman Viorica Gabriela  
-**Corso:** Generation Italy - Java Full Stack Developer
+<div align="center">
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna ai Fondamenti](../README.md) · [README principale](../../README.md)
+
+</div>

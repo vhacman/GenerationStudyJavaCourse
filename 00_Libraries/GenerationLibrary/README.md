@@ -1,4 +1,12 @@
-# GenerationLibrary - Enterprise Framework per Java
+<div align="center">
+
+# GenerationLibrary
+
+**Enterprise Framework per applicazioni Java — Repository Pattern, Caching, JDBC, I/O Utilities**
+
+</div>
+
+---
 
 Framework riutilizzabile per lo sviluppo di applicazioni Java con pattern architetturali enterprise. Fornisce:
 - **Repository Pattern** generico con supporto JDBC
@@ -452,16 +460,24 @@ public class BookRepositoryTest { /* ... */ }
 ## Changelog
 
 ### v2.0 (2026-01-21)
-- ✨ Aggiunto sistema di caching (Full/Partial)
-- ✨ Utilities database (profiling, connection pool)
-- ✨ View utilities per interfacce
-- ✨ I/O utilities (Console, FileReader, FileWriter, Template)
-- 🔧 Refactoring Entity e SQLEntityRepository (codice più conciso)
-- 🗑️ Rimossi esempi specifici (Car, Pet, Plant) - focus su framework generico
+- Aggiunto sistema di caching (Full/Partial)
+- Utilities database (profiling, connection pool)
+- View utilities per interfacce
+- I/O utilities (Console, FileReader, FileWriter, Template)
+- Refactoring Entity e SQLEntityRepository (codice piu conciso)
+- Rimossi esempi specifici (Car, Pet, Plant) - focus su framework generico
 
 ### v1.0
-- 🎉 Release iniziale con Repository Pattern e Template Method
+- Release iniziale con Repository Pattern e Template Method
 
 ---
 
 **Progetto didattico Generation Italy** - Framework enterprise riutilizzabile che dimostra Template Method, Repository Pattern con Generics, Caching, JDBC e validazione in Java.
+
+---
+
+<div align="center">
+
+[Torna al README principale](../../README.md)
+
+</div>

@@ -1,43 +1,66 @@
-# 🔄 While - Cicli
+<div align="center">
 
-Modulo dedicato all'apprendimento del ciclo while in Java.
+# While — Cicli
+
+Iterazione con `while` e `do-while` in Java.
+
+</div>
+
+---
 
 ## Argomenti
 
-- Ciclo while
-- Ciclo do-while
+- Ciclo `while`
+- Ciclo `do-while`
 - Condizioni di terminazione
-- Cicli infiniti e loro evitamento
+- Cicli infiniti e strategie per evitarli
+
+---
+
+## Concetti Chiave
+
+### while
+
+```java
+while (condizione) {
+    // eseguito finché la condizione è vera
+}
+```
+
+### do-while
+
+```java
+do {
+    // eseguito almeno una volta
+} while (condizione);
+```
+
+### Differenza fondamentale
+
+| Ciclo | Valutazione | Esecuzione minima |
+|-------|-------------|-------------------|
+| `while` | Prima di eseguire | 0 volte |
+| `do-while` | Dopo aver eseguito | 1 volta |
+
+---
 
 ## Struttura
 
 ```
 While/
-├── src/
-└── .settings/
+└── src/
 ```
 
-## Concetti Chiave
+## Tecnologie
 
-**While:**
-```java
-while (condizione) {
-    // codice eseguito finché condizione è vera
-}
-```
-
-**Do-While:**
-```java
-do {
-    // codice eseguito almeno una volta
-} while (condizione);
-```
-
-**Differenza:**
-- While: valuta la condizione prima di eseguire
-- Do-while: esegue almeno una volta, poi valuta
+- **Java** 17+ | **IDE:** Eclipse
 
 ---
 
-**Autore:** Hacman Viorica Gabriela  
-**Corso:** Generation Italy - Java Full Stack Developer
+<div align="center">
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna ai Fondamenti](../README.md) · [README principale](../../README.md)
+
+</div>

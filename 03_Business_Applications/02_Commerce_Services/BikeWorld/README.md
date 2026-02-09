@@ -1,4 +1,12 @@
-# BikeWorld - Sistema Gestionale Concessionaria Moto
+<div align="center">
+
+# BikeWorld — Gestionale Concessionaria Moto
+
+**Gestione workflow completo: importazione, controllo qualità, consegna al cliente**
+
+</div>
+
+---
 
 Sistema di gestione per concessionaria di motociclette che gestisce l'intero workflow dalle operazioni di importazione quotidiana fino alla consegna al cliente finale.
 
@@ -435,3 +443,10 @@ Il sistema gestisce:
 
 Progetto educativo - Generation Italy
 
+---
+
+<div align="center">
+
+[Torna a Commerce & Services](../README.md) · [README principale](../../../../README.md)
+
+</div>

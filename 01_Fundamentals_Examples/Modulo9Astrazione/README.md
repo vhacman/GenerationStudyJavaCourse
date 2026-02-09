@@ -1,41 +1,57 @@
-# 🎭 Modulo9 - Astrazione
+<div align="center">
 
-Modulo dedicato alle classi astratte e ai metodi astratti in Java.
+# Modulo 9 — Astrazione
+
+Classi astratte e metodi astratti in Java.
+
+</div>
+
+---
 
 ## Argomenti
 
-- Classi astratte
-- Metodi astratti
+- Classi astratte con keyword `abstract`
+- Metodi astratti (senza implementazione)
 - Ereditarietà con classi astratte
-- Differenza tra astrazione e interfacce
+- Differenza tra classi astratte e interfacce
+
+---
+
+## Concetti Chiave
+
+### Classi Astratte
+- Dichiarate con `abstract`
+- **Non possono essere istanziate** direttamente
+- Possono avere metodi astratti (senza body) e metodi concreti (con body)
+
+### Metodi Astratti
+- Dichiarati con `abstract`, senza implementazione
+- Le sottoclassi **devono** implementarli
+
+### Quando usare
+- Creare una classe base comune con comportamento parziale
+- Definire un contratto che le sottoclassi devono rispettare
+- Fornire un template per le sottoclassi
+
+---
 
 ## Struttura
 
 ```
 Modulo9Astrazione/
-├── src/
-└── .settings/
+└── src/
 ```
 
-## Concetti Chiave
+## Tecnologie
 
-**Classi Astratte:**
-- Dichiarate con `abstract`
-- Non possono essere istanziate
-- Possono avere metodi astratti (senza body)
-- Possono avere metodi concreti (con body)
-
-**Metodi Astratti:**
-- Dichiarati con `abstract`
-- Senza implementazione
-- Obbligano le sottoclassi a implementarli
-
-**Quando Usare:**
-- Creare una classe base comune
-- Fornire un template per le sottoclassi
-- Definire un contratto senza implementazione
+- **Java** 17+ | **IDE:** Eclipse
 
 ---
 
-**Autore:** Hacman Viorica Gabriela  
-**Corso:** Generation Italy - Java Full Stack Developer
+<div align="center">
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna ai Fondamenti](../README.md) · [README principale](../../README.md)
+
+</div>

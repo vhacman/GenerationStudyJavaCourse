@@ -1,42 +1,58 @@
-# 🧬 Modulo8 - Ereditarietà
+<div align="center">
 
-Modulo dedicato all'ereditarietà in Java: estensione di classi, keyword `super` e overriding.
+# Modulo 8 — Ereditarietà
+
+Estensione di classi, keyword `super`, overriding e gerarchie di classi.
+
+</div>
+
+---
 
 ## Argomenti
 
 - Keyword `extends`
-- Keyword `super`
-- Override dei metodi
+- Keyword `super` (costruttore e metodi)
+- Override dei metodi con `@Override`
 - Gerarchie di classi
-- Clausola `instanceof`
-- Casting di oggetti
+- `instanceof` e casting di oggetti
+
+---
+
+## Concetti Chiave
+
+### Ereditarietà
+- La classe figlia **eredita** attributi e metodi del padre
+- Java supporta solo **single inheritance** (una sola classe padre)
+
+### super
+- Accedere ai membri della classe padre
+- `super()` — chiamare il costruttore padre
+- `super.metodo()` — chiamare metodi padre sovrascritti
+
+### Override
+- Ridefinire un metodo del padre nella figlia
+- Stessa firma, implementazione diversa
+- Annotazione `@Override`
+
+---
 
 ## Struttura
 
 ```
 Modulo8Ereditarietà/
-├── src/
-└── .settings/
+└── src/
 ```
 
-## Concetti Chiave
+## Tecnologie
 
-**Ereditarietà:**
-- Una classe figlia estende una classe padre
-- La figlia eredita attributi e metodi del padre
-- Single inheritance in Java (una sola classe padre)
-
-**Keyword `super`:**
-- Accedere a membri della classe padre
-- Chiamare costruttore padre: `super()`
-- Chiamare metodi padre sovrascritti
-
-**Override:**
-- Ridefinire un metodo del padre nella figlia
-- Stessa firma, implementazione diversa
-- `@Override` annotation
+- **Java** 17+ | **IDE:** Eclipse
 
 ---
 
-**Autore:** Hacman Viorica Gabriela  
-**Corso:** Generation Italy - Java Full Stack Developer
+<div align="center">
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna ai Fondamenti](../README.md) · [README principale](../../README.md)
+
+</div>

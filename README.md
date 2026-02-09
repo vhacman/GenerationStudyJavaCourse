@@ -1,131 +1,202 @@
-# 🎓 Corso Java - Generation Italy
+<div align="center">
 
-Repository contenente progetti, esercizi ed esempi di programmazione Java sviluppati durante il bootcamp Full Stack Java Developer.
+# Generation Italy — Java Full Stack Developer
 
----
+**Repository completa del percorso formativo: dai fondamenti Java fino a Spring Boot e MySQL**
 
-## 📂 Struttura
+[![Java](https://img.shields.io/badge/Java-21-ED8B00?style=flat&logo=openjdk&logoColor=white)](https://openjdk.org/)
+[![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.0.2-6DB33F?style=flat&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
+[![MySQL](https://img.shields.io/badge/MySQL-8.x-4479A1?style=flat&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![SQLite](https://img.shields.io/badge/SQLite-3.x-003B57?style=flat&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![JUnit5](https://img.shields.io/badge/JUnit-5-25A162?style=flat&logo=junit5&logoColor=white)](https://junit.org/junit5/)
+[![Maven](https://img.shields.io/badge/Maven-3.9-C71A36?style=flat&logo=apachemaven&logoColor=white)](https://maven.apache.org/)
 
-| Directory | Descrizione |
-|-----------|-------------|
-| `00_Libraries/` | Framework e librerie riutilizzabili |
-| `01_Fundamentals_Examples/` | Concetti base, strutture dati e OOP |
-| `02_Tickets_Transportation/` | Sistemi di biglietteria e trasporti |
-| `03_Business_Applications/` | Applicazioni business e gestionali |
-| `04_Exercises_Practice/` | Esercizi extra e pratica |
-| `05_Spring & FrontEnd - FullStack/` | Spring Boot, JPA, Database e Frontend |
-| `06_Database - MySql/` | Fondamentali MySQL (DDL, DML, query) |
+</div>
 
 ---
 
-## 📚 00_Libraries
+## Panoramica
 
-| Libreria | Descrizione |
-|----------|-------------|
-| [GenerationLibrary](00_Libraries/GenerationLibrary/README.md) | Framework Repository Pattern con Generici |
+Questa repository raccoglie **79+ progetti** sviluppati durante il bootcamp Generation Italy, organizzati in un percorso progressivo: dalla sintassi base di Java fino alla realizzazione di applicazioni web full-stack con Spring Boot.
 
----
-
-## 📘 01_Fundamentals_Examples
-
-**Strutture Dati:**
-- [AlgoritmiDemo - Strutture Dati](01_Fundamentals_Examples/AlgoritmiDemo%20-%20Strutture%20Dati/README.md) - Array, ArrayList, HashMap, Set
-
-**Documentazione:**
-| Argomento | File |
-|-----------|------|
-| Sintassi base | `docs/02-fundamentals/examples.md` |
-| Condizioni | `docs/02-fundamentals/sequenza-selezione.md` |
-| While | `docs/02-fundamentals/while.md` |
-| For loops | `docs/02-fundamentals/modulo4.md` |
-| Classi/Oggetti | `docs/02-fundamentals/modulo6.md` |
-| Incapsulamento | `docs/02-fundamentals/modulo7.md` |
-| Ereditarietà | `docs/02-fundamentals/modulo8.md` |
-| Astrazione | `docs/02-fundamentals/modulo9.md` |
-| Interfacce | `docs/02-fundamentals/modulo10.md` |
-| Lambda/Stream | `01_Fundamentals_Examples/Modulo11/README.md` |
+```
+GenerationStudyJavaCourse/
+├── 00_Libraries/                         Framework e librerie riutilizzabili
+├── 01_Fundamentals_Examples/             Fondamenti Java e OOP (12 moduli)
+├── 02_Tickets_Transportation/            Sistemi di biglietteria e trasporti
+├── 03_Business_Applications/             43 applicazioni gestionali
+├── 04_Exercises_Practice/                Esercizi supplementari
+├── 05_Spring & FrontEnd - FullStack/     Spring Boot, JPA, Frontend
+├── 06_Database - MySql/                  Fondamenti SQL e query avanzate
+└── docs/                                 Documentazione di supporto
+```
 
 ---
 
-## 🚆 02_Tickets_Transportation
+## 00 — Librerie
 
 | Progetto | Descrizione |
 |----------|-------------|
-| BrianzaTaxi | Sistema prenotazione taxi |
-| BrianzaTrains | Sistema biglietti treno |
-| DiscotecaTicket | Biglietti con restrizioni età |
-| MilanoLeccoTrains | Gestione treni (v2-v4) |
-| MonzaMetro | Biglietteria metropolitana |
+| [GenerationLibrary](00_Libraries/GenerationLibrary/) | Framework enterprise: Repository Pattern generico, caching Full/Partial, JDBC, I/O utilities |
 
 ---
 
-## 💼 03_Business_Applications
+## 01 — Fondamenti Java
 
-### 🏨 Hospitality & Tourism
-GrottammareB&B • LeccoB&B • MonsterHotel • ProlocoLakeComo • SBBB • SBHotel • VacanzeRomane • VillaMelzi
+12 moduli didattici che coprono l'intero percorso OOP.
 
-### 🛒 Commerce & Services
-JavaBank • LocalMarket • PCWizard • PrintLabel • PrivateClinic • RepairShop
+| Modulo | Argomento |
+|--------|-----------|
+| [SequenzaESelezione](01_Fundamentals_Examples/SequenzaESelezione/) | `if/else`, `switch`, operatore ternario |
+| [While](01_Fundamentals_Examples/While/) | Cicli `while` e `do-while` |
+| [Modulo4](01_Fundamentals_Examples/Modulo4/) | Cicli `for`, `for-each` |
+| [Modulo 6](01_Fundamentals_Examples/Modulo%206/) | Classi, oggetti, costruttori |
+| [Modulo7](01_Fundamentals_Examples/Modulo7Incapsulamento/) | Incapsulamento, getter/setter |
+| [Modulo8](01_Fundamentals_Examples/Modulo8Ereditariet%C3%A0/) | Ereditarietà, `extends`, `super` |
+| [Modulo9](01_Fundamentals_Examples/Modulo9Astrazione/) | Classi astratte |
+| [Modulo10](01_Fundamentals_Examples/Modulo10/) | Interfacce, polimorfismo |
+| [Modulo11](01_Fundamentals_Examples/Modulo11/) | Lambda expressions, interfacce funzionali |
+| [AlgoritmiDemo](01_Fundamentals_Examples/AlgoritmiDemo%20-%20Strutture%20Dati/) | Array, ArrayList, HashSet, HashMap |
+| [Examples](01_Fundamentals_Examples/Examples/) | Esempi di sintassi base |
+| [Recap](01_Fundamentals_Examples/Recap/) | Lezioni di ripasso |
 
-### 🚆 Transportation & Logistics
-BrianzaTaxi • BrianzaTrains • DiscotecaTicket • JavaBus • JavItaAirline • MLTrains • MonzaMetro
-
-### 🎓 Education & Culture
-DeveloperCandidatura • MuseumTicket • NerdLibrary • PokeDex • SchoolManagement (v1, v2)
-
----
-
-## 🌱 05_Spring & FrontEnd - FullStack
-
-| Progetto | Descrizione |
-|----------|-------------|
-| [Emergency](05_Spring%20&%20FrontEnd%20-%20FullStack/Emergency/README.md) | Sistema pronto soccorso |
-| [Dinner](05_Spring%20&%20FrontEnd%20-%20FullStack/Dinner/README.md) | Gestione ristorante |
-| [Ticket](05_Spring%20&%20FrontEnd%20-%20FullStack/Ticket/README.md) | Sistema segnalazioni |
-| [Vault](05_Spring%20&%20FrontEnd%20-%20FullStack/vault/README.md) | Membership Vault-Tec |
-
-**Tecnologie:** Spring Boot, Spring Data JPA, Thymeleaf, MySQL
+> **[Percorso completo e dettagli](01_Fundamentals_Examples/)**
 
 ---
 
-## 🗄️ 06_Database - MySql
+## 02 — Tickets & Transportation
 
-| Script | Descrizione |
-|--------|-------------|
-| `01_create_table.sql` | Creazione tabella PEOPLE |
-| `02_insert_10_people.sql` | Inserimento iniziale |
-| `03_update_roles.sql` | Aggiornamento ruoli |
-| `04_delete_minors.sql` | Eliminazione minori |
-| `05_insert_10_more.sql` | Inserimento aggiuntivo |
-| `06_select_queries.sql` | Query SELECT |
-| `07_aggregate_queries.sql` | Query aggregate |
+10 progetti per sistemi di biglietteria e trasporti, con evoluzione progressiva del progetto MilanoLeccoTrains (v1 → v4).
 
----
+| Progetto | Descrizione | Livello |
+|----------|-------------|---------|
+| BrianzaTaxi / BrianzaTaxiService | Prenotazione taxi con tariffazione | Base → Intermedio |
+| BrianzaTrains / BrianzaTrainsObjects | Biglietteria treni | Intermedio → Avanzato |
+| DiscotecaTicket | Biglietti con restrizioni età | Base |
+| MLTrains → MilanoLeccoTrains v2-v4 | Evoluzione gestione treni | Base → Avanzato |
+| MonzaMetro | Biglietteria metropolitana | Intermedio |
+| JavaBus / JavItaAirline | Autobus e compagnia aerea | Avanzato |
 
-## 📊 Statistiche
-
-| Categoria | Progetti |
-|-----------|----------|
-| Librerie | 1 framework |
-| Fondamentali | 14 moduli |
-| Trasporti | 9 |
-| Business | 43 |
-| Spring Boot | 4 |
-| Database | 7 script |
-| **Totale** | **78+** |
+> **[Dettagli completi](02_Tickets_Transportation/)**
 
 ---
 
-## 👤 Autore
+## 03 — Business Applications
 
-**Hacman Viorica Gabriela**  
-Generation Italy - Java Full Stack Developer
+**43 progetti** organizzati in 4 settori:
 
-- LinkedIn: [viorica-gabriela-hacman](https://www.linkedin.com/in/viorica-gabriela-hacman-63a412267/)
-- GitHub: [@vhacman](https://github.com/vhacman)
+| Settore | Progetti | Highlights |
+|---------|:--------:|------------|
+| [Hospitality & Tourism](03_Business_Applications/01_Hospitality_Tourism/) | 8 | B&B, hotel, agenzie viaggi, ville storiche |
+| [Commerce & Services](03_Business_Applications/02_Commerce_Services/) | 14 | Banche, cliniche, ORM custom, concessionarie |
+| [Transportation & Logistics](03_Business_Applications/03_Transportation_Logistics/) | 12 | Taxi, treni, metropolitana, compagnie aeree |
+| [Education & Culture](03_Business_Applications/04_Education_Culture/) | 9 | Scuole, biblioteche, musei, PokeDex |
+
+### Progetti di punta
+
+| Progetto | Pattern e tecnologie |
+|----------|---------------------|
+| [ACMC](03_Business_Applications/02_Commerce_Services/ACMC/) | IoC Container custom, MVC, Reflection API, Repository, SOLID |
+| [ACMC2ORM](03_Business_Applications/02_Commerce_Services/ACMC2ORM/) | ORM custom, Generic Repository, Full/Partial Cache, Relazioni bidirezionali |
+| [BikeWorld](03_Business_Applications/02_Commerce_Services/BikeWorld/) | State Pattern, Chain of Responsibility, ETL/CSV Import |
+| [Carroponte](03_Business_Applications/02_Commerce_Services/Carroponte/) | Command Pattern, Caching multi-livello, XOR Cipher |
+| [OmegaClinic](03_Business_Applications/02_Commerce_Services/OmegaClinic/) | Repository, Lazy/Eager Loading, JDBC, BigDecimal |
+| [OmegaClinicGEHENNA](03_Business_Applications/02_Commerce_Services/OmegaClinicGEHENNA/) | Scheduling algorithm, Smart Calendar, Comparator avanzati |
+
+> **[Dettagli completi](03_Business_Applications/)**
+
+---
+
+## 04 — Exercises & Practice
+
+| Progetto | Descrizione | Concetti |
+|----------|-------------|----------|
+| ChristmasTime | Progetto natalizio | Classi, Collections |
+| ExtraLesson 1-2 | Lezioni di approfondimento | Sintassi avanzata, Refactoring |
+| Taxes | Calcolo imposte | BigDecimal, Enum, Validazione |
+
+> **[Dettagli completi](04_Exercises_Practice/)**
+
+---
+
+## 05 — Spring Boot & Frontend
+
+Applicazioni web full-stack:
+
+| Progetto | Descrizione | Stack |
+|----------|-------------|-------|
+| [Emergency](05_Spring%20%26%20FrontEnd%20-%20FullStack/Emergency/) | Pronto soccorso ospedaliero | Spring Boot, JPA, Thymeleaf, REST API |
+| [Dinner](05_Spring%20%26%20FrontEnd%20-%20FullStack/Dinner/) | Gestione ordini ristorante | Spring Boot, JPA, Thymeleaf, REST API |
+| [Ticket](05_Spring%20%26%20FrontEnd%20-%20FullStack/Ticket/) | Sistema segnalazioni/ticket | Spring Boot, JPA, Thymeleaf, REST API |
+| [Vault](05_Spring%20%26%20FrontEnd%20-%20FullStack/vault/) | Membership Vault-Tec (tema Fallout) | Spring Boot, JPA, REST API |
+| [GenSchool](05_Spring%20%26%20FrontEnd%20-%20FullStack/GenSchool/) | Gestione lezioni scolastiche | Spring Boot, JPA, REST API |
+| [PC Configurator](05_Spring%20%26%20FrontEnd%20-%20FullStack/pcconfigurator/) | Configuratore PC personalizzati | Spring Boot, JPA, REST API |
+| [Sanction](05_Spring%20%26%20FrontEnd%20-%20FullStack/sanction/) | Sistema gestione sanzioni amministrative | Spring Boot, JPA, DTO Pattern, REST API |
+| [Hotel Booking](05_Spring%20%26%20FrontEnd%20-%20FullStack/hotelboolking/) | Prenotazioni alberghiere | Spring Boot, JPA, Thymeleaf |
+| [FrontEnd](05_Spring%20%26%20FrontEnd%20-%20FullStack/FrontEnd%20-%20FullStack/) | Progetti HTML/CSS/JS | HTML5, CSS3, JavaScript ES6+ |
+
+> **[Dettagli completi](05_Spring%20%26%20FrontEnd%20-%20FullStack/)**
+
+---
+
+## 06 — Database MySQL
+
+7 script SQL progressivi: dalla creazione tabelle alle query aggregate con `GROUP BY`, `AVG`, `COUNT`.
+
+| Script | Contenuto |
+|--------|-----------|
+| `01_create_table.sql` | `CREATE TABLE` — Tabella PEOPLE |
+| `02_insert_10_people.sql` | `INSERT` — Inserimento iniziale |
+| `03_update_roles.sql` | `UPDATE` — Aggiornamento ruoli |
+| `04_delete_minors.sql` | `DELETE` — Eliminazione condizionale |
+| `05_insert_10_more.sql` | `INSERT` — Inserimento aggiuntivo |
+| `06_select_queries.sql` | `SELECT`, `WHERE`, `ORDER BY`, `LIKE` |
+| `07_aggregate_queries.sql` | `GROUP BY`, `AVG`, `MIN`, `MAX`, `COUNT` |
+
+> **[Dettagli completi](06_Database%20-%20MySql/)**
+
+---
+
+## Stack Tecnologico
+
+| Area | Tecnologie |
+|------|------------|
+| **Linguaggio** | Java 21, JavaScript ES6+ |
+| **Framework** | Spring Boot 4.0.2, Spring Data JPA, Hibernate |
+| **Frontend** | Thymeleaf, HTML5, CSS3 |
+| **Database** | MySQL 8.x, SQLite 3.x, JDBC |
+| **Build** | Maven |
+| **Testing** | JUnit 5 (Jupiter) |
+| **IDE** | Eclipse, IntelliJ IDEA |
+
+## Design Patterns
+
+`Repository` · `MVC` · `Dependency Injection (IoC)` · `Factory` · `Strategy` · `State` · `Command` · `Chain of Responsibility` · `Template Method` · `Composite` · `ORM custom` · `Reflection` · `Lazy/Eager Loading` · `ETL`
+
+## Statistiche
+
+| Categoria | Quantità |
+|-----------|:--------:|
+| Framework/Librerie | 1 |
+| Moduli fondamentali | 12 |
+| Trasporti & Biglietteria | 10 |
+| Business Applications | 43 |
+| Esercizi & Pratica | 4 |
+| Spring Boot Web App | 8 |
+| Frontend | 3 |
+| Script SQL | 7 |
+| **Totale** | **79+** |
 
 ---
 
 <div align="center">
-*Sviluppato con dedizione durante il percorso Full Stack Java*
+
+### Autore
+
+**Hacman Viorica Gabriela**
+Generation Italy — Java Full Stack Developer
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-viorica--gabriela--hacman-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/viorica-gabriela-hacman-63a412267/)
+[![GitHub](https://img.shields.io/badge/GitHub-vhacman-181717?style=flat&logo=github&logoColor=white)](https://github.com/vhacman)
+
 </div>

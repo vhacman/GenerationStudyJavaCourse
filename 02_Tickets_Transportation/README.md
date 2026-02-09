@@ -1,57 +1,68 @@
-# 🚆 Tickets & Transportation
+<div align="center">
 
-Progetti per la gestione di biglietteria e trasporti pubblici.
+# Tickets & Transportation
 
----
+Progetti per la gestione di biglietteria e trasporti pubblici, con progressione didattica da base ad avanzato.
 
-## 📂 Progetti
-
-| Progetto | Descrizione | Concetti |
-|----------|-------------|----------|
-| BrianzaTaxi | Prenotazione taxi | Classi, Liste |
-| BrianzaTaxiService | Taxi con tariffazione | Ereditarietà, Polimorfismo |
-| BrianzaTrains | Biglietteria treni | Classi, Validazione |
-| BrianzaTrainsObjects | Treni avanzato | OOP avanzato |
-| DiscotecaTicket | Biglietteria eventi | LocalDate, Validazione |
-| JavaBus | Gestione autobus | Avanzato |
-| JavItaAirline | Compagnia aerea | Avanzato |
-| MLTrains | Milano-Lecco v1 | Base |
-| MilanoLeccoTrains v2-v4 | Treni evolutivi | Abstract, Enum |
-| MonzaMetro | Metropolitana | BigDecimal, Enum |
+</div>
 
 ---
 
-## 📊 Evoluzione MilanoLeccoTrains
+## Progetti
+
+| Progetto | Descrizione | Livello | Concetti chiave |
+|----------|-------------|---------|-----------------|
+| BrianzaTaxi | Prenotazione taxi | Base | Classi, Liste |
+| BrianzaTaxiService | Taxi con tariffazione | Intermedio | Ereditarietà, Override |
+| BrianzaTrains | Biglietteria treni | Intermedio | Classi multiple, validazione |
+| BrianzaTrainsObjects | Treni OOP avanzato | Avanzato | Abstract, Enum, Polimorfismo |
+| DiscotecaTicket | Biglietteria eventi | Base | LocalDate, validazione età |
+| JavaBus | Gestione autobus | Avanzato | Collection avanzate |
+| JavItaAirline | Compagnia aerea | Avanzato | Sistema completo |
+| MLTrains | Milano-Lecco v1 | Base | Classi base |
+| MilanoLeccoTrains v2-v4 | Treni evolutivi | Intermedio-Avanzato | Abstract, Enum |
+| MonzaMetro | Metropolitana | Intermedio | BigDecimal, Enum, pricing |
+
+---
+
+## Evoluzione MilanoLeccoTrains
+
+Il progetto MilanoLeccoTrains attraversa 4 versioni con complessità crescente:
 
 | Versione | Caratteristiche |
 |----------|-----------------|
-| MLTrains | Base |
-| MilanoLeccoTrains2 | Miglioramento classi |
-| MilanoLeccoTrains3 | Funzionalità avanzate |
-| MilanoLeccoTrains4 | Completo (abstract, enum) |
+| **MLTrains** | Struttura base con classi semplici |
+| **MilanoLeccoTrains2** | Introduzione OOP, miglioramento classi |
+| **MilanoLeccoTrains3** | Funzionalità avanzate |
+| **MilanoLeccoTrains4** | Completo: abstract classes, enum, polimorfismo |
 
 ---
 
-## 🎯 Concetti Applicati
+## Concetti Applicati
 
-| Progetto | Concetti |
+| Concetto | Progetti |
 |----------|----------|
-| BrianzaTaxi | Classi base, oggetti, Liste |
-| BrianzaTaxiService | Ereditarietà, Override |
-| BrianzaTrains | Classi multiple, validazione |
-| DiscotecaTicket | LocalDate, validazione condizionale |
-| MLTrains* | Abstract classes, Enum |
-| MonzaMetro | BigDecimal, Enum, Pattern pricing |
+| Classi base e oggetti | BrianzaTaxi, MLTrains |
+| Ereditarietà e Override | BrianzaTaxiService |
+| Abstract classes | BrianzaTrainsObjects, MilanoLeccoTrains4 |
+| Enum | MonzaMetro, MilanoLeccoTrains4 |
+| BigDecimal | MonzaMetro |
+| LocalDate | DiscotecaTicket |
 
 ---
 
-## 🛠️ Tecnologie
+## Tecnologie
 
-- Java 17+
-- Eclipse IDE
+- **Java** 17+
+- **Eclipse** IDE
 - Nessuna dipendenza esterna
 
 ---
 
-**Autore:** Hacman Viorica Gabriela  
-**Corso:** Generation Italy - Java Full Stack Developer
+<div align="center">
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna al README principale](../README.md)
+
+</div>

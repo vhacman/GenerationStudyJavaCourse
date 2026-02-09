@@ -1,6 +1,12 @@
-# AlgoritmiDemo - Strutture Dati
+<div align="center">
+
+# AlgoritmiDemo — Strutture Dati
 
 Modulo dedicato all'apprendimento delle strutture dati fondamentali in Java e degli algoritmi di base per la loro manipolazione.
+
+</div>
+
+---
 
 ## Descrizione
 
@@ -429,11 +435,11 @@ System.out.println(map.get("player1"));  // "Mario"
 
 La Demo009 rappresenta un caso d'uso completo che integra tutti i concetti:
 
-1. **Map per disponibilità** → Struttura statica iniziale
-2. **Array per ospiti** → Input dati
-3. **Map per richieste** → Aggregazione dinamica con conteggio
-4. **Confronto Map** → Business logic complessa
-5. **Report** → Iterazione e output
+1. **Map per disponibilità** -- Struttura statica iniziale
+2. **Array per ospiti** -- Input dati
+3. **Map per richieste** -- Aggregazione dinamica con conteggio
+4. **Confronto Map** -- Business logic complessa
+5. **Report** -- Iterazione e output
 
 Questo pattern è comune in applicazioni reali:
 - E-commerce (inventario vs carrelli)
@@ -443,4 +449,10 @@ Questo pattern è comune in applicazioni reali:
 
 ---
 
-**AlgoritmiDemo - Strutture Dati** fornisce le fondamenta per comprendere come organizzare e manipolare dati in Java, preparando per l'uso di Collections Framework in applicazioni reali.
+<div align="center">
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna a Fundamentals Examples](../README.md) · [README principale](../../README.md)
+
+</div>

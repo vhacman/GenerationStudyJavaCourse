@@ -1,4 +1,11 @@
-# 🏫 GenSchool - Sistema Gestione Scolastico
+<div align="center">
+
+# GenSchool — Sistema Gestione Scolastico
+
+**Spring Boot 4.0.2 | JPA | MySQL**
+
+</div>
+
 
 Applicazione Spring Boot per la gestione di lezioni scolastiche.
 
@@ -65,5 +72,10 @@ spring.jpa.hibernate.ddl-auto=update
 
 ---
 
-**Autore:** Hacman Viorica Gabriela  
-**Corso:** Generation Italy - Java Full Stack Developer
+<div align="center">
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna a Spring Boot](../README.md) · [README principale](../../README.md)
+
+</div>

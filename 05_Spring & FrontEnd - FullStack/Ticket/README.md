@@ -1,4 +1,11 @@
-# 🎫 Ticket - Sistema di Gestione Segnalazioni
+<div align="center">
+
+# Ticket — Sistema di Gestione Segnalazioni
+
+**Spring Boot 4.0.2 | JPA | Thymeleaf | MySQL**
+
+</div>
+
 
 Sistema di gestione ticket e segnalazioni sviluppato con Spring Boot 4.0.2, Spring Data JPA, Thymeleaf e MySQL.
 
@@ -158,4 +165,10 @@ L'applicazione sarà disponibile su: `http://localhost:8080`
 
 ---
 
-Sviluppato durante il corso Generation Italy - Full Stack Java Developer
+<div align="center">
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna a Spring Boot](../README.md) · [README principale](../../README.md)
+
+</div>

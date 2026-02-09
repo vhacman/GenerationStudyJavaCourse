@@ -1,4 +1,11 @@
-# 💻 PC Configurator
+<div align="center">
+
+# PC Configurator
+
+**Spring Boot 4.0.2 | JPA | MySQL**
+
+</div>
+
 
 Applicazione Spring Boot per la configurazione e gestione di PC personalizzati.
 
@@ -71,5 +78,10 @@ spring.jpa.hibernate.ddl-auto=update
 
 ---
 
-**Autore:** Hacman Viorica Gabriela  
-**Corso:** Generation Italy - Java Full Stack Developer
+<div align="center">
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna a Spring Boot](../README.md) · [README principale](../../README.md)
+
+</div>

@@ -1,4 +1,12 @@
-# Carroponte - Sistema di Gestione Eventi
+<div align="center">
+
+# Carroponte — Sistema di Gestione Eventi
+
+**Architettura enterprise con Command Pattern, Caching e IoC Container**
+
+</div>
+
+---
 
 Sistema di gestione eventi con architettura avanzata che implementa pattern di design moderni e best practices di sviluppo enterprise.
 
@@ -215,3 +223,11 @@ String decrypted = cypher.decrypt(encrypted);
 - Performance optimization
 - Error handling robusto
 - Clean code principles
+
+---
+
+<div align="center">
+
+[Torna a Commerce & Services](../README.md) · [README principale](../../../../README.md)
+
+</div>

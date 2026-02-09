@@ -1,4 +1,11 @@
-# 🎨 FrontEnd - FullStack
+<div align="center">
+
+# Frontend — HTML, CSS, JavaScript
+
+**Progetti web sviluppati con tecnologie frontend vanilla**
+
+</div>
+
 
 Progetti frontend e applicazioni web sviluppate con HTML, CSS e JavaScript vanilla durante il percorso formativo.
 
@@ -54,5 +61,10 @@ Esercizi base di HTML per l'apprendimento della sintassi.
 
 ---
 
-**Autore:** Hacman Viorica Gabriela  
-**Corso:** Generation Italy - Java Full Stack Developer
+<div align="center">
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna a Spring Boot & Frontend](../README.md) · [README principale](../../README.md)
+
+</div>

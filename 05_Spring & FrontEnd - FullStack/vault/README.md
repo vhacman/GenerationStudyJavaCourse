@@ -1,8 +1,15 @@
-# 🏛️ Vault - Sistema di Gestione Membership
+<div align="center">
+
+# Vault — Sistema di Gestione Membership
+
+**Spring Boot 4.0.2 | JPA | MySQL**
+
+*"VaultTec inc. — Your future in our hands!"*
+
+</div>
+
 
 Sistema di gestione richieste di membership per Vault-Tec Inc. sviluppato con Spring Boot 4.0.2, Spring Data JPA e MySQL.
-
-> **"VaultTec inc. - Your future in our hands!"**
 
 ## 📋 Descrizione
 
@@ -178,6 +185,12 @@ Il progetto è un omaggio alla serie di videogiochi Fallout, dove Vault-Tec Corp
 
 ---
 
-**"War. War never changes."** - Fallout Series
+<div align="center">
 
-Sviluppato durante il corso Generation Italy - Full Stack Java Developer
+*"War. War never changes."* — Fallout Series
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna a Spring Boot](../README.md) · [README principale](../../README.md)
+
+</div>

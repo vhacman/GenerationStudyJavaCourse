@@ -1,122 +1,140 @@
-# 💼 Business Applications
+<div align="center">
 
-Applicazioni gestionali sviluppate durante il bootcamp, organizzate per settore.
+# Business Applications
 
----
+43 applicazioni gestionali sviluppate durante il bootcamp, organizzate per settore industriale.
 
-## 📂 Struttura
-
-| Directory | Progetti |
-|-----------|----------|
-| `01_Hospitality_Tourism/` | 8 |
-| `02_Commerce_Services/` | 14 |
-| `03_Transportation_Logistics/` | 12 |
-| `04_Education_Culture/` | 9 |
-| **Totale** | **43** |
+</div>
 
 ---
 
-## 🏨 01_Hospitality_Tourism
+## Panoramica
+
+| Directory | Settore | Progetti |
+|-----------|---------|:--------:|
+| [`01_Hospitality_Tourism/`](01_Hospitality_Tourism/) | Hospitality & Tourism | 8 |
+| [`02_Commerce_Services/`](02_Commerce_Services/) | Commerce & Services | 14 |
+| [`03_Transportation_Logistics/`](03_Transportation_Logistics/) | Transportation & Logistics | 12 |
+| [`04_Education_Culture/`](04_Education_Culture/) | Education & Culture | 9 |
+| | **Totale** | **43** |
+
+---
+
+## Hospitality & Tourism
+
+Gestione strutture ricettive, servizi turistici e accoglienza.
 
 | Progetto | Descrizione |
 |----------|-------------|
-| GrottammareB&B | Gestione B&B |
+| GrottammareB&B | Gestione bed & breakfast |
 | LeccoB&B | Sistema B&B zona Lecco |
-| MonsterHotel | Hotel con gestione ospiti |
+| MonsterHotel | Hotel con gestione ospiti completa |
 | ProlocoLakeComo | Pro loco lago di Como |
-| SBBB | Booking Bed & Breakfast |
-| SBHotel | Booking Hotel |
-| VacanzeRomane | Agenzia viaggi |
-| VillaMelzi | Villa storica per eventi |
+| SBBB | Sistema Booking B&B |
+| SBHotel | Sistema Booking Hotel |
+| VacanzeRomane | Agenzia viaggi Roma |
+| VillaMelzi | Gestione villa storica per eventi |
 
 ---
 
-## 🛒 02_Commerce_Services
+## Commerce & Services
 
-### Base
+Applicazioni commerciali, dai sistemi base ai progetti enterprise con design pattern avanzati.
+
+### Livello Intermedio
+
 | Progetto | Descrizione |
 |----------|-------------|
 | JavaBank | Sistema bancario |
 | LocalMarket | Inventario market |
-| LocalMarketDB | Market con DB |
+| LocalMarketDB | Market con database SQLite |
 | PCWizard | Assistenza PC |
 | PrintLabel | Stampa etichette |
 | PrivateClinic | Clinica privata |
 | RepairShop | Officina riparazioni |
 
-### Enterprise
-| Progetto | Pattern |
-|----------|---------|
-| ACMC | DI, IoC, MVC, Reflection |
-| ACMC2ORM | Generic Repository, ORM |
-| BikeWorld | State, Chain of Responsibility |
-| Carroponte | Command, Caching, IoC |
-| OmegaClinic | Repository, Lazy Loading |
-| OmegaClinicGEHENNA | Scheduling, Calendar |
+### Livello Enterprise
+
+| Progetto | Pattern e tecnologie |
+|----------|---------------------|
+| [ACMC](02_Commerce_Services/ACMC/) | DI/IoC, MVC, Reflection, Repository |
+| [ACMC2ORM](02_Commerce_Services/ACMC2ORM/) | ORM custom, Generic Repository, Full/Partial Cache |
+| [BikeWorld](02_Commerce_Services/BikeWorld/) | State, Chain of Responsibility, ETL, CSV Import |
+| [Carroponte](02_Commerce_Services/Carroponte/) | Command, Caching, IoC Container |
+| [OmegaClinic](02_Commerce_Services/OmegaClinic/) | Repository, Lazy/Eager Loading |
+| [OmegaClinicGEHENNA](02_Commerce_Services/OmegaClinicGEHENNA/) | Scheduling, Smart Calendar |
+| OmegaClinixMaxi | Healthcare Management, Enhanced features |
 
 ---
 
-## 🚆 03_Transportation_Logistics
+## Transportation & Logistics
+
+Sistemi per trasporti pubblici, logistica e mobilita.
 
 | Progetto | Livello |
 |----------|---------|
-| BrianzaTaxi | Intermedio |
-| BrianzaTaxiService | Intermedio |
-| BrianzaTrains | Intermedio |
-| BrianzaTrainsObjects | Avanzato |
-| DiscotecaTicket | Intermedio |
+| BrianzaTaxi / BrianzaTaxiService | Base -> Intermedio |
+| BrianzaTrains / BrianzaTrainsObjects | Intermedio -> Avanzato |
+| DiscotecaTicket | Base |
 | JavaBus | Avanzato |
 | JavItaAirline | Avanzato |
-| MLTrains | Base |
-| MilanoLeccoTrains (v2-v4) | Intermedio-Avanzato |
+| MLTrains -> MilanoLeccoTrains v2-v4 | Base -> Avanzato |
 | MonzaMetro | Intermedio |
 
 ---
 
-## 🎓 04_Education_Culture
+## Education & Culture
+
+Gestione istituzioni educative, culturali e servizi formativi.
 
 | Progetto | Descrizione |
 |----------|-------------|
-| DeveloperCandidatura | Candidature lavoro |
+| DeveloperCandidatura | Sistema candidature lavoro |
 | MuseumTicket | Biglietteria museo |
-| NerdLibrary | Biblioteca |
-| NSMI / NSMPI | Istituto musicale |
-| PokeDex | Database Pokémon |
-| PrivateLessons | Lezioni private |
-| SchoolManagement (v1, v2) | Gestione scuola |
+| NerdLibrary | Biblioteca tematica |
+| NSMI / NSMPI | Istituto musicale (base e avanzato) |
+| PokeDex | Database Pokemon |
+| PrivateLessons | Sistema lezioni private |
+| SchoolManagement v1-v2 | Gestione scuola (base e completa) |
 
 ---
 
-## 🎯 Obiettivi
+## Obiettivi Didattici
 
-**Architetturali:**
+### Architettura
 - Repository Pattern
 - MVC Pattern
-- Dependency Injection
+- Dependency Injection / IoC
 - ORM Custom
 
-**Design Patterns:**
+### Design Patterns
 - Strategy, Command, Factory
 - State, Chain of Responsibility
+- Template Method, Composite
 - Reflection
 
-**Tecnologie:**
+### Tecnologie
 - Java 17+, JDBC, SQLite
 - BigDecimal, LocalDate
-- Enum avanzati, Collections
+- Enum avanzati, Collections, Generics
 
 ---
 
-## 🏆 Consigliati per Approfondimento
+## Consigliati per Approfondimento
 
-| Progetto | Per Studiare |
-|----------|-------------|
-| ACMC | DI, IoC, Reflection |
-| ACMC2ORM | ORM, Caching |
-| BikeWorld | ETL, State Pattern |
-| OmegaClinicGEHENNA | Algoritmi scheduling |
+| Progetto | Argomenti |
+|----------|-----------|
+| ACMC | Dependency Injection, IoC Container, Reflection |
+| ACMC2ORM | ORM custom, Caching strategies, Entity relationships |
+| BikeWorld | State Pattern, ETL pipelines |
+| OmegaClinicGEHENNA | Algoritmi scheduling, Calendar logic |
 
 ---
 
-**Autore:** Hacman Viorica Gabriela  
-**Corso:** Generation Italy - Java Full Stack Developer
+<div align="center">
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna al README principale](../README.md)
+
+</div>

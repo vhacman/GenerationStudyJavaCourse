@@ -1,43 +1,56 @@
-# 🛒 Commerce & Services
+<div align="center">
 
-Applicazioni per la gestione di attività commerciali, servizi e gestione aziendale.
+# Commerce & Services
 
-## 📁 Progetti
+Applicazioni per la gestione di attività commerciali e servizi, dal livello base all'enterprise.
 
-### Livello Intermedio (Base)
+</div>
+
+---
+
+## Progetti — Livello Intermedio
 
 | Progetto | Descrizione | Concetti |
 |----------|-------------|----------|
-| JavaBank | Sistema bancario base | Conti, transazioni, movimenti |
+| JavaBank | Sistema bancario | Conti, transazioni, movimenti |
 | LocalMarket | Market locale | Inventario, prodotti, vendite |
-| LocalMarketDB | LocalMarket con database | JDBC, SQLite, persistenza |
+| LocalMarketDB | Market con database | JDBC, SQLite, persistenza |
 | PCWizard | Assistenza PC | Diagnostica, preventivi |
 | PrintLabel | Stampa etichette | Template, formattazione |
 | PrivateClinic | Clinica privata | Pazienti, appuntamenti |
 | RepairShop | Officina riparazioni | Interventi, ricambi |
 
-### Livello Avanzato (Enterprise)
+---
 
-| Progetto | Descrizione | Pattern/Tecnologie |
-|----------|-------------|-------------------|
-| **ACMC** | Gestione Associazioni | DI, IoC Container, MVC, Repository, Reflection |
-| **ACMC2ORM** | Custom ORM Framework | Generic Repository, FullCache/PartialCache, Relazioni bidirezionali |
-| **BikeWorld** | Concessionaria Moto | State Pattern, Chain of Responsibility, ETL, CSV Import |
-| **Carroponte** | Gestione Eventi | Command Pattern, Caching, IoC Container |
-| **OmegaClinic** | Sistema Clinica | Repository Pattern, Lazy/Eager Loading |
-| **OmegaClinicGEHENNA** | Clinical Scheduling | Smart Calendar, Algoritmi scheduling avanzati |
-| **OmegaClinixMaxi** | Healthcare Management | Database Integration, Enhanced features |
+## Progetti — Livello Enterprise
 
-## 🏆 Progetti Consigliati per Studio
+| Progetto | Pattern e tecnologie |
+|----------|---------------------|
+| [ACMC](ACMC/) | DI/IoC Container, MVC, Reflection API, Repository |
+| [ACMC2ORM](ACMC2ORM/) | ORM custom, Generic Repository, Full/Partial Cache, Relazioni bidirezionali |
+| [BikeWorld](BikeWorld/) | State Pattern, Chain of Responsibility, ETL, CSV Import |
+| [Carroponte](Carroponte/) | Command Pattern, Caching multi-livello, IoC Container |
+| [OmegaClinic](OmegaClinic/) | Repository Pattern, Lazy/Eager Loading |
+| [OmegaClinicGEHENNA](OmegaClinicGEHENNA/) | Scheduling, Smart Calendar, algoritmi avanzati |
+| OmegaClinixMaxi | Healthcare Management, Enhanced features |
 
-| Progetto | Argomenti da Approfondire |
+---
+
+## Consigliati per Studio Approfondito
+
+| Progetto | Argomenti da approfondire |
 |----------|--------------------------|
-| ACMC | Dependency Injection, Reflection API, IoC |
-| ACM2ORM | ORM, Caching strategies, Entity relationships |
+| ACMC | Dependency Injection, Reflection API, IoC Container |
+| ACMC2ORM | ORM custom, Caching strategies, Entity relationships |
 | BikeWorld | State Pattern, ETL pipelines |
 | OmegaClinicGEHENNA | Algoritmi scheduling, Calendar logic |
 
 ---
 
-**Autore:** Hacman Viorica Gabriela  
-**Corso:** Generation Italy - Java Full Stack Developer
+<div align="center">
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna a Business Applications](../README.md) · [README principale](../../README.md)
+
+</div>

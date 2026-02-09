@@ -1,41 +1,40 @@
-# 🔒 Modulo7 - Incapsulamento
+<div align="center">
 
-Modulo dedicato all'incapsulamento in Java: modificatori di visibilità, getter e setter.
+# Modulo 7 — Incapsulamento
+
+Modificatori di visibilità, getter/setter e principio di information hiding.
+
+</div>
+
+---
 
 ## Argomenti
 
-- Modificatori di visibilità (private, public, protected)
+- Modificatori di visibilità: `private`, `public`, `protected`
 - Getter e setter
-- Data hiding
-- Validazione nei setter
+- Data hiding e validazione nei setter
 - Principio di information hiding
 
-## Struttura
-
-```
-Modulo7Incapsulamento/
-├── src/
-└── .settings/
-```
+---
 
 ## Concetti Chiave
 
-- `private` - accesso solo nella classe
-- `public` - accesso universale
-- `protected` - accesso package e subclass
-- Getter: `getCampo()`
-- Setter: `setCampo(valore)`
+| Modificatore | Visibilità |
+|-------------|-----------|
+| `private` | Solo nella classe |
+| `protected` | Package + sottoclassi |
+| `public` | Universale |
 
-## Esempio
+### Esempio
 
 ```java
 public class Persona {
     private String nome;
-    
+
     public String getNome() {
         return nome;
     }
-    
+
     public void setNome(String nome) {
         if (nome != null && !nome.isEmpty()) {
             this.nome = nome;
@@ -46,5 +45,23 @@ public class Persona {
 
 ---
 
-**Autore:** Hacman Viorica Gabriela  
-**Corso:** Generation Italy - Java Full Stack Developer
+## Struttura
+
+```
+Modulo7Incapsulamento/
+└── src/
+```
+
+## Tecnologie
+
+- **Java** 17+ | **IDE:** Eclipse
+
+---
+
+<div align="center">
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna ai Fondamenti](../README.md) · [README principale](../../README.md)
+
+</div>

@@ -1,6 +1,12 @@
-# ACMC2ORM - Custom ORM Framework & Association Management
+<div align="center">
+
+# ACMC2ORM — Custom ORM Framework
 
 **Advanced Object-Relational Mapping System for Association Management**
+
+</div>
+
+---
 
 Evoluzione del progetto ACMC che implementa un **framework ORM custom** dimostrando i principi e pattern utilizzati nei tool professionali come Hibernate, ma con pieno controllo e trasparenza educativa.
 
@@ -523,3 +529,11 @@ Progetto educativo - Generation Italy
 ## Note Finali
 
 Questo progetto dimostra come costruire un ORM da zero, fornendo comprensione profonda dei meccanismi interni di framework come Hibernate. L'approccio didattico privilegia la trasparenza e la comprensione rispetto alla complessità di soluzioni enterprise-ready.
+
+---
+
+<div align="center">
+
+[Torna a Commerce & Services](../README.md) · [README principale](../../../../README.md)
+
+</div>

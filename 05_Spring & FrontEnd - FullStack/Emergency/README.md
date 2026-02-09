@@ -1,4 +1,11 @@
-# 🚑 Emergency - Sistema Gestione Pronto Soccorso
+<div align="center">
+
+# Emergency — Sistema Gestione Pronto Soccorso
+
+**Spring Boot 4.0.2 | JPA | Thymeleaf | MySQL**
+
+</div>
+
 
 Applicazione web Spring Boot per la gestione delle emergenze ospedaliere e delle code al pronto soccorso.
 
@@ -171,6 +178,10 @@ Repository generato automaticamente da Spring con metodi CRUD:
 
 ---
 
-**Sviluppato da:** Hacman Viorica Gabriela
-**Corso:** Generation Italy - Java Full Stack Developer
-**Livello:** Spring Boot Beginner
+<div align="center">
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna a Spring Boot](../README.md) · [README principale](../../README.md)
+
+</div>

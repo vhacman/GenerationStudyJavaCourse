@@ -1,39 +1,39 @@
-# 🔀 Sequenza e Selezione
+<div align="center">
 
-Modulo dedicato alle istruzioni condizionali in Java: if/else e switch.
+# Sequenza e Selezione
+
+Istruzioni condizionali in Java: `if/else`, `switch` e operatore ternario.
+
+</div>
+
+---
 
 ## Argomenti
 
-- Istruzione if
-- If-else semplice
-- If-else annidati
-- If-else if (catena)
-- Operatore ternario
-- Istruzione switch
+- Istruzione `if` semplice
+- `if-else` e `if-else if` annidati
+- Operatore ternario `? :`
+- Istruzione `switch`
 - Switch expression (Java 14+)
 
-## Struttura
-
-```
-SequenzaESelezione/
-├── src/
-└── .settings/
-```
+---
 
 ## Concetti Chiave
 
-**If-Else:**
+### if-else
+
 ```java
 if (condizione) {
-    // codice
+    // blocco vero
 } else if (condizione2) {
-    // codice
+    // blocco alternativo
 } else {
-    // codice
+    // blocco default
 }
 ```
 
-**Switch:**
+### switch
+
 ```java
 switch (variabile) {
     case valore1:
@@ -49,5 +49,23 @@ switch (variabile) {
 
 ---
 
-**Autore:** Hacman Viorica Gabriela  
-**Corso:** Generation Italy - Java Full Stack Developer
+## Struttura
+
+```
+SequenzaESelezione/
+└── src/
+```
+
+## Tecnologie
+
+- **Java** 17+ | **IDE:** Eclipse
+
+---
+
+<div align="center">
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna ai Fondamenti](../README.md) · [README principale](../../README.md)
+
+</div>

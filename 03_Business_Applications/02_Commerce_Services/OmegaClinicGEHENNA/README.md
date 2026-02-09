@@ -1,6 +1,12 @@
-# OmegaClinicGEHENNA - Advanced Clinical Scheduling System
+<div align="center">
 
-**Sistema Avanzato di Gestione Clinica con Calendario Intelligente**
+# OmegaClinicGEHENNA — Advanced Clinical Scheduling
+
+**Sistema avanzato di gestione clinica con calendario intelligente e scheduling automatico**
+
+</div>
+
+---
 
 Versione evoluta di OmegaClinic che implementa un sistema di **scheduling automatico** per la gestione appuntamenti clinici con algoritmo di ricerca slot disponibili, organizzazione prestazioni in calendario e tracking finanziario avanzato.
 
@@ -597,3 +603,11 @@ Progetto educativo - Generation Italy
 - **Business logic complessa** (calcolo disponibilità, prevenzione conflitti)
 
 Il nome "GEHENNA" riflette accuratamente la sfida implementativa: un sistema di scheduling clinico funzionante richiede attenzione a dettagli come orari lavorativi, pause, conflitti e performance. Questo progetto dimostra padronanza di Java avanzato e capacità di modellare domini complessi del mondo reale.
+
+---
+
+<div align="center">
+
+[Torna a Commerce & Services](../README.md) · [README principale](../../../../README.md)
+
+</div>

@@ -1,11 +1,17 @@
-# 🏨 Hospitality & Tourism
+<div align="center">
+
+# Hospitality & Tourism
 
 Progetti per la gestione di strutture ricettive, servizi turistici e accoglienza.
 
-## 📁 Progetti
+</div>
 
-| Progetto | Descrizione | Concetti Chiave |
-|----------|-------------|------------------|
+---
+
+## Progetti
+
+| Progetto | Descrizione | Concetti chiave |
+|----------|-------------|-----------------|
 | GrottammareB&B | Gestione bed & breakfast | Prenotazioni, camere, ospiti |
 | LeccoB&B | Sistema B&B zona Lecco | OOP base, Collections |
 | MonsterHotel | Hotel con gestione completa | Stanze, clienti, servizi |
@@ -15,14 +21,21 @@ Progetti per la gestione di strutture ricettive, servizi turistici e accoglienza
 | VacanzeRomane | Agenzia viaggi Roma | Pacchetti, voli, hotel |
 | VillaMelzi | Gestione villa storica | Eventi speciali, matrimoni |
 
-## 🎯 Obiettivi Didattici
+---
 
-- Gestione prenotazioni
-- Calendari e disponibilità
-- Tariffe dinamiche
-- OOP avanzato
+## Obiettivi Didattici
+
+- Gestione prenotazioni e disponibilità
+- Calendari e tariffe dinamiche
+- Relazioni tra entità (ospiti, stanze, prenotazioni)
+- OOP avanzato applicato a scenari reali
 
 ---
 
-**Autore:** Hacman Viorica Gabriela  
-**Corso:** Generation Italy - Java Full Stack Developer
+<div align="center">
+
+**Hacman Viorica Gabriela** | Generation Italy — Java Full Stack Developer
+
+[Torna a Business Applications](../README.md) · [README principale](../../README.md)
+
+</div>
