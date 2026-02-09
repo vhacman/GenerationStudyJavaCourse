@@ -1,143 +1,120 @@
 # 💼 Business Applications
 
-Applicazioni gestionali e business sviluppate durante il bootcamp, organizzate per settore. I progetti dimostrano l'applicazione pratica di pattern architetturali e design patterns in contesti aziendali reali.
+Applicazioni gestionali sviluppate durante il bootcamp, organizzate per settore.
 
-## 📁 Struttura
+---
 
-```
-03_Business_Applications/
-├── 01_Hospitality_Tourism/        # Ospitalità e Turismo (8 progetti)
-├── 02_Commerce_Services/           # Commercio e Servizi (14 progetti)
-├── 03_Transportation_Logistics/    # Trasporti e Logistica (12 progetti)
-└── 04_Education_Culture/           # Educazione e Cultura (9 progetti)
-```
+## 📂 Struttura
+
+| Directory | Progetti |
+|-----------|----------|
+| `01_Hospitality_Tourism/` | 8 |
+| `02_Commerce_Services/` | 14 |
+| `03_Transportation_Logistics/` | 12 |
+| `04_Education_Culture/` | 9 |
+| **Totale** | **43** |
 
 ---
 
 ## 🏨 01_Hospitality_Tourism
 
-| Progetto | Descrizione | Concetti Chiave |
-|----------|-------------|------------------|
-| GrottammareB&B | Gestione bed & breakfast | Prenotazioni, camere |
-| LeccoB&B | Sistema B&B zona Lecco | OOP base |
-| MonsterHotel | Hotel con gestione ospiti | Collection avanzate |
-| ProlocoLakeComo | Pro loco lago di Como | Eventi, prenotazioni |
-| SBBB | Sistema Booking Bed & Breakfast | Validazione dati |
-| SBHotel | Sistema Booking Hotel | Stanze, clienti |
-| VacanzeRomane | Agenzia viaggi Roma | Pacchetti turistici |
-| VillaMelzi | Gestione villa storica | Eventi speciali |
+| Progetto | Descrizione |
+|----------|-------------|
+| GrottammareB&B | Gestione B&B |
+| LeccoB&B | Sistema B&B zona Lecco |
+| MonsterHotel | Hotel con gestione ospiti |
+| ProlocoLakeComo | Pro loco lago di Como |
+| SBBB | Booking Bed & Breakfast |
+| SBHotel | Booking Hotel |
+| VacanzeRomane | Agenzia viaggi |
+| VillaMelzi | Villa storica per eventi |
 
 ---
 
 ## 🛒 02_Commerce_Services
 
-### Progetti Base (Livello Intermedio)
+### Base
+| Progetto | Descrizione |
+|----------|-------------|
+| JavaBank | Sistema bancario |
+| LocalMarket | Inventario market |
+| LocalMarketDB | Market con DB |
+| PCWizard | Assistenza PC |
+| PrintLabel | Stampa etichette |
+| PrivateClinic | Clinica privata |
+| RepairShop | Officina riparazioni |
 
-| Progetto | Descrizione | Concetti |
-|----------|-------------|----------|
-| JavaBank | Sistema bancario base | Conti, transazioni |
-| LocalMarket | Market locale | Inventario, vendite |
-| LocalMarketDB | LocalMarket con database | JDBC, SQLite |
-| PCWizard | Assistenza PC | Diagnostica, preventivi |
-| PrintLabel | Stampa etichette | Template, formattazione |
-| PrivateClinic | Clinica privata | Pazienti, appuntamenti |
-| RepairShop | Officina riparazioni | Interventi, pezzi |
-
-### Progetti Enterprise (Livello Avanzato)
-
-| Progetto | Descrizione | Pattern Implementati |
-|----------|-------------|---------------------|
-| **ACMC** | Gestione Associazioni | DI, IoC Container, MVC, Repository, Reflection |
-| **ACMC2ORM** | Custom ORM Framework | Generic Repository, FullCache/PartialCache, Relazioni bidirezionali |
-| **BikeWorld** | Concessionaria Moto | State Pattern, Chain of Responsibility, ETL, CSV Import |
-| **Carroponte** | Gestione Eventi | Command Pattern, Caching, IoC Container |
-| **OmegaClinic** | Sistema Clinica | Repository Pattern, Lazy/Eager Loading |
-| **OmegaClinicGEHENNA** | Clinical Scheduling | Smart Calendar, Algoritmi scheduling |
-| **OmegaClinixMaxi** | Healthcare Management Avanzato | Database Integration, Enhanced features |
+### Enterprise
+| Progetto | Pattern |
+|----------|---------|
+| ACMC | DI, IoC, MVC, Reflection |
+| ACMC2ORM | Generic Repository, ORM |
+| BikeWorld | State, Chain of Responsibility |
+| Carroponte | Command, Caching, IoC |
+| OmegaClinic | Repository, Lazy Loading |
+| OmegaClinicGEHENNA | Scheduling, Calendar |
 
 ---
 
 ## 🚆 03_Transportation_Logistics
 
-| Progetto | Descrizione | Livello |
-|----------|-------------|---------|
-| BrianzaTaxi | Servizio taxi base | Intermedio |
-| BrianzaTaxiService | Taxi con tariffazione | Intermedio |
-| BrianzaTrains | Biglietteria treni | Intermedio |
-| BrianzaTrainsObjects | Treni con OOP avanzato | Avanzato |
-| DiscotecaTicket | Biglietteria eventi | Intermedio |
-| JavaBus | Gestione autobus | Avanzato |
-| JavItaAirline | Compagnia aerea | Avanzato |
-| MilanoLeccoTRains2 | Treni Milano-Lecco v2 | Intermedio |
-| MilanoLeccoTrains3 | Treni Milano-Lecco v3 | Avanzato |
-| MIlanoLeccoTrains4 | Treni Milano-Lecco v4 (completo) | Avanzato |
-| MLTrains | Treni Milano-Lecco base | Base |
-| MonzaMetro | Metropolitana Monza | Intermedio |
+| Progetto | Livello |
+|----------|---------|
+| BrianzaTaxi | Intermedio |
+| BrianzaTaxiService | Intermedio |
+| BrianzaTrains | Intermedio |
+| BrianzaTrainsObjects | Avanzato |
+| DiscotecaTicket | Intermedio |
+| JavaBus | Avanzato |
+| JavItaAirline | Avanzato |
+| MLTrains | Base |
+| MilanoLeccoTrains (v2-v4) | Intermedio-Avanzato |
+| MonzaMetro | Intermedio |
 
 ---
 
 ## 🎓 04_Education_Culture
 
-| Progetto | Descrizione | Concetti |
-|----------|-------------|----------|
-| DeveloperCandidatura | Sistema candidature lavoro | CV, selezione |
-| MuseumTicket | Biglietteria museo | Prenotazioni, tariffe |
-| NerdLibrary | Biblioteca tematica | Libri, prestiti |
-| NSMI | Gestione istituto musicale | Studenti, corsi |
-| NSMPI | Istituto musicale avanzato | Completo |
-| PokeDex | Database Pokémon | API, ricerca |
-| PrivateLessons | Lezioni private | Insegnanti, studenti |
-| SchoolManagement_v1 | Gestione scuola v1 | Base |
-| SchoolManagement_v2 | Gestione scuola v2 | Completo |
+| Progetto | Descrizione |
+|----------|-------------|
+| DeveloperCandidatura | Candidature lavoro |
+| MuseumTicket | Biglietteria museo |
+| NerdLibrary | Biblioteca |
+| NSMI / NSMPI | Istituto musicale |
+| PokeDex | Database Pokémon |
+| PrivateLessons | Lezioni private |
+| SchoolManagement (v1, v2) | Gestione scuola |
 
 ---
 
-## 🎯 Obiettivi Didattici
+## 🎯 Obiettivi
 
-### Concetti Architetturali
-- **Repository Pattern** - Separazione persistenza
-- **MVC Pattern** - Model-View-Controller
-- **Dependency Injection** - Inversione controllo
-- **ORM Custom** - Mappatura oggetti-relazionale
+**Architetturali:**
+- Repository Pattern
+- MVC Pattern
+- Dependency Injection
+- ORM Custom
 
-### Design Patterns
-- **Strategy** - Algoritmi intercambiabili
-- **Command** - Incapsulamento comandi
-- **Factory** - Creazione oggetti
-- **State** - Gestione stati
-- **Chain of Responsibility** - Catena di responsabilità
-- **Reflection** - Introspezione dinamica
+**Design Patterns:**
+- Strategy, Command, Factory
+- State, Chain of Responsibility
+- Reflection
 
-### Tecnologie
-- Java 17+
-- JDBC / SQLite
-- BigDecimal (calcoli finanziari)
-- LocalDate / Date API
-- Enum avanzati
-- Collections avanzate
+**Tecnologie:**
+- Java 17+, JDBC, SQLite
+- BigDecimal, LocalDate
+- Enum avanzati, Collections
 
 ---
 
-## 📊 Statistiche
+## 🏆 Consigliati per Approfondimento
 
-| Categoria | Progetti |
-|------------|----------|
-| Hospitality & Tourism | 8 |
-| Commerce & Services | 14 |
-| Transportation & Logistics | 12 |
-| Education & Culture | 9 |
-| **Totale** | **43** |
-
----
-
-## 🏆 Progetti Consigliati per Approfondimento
-
-| Livello | Progetto | Da Studiare Per |
-|---------|----------|-----------------|
-| Avanzato | ACMC | DI, IoC, Reflection |
-| Avanzato | ACMC2ORM | ORM, Caching |
-| Avanzato | BikeWorld | ETL, State Pattern |
-| Avanzato | OmegaClinicGEHENNA | Algoritmi scheduling |
+| Progetto | Per Studiare |
+|----------|-------------|
+| ACMC | DI, IoC, Reflection |
+| ACMC2ORM | ORM, Caching |
+| BikeWorld | ETL, State Pattern |
+| OmegaClinicGEHENNA | Algoritmi scheduling |
 
 ---
 
