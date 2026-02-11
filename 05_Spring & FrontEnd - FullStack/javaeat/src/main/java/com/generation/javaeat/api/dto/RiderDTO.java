@@ -6,8 +6,8 @@ import com.generation.javaeat.model.entities.Validable;
 
 public class RiderDTO implements Validable
 {
-    private int      id;
-    private String   email;
+    private int      id;   
+    private String   email;   
     private String   pw;
     private String   legalName;
     private int		 serviceCost;
