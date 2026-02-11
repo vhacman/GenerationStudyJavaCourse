@@ -1,8 +1,7 @@
 package com.generation.sanctionweb.api;
 
-import com.generation.sanctionweb.dto.SanctionDTO;
-import com.generation.sanctionweb.dto.SanctionMapperDTO;
-import com.generation.sanctionweb.model.entities.Sanction;
+import com.generation.sanctionweb.api.dto.SanctionDTO;
+import com.generation.sanctionweb.api.dto.SanctionMapperDTO;
 import com.generation.sanctionweb.model.repository.SanctionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

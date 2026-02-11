@@ -1,4 +1,4 @@
-package com.generation.sanctionweb.dto;
+package com.generation.sanctionweb.api.dto;
 
 import java.time.LocalDate;
 

@@ -1,0 +1,20 @@
+<h1 class="w3-teal"> Fitness Program </h1>
+<div class="w3-row">
+    <div class="w3-half">
+        <form>
+            <h2 class="w3-teal">Add exercise</h2>
+            <!-- ng model => collegamento fra casella di testo e variabile del componente -->
+            <input type="text" name="newExercise" [(ngModel)]="newExercise" />
+            <input type="button" value="+" (click)="addExercise()" />
+        </form>        
+    </div>
+    <div>
+        <h2 class="w3-teal"> Exercises </h2>
+            @for (exercise of exercises; track exercise) {
+            <div class="exercise">{{ exercise }}</div>
+            } @empty {
+                <li>Nessun esercizio trovato trovato!</li>
+            }            
+
+    </div>
+</div>

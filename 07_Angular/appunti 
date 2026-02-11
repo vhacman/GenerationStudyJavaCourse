@@ -1,0 +1,58 @@
+ANGULAR - UN ASSAGGIO
+
+ng new AngularFood
+e creo un app angular
+stile css
+non voglio il ssg prerendering
+apro il folder angular food -->
+l cartella principale si chiama src
+e l'altra cartella si chiama app
+e creo una cartella che chiamerò model dentro cui metterò l'entità
+in angular si scrive in typescript
+
+
+Le interfacce in typescript hanno anche le proprietà
+
+*foto 1*
+
+nel terminale di nuovo ng g c Food -->
+
+viene creata la cartella food
+con dentro 4 file, css, html, ts e spec.ts
+
+il component io sono la logica
+
+localhost 4200 --> angular gira su un server a parte
+
+
+appena modifico qualcosa lui si aggiorna
+typescript definisce il comportamento
+
+in typescript posso dichiarare tipi, ma non devo
+
+: --> tipo della variabile
+
+
+clona l'oggetto food e modifica solo che ho cambiato
+foto --> clona
+
+
+delta --> differenziale +1 o -1
+
+
+typescript obbliga dare un valore di base
+
+
+
+forma bindata --> quello che succede alla forma
+
+... --> copia un nuovo oggetto copiando uno vecchio
+
+
+
+il css viene tradotto in unico css e il typescript in js.
+
+
+
+
+

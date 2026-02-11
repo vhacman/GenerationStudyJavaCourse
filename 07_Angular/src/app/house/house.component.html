@@ -1,0 +1,57 @@
+    <div class="w3-row" class="house">
+        <div class="w3-third">
+            <h2> House info </h2>
+            <form>
+                <!-- città, indirizzo e prezzo al mq-->
+                <div class="inputrow">
+                    <label for="city"> City </label>
+                    <input type="text" class="w3-input" name="city" [(ngModel)]="house.city" />            
+                </div>
+                <div class="inputrow">
+                    <label for="address"> Address </label>
+                    <input type="text" class="w3-input" name="address" [(ngModel)]="house.address" />            
+                </div>
+                <div class="inputrow">
+                    <label for="smp"> Square Meter Price </label>
+                    <input type="number" class="w3-input" name="smp" [(ngModel)]="house.smp" />            
+                </div>
+                <div class="outputrow">
+                    <label for="area"> Area </label>
+                    <input type="number" class="w3-input" name="area" [value]="house.area()" />            
+                </div>
+                <div class="outputrow">
+                    <label for="price"> Price </label>
+                    <input type="number" class="w3-input" name="price" [value]="house.price()" />            
+                </div>
+
+
+            </form>
+        </div>
+        <div class="w3-third">
+            <h2> New room </h2>
+            <form>
+                <div class="inputrow">
+                    <label for="type"> Type </label>
+                    <input type="text" class="w3-input" name="type" [(ngModel)]="newRoom.type" />            
+                </div>
+                <div class="inputrow">
+                    <label for="side1"> Side1 </label>
+                    <input type="text" class="w3-input" name="side1" [(ngModel)]="newRoom.side1" />            
+                </div>
+                <div class="inputrow">
+                    <label for="side2"> Side2 </label>
+                    <input type="number" class="w3-input" name="side2" [(ngModel)]="newRoom.side2" />            
+                </div>
+                <input type="button" class="w3-input w3-btn w3-teal" value="+" (click)="addRoom()">
+            </form>
+            <h2> Room list </h2>
+             @for (room of house.rooms; track $index) {
+            <div class="room">{{ room.type}} - {{room.side1}}m {{room.side2}}m  - {{room.area()}} sm</div>
+            } @empty {
+                <div>No room yet</div>
+            }
+        </div>
+        <div class="w3-third">
+                For Sale: House in {{house.city}} - {{house.address}}, for {{house.price()}} &euro;            
+        </div>
+    </div>

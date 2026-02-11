@@ -1,0 +1,25 @@
+<!-- io sono la vista di un componente food -->
+<div class="food-container">
+    
+    Name: {{food.name}} <br />
+    Vegan: {{food.vegan}} <br />
+    <div class="nutrient">
+        Carbs: {{food.carbs}} 
+        <input type="button" value="+" (click)="changeNutrients('carbs',1)" />  
+        <input type="button" value="-" (click)="changeNutrients('carbs',-1)" />  
+    </div>
+    <div class="nutrient">
+        Proteins: {{food.proteins}} 
+        <input type="button" value="+" (click)="changeNutrients('proteins',1)" />  
+        <input type="button" value="-" (click)="changeNutrients('proteins',-1)" />  
+    </div>
+    <div class="nutrient">
+        Proteins: {{food.fats}} 
+        <input type="button" value="+" (click)="changeNutrients('fats',1)" />  
+        <input type="button" value="-" (click)="changeNutrients('fats',-1)" />  
+    </div>
+    <div class="calories">
+        {{calories()}} kcal
+    </div>
+
+</div>

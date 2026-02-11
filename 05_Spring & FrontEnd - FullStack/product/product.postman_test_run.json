@@ -1,0 +1,220 @@
+{
+	"id": "37a7cf81-0fd3-4c50-a0b7-6ef9b2ae9416",
+	"name": "product",
+	"timestamp": "2026-02-10T17:42:25.949Z",
+	"collection_id": "52022656-d30fe38f-29cd-4c40-b45f-10b2edcd654c",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2026-02-10T17:42:25.137Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "320d5209-7830-4535-b621-d1886d2fc3f7",
+			"name": "findAllProduct",
+			"url": "http://localhost:8080/product/api/products",
+			"time": 20,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				20
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "67ce38d2-8703-4b47-b544-63e500004483",
+			"name": "findProductById1",
+			"url": "http://localhost:8080/product/api/products/1",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				12
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "286bd7cc-4679-4775-ab55-6fabe469e7f1",
+			"name": "findProductById2",
+			"url": "http://localhost:8080/product/api/products/2",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				11
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b039a313-7cdc-49e1-b2ef-3a2a13e1a3ef",
+			"name": "insertProduct",
+			"url": "http://localhost:8080/product/api/products",
+			"time": 33,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ca7f17dd-df7e-4691-a1f9-87afc21c36fd",
+			"name": "getProductReviews",
+			"url": "http://localhost:8080/product/api/products/1/reviews",
+			"time": 23,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				23
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6f690b95-1ed9-4ee5-9a40-14f3323e166d",
+			"name": "insertReviewintoProduct3",
+			"url": "http://localhost:8080/product/api/products/1/reviews",
+			"time": 21,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				21
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "52ee1883-932b-43cb-8291-bb22d45aa822",
+			"name": "insertReviewintoProduct4",
+			"url": "http://localhost:8080/product/api/products/4/reviews",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				19
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ffba3b4e-e2dd-4dc4-bdb6-d244fd09a876",
+			"name": "findAllReviews",
+			"url": "http://localhost:8080/review/api/reviews",
+			"time": 140,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				140
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "bac57950-3a44-4924-8206-81f484c8fbac",
+			"name": "findAllReviewsProduct3",
+			"url": "http://localhost:8080/product/api/products/3",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				12
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 291,
+	"collection": {
+		"requests": [
+			{
+				"id": "320d5209-7830-4535-b621-d1886d2fc3f7",
+				"method": "GET"
+			},
+			{
+				"id": "67ce38d2-8703-4b47-b544-63e500004483",
+				"method": "GET"
+			},
+			{
+				"id": "286bd7cc-4679-4775-ab55-6fabe469e7f1",
+				"method": "GET"
+			},
+			{
+				"id": "b039a313-7cdc-49e1-b2ef-3a2a13e1a3ef",
+				"method": "POST"
+			},
+			{
+				"id": "ca7f17dd-df7e-4691-a1f9-87afc21c36fd",
+				"method": "GET"
+			},
+			{
+				"id": "6f690b95-1ed9-4ee5-9a40-14f3323e166d",
+				"method": "POST"
+			},
+			{
+				"id": "52ee1883-932b-43cb-8291-bb22d45aa822",
+				"method": "POST"
+			},
+			{
+				"id": "ffba3b4e-e2dd-4dc4-bdb6-d244fd09a876",
+				"method": "GET"
+			},
+			{
+				"id": "bac57950-3a44-4924-8206-81f484c8fbac",
+				"method": "GET"
+			}
+		]
+	}
+}

@@ -1,4 +1,4 @@
-package com.generation.sanctionweb.dto;
+package com.generation.sanctionweb.api.dto;
 
 import com.generation.sanctionweb.model.entities.Sanction;
 import org.springframework.stereotype.Service;

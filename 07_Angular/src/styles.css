@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://www.w3schools.com/w3css/4/w3.css');
+
+FORM INPUT {
+    display:block;
+    width:80%;
+    margin-bottom:10px;
+}
+
+H1, H2
+{
+    padding-left:10px;
+    padding-top:5px;
+    padding-bottom:5px;
+}
