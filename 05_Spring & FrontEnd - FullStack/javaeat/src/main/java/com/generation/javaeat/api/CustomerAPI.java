@@ -21,9 +21,9 @@ import com.generation.javaeat.model.repository.CustomerRepository;
 @RestController
 @RequestMapping("/javaeat/api/customers")
 public class CustomerAPI
-{
+{gi
     @Autowired
-    private CustomerRepository customerRepo;
+    private CustomerRepository customerRepo;   
 
     @Autowired
     private CustomerDTOMapper customerDTOMapper;

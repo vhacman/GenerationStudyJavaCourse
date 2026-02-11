@@ -16,7 +16,7 @@ import java.util.List;
  * L'implementazione dell'interfaccia Validable consente di validare i dati
  * contenuti nel DTO prima di elaborarli o salvarli nel sistema.
  */
-public class CityDTO implements Validable
+public class CityDTO implements Validable 
 {
     private int      			id;
     private String    			name;
