@@ -29,7 +29,6 @@ public class DeliveryDTOMapper
         d.setStatus(dto.getStatus());
         d.setPrice(dto.getPrice());
         d.setDeliveryTimeOpen(dto.getDay());
-
         if (dto.getRestaurantId() > 0)
         {
             Optional<Restaurant> restOpt = restaurantRepo.findById(dto.getRestaurantId());

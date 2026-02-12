@@ -47,14 +47,12 @@ import com.generation.javaeat.model.entities.City;
             city.setProvince(dto.getProvince());
             return city;
         }
-
         public List<CityDTO> toDTO(List<City> cities)
         {
             if(cities != null) 
                 return cities.stream().map(this::toDTO).toList(); 
             return new ArrayList<>();
         }
-
         public List<City> fromDTO(List<CityDTO> citiesDTO)
         {
             if(citiesDTO != null) 

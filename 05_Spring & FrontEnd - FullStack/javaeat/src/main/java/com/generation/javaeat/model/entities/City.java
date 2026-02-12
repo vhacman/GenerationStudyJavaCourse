@@ -2,7 +2,7 @@ package com.generation.javaeat.model.entities;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -10,71 +10,64 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
-/**
- * La classe City rappresenta un'entità del database che mappa la tabella delle città.
- * L'annotazione @Entity indica a JPA che questa classe describe una tabella del database
- * e che le sue istanze possono essere gestite attraverso operazioni di persistenza.
- * Ogni città è identificata univocamente da un ID generato automaticamente secondo
- * la strategia IDENTITY, che corrisponde all'auto-increment del database.
- *
- * L'implementazione dell'interfaccia Validable garantisce che ogni città possa
- * essere sottoposta a validazione secondo regole definite, permettendo di verificare
- * l'integrità dei dati prima del salvataggio nel database.
- */
 @Entity
 public class City implements Validable
 {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int      id;
+    private int              id;
+    private String           name;
+    private String           province;
 
-    private String    name;
-    private String    province;
-    
-    @OneToMany (mappedBy = "city", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "city", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Restaurant> restaurants;
 
-    // GETTERS
+    @OneToMany(mappedBy = "city", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Costumer>   costumers;
 
-    public int    getId()       { return id; }
-    public String getName()     { return name; }
+    @OneToMany(mappedBy = "city", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Rider>      riders;
+
+    @Override
+    public String toString()
+    {
+        return "City [id=" + id + ", name=" + name + ", province=" + province + "]";
+    }
+
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
     public String getProvince() { return province; }
+    public void setProvince(String province) { this.province = province; }
+
     public List<Restaurant> getRestaurants() { return restaurants; }
-
-
-    // SETTERS
-
-    public void setId(int id)                 { this.id = id; }
-    public void setName(String name)          { this.name = name; }
-    public void setProvince(String province)  { this.province = province; }
     public void setRestaurants(List<Restaurant> restaurants) { this.restaurants = restaurants; }
 
+    public List<Costumer> getCostumers() { return costumers; }
+    public void setCostumers(List<Costumer> costumers) { this.costumers = costumers; }
 
-    /**
-     * Il metodo getErrors implementa la logica di validazione per l'entità City,
-     * controllando che i campi obbligatori siano presenti e contengano valori validi.
-     * La validazione è un processo fondamentale per garantire la qualità dei dati
-     * nel sistema, prevenendo l'inserimento di informazioni incomplete o errate.
-     * Ogni campo viene verificato secondo criteri specifici e gli errori vengono
-     * raccolti in una lista che viene restituita al chiamante.
-     *
-     * @return Una lista contenente i messaggi di errore per ogni campo non valido.
-     */
+    public List<Rider> getRiders() { return riders; }
+    public void setRiders(List<Rider> riders) { this.riders = riders; }
+
     @Override
     public List<String> getErrors()
     {
         List<String> errors = new ArrayList<>();
-
+        if (id <= 0)
+            errors.add("Id must be a positive number");
         if (name == null || name.trim().isEmpty())
             errors.add("Name cannot be null or empty");
-
         if (province == null || province.trim().isEmpty())
             errors.add("Province cannot be null or empty");
-
-        if (restaurants == null)
-            errors.add("Restaurants cannot be null");
-
+        if (restaurants == null || restaurants.isEmpty())
+            errors.add("Restaurants list cannot be null or empty");
+        if (costumers == null || costumers.isEmpty())
+            errors.add("Costumers list cannot be null or empty");
+        if (riders == null || riders.isEmpty())
+            errors.add("Riders list cannot be null or empty");
         return errors;
     }
 }

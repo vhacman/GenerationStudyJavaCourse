@@ -1,5 +1,6 @@
 package com.generation.javaeat.model.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -28,7 +29,7 @@ public class Customer implements Validable
     @JoinColumn(name = "city_id")
     private City         city;
 
-    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Delivery> deliveries;
 
     // GETTERS
@@ -58,22 +59,16 @@ public class Customer implements Validable
 
         if (!emailIsValid(email))
             errors.add("Email is not valid");
-
         if (pw == null || pw.trim().isEmpty())
             errors.add("Password cannot be null or empty");
-
         if (legalName == null || legalName.trim().isEmpty())
             errors.add("LegalName cannot be null or empty");
-
         if (address == null || address.trim().isEmpty())
             errors.add("Address cannot be null or empty");
-
         if (city == null)
             errors.add("City cannot be null");
-
         if (deliveries == null)
             errors.add("Deliveries cannot be null");
-
         return errors;
     }
 }

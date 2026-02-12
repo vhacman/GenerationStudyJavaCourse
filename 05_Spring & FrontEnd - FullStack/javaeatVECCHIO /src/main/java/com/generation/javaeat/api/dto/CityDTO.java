@@ -1,6 +1,5 @@
 package com.generation.javaeat.api.dto;
 
-import com.generation.javaeat.model.entities.Validable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,12 +15,13 @@ import java.util.List;
  * L'implementazione dell'interfaccia Validable consente di validare i dati
  * contenuti nel DTO prima di elaborarli o salvarli nel sistema.
  */
-public class CityDTO implements Validable 
+public class CityDTO
 {
     private int      			id;
     private String    			name;
     private String    			province;
     private List<RestaurantDTO> 	restaurants = new ArrayList<>();
+    private List<String>		errors;
     public List<RestaurantDTO> getRestaurants() {
 		return restaurants;
 	}
@@ -36,30 +36,5 @@ public class CityDTO implements Validable
     public void setId(int id)                 	{ this.id = id; }
     public void setName(String name)          	{ this.name = name; }
     public void setProvince(String province)  	{ this.province = province; }
-    /**
-     * Il metodo getErrors valida il contenuto del DTO, verificando che i campi
-     * obbligatori siano presenti e contengano valori significativi. La validazione
-     * lato server è fondamentale per garantire l'integrità dei dati, poiché le
-     * validazioni lato client possono essere facilmente bypassate. Questo metodo
-     * restituisce una lista di messaggi di errore che descrivono tutti i problemi
-     * riscontrati durante la validazione.
-     *
-     * @return Una lista di stringhe contenente tutti gli errori di validazione.
-     */
-    @Override
-    public List<String> getErrors()
-    {
-        List<String> errors = new ArrayList<>();
 
-        if (name == null || name.trim().isEmpty())
-            errors.add("Name cannot be null or empty");
-
-        if (province == null || province.trim().isEmpty())
-            errors.add("Province cannot be null or empty");
-
-        if (restaurants == null)
-            errors.add("Restaurants cannot be null");
-
-        return errors;
-    }
 }

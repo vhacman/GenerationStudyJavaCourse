@@ -12,7 +12,6 @@ public class CustomerDTOMapper
 {
     @Autowired
     private CityRepository cityRepo;
-
     @Autowired
     private DeliveryDTOMapper deliveryDTOMapper;
 
@@ -36,7 +35,6 @@ public class CustomerDTOMapper
             else if (dto.getCity().getName() != null) 
                 cityRepo.findByName(dto.getCity().getName()).ifPresent(c::setCity); 
         }
-
         return c;
     }
 

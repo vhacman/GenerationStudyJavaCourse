@@ -14,4 +14,9 @@ public interface DeliveryRepository extends JpaRepository<Delivery, Integer>
     List<Delivery> findByCustomerIdAndStatus(int customerId, String status);
     List<Delivery> findByRestaurantIdAndStatus(int restaurantId, String status);
     List<Delivery> findByRiderIdAndStatus(int riderId, String status);
+
+    int 			countByCustomerId(int customerId);
+    int 			countByRestaurantId(int restaurantId);
+    int 			countByRiderId(int riderId);
+    int 			countByStatus(String status);
 }
