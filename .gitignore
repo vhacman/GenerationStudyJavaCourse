@@ -1,10 +1,1 @@
 /.metadata/
-
-# Application properties files con credenziali database
-05_Spring & FrontEnd - FullStack/vault/src/main/resources/application.properties
-05_Spring & FrontEnd - FullStack/Emergency/src/main/resources/application.properties
-05_Spring & FrontEnd - FullStack/Ticket/src/main/resources/application.properties
-05_Spring & FrontEnd - FullStack/Dinner/src/main/resources/application.properties
-05_Spring & FrontEnd - FullStack/pcconfigurator/src/main/resources/application.properties
-05_Spring & FrontEnd - FullStack/GenSchool/src/main/resources/application.properties
-05_Spring & FrontEnd - FullStack/lesson/src/main/resources/application.properties
