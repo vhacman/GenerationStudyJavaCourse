@@ -15,11 +15,9 @@ import java.util.List;
 @Entity
 public class Restaurant implements Validable
 {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int           id;
-
     private String        email;
     private String        pw;
     private String        name;
@@ -33,28 +31,28 @@ public class Restaurant implements Validable
     @OneToMany(mappedBy = "restaurant", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Delivery> deliveries;
 
-    public int    getId()      								{ return id; 					}
-    public String getEmail()   								{ return email; 				}
-    public String getPw()      								{ return pw; 					}
-    public String getName()    								{ return name; 					}
-    public String getAddress() 								{ return address; 				}
-    public City   getCity()    								{ return city; 					}
-    public int getCapacity()   								{ return capacity; 				}
-    public List<Delivery> getDeliveries() 					{ return deliveries;			}
+    public int    getId()         { return id; }
+    public String getEmail()      { return email; }
+    public String getPw()         { return pw; }
+    public String getName()       { return name; }
+    public String getAddress()    { return address; }
+    public City   getCity()       { return city; }
+    public int    getCapacity()   { return capacity; }
+    public List<Delivery> getDeliveries() { return deliveries; }
 
-    public void setId(int id)                 				{ this.id = id; 				}
-    public void setEmail(String email)        				{ this.email = email; 			}
-    public void setPw(String pw)              				{ this.pw = pw; 				}
-    public void setName(String name)          				{ this.name = name; 			}
-    public void setAddress(String address)    				{ this.address = address; 		}
-    public void setCity(City city)            				{ this.city = city; 			}
-    public void setCapacity(int capacity)     				{ this.capacity = capacity; 	}
-    public void setDeliveries(List<Delivery> deliveries) 	{ this.deliveries = deliveries; }
+    public void setId(int id)                     { this.id = id; }
+    public void setEmail(String email)            { this.email = email; }
+    public void setPw(String pw)                  { this.pw = pw; }
+    public void setName(String name)              { this.name = name; }
+    public void setAddress(String address)        { this.address = address; }
+    public void setCity(City city)                { this.city = city; }
+    public void setCapacity(int capacity)         { this.capacity = capacity; }
+    public void setDeliveries(List<Delivery> d)   { this.deliveries = d; }
 
-    @Override
     public List<String> getErrors()
     {
         List<String> errors = new ArrayList<>();
+
         if (name == null || name.trim().isEmpty())
             errors.add("Name cannot be null or empty");
         if (!emailIsValid(email))
@@ -69,6 +67,7 @@ public class Restaurant implements Validable
             errors.add("City cannot be null");
         if (deliveries == null)
             errors.add("Deliveries cannot be null");
+
         return errors;
     }
 }

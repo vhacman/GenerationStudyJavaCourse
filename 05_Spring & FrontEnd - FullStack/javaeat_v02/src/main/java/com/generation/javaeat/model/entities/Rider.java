@@ -14,8 +14,7 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class Rider implements Validable
 {
-
-    public static final String STATUS_AVAILABLE = "AVAILABLE";
+    public static final String STATUS_AVAILABLE   = "AVAILABLE";
     public static final String STATUS_NOTAVAILABLE = "NOTAVAILABLE";
 
     @Id
@@ -32,21 +31,21 @@ public class Rider implements Validable
 
     public Rider() {}
 
-    public int                getId()                  { return id; }
-    public String             getEmail()               { return email; }
-    public String             getLegalName()           { return legalName; }
-    public String             getPw()                  { return pw; }
-    public int                getServiceCost()         { return serviceCost; }
-    public List<Delivery>     getDeliveries()          { return deliveries; }
-    public String             getStatus()              { return status; }
+    public int                getId()           { return id; }
+    public String             getEmail()         { return email; }
+    public String             getLegalName()     { return legalName; }
+    public String             getPw()            { return pw; }
+    public int                getServiceCost()   { return serviceCost; }
+    public List<Delivery>     getDeliveries()    { return deliveries; }
+    public String             getStatus()        { return status; }
 
-    public void               setId(int id)                                { this.id = id; }
-    public void               setEmail(String email)                       { this.email = email; }
-    public void               setLegalName(String legalName)               { this.legalName = legalName; }
-    public void               setPw(String pw)                             { this.pw = pw; }
-    public void               setServiceCost(int cost)                     { this.serviceCost = cost; }
-    public void               setDeliveries(List<Delivery> deliveries)     { this.deliveries = deliveries; }
-    public void               setStatus(String status)                     { this.status = status; }
+    public void               setId(int id)                           { this.id = id; }
+    public void               setEmail(String email)                  { this.email = email; }
+    public void               setLegalName(String legalName)          { this.legalName = legalName; }
+    public void               setPw(String pw)                        { this.pw = pw; }
+    public void               setServiceCost(int serviceCost)         { this.serviceCost = serviceCost; }
+    public void               setDeliveries(List<Delivery> deliveries) { this.deliveries = deliveries; }
+    public void               setStatus(String status)                 { this.status = status; }
 
     public List<String> getErrors()
     {
@@ -62,6 +61,7 @@ public class Rider implements Validable
             errors.add("LegalName cannot be null or empty");
         if (deliveries == null)
             errors.add("Deliveries cannot be null");
+
         return errors;
     }
 }

@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.generation</groupId>
-	<artifactId>javaeat</artifactId>
+	<artifactId>javaeat_v02</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>javaeat</name>
 	<description>Demo project for Spring Boot</description>

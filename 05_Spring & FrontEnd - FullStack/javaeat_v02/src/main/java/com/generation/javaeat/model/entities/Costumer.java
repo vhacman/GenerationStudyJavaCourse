@@ -14,7 +14,6 @@ import jakarta.persistence.OneToMany;
 
 public class Costumer implements Validable
 {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int              id;
@@ -22,6 +21,7 @@ public class Costumer implements Validable
     private String           pw;
     private String           legalName;
     private String           address;
+    private int              riderId;
 
     @ManyToOne
     @JoinColumn(name = "city_id")
@@ -29,25 +29,24 @@ public class Costumer implements Validable
 
     @OneToMany(mappedBy = "costumer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Delivery>   deliveries;
-    private int              riderId;
 
-    public int              getId()              { return id; }
-    public String           getEmail()           { return email; }
-    public String           getPw()              { return pw; }
-    public String           getLegalName()       { return legalName; }
-    public String           getAddress()         { return address; }
-    public City             getCity()            { return city; }
-    public List<Delivery>   getDeliveries()      { return deliveries; }
-    public int              getRiderId()         { return riderId; }
+    public int              getId()        { return id; }
+    public String           getEmail()     { return email; }
+    public String           getPw()        { return pw; }
+    public String           getLegalName() { return legalName; }
+    public String           getAddress()   { return address; }
+    public City             getCity()      { return city; }
+    public List<Delivery>   getDeliveries(){ return deliveries; }
+    public int              getRiderId()   { return riderId; }
 
-    public void             setId(int id)                           { this.id = id; }
-    public void             setEmail(String email)                  { this.email = email; }
-    public void             setPw(String pw)                        { this.pw = pw; }
-    public void             setLegalName(String legalName)          { this.legalName = legalName; }
-    public void             setAddress(String address)              { this.address = address; }
-    public void             setCity(City city)                      { this.city = city; }
-    public void             setDeliveries(List<Delivery> deliveries){ this.deliveries = deliveries; }
-    public void             setRiderId(int riderId)                 { this.riderId = riderId; }
+    public void setId(int id)                         { this.id = id; }
+    public void setEmail(String email)               { this.email = email; }
+    public void setPw(String pw)                     { this.pw = pw; }
+    public void setLegalName(String legalName)       { this.legalName = legalName; }
+    public void setAddress(String address)           { this.address = address; }
+    public void setCity(City city)                   { this.city = city; }
+    public void setDeliveries(List<Delivery> d)     { this.deliveries = d; }
+    public void setRiderId(int riderId)              { this.riderId = riderId; }
 
     public Rider assignAvailableRider(List<Rider> availableRiders)
     {
@@ -81,6 +80,7 @@ public class Costumer implements Validable
             errors.add("City cannot be null");
         if (deliveries == null)
             errors.add("Deliveries cannot be null");
+
         return errors;
     }
 }

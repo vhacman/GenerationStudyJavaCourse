@@ -10,9 +10,11 @@ public interface Validable
     {
         return getErrors().isEmpty();
     }
-    
+
     default boolean emailIsValid(String email)
     {
-        return email != null && email.matches("[\\w.-]+@[\\w.-]+\\.\\w{2,}") && !email.isEmpty();
+        return email != null
+            && email.matches("[\\w.-]+@[\\w.-]+\\.\\w{2,}")
+            && !email.isEmpty();
     }
 }

@@ -12,42 +12,37 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Dish implements Validable{
-
+public class Dish implements Validable
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-
-    int price;
-    String name, description;
+    private int        id;
+    private int        price;
+    private String     name;
+    private String     description;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "restaurant_id")
-    Restaurant restaurant;
+    private Restaurant restaurant;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "delivery_id")
-    Delivery delivery;
+    private Delivery   delivery;
 
-    public Delivery getDelivery() { return delivery; }
-    public void setDelivery(Delivery delivery) { this.delivery = delivery; }
+    public int         getId()          { return id; }
+    public int         getPrice()       { return price; }
+    public String      getName()        { return name; }
+    public String      getDescription() { return description; }
+    public Restaurant  getRestaurant() { return restaurant; }
+    public Delivery    getDelivery()    { return delivery; }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-
-    public int getPrice() { return price; }
-    public void setPrice(int price) { this.price = price; }
-
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
-
-    public Restaurant getRestaurant() { return restaurant; }
+    public void setId(int id)                       { this.id = id; }
+    public void setPrice(int price)                 { this.price = price; }
+    public void setName(String name)                { this.name = name; }
+    public void setDescription(String description)  { this.description = description; }
     public void setRestaurant(Restaurant restaurant) { this.restaurant = restaurant; }
+    public void setDelivery(Delivery delivery)      { this.delivery = delivery; }
 
-    @Override
     public List<String> getErrors()
     {
         List<String> errors = new ArrayList<>();
