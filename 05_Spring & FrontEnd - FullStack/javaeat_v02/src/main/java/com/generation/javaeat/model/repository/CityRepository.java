@@ -10,6 +10,5 @@ public interface CityRepository extends JpaRepository<City, Integer>
 {
     List<City> 		findByProvince		(String province);
     List<City> 		findByNameContaining(String name	);
-    List<City> 		findByName			(String name	);
 
 }

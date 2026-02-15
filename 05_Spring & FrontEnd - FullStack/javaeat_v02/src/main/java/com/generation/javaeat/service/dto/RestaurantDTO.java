@@ -13,8 +13,12 @@ public class RestaurantDTO
     private String        		pw;
     private String        		address;
     private int           		capacity;
+    // Restaurant M:1 City - citta' di appartenenza del ristorante
     private CityDTO       		city;
+    // Restaurant 1:M Delivery - storico delle consegne generate dal ristorante
     private List<DeliveryDTO> 	deliveries = new ArrayList<>();
+    // Restaurant 1:M Dish - menu del ristorante
+    private List<DishDTO> 		dishes = new ArrayList<>();
 
     public int      			getId()      				{ return id; 			}
     public String   			getName()    				{ return name;			}
@@ -24,9 +28,10 @@ public class RestaurantDTO
     public CityDTO  			getCity()    				{ return city; 			}
     public int 					getCapacity()      			{ return capacity; 		}
     public List<DeliveryDTO> 	getDeliveries() 			{ return deliveries; 	}
+    public List<DishDTO> 		getDishes() 				{ return dishes; 		}
 
 
-    // SETTERS
+    // SETTER
 
     public void setId(int id)                  					{ this.id = id; 					}
     public void setName(String name)           					{ this.name = name; 				}
@@ -36,5 +41,6 @@ public class RestaurantDTO
     public void setCity(CityDTO city)         					{ this.city = city; 				}
     public void setCapacity(int capacity)    					{ this.capacity = capacity; 		}
     public void setDeliveries(List<DeliveryDTO> deliveries) 	{ this.deliveries = deliveries; 	}
+    public void setDishes(List<DishDTO> dishes) 				{ this.dishes = dishes; 			}
  
 }

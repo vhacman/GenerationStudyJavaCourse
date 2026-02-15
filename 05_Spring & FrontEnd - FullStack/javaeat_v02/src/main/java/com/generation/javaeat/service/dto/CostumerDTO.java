@@ -2,16 +2,19 @@ package com.generation.javaeat.service.dto;
 
 import java.util.List;
 
-public class CostumerDTO {
+public class CostumerDTO
+{
 
     private int id;
     private String email;
     private String pw;
     private String legalName;
     private String address;
+    // Costumer M:1 City - città di appartenenza del cliente
     private CityDTO city;
+    // Costumer 1:M Delivery - storico delle consegne effettuate dal cliente
     private List<DeliveryDTO> deliveries;
-    private int riderId;
+    // Rimosso: int riderId - il rider è assegnato alla Delivery, non direttamente al Costumer
 
     public CostumerDTO() {}
 
@@ -22,7 +25,6 @@ public class CostumerDTO {
     public String getAddress() { return address; }
     public CityDTO getCity() { return city; }
     public List<DeliveryDTO> getDeliveries() { return deliveries; }
-    public int getRiderId() { return riderId; }
 
     public void setId(int id) { this.id = id; }
     public void setEmail(String email) { this.email = email; }
@@ -31,5 +33,4 @@ public class CostumerDTO {
     public void setAddress(String address) { this.address = address; }
     public void setCity(CityDTO city) { this.city = city; }
     public void setDeliveries(List<DeliveryDTO> deliveries) { this.deliveries = deliveries; }
-    public void setRiderId(int riderId) { this.riderId = riderId; }
 }

@@ -11,6 +11,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
+/**
+ * Entita' che rappresenta un rider per le consegne.
+ * Contiene il profilo del rider, il costo del servizio e lo stato di disponibilita'.
+ * Rimossa relazione @ManyToOne con City: nel diagramma Rider non appartiene a una citta'.
+ * Rider opera in modo indipendente, e' collegato solo alle Delivery che gestisce.
+ */
 @Entity
 public class Rider implements Validable
 {
@@ -25,28 +31,41 @@ public class Rider implements Validable
     private String             legalName;
     private int                serviceCost;
     private String             status;
+    private int                positionX;
+    private int                positionY;
 
+    // Rimosso: @ManyToOne City city - Rider non ha relazione con City nel diagramma
+
+    // Rider 1:M Delivery - un rider gestisce molte consegne nel tempo
     @OneToMany(mappedBy = "rider", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Delivery>     deliveries;
 
     public Rider() {}
 
-    public int                getId()           { return id; }
+    public int                getId()            { return id; }
     public String             getEmail()         { return email; }
     public String             getLegalName()     { return legalName; }
     public String             getPw()            { return pw; }
     public int                getServiceCost()   { return serviceCost; }
     public List<Delivery>     getDeliveries()    { return deliveries; }
     public String             getStatus()        { return status; }
+    public int                getPositionX()     { return positionX; }
+    public int                getPositionY()     { return positionY; }
 
-    public void               setId(int id)                           { this.id = id; }
-    public void               setEmail(String email)                  { this.email = email; }
-    public void               setLegalName(String legalName)          { this.legalName = legalName; }
-    public void               setPw(String pw)                        { this.pw = pw; }
-    public void               setServiceCost(int serviceCost)         { this.serviceCost = serviceCost; }
+    public void               setId(int id)                            { this.id = id; }
+    public void               setEmail(String email)                   { this.email = email; }
+    public void               setLegalName(String legalName)           { this.legalName = legalName; }
+    public void               setPw(String pw)                         { this.pw = pw; }
+    public void               setServiceCost(int serviceCost)          { this.serviceCost = serviceCost; }
     public void               setDeliveries(List<Delivery> deliveries) { this.deliveries = deliveries; }
     public void               setStatus(String status)                 { this.status = status; }
+    public void               setPositionX(int positionX)              { this.positionX = positionX; }
+    public void               setPositionY(int positionY)              { this.positionY = positionY; }
 
+    /**
+     * Valida i campi del rider.
+     * @return lista di errori di validazione
+     */
     public List<String> getErrors()
     {
         List<String> errors = new ArrayList<>();

@@ -36,7 +36,7 @@ public class CityAPI
 		catch (MyServiceException e)
 		{
 			Map<String, Object> response = new HashMap<>();
-			response.put("errors", e.getErrors());
+			response.put("errors", e.getMessage());
 			return ResponseEntity.badRequest().body(response);
 		}
 	}
@@ -58,8 +58,11 @@ public class CityAPI
 		catch (MyServiceException e)
 		{
 			Map<String, Object> response = new HashMap<>();
-			response.put("errors", e.getErrors());
-			return ResponseEntity.notFound().build();
+			response.put("errors", e.getMessage());
+			// Non uso notFound().build() perche' ritorna una risposta SENZA body,
+			// e il test JS fa response.json() che fallisce su body vuoto.
+			// Con status(404).body(response) ritorno comunque un JSON con il messaggio di errore.
+			return ResponseEntity.status(404).body(response);
 		}
 	}
 	
@@ -74,8 +77,11 @@ public class CityAPI
 		catch (MyServiceException e)
 		{
 			Map<String, Object> response = new HashMap<>();
-			response.put("errors", e.getErrors());
-			return ResponseEntity.notFound().build();
+			response.put("errors", e.getMessage());
+			// Non uso notFound().build() perche' ritorna una risposta SENZA body,
+			// e il test JS fa response.json() che fallisce su body vuoto.
+			// Con status(404).body(response) ritorno comunque un JSON con il messaggio di errore.
+			return ResponseEntity.status(404).body(response);
 		}
 	}
 	
@@ -90,8 +96,11 @@ public class CityAPI
 		catch (MyServiceException e)
 		{
 			Map<String, Object> response = new HashMap<>();
-			response.put("errors", e.getErrors());
-			return ResponseEntity.notFound().build();
+			response.put("errors", e.getMessage());
+			// Non uso notFound().build() perche' ritorna una risposta SENZA body,
+			// e il test JS fa response.json() che fallisce su body vuoto.
+			// Con status(404).body(response) ritorno comunque un JSON con il messaggio di errore.
+			return ResponseEntity.status(404).body(response);
 		}
 	}
 	
@@ -105,7 +114,7 @@ public class CityAPI
 		catch (MyServiceException e)
 		{
 			Map<String, Object> response = new HashMap<>();
-			response.put("errors", e.getErrors());
+			response.put("errors", e.getMessage());
 			return ResponseEntity.badRequest().body(response);
 		}
 	}
@@ -121,7 +130,7 @@ public class CityAPI
 		catch (MyServiceException e)
 		{
 			Map<String, Object> response = new HashMap<>();
-			response.put("errors", e.getErrors());
+			response.put("errors", e.getMessage());
 			return ResponseEntity.badRequest().body(response);
 		}
 	}

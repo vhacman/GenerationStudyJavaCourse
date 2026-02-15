@@ -12,6 +12,10 @@ import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Entità che rappresenta un ristorante.
+ * Contiene il profilo del ristorante, la localizzazione e lo storico delle consegne.
+ */
 @Entity
 public class Restaurant implements Validable
 {
@@ -24,21 +28,29 @@ public class Restaurant implements Validable
     private String        address;
     private int           capacity;
 
+    // Restaurant M:1 City - ogni ristorante appartiene a una città
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "city_id")
     private City         city;
 
+    // Restaurant 1:M Delivery - un ristorante è la fonte di molte consegne
     @OneToMany(mappedBy = "restaurant", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Delivery> deliveries;
 
-    public int    getId()         { return id; }
-    public String getEmail()      { return email; }
-    public String getPw()         { return pw; }
-    public String getName()       { return name; }
-    public String getAddress()    { return address; }
-    public City   getCity()       { return city; }
-    public int    getCapacity()   { return capacity; }
-    public List<Delivery> getDeliveries() { return deliveries; }
+    // Restaurant 1:M Dish - un ristorante ha un menu con piu' piatti
+    // La relazione è definita anche lato Dish (M:1), qui abbiamo il lato inverso
+    @OneToMany(mappedBy = "restaurant", fetch = FetchType.EAGER)
+    private List<Dish> dishes;
+
+    public int    getId()                   { return id; }
+    public String getEmail()                { return email; }
+    public String getPw()                   { return pw; }
+    public String getName()                 { return name; }
+    public String getAddress()              { return address; }
+    public City   getCity()                 { return city; }
+    public int    getCapacity()             { return capacity; }
+    public List<Delivery> getDeliveries()   { return deliveries; }
+    public List<Dish> getDishes()           { return dishes; }
 
     public void setId(int id)                     { this.id = id; }
     public void setEmail(String email)            { this.email = email; }
@@ -48,7 +60,12 @@ public class Restaurant implements Validable
     public void setCity(City city)                { this.city = city; }
     public void setCapacity(int capacity)         { this.capacity = capacity; }
     public void setDeliveries(List<Delivery> d)   { this.deliveries = d; }
+    public void setDishes(List<Dish> d)           { this.dishes = d; }
 
+    /**
+     * Valida i campi del ristorante.
+     * @return lista di errori di validazione
+     */
     public List<String> getErrors()
     {
         List<String> errors = new ArrayList<>();

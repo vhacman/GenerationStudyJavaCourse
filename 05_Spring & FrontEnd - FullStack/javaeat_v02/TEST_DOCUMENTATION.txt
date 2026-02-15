@@ -1,0 +1,37 @@
+Allora, il file output.log contiene i risultati dei test che ho fatto per l'API JavaEat.  
+
+## Come sono organizzati i test
+
+Ho diviso i test in tre categorie principali in base agli status code HTTP. I test 404 verificano che quando cerco qualcosa che non esiste (tipo una città con ID 999999) l'API mi ritorni un messaggio d'errore corretto tipo "City not found with id 999999". Questo mi serve per essere sicura che l'applicazione non vada in crash quando un utente cerca qualcosa che non c'è. [ 
+
+Poi ci sono un sacco di test 400 che controllano tutte le validazioni che ho messo. Per esempio, se provo a creare un cliente senza email mi deve dire "Email is required", oppure se metto un prezzo negativo per un piatto mi blocca con "Price cannot be negative". Questi test mi hanno aiutato a capire se tutte le annotation tipo `@NotNull` e `@NotEmpty` che ho messo nelle entity funzionano davvero. 
+
+I test 200 sono quelli più fighi perché testano quando tutto va bene. Ho verificato tutti gli endpoint GET tipo Find All che mi ritorna tutte le città, i ristoranti, i clienti eccetera. Poi ci sono i test di ricerca più avanzati, tipo cercare una città per nome o provincia, o cercare ristoranti in una città specifica. Ho anche testato gli inserimenti e funzionano tutti, il database assegna gli ID automaticamente! 
+
+## Le funzioni più complesse
+
+Una cosa di cui vado particolarmente fiera sono gli endpoint di conteggio e filtri multipli. Per esempio, ho un endpoint che conta quante consegne ci sono in stato OPEN e mi ritorna 10. Oppure posso contare quante consegne ha fatto un singolo ristorante o un singolo rider. Questi sono super utili per fare dashboard e statistiche. 
+
+Gli endpoint più complicati combinano più parametri insieme, tipo "/deliveries/costumer/1/status/OPEN" che trova tutte le consegne aperte di un cliente specifico. Questi li ho pensati per quando un cliente vuole vedere solo i suoi ordini in corso, o quando un ristorante deve sapere quali consegne deve ancora preparare. 
+## I dati che ho usato
+
+Per i test ho usato dati italiani veri così è più realistico. Ho messo le dieci città principali italiane: Torino, Milano, Roma, Napoli, Firenze, Bologna, Palermo, Genova, Bari e Catania con le sigle delle province. I ristoranti hanno nomi tipici tipo "Pizzeria Torino" o "Trattoria Roma" con capacità da 30 a 80 posti. 
+
+Il menu include piatti classici con prezzi sensati: Margherita 8 euro, Risotto ai Funghi 12 euro, Carbonara 10 euro, Bistecca alla Fiorentina 25 euro. I clienti hanno nomi normali come Mario Rossi o Giulia Bianchi. Per i rider invece mi sono divertita con nomi creativi tipo "Marco Speed", "Sara Veloce" o "Andrea Courier", con costi di servizio tra 4 e 6 euro. 
+
+## Le relazioni JPA
+
+Una cosa che mi ha dato soddisfazione è vedere che le relazioni tra le entity funzionano perfettamente. Quando recupero un cliente, nella risposta JSON ci sono anche tutte le sue consegne associate. Mario Rossi ha 7 consegne nel sistema, compresa una margherita ordinata proprio oggi 14 febbraio 2026! Questo vuol dire che le annotazioni `@OneToMany` e `@ManyToOne` che ho messo funzionano come devono. 
+
+Lo stesso vale per i ristoranti che hanno i loro piatti e le loro consegne, e per i rider che hanno la lista di tutte le consegne che devono fare. Vedere che JPA carica correttamente tutte queste relazioni mi fa capire che il modello dati è fatto bene e che il database è strutturato correttamente.  
+
+## Gestione degli errori
+
+Ho fatto molta attenzione alla gestione degli errori perché è importante per l'utente capire cosa è andato storto. Tutti gli errori 400 ritornano sempre un JSON con il campo "errors" che contiene un messaggio chiaro tipo "Email is required" o "Capacity cannot be negative". Così il frontend può mostrare messaggi d'errore utili invece che far crashare l'app.  
+
+Una cosa particolare che ho implementato è che anche gli errori 404 ritornano un JSON con il messaggio d'errore invece di un body vuoto. Questo perché il mio frontend JavaScript chiama sempre `response.json()` e andrebbe in errore se non ci fosse niente da parsare. È un dettaglio tecnico ma importante per far funzionare tutto bene insieme. 
+
+## Risultato finale
+
+Alla fine tutti i test sono passati e questo mi rende davvero felice! 
+ 

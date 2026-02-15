@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,6 +13,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
+/**
+ * Entita' che rappresenta un cliente.
+ * Contiene i dati del profilo cliente e lo storico delle consegne.
+ * Rimosso campo riderId: non esiste relazione diretta Costumer->Rider nel diagramma.
+ * Il rider e' assegnato alla Delivery, non al Costumer.
+ * Rimosso metodo assignAvailableRider() di conseguenza.
+ */
+@Entity
 public class Costumer implements Validable
 {
     @Id
@@ -21,14 +30,16 @@ public class Costumer implements Validable
     private String           pw;
     private String           legalName;
     private String           address;
-    private int              riderId;
 
+    // Costumer M:1 City - ogni cliente appartiene a una città
     @ManyToOne
     @JoinColumn(name = "city_id")
     private City             city;
 
+    // Costumer 1:M Delivery - un cliente puo' effettuare molte consegne
     @OneToMany(mappedBy = "costumer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Delivery>   deliveries;
+    // Rimosso: private int riderId - il rider e' legato alla Delivery, non al Costumer
 
     public int              getId()        { return id; }
     public String           getEmail()     { return email; }
@@ -37,7 +48,6 @@ public class Costumer implements Validable
     public String           getAddress()   { return address; }
     public City             getCity()      { return city; }
     public List<Delivery>   getDeliveries(){ return deliveries; }
-    public int              getRiderId()   { return riderId; }
 
     public void setId(int id)                         { this.id = id; }
     public void setEmail(String email)               { this.email = email; }
@@ -46,24 +56,11 @@ public class Costumer implements Validable
     public void setAddress(String address)           { this.address = address; }
     public void setCity(City city)                   { this.city = city; }
     public void setDeliveries(List<Delivery> d)     { this.deliveries = d; }
-    public void setRiderId(int riderId)              { this.riderId = riderId; }
 
-    public Rider assignAvailableRider(List<Rider> availableRiders)
-    {
-        if (availableRiders != null && !availableRiders.isEmpty())
-        {
-            for (Rider r : availableRiders)
-            {
-                if (Rider.STATUS_AVAILABLE.equals(r.getStatus()))
-                {
-                    this.riderId = r.getId();
-                    return r;
-                }
-            }
-        }
-        return null;
-    }
-
+    /**
+     * Valida i campi del cliente.
+     * @return lista di errori di validazione
+     */
     public List<String> getErrors()
     {
         List<String> errors = new ArrayList<>();

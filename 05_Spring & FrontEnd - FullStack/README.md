@@ -82,6 +82,51 @@ Sistema per la gestione di sanzioni amministrative con tracciamento cittadini e 
 | **Features** | Relazioni OneToMany/ManyToOne, DTO Pattern, REST API |
 | **Dettagli** | [README](sanction/README.md) |
 
+### FoodDelivery — Consegne a Domicilio
+Servizio di food delivery con assegnazione automatica rider per vicinanza geografica.
+
+| | |
+|---|---|
+| **Stack** | Spring Boot 4.0.2, JPA, MapStruct 1.6.3, Lombok, MySQL |
+| **Features** | Assegnazione rider per distanza euclidea, feedback consegne, MD5 auth |
+| **Dettagli** | [README](fooddelivery/README.md) |
+
+### JavaEat v01 — Food Delivery Platform
+Piattaforma food delivery con gestione citta, ristoranti, clienti, rider e consegne.
+
+| | |
+|---|---|
+| **Stack** | Spring Boot 4.0.2, JPA, MySQL |
+| **Features** | DTO Pattern manuale, MD5 auth, capacity management, auto-assign rider |
+| **Dettagli** | [README](javaeat_v01/README.md) |
+
+### JavaEat v02 — Food Delivery Platform (Refactored)
+Evoluzione di JavaEat v01 con relazioni Many-to-Many, MapStruct e analytics.
+
+| | |
+|---|---|
+| **Stack** | Spring Boot 4.0.2, JPA, MapStruct 1.6.3, MySQL |
+| **Features** | Dish-Delivery M:N, rider status/posizione, endpoint analytics, service layer |
+| **Dettagli** | [README](javaeat_v02/README.md) |
+
+### Product — Catalogo Prodotti e Recensioni
+Catalogo prodotti con sistema di recensioni e valutazioni 1-5 stelle.
+
+| | |
+|---|---|
+| **Stack** | Spring Boot 4.0.2, JPA, Validation, MySQL |
+| **Features** | Review 1-5 stelle, validazione duplicati, data.sql con 50 prodotti |
+| **Dettagli** | [README](product/README.md) |
+
+### WebClinic — Gestionale Clinica Medica
+Gestione pazienti con validazione Codice Fiscale italiano.
+
+| | |
+|---|---|
+| **Stack** | Spring Boot 4.0.2, JPA, MySQL |
+| **Features** | Validazione Codice Fiscale, CommonValidator Singleton, DTO Pattern |
+| **Dettagli** | [README](webclinic/README.md) |
+
 ---
 
 ## Progetti Frontend

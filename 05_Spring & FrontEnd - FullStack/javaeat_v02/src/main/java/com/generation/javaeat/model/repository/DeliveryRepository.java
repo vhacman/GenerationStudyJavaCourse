@@ -8,14 +8,14 @@ import com.generation.javaeat.model.entities.Delivery;
 public interface DeliveryRepository extends JpaRepository<Delivery, Integer>
 {
     List<Delivery> findByRestaurantId(int restaurantId);
-    List<Delivery> findByCustomerId(int customerId);
+    List<Delivery> findByCostumerId(int costumerId);
     List<Delivery> findByRiderId(int riderId);
 
-    List<Delivery> findByCustomerIdAndStatus(int customerId, String status);
+    List<Delivery> findByCostumerIdAndStatus(int costumerId, String status);
     List<Delivery> findByRestaurantIdAndStatus(int restaurantId, String status);
     List<Delivery> findByRiderIdAndStatus(int riderId, String status);
 
-    int 			countByCustomerId(int customerId);
+    int 			countByCostumerId(int costumerId);
     int 			countByRestaurantId(int restaurantId);
     int 			countByRiderId(int riderId);
     int 			countByStatus(String status);

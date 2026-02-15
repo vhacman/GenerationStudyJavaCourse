@@ -17,7 +17,7 @@
 
 ## Panoramica
 
-Questa repository raccoglie **79+ progetti** sviluppati durante il bootcamp Generation Italy, organizzati in un percorso progressivo: dalla sintassi base di Java fino alla realizzazione di applicazioni web full-stack con Spring Boot.
+Questa repository raccoglie **84+ progetti** sviluppati durante il bootcamp Generation Italy, organizzati in un percorso progressivo: dalla sintassi base di Java fino alla realizzazione di applicazioni web full-stack con Spring Boot.
 
 ```
 GenerationStudyJavaCourse/
@@ -28,6 +28,7 @@ GenerationStudyJavaCourse/
 ├── 04_Exercises_Practice/                Esercizi supplementari
 ├── 05_Spring & FrontEnd - FullStack/     Spring Boot, JPA, Frontend
 ├── 06_Database - MySql/                  Fondamenti SQL e query avanzate
+├── 07_Angular/                           Angular framework
 └── docs/                                 Documentazione di supporto
 ```
 
@@ -133,6 +134,11 @@ Applicazioni web full-stack:
 | [PC Configurator](05_Spring%20%26%20FrontEnd%20-%20FullStack/pcconfigurator/) | Configuratore PC personalizzati | Spring Boot, JPA, REST API |
 | [Sanction](05_Spring%20%26%20FrontEnd%20-%20FullStack/sanction/) | Sistema gestione sanzioni amministrative | Spring Boot, JPA, DTO Pattern, REST API |
 | [Hotel Booking](05_Spring%20%26%20FrontEnd%20-%20FullStack/hotelboolking/) | Prenotazioni alberghiere | Spring Boot, JPA, Thymeleaf |
+| [FoodDelivery](05_Spring%20%26%20FrontEnd%20-%20FullStack/fooddelivery/) | Consegne a domicilio con assegnazione rider | Spring Boot, JPA, MapStruct, Lombok |
+| [JavaEat v01](05_Spring%20%26%20FrontEnd%20-%20FullStack/javaeat_v01/) | Piattaforma food delivery | Spring Boot, JPA, DTO Pattern |
+| [JavaEat v02](05_Spring%20%26%20FrontEnd%20-%20FullStack/javaeat_v02/) | Food delivery refactored (M:N, MapStruct) | Spring Boot, JPA, MapStruct |
+| [Product](05_Spring%20%26%20FrontEnd%20-%20FullStack/product/) | Catalogo prodotti e recensioni | Spring Boot, JPA, Validation |
+| [WebClinic](05_Spring%20%26%20FrontEnd%20-%20FullStack/webclinic/) | Gestionale clinica medica | Spring Boot, JPA, REST API |
 | [FrontEnd](05_Spring%20%26%20FrontEnd%20-%20FullStack/FrontEnd%20-%20FullStack/) | Progetti HTML/CSS/JS | HTML5, CSS3, JavaScript ES6+ |
 
 > **[Dettagli completi](05_Spring%20%26%20FrontEnd%20-%20FullStack/)**
@@ -163,9 +169,10 @@ Applicazioni web full-stack:
 |------|------------|
 | **Linguaggio** | Java 21, JavaScript ES6+ |
 | **Framework** | Spring Boot 4.0.2, Spring Data JPA, Hibernate |
-| **Frontend** | Thymeleaf, HTML5, CSS3 |
+| **Frontend** | Thymeleaf, Angular, HTML5, CSS3 |
 | **Database** | MySQL 8.x, SQLite 3.x, JDBC |
 | **Build** | Maven |
+| **Mapping** | MapStruct 1.6.3 |
 | **Testing** | JUnit 5 (Jupiter) |
 | **IDE** | Eclipse, IntelliJ IDEA |
 
@@ -182,10 +189,10 @@ Applicazioni web full-stack:
 | Trasporti & Biglietteria | 10 |
 | Business Applications | 43 |
 | Esercizi & Pratica | 4 |
-| Spring Boot Web App | 8 |
+| Spring Boot Web App | 13 |
 | Frontend | 3 |
 | Script SQL | 7 |
-| **Totale** | **79+** |
+| **Totale** | **84+** |
 
 ---
 

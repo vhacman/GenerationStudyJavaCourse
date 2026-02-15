@@ -11,13 +11,12 @@ public class CityDTO
     
     private List<String>			errors = new ArrayList<>();
     
+    // City 1:M Restaurant - lista dei ristoranti appartenenti a questa città
     private List<RestaurantDTO> 	restaurants = new ArrayList<>();
-    private List<RiderDTO> 			riders = new ArrayList<>();
+    // City 1:M Costumer - lista dei clienti appartenenti a questa città
     private List<CostumerDTO> 		costumer = new ArrayList<>();
-    
-    
-    
-    
+    // Rimosso: List<RiderDTO> riders - Rider non ha relazione con City nel diagramma
+
     
 	public int getId() {
 		return id;
@@ -48,12 +47,6 @@ public class CityDTO
 	}
 	public void setRestaurants(List<RestaurantDTO> restaurants) {
 		this.restaurants = restaurants;
-	}
-	public List<RiderDTO> getRiders() {
-		return riders;
-	}
-	public void setRiders(List<RiderDTO> riders) {
-		this.riders = riders;
 	}
 	public List<CostumerDTO> getCostumer() {
 		return costumer;
