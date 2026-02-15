@@ -17,7 +17,7 @@ Evoluzione di [JavaEat v01](../javaeat_v01/): piattaforma REST API per food deli
 | **Rider ↔ City** | Rider legato a una citta | Rider indipendente, opera ovunque |
 | **Mapping DTO** | Mapper manuali custom | **Manual mapper (no MapStruct)** |
 | **Rider** | — | Nuovi campi: `status`, `positionX`, `positionY` |
-| **Entita Dish** | Non presente | **Nuova entita** con menu per ristorante |
+| **Entita Dish** | gia presente | Menu per ristorante |
 | **Analytics** | — | Endpoint di conteggio delivery |
 
 ## Tecnologie
