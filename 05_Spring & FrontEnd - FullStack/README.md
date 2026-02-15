@@ -101,12 +101,12 @@ Piattaforma food delivery con gestione citta, ristoranti, clienti, rider e conse
 | **Dettagli** | [README](javaeat_v01/README.md) |
 
 ### JavaEat v02 — Food Delivery Platform (Refactored)
-Evoluzione di JavaEat v01 con relazioni Many-to-Many, MapStruct e analytics.
+Evoluzione di JavaEat v01 con relazioni Many-to-Many e analytics.
 
 | | |
 |---|---|
-| **Stack** | Spring Boot 4.0.2, JPA, MapStruct 1.6.3, MySQL |
-| **Features** | Dish-Delivery M:N, rider status/posizione, endpoint analytics, service layer |
+| **Stack** | Spring Boot 4.0.2, JPA, MySQL |
+| **Features** | Dish-Delivery M:N, rider status/posizione, endpoint analytics, service layer, manual DTO mapper |
 | **Dettagli** | [README](javaeat_v02/README.md) |
 
 ### Product — Catalogo Prodotti e Recensioni

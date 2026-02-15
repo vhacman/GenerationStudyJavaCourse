@@ -2,7 +2,7 @@
 
 # JavaEat v02 — Food Delivery Platform (Refactored)
 
-**Spring Boot 4.0.2 | JPA | MapStruct 1.6.3 | MySQL**
+**Spring Boot 4.0.2 | JPA | MySQL**
 
 </div>
 
@@ -15,7 +15,7 @@ Evoluzione di [JavaEat v01](../javaeat_v01/): piattaforma REST API per food deli
 | **Dish ↔ Delivery** | ManyToOne | **ManyToMany** (join table `delivery_dish`) |
 | **Customer ↔ Rider** | Relazione diretta | Indiretta tramite Delivery |
 | **Rider ↔ City** | Rider legato a una citta | Rider indipendente, opera ovunque |
-| **Mapping DTO** | Mapper manuali | **MapStruct 1.6.3** |
+| **Mapping DTO** | Mapper manuali custom | **Manual mapper (no MapStruct)** |
 | **Rider** | — | Nuovi campi: `status`, `positionX`, `positionY` |
 | **Entita Dish** | Non presente | **Nuova entita** con menu per ristorante |
 | **Analytics** | — | Endpoint di conteggio delivery |
@@ -26,7 +26,6 @@ Evoluzione di [JavaEat v01](../javaeat_v01/): piattaforma REST API per food deli
 |------------|-------------|
 | Spring Boot 4.0.2 | Framework principale |
 | Spring Data JPA | Persistenza dati con Hibernate |
-| MapStruct 1.6.3 | Mapping automatico Entity ↔ DTO |
 | MySQL | Database relazionale |
 | Maven | Build automation |
 
@@ -140,7 +139,7 @@ API (RestController)
     ↓
 Service (Business Logic + Validation)
     ↓
-DTO ↔ Mapper (MapStruct)
+DTO ↔ Manual Mapper
     ↓
 Repository (JPA)
     ↓

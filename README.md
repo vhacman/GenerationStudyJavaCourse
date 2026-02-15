@@ -126,20 +126,20 @@ Applicazioni web full-stack:
 
 | Progetto | Descrizione | Stack |
 |----------|-------------|-------|
-| [Emergency](05_Spring%20%26%20FrontEnd%20-%20FullStack/Emergency/) | Pronto soccorso ospedaliero | Spring Boot, JPA, Thymeleaf, REST API |
-| [Dinner](05_Spring%20%26%20FrontEnd%20-%20FullStack/Dinner/) | Gestione ordini ristorante | Spring Boot, JPA, Thymeleaf, REST API |
-| [Ticket](05_Spring%20%26%20FrontEnd%20-%20FullStack/Ticket/) | Sistema segnalazioni/ticket | Spring Boot, JPA, Thymeleaf, REST API |
-| [Vault](05_Spring%20%26%20FrontEnd%20-%20FullStack/vault/) | Membership Vault-Tec (tema Fallout) | Spring Boot, JPA, REST API |
-| [GenSchool](05_Spring%20%26%20FrontEnd%20-%20FullStack/GenSchool/) | Gestione lezioni scolastiche | Spring Boot, JPA, REST API |
-| [PC Configurator](05_Spring%20%26%20FrontEnd%20-%20FullStack/pcconfigurator/) | Configuratore PC personalizzati | Spring Boot, JPA, REST API |
-| [Sanction](05_Spring%20%26%20FrontEnd%20-%20FullStack/sanction/) | Sistema gestione sanzioni amministrative | Spring Boot, JPA, DTO Pattern, REST API |
-| [Hotel Booking](05_Spring%20%26%20FrontEnd%20-%20FullStack/hotelboolking/) | Prenotazioni alberghiere | Spring Boot, JPA, Thymeleaf |
-| [FoodDelivery](05_Spring%20%26%20FrontEnd%20-%20FullStack/fooddelivery/) | Consegne a domicilio con assegnazione rider | Spring Boot, JPA, MapStruct, Lombok |
-| [JavaEat v01](05_Spring%20%26%20FrontEnd%20-%20FullStack/javaeat_v01/) | Piattaforma food delivery | Spring Boot, JPA, DTO Pattern |
-| [JavaEat v02](05_Spring%20%26%20FrontEnd%20-%20FullStack/javaeat_v02/) | Food delivery refactored (M:N, MapStruct) | Spring Boot, JPA, MapStruct |
-| [Product](05_Spring%20%26%20FrontEnd%20-%20FullStack/product/) | Catalogo prodotti e recensioni | Spring Boot, JPA, Validation |
-| [WebClinic](05_Spring%20%26%20FrontEnd%20-%20FullStack/webclinic/) | Gestionale clinica medica | Spring Boot, JPA, REST API |
-| [FrontEnd](05_Spring%20%26%20FrontEnd%20-%20FullStack/FrontEnd%20-%20FullStack/) | Progetti HTML/CSS/JS | HTML5, CSS3, JavaScript ES6+ |
+| [Emergency](05_Spring%20%26%20FrontEnd%20-%20FullStack/Emergency/README.md) | Pronto soccorso ospedaliero | Spring Boot, JPA, Thymeleaf, REST API |
+| [Dinner](05_Spring%20%26%20FrontEnd%20-%20FullStack/Dinner/README.md) | Gestione ordini ristorante | Spring Boot, JPA, Thymeleaf, REST API |
+| [Ticket](05_Spring%20%26%20FrontEnd%20-%20FullStack/Ticket/README.md) | Sistema segnalazioni/ticket | Spring Boot, JPA, Thymeleaf, REST API |
+| [Vault](05_Spring%20%26%20FrontEnd%20-%20FullStack/vault/README.md) | Membership Vault-Tec (tema Fallout) | Spring Boot, JPA, REST API |
+| [GenSchool](05_Spring%20%26%20FrontEnd%20-%20FullStack/GenSchool/README.md) | Gestione lezioni scolastiche | Spring Boot, JPA, REST API |
+| [PC Configurator](05_Spring%20%26%20FrontEnd%20-%20FullStack/pcconfigurator/README.md) | Configuratore PC personalizzati | Spring Boot, JPA, REST API |
+| [Sanction](05_Spring%20%26%20FrontEnd%20-%20FullStack/sanction/README.md) | Sistema gestione sanzioni amministrative | Spring Boot, JPA, DTO Pattern, REST API |
+| [Hotel Booking](05_Spring%20%26%20FrontEnd%20-%20FullStack/hotelboolking/README.md) | Prenotazioni alberghiere | Spring Boot, JPA, Thymeleaf |
+| [FoodDelivery](05_Spring%20%26%20FrontEnd%20-%20FullStack/fooddelivery/README.md) | Consegne a domicilio con assegnazione rider | Spring Boot, JPA, MapStruct, Lombok |
+| [JavaEat v01](05_Spring%20%26%20FrontEnd%20-%20FullStack/javaeat_v01/README.md) | Piattaforma food delivery | Spring Boot, JPA, DTO Pattern |
+| [JavaEat v02](05_Spring%20%26%20FrontEnd%20-%20FullStack/javaeat_v02/README.md) | Food delivery refactored (M:N) | Spring Boot, JPA |
+| [Product](05_Spring%20%26%20FrontEnd%20-%20FullStack/product/README.md) | Catalogo prodotti e recensioni | Spring Boot, JPA, Validation |
+| [WebClinic](05_Spring%20%26%20FrontEnd%20-%20FullStack/webclinic/README.md) | Gestionale clinica medica | Spring Boot, JPA, REST API |
+| [FrontEnd](05_Spring%20%26%20FrontEnd%20-%20FullStack/FrontEnd%20-%20FullStack/README.md) | Progetti HTML/CSS/JS | HTML5, CSS3, JavaScript ES6+ |
 
 > **[Dettagli completi](05_Spring%20%26%20FrontEnd%20-%20FullStack/)**
 
