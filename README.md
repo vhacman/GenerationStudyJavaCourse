@@ -19,7 +19,7 @@
 
 ## Panoramica
 
-Questa repository raccoglie **88+ progetti** sviluppati durante il bootcamp Generation Italy, organizzati in un percorso progressivo: dalla sintassi base di Java fino alla realizzazione di applicazioni web full-stack con Spring Boot e Angular.
+Questa repository raccoglie **90+ progetti** sviluppati durante il bootcamp Generation Italy, organizzati in un percorso progressivo: dalla sintassi base di Java fino alla realizzazione di applicazioni web full-stack con Spring Boot e Angular.
 
 ```
 GenerationStudyJavaCourse/
@@ -30,7 +30,7 @@ GenerationStudyJavaCourse/
 ├── 04_Exercises_Practice/                Esercizi supplementari
 ├── 05_Spring & FrontEnd - FullStack/     Spring Boot, JPA, Frontend
 ├── 06_Database - MySql/                  Fondamenti SQL e query avanzate
-├── 07_Angular/                           Progetti Angular 21 (4 applicazioni)
+├── 07_Angular/                           Progetti Angular 21 (6 applicazioni)
 └── docs/                                 Documentazione di supporto
 ```
 
@@ -167,10 +167,12 @@ Applicazioni web full-stack:
 
 ## 07 — Angular
 
-4 progetti Angular 21 con Standalone Components, Signals e TypeScript.
+6 progetti Angular 21 con Standalone Components, Signals e TypeScript.
 
 | Progetto | Descrizione | Concetti chiave |
 |----------|-------------|-----------------|
+| [AngularHotel](07_Angular/AngularHotel/README.md) | Calcolatore costo prenotazione alberghiera | Signals, Computed Signals, Interface |
+| [BMICalculator](07_Angular/BMICalculator/README.md) | Calcolatore indice di massa corporea | WritableSignal, Computed Signals, DecimalPipe |
 | [Diet](07_Angular/Diet/README.md) | Tracker macronutrienti con calcolo calorie | Signals, Computed Signals |
 | [HouseCalculator](07_Angular/HouseCalculator/README.md) | Calcolatore prezzo immobiliare | Signals, Computed Signals |
 | [Ippoterapia](07_Angular/Ippoterapia/README.md) | Ricevute ippoterapia con agevolazioni fragili | WritableSignal, Interface |
@@ -207,8 +209,8 @@ Applicazioni web full-stack:
 | Spring Boot Web App | 13 |
 | Frontend | 3 |
 | Script SQL | 7 |
-| Angular | 4 |
-| **Totale** | **88+** |
+| Angular | 6 |
+| **Totale** | **90+** |
 
 ---
 
