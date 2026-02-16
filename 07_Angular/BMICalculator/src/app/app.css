@@ -1,0 +1,9 @@
+/* :host seleziona il componente stesso (il tag <app-root>) */
+:host {
+  display: flex;                /* attiva il layout flessibile */
+  justify-content: center;      /* centra orizzontalmente */
+  align-items: center;          /* centra verticalmente */
+  min-height: 100vh;            /* altezza minima = tutta la finestra del browser (vh = viewport height) */
+  padding: 20px;                /* spazio interno */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* font del testo */
+}

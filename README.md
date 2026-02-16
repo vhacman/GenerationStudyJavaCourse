@@ -2,7 +2,7 @@
 
 # Generation Italy — Java Full Stack Developer
 
-**Repository completa del percorso formativo: dai fondamenti Java fino a Spring Boot e MySQL**
+**Repository completa del percorso formativo: dai fondamenti Java fino a Spring Boot, Angular e MySQL**
 
 [![Java](https://img.shields.io/badge/Java-21-ED8B00?style=flat&logo=openjdk&logoColor=white)](https://openjdk.org/)
 [![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.0.2-6DB33F?style=flat&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
@@ -10,6 +10,7 @@
 [![SQLite](https://img.shields.io/badge/SQLite-3.x-003B57?style=flat&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
 [![JUnit5](https://img.shields.io/badge/JUnit-5-25A162?style=flat&logo=junit5&logoColor=white)](https://junit.org/junit5/)
 [![Angular](https://img.shields.io/badge/Angular-21-DD0031?style=flat&logo=angular&logoColor=white)](https://angular.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Maven](https://img.shields.io/badge/Maven-3.9-C71A36?style=flat&logo=apachemaven&logoColor=white)](https://maven.apache.org/)
 
 </div>
@@ -181,18 +182,18 @@ Applicazioni web full-stack:
 
 | Area | Tecnologie |
 |------|------------|
-| **Linguaggio** | Java 21, JavaScript ES6+ |
+| **Linguaggio** | Java 21, TypeScript 5.9, JavaScript ES6+ |
 | **Framework** | Spring Boot 4.0.2, Spring Data JPA, Hibernate |
 | **Frontend** | Angular 21, Thymeleaf, HTML5, CSS3, W3.CSS |
 | **Database** | MySQL 8.x, SQLite 3.x, JDBC |
-| **Build** | Maven |
+| **Build** | Maven, Angular CLI |
 | **Mapping** | MapStruct 1.6.3 |
-| **Testing** | JUnit 5 (Jupiter) |
-| **IDE** | Eclipse, IntelliJ IDEA |
+| **Testing** | JUnit 5 (Jupiter), Vitest |
+| **IDE** | Eclipse, IntelliJ IDEA, VS Code |
 
 ## Design Patterns
 
-`Repository` · `MVC` · `Dependency Injection (IoC)` · `Factory` · `Strategy` · `State` · `Command` · `Chain of Responsibility` · `Template Method` · `Composite` · `ORM custom` · `Reflection` · `Lazy/Eager Loading` · `ETL`
+`Repository` · `MVC` · `Dependency Injection (IoC)` · `Factory` · `Strategy` · `State` · `Command` · `Chain of Responsibility` · `Template Method` · `Composite` · `ORM custom` · `Reflection` · `Lazy/Eager Loading` · `ETL` · `Signals/Computed` · `Standalone Components`
 
 ## Statistiche
 

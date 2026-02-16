@@ -1,0 +1,65 @@
+.hotel-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+  color: #fff;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+
+.label {
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.value {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.result {
+  background: rgba(255, 255, 255, 0.25);
+  font-size: 22px;
+}
+
+input[type="button"] {
+  background-color: #ff6b6b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 6px;
+}
+
+input[type="button"]:hover {
+  background-color: #ee5a5a;
+}
+
+input[type="button"][value="CAMBIA"] {
+  background-color: #feca57;
+  color: #333;
+}
+
+input[type="button"][value="CAMBIA"]:hover {
+  background-color: #f0b830;
+}

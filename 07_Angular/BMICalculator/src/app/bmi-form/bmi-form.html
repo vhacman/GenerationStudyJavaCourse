@@ -1,0 +1,42 @@
+<!-- contenitore principale della card -->
+<div class="contenitore">
+
+	<!-- logo caricato dalla cartella public/img -->
+	<img src="img/logo.png" alt="BMI Logo" class="logo" />
+	<h1>BMI CALCULATOR</h1>
+
+	<!-- riga del peso: mostra il valore del signal e due bottoni per modificarlo -->
+	<div class="riga">
+		<span class="testo">PESO (kg)</span>
+		<span class="valore">
+			<!-- interpolazione: legge il valore corrente del signal weight -->
+			{{bmiData.weight()}}
+			<!-- (click) = event binding: al click chiama il metodo del componente -->
+			<input type="button" (click)="addWeight()" value="+" />
+			<input type="button" (click)="subtractWeight()" value="-" />
+		</span>
+	</div>
+
+	<!-- riga dell'altezza: stessa logica del peso -->
+	<div class="riga">
+		<span class="testo">ALTEZZA (cm)</span>
+		<span class="valore">
+			{{bmiData.height()}}
+			<input type="button" (click)="addHeight()" value="+" />
+			<input type="button" (click)="subtractHeight()" value="-" />
+		</span>
+	</div>
+
+	<!-- riga del risultato BMI: usa la pipe number per formattare con 1 decimale -->
+	<!-- number:'1.1-1' = minimo 1 cifra intera, minimo 1 decimale, massimo 1 decimale -->
+	<div class="riga risultato">
+		<span class="testo">BMI</span>
+		<span class="valore">&nbsp;{{bmi() | number:'1.1-1'}}</span>
+	</div>
+
+	<!-- riga della categoria: mostra il valore del computed category -->
+	<div class="riga">
+		<span class="testo">CATEGORIA</span>
+		<span class="valore">{{category()}}</span>
+	</div>
+</div>

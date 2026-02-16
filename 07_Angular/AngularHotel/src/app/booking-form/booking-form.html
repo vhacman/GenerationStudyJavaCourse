@@ -1,0 +1,35 @@
+<div class="hotel-card">
+	<h1>ANGULAR HOTEL</h1>
+
+	<div class="field">
+		<span class="label">DATA</span>
+		<span class="value">{{booking.date}}</span>
+	</div>
+
+	<div class="field">
+		<span class="label">FULL BOARD</span>
+		<span class="value">
+			{{booking.fullBoard() ? 'SI' : 'NO'}}
+			<input type="button" (click)="changeFullBoard()" value="CAMBIA" />
+		</span>
+	</div>
+
+	<div class="field">
+		<span class="label">NIGHTS</span>
+		<span class="value">
+			{{booking.nights()}}
+			<input type="button" (click)="addNight()" value="+" />
+			<input type="button" (click)="subtractNight()" value="-" />
+		</span>
+	</div>
+
+	<div class="field result">
+		<span class="label">TOTAL</span>
+		<span class="value">{{total()}} &euro;</span>
+	</div>
+
+	<div class="field">
+		<span class="label">SERVIZIO NAVETTA</span>
+		<span class="value">{{freeTransport() ? 'INCLUSO' : 'NON INCLUSO'}}</span>
+	</div>
+</div>

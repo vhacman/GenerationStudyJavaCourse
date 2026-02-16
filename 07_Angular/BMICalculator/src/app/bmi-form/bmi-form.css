@@ -1,0 +1,56 @@
+/* stile del contenitore principale: sfondo bianco con bordo nero */
+.contenitore {
+  background-color: white;
+  padding: 30px;              /* spazio interno */
+  color: black;               /* colore del testo */
+  border: 2px solid black;    /* cornice nera */
+}
+
+/* logo centrato orizzontalmente */
+.logo {
+  display: block;             /* necessario per poter usare margin auto */
+  margin: 0 auto;            /* centra orizzontalmente */
+  width: 120px;              /* larghezza fissa */
+}
+
+/* titolo centrato */
+h1 {
+  text-align: center;
+}
+
+/* ogni riga della card: bordo sottile e spazio tra le righe */
+.riga {
+  padding: 10px;              /* spazio interno */
+  margin-bottom: 10px;        /* spazio tra una riga e l'altra */
+  background-color: white;
+  border: 1px solid black;    /* bordo sottile */
+}
+
+/* etichetta a sinistra */
+.testo {
+  font-weight: bold;
+}
+
+/* valore a destra */
+.valore {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* riga del risultato BMI: sfondo nero con testo bianco per evidenziarlo */
+.risultato {
+  background-color: black;
+  color: white;
+  font-size: 22px;
+}
+
+/* stile dei bottoni + e - */
+input[type="button"] {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+  padding: 5px 10px;          /* spazio interno del bottone */
+  cursor: pointer;            /* mostra la manina al passaggio del mouse */
+  font-size: 16px;
+  margin-left: 10px;          /* spazio tra il valore e il bottone */
+}
