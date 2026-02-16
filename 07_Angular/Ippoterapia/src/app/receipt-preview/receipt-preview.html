@@ -1,0 +1,31 @@
+<table cellspacing="0" style="border:1px solid #222">
+    <tr>
+        <td>
+            <img class="logo" src="/img/logo.png" />
+        </td>
+        <td style="text-align:justify;width:500px">
+            <h3>Receipt for : {{receipt.customer}}</h3>
+            <h4>
+                {{receipt.frail() ? "Free access" : "Regular access"}}
+                <input type="button" value="change" 
+                (click)="changeStatus()"
+                />
+            </h4>
+            <div class="hours">
+                {{receipt.hours()}} hours    
+                <!-- (click)=> binding di evento. collego un evento della pagina
+                a un metodo della logica -->
+                <input type="button" value="+" (click)="addHour()" />
+                <input type="button" value="-" (click)="subtractHour()" />
+            </div>
+            <div class="priceperhour">
+                Price per hour {{pricePerHour}} &euro;
+            </div>
+            <div class="total">
+                Total: {{total()}} &euro;
+            </div>
+        </td>
+
+    </tr>
+</table>
+<br />

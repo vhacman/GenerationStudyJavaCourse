@@ -9,6 +9,7 @@
 [![MySQL](https://img.shields.io/badge/MySQL-8.x-4479A1?style=flat&logo=mysql&logoColor=white)](https://www.mysql.com/)
 [![SQLite](https://img.shields.io/badge/SQLite-3.x-003B57?style=flat&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
 [![JUnit5](https://img.shields.io/badge/JUnit-5-25A162?style=flat&logo=junit5&logoColor=white)](https://junit.org/junit5/)
+[![Angular](https://img.shields.io/badge/Angular-21-DD0031?style=flat&logo=angular&logoColor=white)](https://angular.dev/)
 [![Maven](https://img.shields.io/badge/Maven-3.9-C71A36?style=flat&logo=apachemaven&logoColor=white)](https://maven.apache.org/)
 
 </div>
@@ -17,7 +18,7 @@
 
 ## Panoramica
 
-Questa repository raccoglie **84+ progetti** sviluppati durante il bootcamp Generation Italy, organizzati in un percorso progressivo: dalla sintassi base di Java fino alla realizzazione di applicazioni web full-stack con Spring Boot.
+Questa repository raccoglie **88+ progetti** sviluppati durante il bootcamp Generation Italy, organizzati in un percorso progressivo: dalla sintassi base di Java fino alla realizzazione di applicazioni web full-stack con Spring Boot e Angular.
 
 ```
 GenerationStudyJavaCourse/
@@ -28,7 +29,7 @@ GenerationStudyJavaCourse/
 ├── 04_Exercises_Practice/                Esercizi supplementari
 ├── 05_Spring & FrontEnd - FullStack/     Spring Boot, JPA, Frontend
 ├── 06_Database - MySql/                  Fondamenti SQL e query avanzate
-├── 07_Angular/                           Angular framework
+├── 07_Angular/                           Progetti Angular 21 (4 applicazioni)
 └── docs/                                 Documentazione di supporto
 ```
 
@@ -163,13 +164,26 @@ Applicazioni web full-stack:
 
 ---
 
+## 07 — Angular
+
+4 progetti Angular 21 con Standalone Components, Signals e TypeScript.
+
+| Progetto | Descrizione | Concetti chiave |
+|----------|-------------|-----------------|
+| [Diet](07_Angular/Diet/README.md) | Tracker macronutrienti con calcolo calorie | Signals, Computed Signals |
+| [HouseCalculator](07_Angular/HouseCalculator/README.md) | Calcolatore prezzo immobiliare | Signals, Computed Signals |
+| [Ippoterapia](07_Angular/Ippoterapia/README.md) | Ricevute ippoterapia con agevolazioni fragili | WritableSignal, Interface |
+| [LezioneExtra](07_Angular/LezioneExtra/README.md) | Multi-app: BMI, Fitness, Food, House | Two-way Binding, FormsModule, `@for`/`@empty`, W3.CSS |
+
+---
+
 ## Stack Tecnologico
 
 | Area | Tecnologie |
 |------|------------|
 | **Linguaggio** | Java 21, JavaScript ES6+ |
 | **Framework** | Spring Boot 4.0.2, Spring Data JPA, Hibernate |
-| **Frontend** | Thymeleaf, Angular, HTML5, CSS3 |
+| **Frontend** | Angular 21, Thymeleaf, HTML5, CSS3, W3.CSS |
 | **Database** | MySQL 8.x, SQLite 3.x, JDBC |
 | **Build** | Maven |
 | **Mapping** | MapStruct 1.6.3 |
@@ -192,7 +206,8 @@ Applicazioni web full-stack:
 | Spring Boot Web App | 13 |
 | Frontend | 3 |
 | Script SQL | 7 |
-| **Totale** | **84+** |
+| Angular | 4 |
+| **Totale** | **88+** |
 
 ---
 

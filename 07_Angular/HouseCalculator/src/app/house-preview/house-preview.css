@@ -1,0 +1,23 @@
+.housecalculator {
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  line-height: 2;
+}
+
+input[type="button"] {
+  background-color: #4a90d9;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 2px;
+}
+
+input[type="button"]:hover {
+  background-color: #357abd;
+}

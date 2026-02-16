@@ -1,0 +1,39 @@
+<div class="meal">
+    {{description}} <br />
+
+    <!-- questa roba si legge getCarbs, Ã¨ come invocare il getter del valore sottostante -->
+    Carbs {{carbs()}} grams 
+    <input type="button" (click)="updateNutrient('carbs',1)" value="+" />
+    <input type="button" (click)="updateNutrient('carbs',-1)" value="-" />
+    
+    <br />
+    Proteins {{proteins()}} grams 
+    <input type="button" (click)="updateNutrient('proteins',1)" value="+" />
+    <input type="button" (click)="updateNutrient('proteins',-1)" value="-" />
+    <br />
+    Fats {{fats()}} grams <br />
+    <input type="button" (click)="updateNutrient('fats',1)" value="+" />
+    <input type="button" (click)="updateNutrient('fats',-1)" value="-" />
+
+    <div class="results">
+        <!-- getCalories() -->
+        Calories: {{calories()}} <br />
+        Complete: {{complete() ? "COMPLETE" :"INCOMPLETE"}} <br />
+        Enough proteins: {{proteinComplete() ? "YES" :"NO"}} <br />
+
+        <!--TODO-->
+        <!-- percentuale di grassi: è un computed, si legge come un signal con le () -->
+        <!-- usiamo .toFixed(1) per mostrare solo 1 decimale, esempio: 45.3% -->
+        Fat percentage: {{fatPercentage().toFixed(1)}}%
+
+          <!--TODO-->
+        <br /><br />
+        <!-- pulsante per impostare tutti i valori a 50, chiama setAllToFifty() -->
+        <!-- stessa logica del RESET ma con valore 50 -->
+        <input type="button" (click)="setAllToFifty()" value="SET ALL TO 50" />
+        <input type="button" (click)="resetNutrients()" value="RESET" />
+
+    </div>
+
+
+</div>

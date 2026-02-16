@@ -1,0 +1,22 @@
+<div class="housecalculator">
+    {{description}} <br />
+    Area 
+    <!-- sintassi di interpolazione, o se siete popolani come me
+     sintassi di stampa  -->
+    {{area()}} mq 
+    <input type="button" (click)="modifyValue('area',1)" value="+" />
+    <input type="button" (click)="modifyValue('area',-1)" value="-" />
+    
+    <br />
+    Prezzo al metro quadro 
+    {{smp()}} euro 
+    <input type="button" (click)="modifyValue('smp',50)" value="+" />
+    <input type="button" (click)="modifyValue('smp',-50)" value="-" />
+    
+    <br />
+    
+    Prezzo: {{price()}} euro <br />
+    Open space: {{openspace() ? "SI" : "NO"}}
+
+
+</div>
