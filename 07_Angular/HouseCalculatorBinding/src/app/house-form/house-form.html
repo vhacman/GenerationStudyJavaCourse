@@ -1,0 +1,26 @@
+<h1> Register new House </h1>
+<form>
+    Address
+<input type="text" name="address" [(ngModel)]="house.address" class="w3-input" />
+
+
+    Price per sqm
+<input type="number" name="smPrice" [(ngModel)]="house.smPrice" class="w3-input" />
+
+
+    Main Room Area
+<input type="number" name="smMainRoom" [(ngModel)]="house.smMainRoom" class="w3-input" />
+
+
+    Bath Area
+<input type="number" name="smBath" [(ngModel)]="house.smBath" class="w3-input" />
+
+
+    Total Area
+<input type="number" [value]="smpTotal()" readonly class="w3-input" />
+
+
+    Final Price
+<input type="number" [value]="totalPrice()" readonly class="w3-input" />
+
+</form>

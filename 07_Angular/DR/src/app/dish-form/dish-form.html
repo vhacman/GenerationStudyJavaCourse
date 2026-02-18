@@ -1,0 +1,51 @@
+<h1> Register new Dish </h1>
+<form>
+    Name 
+    <!-- ngModel si legge collegamento a due vie
+        quello che succede all'oggetto succede alla casella
+        quello che succede alla casella succede all'oggetto 
+        ho collegato questa casella alla proprietà name di dish 
+        dish.name = Console.readString();
+
+        questa sintassi [()] si chiama banana in a box
+        ma la chiamiamo input / output
+        collego una casella di testo a una variabile
+        quando cambio la variabile cambia la casella di testo
+        quando cambio la casella di testo cambia la variabile
+
+        in questo caso il lavoro è bidirezionale. da ts a html
+        e da html a ts
+    -->
+    <input type="text" name="name" [(ngModel)]="dish.name" class="w3-input" />
+    Price 
+    <input type="number" name="price" [(ngModel)]="dish.price" class="w3-input" />
+    Cost
+    <input type="number" name="cost" [(ngModel)]="dish.cost" class="w3-input" />
+    
+    <!-- 
+        le parentesi quadre sono sintassi di output 
+        sto calcolando il value tramite un metodo, il metodo margin() 
+        in questo caso il calcolo è MONODIREZIONALE. Dal .ts al .html
+    -->
+    Margin 
+    <input type="number" [value]="margin()" readonly class="w3-input" />
+    
+    Description
+    <input type="text" name="description" [(ngModel)]="dish.description" class="w3-input" />
+    Type
+    <select name="type" class="w3-input" [(ngModel)]="dish.type">
+        <option value="O"> Omnivore </option>
+        <option value="V"> Vegetarian </option>
+        <option value="VG"> Vegan </option>
+    </select>
+    Carbs
+    <input type="number" name="carbs" class="w3-input" [(ngModel)]="dish.carbs" />
+    Proteins
+    <input type="number" name="proteins" class="w3-input" [(ngModel)]="dish.proteins" />
+    Fats
+    <input type="number" name="fats" class="w3-input" [(ngModel)]="dish.fats" />
+    Calories 
+    <input type="number" [value]="calories()" readonly class="w3-input" />
+
+    <input type="button" value="save" class="w3-input mybtn" />
+</form>

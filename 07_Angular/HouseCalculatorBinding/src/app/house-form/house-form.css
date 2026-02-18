@@ -1,0 +1,35 @@
+h1 {
+  color: #008080;
+  text-align: center;
+}
+
+form {
+  max-width: 450px;
+  margin: 20px auto;
+  padding: 25px;
+  background-color: #e0f2f1;
+  border: 2px solid #009688;
+  border-radius: 8px;
+}
+
+input.w3-input {
+  margin-bottom: 15px;
+  border: 1px solid #80cbc4;
+  border-radius: 4px;
+}
+
+input.w3-input:focus {
+  border-color: #009688;
+  outline: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[readonly] {
+  background-color: #b2dfdb;
+  color: #004d40;
+  font-weight: bold;
+}

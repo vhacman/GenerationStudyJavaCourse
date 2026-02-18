@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+/*
+    regole generali per tutto il progetto
+*/
+@import url('https://www.w3schools.com/w3css/4/w3.css');
+
+
+BODY, H1, H2, H3, H4, DIV, P {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+FORM{
+    padding-left:10px;
+}
+
+H1{
+    padding-left:10px;
+}
+
+.mybtn{
+    background-color:rgb(198, 4, 4); 
+    color:white;
+    font-weight:bold;
+}
+
+.mybtn:hover{
+    background-color:rgb(174, 6, 6); 
+}

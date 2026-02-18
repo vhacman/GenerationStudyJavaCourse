@@ -1,0 +1,40 @@
+<h1> Register new Dish </h1>
+<form>
+    Name 
+    <input type="text" name="name" [(ngModel)]="dish.name" class="w3-input" />
+    Price 
+    <!-- 
+        devo dissociare l'output [] dall'input 
+        devo dissociare il momento in cui do un valore alla casella [], le parentesi quadre vanno da ts a html 
+        dal momento in cui aggiorno il valore dell'oggetto dish () le parentesi tonde vanno da html a ts
+
+        [ngModel] si legge: copia il valore dal ts al .html 
+        (ngModelChange) è un gestore di evento: quando è cambiata la casella io invoco il setter del signal
+        e gli mando il nuovo valore
+        in questo caso vado da html e ts
+    -->
+    <input type="number" name="price" (ngModelChange)="dish.price.set($event)" [ngModel]="dish.price" class="w3-input" />
+    Cost
+    <input type="number" name="cost" [ngModel]="dish.cost" (ngModelChange)="dish.cost.set($event)" class="w3-input" />
+    Margin
+    <input type="number" [value]="margin()" readonly class="w3-input" />
+    Description
+    <input type="text" name="description" [(ngModel)]="dish.description" class="w3-input" />
+    Type
+    <select name="type" class="w3-input" [(ngModel)]="dish.type">
+        <option value="O"> Omnivore </option>
+        <option value="V"> Vegetarian </option>
+        <option value="VG"> Vegan </option>
+    </select>
+    Carbs
+    <input type="number" name="carbs" class="w3-input" (ngModelChange)="dish.carbs.set($event)" [ngModel]="dish.carbs" />
+    Proteins
+    <input type="number" name="proteins" class="w3-input" (ngModelChange)="dish.proteins.set($event)" [ngModel]="dish.proteins" />
+    Fats
+    <input type="number" name="fats" class="w3-input" (ngModelChange)="dish.fats.set($event)" [ngModel]="dish.fats" />
+    Calories 
+    <input type="number" [value]="calories()" readonly class="w3-input" />
+
+    
+    <input type="button" value="save" class="w3-input mybtn" />
+</form>

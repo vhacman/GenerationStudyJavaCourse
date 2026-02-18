@@ -30,7 +30,8 @@ GenerationStudyJavaCourse/
 ├── 04_Exercises_Practice/                Esercizi supplementari
 ├── 05_Spring & FrontEnd - FullStack/     Spring Boot, JPA, Frontend
 ├── 06_Database - MySql/                  Fondamenti SQL e query avanzate
-├── 07_Angular/                           Progetti Angular 21 (6 applicazioni)
+├── 07_Angular/                           Progetti Angular 21 (8 applicazioni)
+├── 08_FullStack - JS - Angular/          FullStack Node.js + Express + SQLite + Angular
 └── docs/                                 Documentazione di supporto
 ```
 
@@ -167,16 +168,33 @@ Applicazioni web full-stack:
 
 ## 07 — Angular
 
-6 progetti Angular 21 con Standalone Components, Signals e TypeScript.
+8 progetti Angular 21 con Standalone Components, Signals, Two-way Binding e TypeScript.
 
 | Progetto | Descrizione | Concetti chiave |
 |----------|-------------|-----------------|
 | [AngularHotel](07_Angular/AngularHotel/README.md) | Calcolatore costo prenotazione alberghiera | Signals, Computed Signals, Interface |
 | [BMICalculator](07_Angular/BMICalculator/README.md) | Calcolatore indice di massa corporea | WritableSignal, Computed Signals, DecimalPipe |
 | [Diet](07_Angular/Diet/README.md) | Tracker macronutrienti con calcolo calorie | Signals, Computed Signals |
-| [HouseCalculator](07_Angular/HouseCalculator/README.md) | Calcolatore prezzo immobiliare | Signals, Computed Signals |
+| [DR](07_Angular/DR/README.md) | Form registrazione piatto: metodi vs Computed Signals | Two-way Binding, `[(ngModel)]`, FormsModule, Computed Signals |
+| [HouseCalculator](07_Angular/HouseCalculator/README.md) | Calcolatore prezzo immobiliare (Signals) | signal(), Computed Signals |
+| [HouseCalculatorBinding](07_Angular/HouseCalculatorBinding/README.md) | Calcolatore prezzo immobiliare (Two-way Binding) | `[(ngModel)]`, FormsModule, metodi ordinari |
 | [Ippoterapia](07_Angular/Ippoterapia/README.md) | Ricevute ippoterapia con agevolazioni fragili | WritableSignal, Interface |
 | [LezioneExtra](07_Angular/LezioneExtra/README.md) | Multi-app: BMI, Fitness, Food, House | Two-way Binding, FormsModule, `@for`/`@empty`, W3.CSS |
+
+> **[Dettagli completi](07_Angular/)**
+
+---
+
+## 08 — FullStack JS + Angular
+
+Applicazioni full-stack con backend Node.js/Express.js, database SQLite e frontend Angular 21.
+
+| Progetto | Descrizione | Stack |
+|----------|-------------|-------|
+| [Carroponte](08_FullStack%20-%20JS%20-%20Angular/carroponte/README.md) | Gestione spettacoli teatrali/eventi | Express.js, SQLite, Angular, HttpClient |
+| [Sadder](08_FullStack%20-%20JS%20-%20Angular/sadder/README.md) | Gestione persone con coordinate canvas | Express.js, SQLite, Angular, HttpClient, Observable |
+
+> **[Dettagli completi](08_FullStack%20-%20JS%20-%20Angular/)**
 
 ---
 
@@ -185,17 +203,17 @@ Applicazioni web full-stack:
 | Area | Tecnologie |
 |------|------------|
 | **Linguaggio** | Java 21, TypeScript 5.9, JavaScript ES6+ |
-| **Framework** | Spring Boot 4.0.2, Spring Data JPA, Hibernate |
+| **Framework** | Spring Boot 4.0.2, Spring Data JPA, Hibernate, Express.js |
 | **Frontend** | Angular 21, Thymeleaf, HTML5, CSS3, W3.CSS |
-| **Database** | MySQL 8.x, SQLite 3.x, JDBC |
-| **Build** | Maven, Angular CLI |
+| **Database** | MySQL 8.x, SQLite 3.x, JDBC, better-sqlite3 |
+| **Build** | Maven, Angular CLI, npm |
 | **Mapping** | MapStruct 1.6.3 |
 | **Testing** | JUnit 5 (Jupiter), Vitest |
 | **IDE** | Eclipse, IntelliJ IDEA, VS Code |
 
 ## Design Patterns
 
-`Repository` · `MVC` · `Dependency Injection (IoC)` · `Factory` · `Strategy` · `State` · `Command` · `Chain of Responsibility` · `Template Method` · `Composite` · `ORM custom` · `Reflection` · `Lazy/Eager Loading` · `ETL` · `Signals/Computed` · `Standalone Components`
+`Repository` · `MVC` · `Dependency Injection (IoC)` · `Factory` · `Strategy` · `State` · `Command` · `Chain of Responsibility` · `Template Method` · `Composite` · `ORM custom` · `Reflection` · `Lazy/Eager Loading` · `ETL` · `Signals/Computed` · `Standalone Components` · `Service (Angular)` · `Observable/subscribe`
 
 ## Statistiche
 
@@ -209,8 +227,9 @@ Applicazioni web full-stack:
 | Spring Boot Web App | 13 |
 | Frontend | 3 |
 | Script SQL | 7 |
-| Angular | 6 |
-| **Totale** | **90+** |
+| Angular | 8 |
+| FullStack JS + Angular | 2 |
+| **Totale** | **103+** |
 
 ---
 
