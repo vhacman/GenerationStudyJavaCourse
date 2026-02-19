@@ -1,0 +1,4156 @@
+404
+Test {
+  name: 'City - Find By Id Not Found',
+  uri: 'http://localhost:8080/javaeat/api/cities/999999',
+  body: undefined,
+  verb: 'GET',
+  status: 404,
+  verify: null
+}
+passed for
+{ errors: 'City not found with id: 999999' }
+=================================
+404
+Test {
+  name: 'Restaurant - Find By Id Not Found',
+  uri: 'http://localhost:8080/javaeat/api/restaurants/999999',
+  body: undefined,
+  verb: 'GET',
+  status: 404,
+  verify: null
+}
+passed for
+{ errors: 'Restaurant not found with id: 999999' }
+=================================
+404
+Test {
+  name: 'Costumer - Find By Id Not Found',
+  uri: 'http://localhost:8080/javaeat/api/costumers/999999',
+  body: undefined,
+  verb: 'GET',
+  status: 404,
+  verify: null
+}
+passed for
+{ errors: 'Costumer not found with id: 999999' }
+=================================
+400
+Test {
+  name: 'Costumer - Insert No Email',
+  uri: 'http://localhost:8080/javaeat/api/costumers',
+  body: { pw: '123', legalName: 'Test', address: 'Via 1', city: { id: 1 } },
+  verb: 'POST',
+  status: 400,
+  verify: null
+}
+passed for
+{ errors: 'Email is required' }
+=================================
+400
+Test {
+  name: 'Delivery - Insert No Status',
+  uri: 'http://localhost:8080/javaeat/api/deliveries',
+  body: { price: 10, restaurantId: 1, costumerId: 1, riderId: 1 },
+  verb: 'POST',
+  status: 400,
+  verify: null
+}
+passed for
+{ errors: 'Status is required' }
+=================================
+400
+Test {
+  name: 'Delivery - Insert Neg Price',
+  uri: 'http://localhost:8080/javaeat/api/deliveries',
+  body: {
+    status: 'OPEN',
+    price: -10,
+    restaurantId: 1,
+    costumerId: 1,
+    riderId: 1
+  },
+  verb: 'POST',
+  status: 400,
+  verify: null
+}
+passed for
+{ errors: 'Price cannot be negative' }
+=================================
+400
+Test {
+  name: 'Costumer - Insert No LegalName',
+  uri: 'http://localhost:8080/javaeat/api/costumers',
+  body: { email: 'x@x.com', pw: '123', address: 'Via 1', city: { id: 1 } },
+  verb: 'POST',
+  status: 400,
+  verify: null
+}
+passed for
+{ errors: 'LegalName is required' }
+=================================
+400
+Test {
+  name: 'Dish - Insert Neg Price',
+  uri: 'http://localhost:8080/javaeat/api/dishes',
+  body: { name: 'Test', price: -5, description: 'Test', restaurantId: 1 },
+  verb: 'POST',
+  status: 400,
+  verify: null
+}
+passed for
+{ errors: 'Price cannot be negative' }
+=================================
+400
+400
+400
+Test {
+  name: 'City - Insert No Province',
+  uri: 'http://localhost:8080/javaeat/api/cities',
+  body: { name: 'Test' },
+  verb: 'POST',
+  status: 400,
+  verify: null
+}
+passed for
+{ errors: 'Province is required' }
+=================================
+400
+Test {
+  name: 'Restaurant - Insert No Name',
+  uri: 'http://localhost:8080/javaeat/api/restaurants',
+  body: {
+    email: 'x@x.com',
+    pw: '123',
+    address: 'Via 1',
+    capacity: 10,
+    city: { id: 1 }
+  },
+  verb: 'POST',
+  status: 400,
+  verify: null
+}
+passed for
+{ errors: 'Restaurant name is required' }
+=================================
+400
+Test {
+  name: 'Rider - Insert No LegalName',
+  uri: 'http://localhost:8080/javaeat/api/riders',
+  body: { email: 'x@x.com', pw: '123', serviceCost: 5, status: 'AVAILABLE' },
+  verb: 'POST',
+  status: 400,
+  verify: null
+}
+passed for
+{ errors: 'LegalName is required' }
+=================================
+400
+Test {
+  name: 'City - Insert No Name',
+  uri: 'http://localhost:8080/javaeat/api/cities',
+  body: { province: 'XX' },
+  verb: 'POST',
+  status: 400,
+  verify: null
+}
+passed for
+{ errors: 'City name is required' }
+=================================
+400
+Test {
+  name: 'Dish - Insert No Name',
+  uri: 'http://localhost:8080/javaeat/api/dishes',
+  body: { price: 10, description: 'Test', restaurantId: 1 },
+  verb: 'POST',
+  status: 400,
+  verify: null
+}
+passed for
+{ errors: 'Dish name is required' }
+=================================
+400
+Test {
+  name: 'Rider - Insert No Email',
+  uri: 'http://localhost:8080/javaeat/api/riders',
+  body: { pw: '123', legalName: 'Test', serviceCost: 5, status: 'AVAILABLE' },
+  verb: 'POST',
+  status: 400,
+  verify: null
+}
+passed for
+{ errors: 'Email is required' }
+=================================
+Test {
+  name: 'Restaurant - Insert Neg Capacity',
+  uri: 'http://localhost:8080/javaeat/api/restaurants',
+  body: {
+    name: 'Test',
+    email: 'x@x.com',
+    pw: '123',
+    address: 'Via 1',
+    capacity: -5,
+    city: { id: 1 }
+  },
+  verb: 'POST',
+  status: 400,
+  verify: null
+}
+passed for
+{ errors: 'Capacity cannot be negative' }
+=================================
+400
+Test {
+  name: 'Restaurant - Insert No Email',
+  uri: 'http://localhost:8080/javaeat/api/restaurants',
+  body: {
+    name: 'Test',
+    pw: '123',
+    address: 'Via 1',
+    capacity: 10,
+    city: { id: 1 }
+  },
+  verb: 'POST',
+  status: 400,
+  verify: null
+}
+passed for
+{ errors: 'Email is required' }
+=================================
+400
+Test {
+  name: 'Rider - Insert Neg Cost',
+  uri: 'http://localhost:8080/javaeat/api/riders',
+  body: {
+    email: 'x@x.com',
+    pw: '123',
+    legalName: 'Test',
+    serviceCost: -3,
+    status: 'AVAILABLE'
+  },
+  verb: 'POST',
+  status: 400,
+  verify: null
+}
+passed for
+{ errors: 'ServiceCost cannot be negative' }
+=================================
+Test {
+  name: 'Restaurant - Insert No City',
+  uri: 'http://localhost:8080/javaeat/api/restaurants',
+  body: {
+    name: 'Test',
+    email: 'x@x.com',
+    pw: '123',
+    address: 'Via 1',
+    capacity: 10
+  },
+  verb: 'POST',
+  status: 400,
+  verify: null
+}
+passed for
+{ errors: 'City is required' }
+=================================
+200
+Test {
+  name: 'Dish - Find By Id',
+  uri: 'http://localhost:8080/javaeat/api/dishes/1',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+{
+  deliveryIds: [ 1, 2 ],
+  description: 'Pizza classica con pomodoro e mozzarella',
+  id: 1,
+  name: 'Margherita',
+  price: 8,
+  restaurantId: 1
+}
+=================================
+200
+Test {
+  name: 'City - Find By Name',
+  uri: 'http://localhost:8080/javaeat/api/cities/search/Torino',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+{
+  costumer: [
+    {
+      address: 'Via Torino 15',
+      city: null,
+      deliveries: [Array],
+      email: 'mario@test.com',
+      id: 1,
+      legalName: 'Mario Rossi',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 11,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 12,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 13,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 14,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 15,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 16,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    }
+  ],
+  errors: [],
+  id: 1,
+  name: 'Torino',
+  province: 'TO',
+  restaurants: [
+    {
+      address: 'Via Roma 15',
+      capacity: 50,
+      city: null,
+      deliveries: [Array],
+      dishes: [Array],
+      email: 'pizzatorino@test.com',
+      id: 1,
+      name: 'Pizzeria Torino',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 11,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 12,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 13,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 14,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 15,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 16,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    }
+  ]
+}
+=================================
+200
+Test {
+  name: 'City - Find All',
+  uri: 'http://localhost:8080/javaeat/api/cities',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    costumer: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    errors: [],
+    id: 1,
+    name: 'Torino',
+    province: 'TO',
+    restaurants: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ]
+  },
+  {
+    costumer: [ [Object] ],
+    errors: [],
+    id: 2,
+    name: 'Milano',
+    province: 'MI',
+    restaurants: [ [Object] ]
+  },
+  {
+    costumer: [ [Object] ],
+    errors: [],
+    id: 3,
+    name: 'Roma',
+    province: 'RM',
+    restaurants: [ [Object] ]
+  },
+  {
+    costumer: [ [Object] ],
+    errors: [],
+    id: 4,
+    name: 'Napoli',
+    province: 'NA',
+    restaurants: [ [Object] ]
+  },
+  {
+    costumer: [ [Object] ],
+    errors: [],
+    id: 5,
+    name: 'Firenze',
+    province: 'FI',
+    restaurants: [ [Object] ]
+  },
+  {
+    costumer: [ [Object] ],
+    errors: [],
+    id: 6,
+    name: 'Bologna',
+    province: 'BO',
+    restaurants: [ [Object] ]
+  },
+  {
+    costumer: [ [Object] ],
+    errors: [],
+    id: 7,
+    name: 'Palermo',
+    province: 'PA',
+    restaurants: [ [Object] ]
+  },
+  {
+    costumer: [ [Object] ],
+    errors: [],
+    id: 8,
+    name: 'Genova',
+    province: 'GE',
+    restaurants: [ [Object] ]
+  },
+  {
+    costumer: [ [Object] ],
+    errors: [],
+    id: 9,
+    name: 'Bari',
+    province: 'BA',
+    restaurants: [ [Object] ]
+  },
+  {
+    costumer: [ [Object] ],
+    errors: [],
+    id: 10,
+    name: 'Catania',
+    province: 'CT',
+    restaurants: [ [Object] ]
+  },
+  {
+    costumer: [],
+    errors: [],
+    id: 11,
+    name: 'TestCity',
+    province: 'TC',
+    restaurants: []
+  },
+  {
+    costumer: [],
+    errors: [],
+    id: 12,
+    name: 'TestCity',
+    province: 'TC',
+    restaurants: []
+  },
+  {
+    costumer: [],
+    errors: [],
+    id: 13,
+    name: 'TestCity',
+    province: 'TC',
+    restaurants: []
+  },
+  {
+    costumer: [],
+    errors: [],
+    id: 14,
+    name: 'TestCity',
+    province: 'TC',
+    restaurants: []
+  },
+  {
+    costumer: [],
+    errors: [],
+    id: 15,
+    name: 'TestCity',
+    province: 'TC',
+    restaurants: []
+  },
+  {
+    costumer: [],
+    errors: [],
+    id: 16,
+    name: 'TestCity',
+    province: 'TC',
+    restaurants: []
+  }
+]
+=================================
+200
+Test {
+  name: 'Costumer - Find By Id',
+  uri: 'http://localhost:8080/javaeat/api/costumers/1',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+{
+  address: 'Via Torino 15',
+  city: {
+    costumer: [],
+    errors: [],
+    id: 1,
+    name: 'Torino',
+    province: 'TO',
+    restaurants: []
+  },
+  deliveries: [
+    {
+      costumerId: 1,
+      day: '2026-02-14T13:47:17',
+      description: 'Ordine margherita',
+      dishes: [Array],
+      id: 1,
+      price: 13.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 11,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 12,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 13,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 14,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 15,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 16,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    }
+  ],
+  email: 'mario@test.com',
+  id: 1,
+  legalName: 'Mario Rossi',
+  pw: 'pass123'
+}
+=================================
+200
+Test {
+  name: 'Restaurant - Find By Id',
+  uri: 'http://localhost:8080/javaeat/api/restaurants/1',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+{
+  address: 'Via Roma 15',
+  capacity: 50,
+  city: {
+    costumer: [],
+    errors: [],
+    id: 1,
+    name: 'Torino',
+    province: 'TO',
+    restaurants: []
+  },
+  deliveries: [
+    {
+      costumerId: 1,
+      day: '2026-02-14T13:47:17',
+      description: 'Ordine margherita',
+      dishes: [Array],
+      id: 1,
+      price: 13.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 11,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 12,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 13,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 14,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 15,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 16,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    }
+  ],
+  dishes: [
+    {
+      deliveryIds: null,
+      description: 'Pizza classica con pomodoro e mozzarella',
+      id: 1,
+      name: 'Margherita',
+      price: 8,
+      restaurantId: 0
+    },
+    {
+      deliveryIds: null,
+      description: 'Piatto di test',
+      id: 11,
+      name: 'TestPiatto',
+      price: 8,
+      restaurantId: 0
+    },
+    {
+      deliveryIds: null,
+      description: 'Piatto di test',
+      id: 12,
+      name: 'TestPiatto',
+      price: 8,
+      restaurantId: 0
+    },
+    {
+      deliveryIds: null,
+      description: 'Piatto di test',
+      id: 13,
+      name: 'TestPiatto',
+      price: 8,
+      restaurantId: 0
+    },
+    {
+      deliveryIds: null,
+      description: 'Piatto di test',
+      id: 14,
+      name: 'TestPiatto',
+      price: 8,
+      restaurantId: 0
+    },
+    {
+      deliveryIds: null,
+      description: 'Piatto di test',
+      id: 15,
+      name: 'TestPiatto',
+      price: 8,
+      restaurantId: 0
+    },
+    {
+      deliveryIds: null,
+      description: 'Piatto di test',
+      id: 16,
+      name: 'TestPiatto',
+      price: 8,
+      restaurantId: 0
+    }
+  ],
+  email: 'pizzatorino@test.com',
+  id: 1,
+  name: 'Pizzeria Torino',
+  pw: 'pass123'
+}
+=================================
+404
+Test {
+  name: 'Rider - Find By Id Not Found',
+  uri: 'http://localhost:8080/javaeat/api/riders/999999',
+  body: undefined,
+  verb: 'GET',
+  status: 404,
+  verify: null
+}
+passed for
+{ errors: 'Rider not found with id: 999999' }
+=================================
+200
+Test {
+  name: 'Restaurant - Find By Name',
+  uri: 'http://localhost:8080/javaeat/api/restaurants/search/Pizzeria',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    address: 'Via Roma 15',
+    capacity: 50,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    dishes: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    email: 'pizzatorino@test.com',
+    id: 1,
+    name: 'Pizzeria Torino',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Pizzeria 5',
+    capacity: 60,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 4,
+      name: 'Napoli',
+      province: 'NA',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    dishes: [ [Object] ],
+    email: 'pizzanapoli@test.com',
+    id: 4,
+    name: 'Pizzeria Napoli',
+    pw: 'pass123'
+  }
+]
+=================================
+200
+200
+200
+Test {
+  name: 'Costumer - Find By LegalName',
+  uri: 'http://localhost:8080/javaeat/api/costumers/search/a',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    address: 'Via Torino 15',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    email: 'mario@test.com',
+    id: 1,
+    legalName: 'Mario Rossi',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Milano 25',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 2,
+      name: 'Milano',
+      province: 'MI',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'giulia@test.com',
+    id: 2,
+    legalName: 'Giulia Bianchi',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Roma 30',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 3,
+      name: 'Roma',
+      province: 'RM',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'luca@test.com',
+    id: 3,
+    legalName: 'Luca Verdi',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Napoli 12',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 4,
+      name: 'Napoli',
+      province: 'NA',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'anna@test.com',
+    id: 4,
+    legalName: 'Anna Neri',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Firenze 7',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 5,
+      name: 'Firenze',
+      province: 'FI',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'paolo@test.com',
+    id: 5,
+    legalName: 'Paolo Rossi',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Bologna 14',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 6,
+      name: 'Bologna',
+      province: 'BO',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'sofia@test.com',
+    id: 6,
+    legalName: 'Sofia Colombo',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Palermo 9',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 7,
+      name: 'Palermo',
+      province: 'PA',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'giovanni@test.com',
+    id: 7,
+    legalName: 'Giovanni Russo',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Genova 16',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 8,
+      name: 'Genova',
+      province: 'GE',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'elena@test.com',
+    id: 8,
+    legalName: 'Elena Ferrari',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Bari 11',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 9,
+      name: 'Bari',
+      province: 'BA',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'matteo@test.com',
+    id: 9,
+    legalName: 'Matteo Rizzi',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Catania 20',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 10,
+      name: 'Catania',
+      province: 'CT',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'laura@test.com',
+    id: 10,
+    legalName: 'Laura Conti',
+    pw: 'pass123'
+  }
+]
+=================================
+Test {
+  name: 'Costumer - Find All',
+  uri: 'http://localhost:8080/javaeat/api/costumers',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    address: 'Via Torino 15',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    email: 'mario@test.com',
+    id: 1,
+    legalName: 'Mario Rossi',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Milano 25',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 2,
+      name: 'Milano',
+      province: 'MI',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'giulia@test.com',
+    id: 2,
+    legalName: 'Giulia Bianchi',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Roma 30',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 3,
+      name: 'Roma',
+      province: 'RM',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'luca@test.com',
+    id: 3,
+    legalName: 'Luca Verdi',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Napoli 12',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 4,
+      name: 'Napoli',
+      province: 'NA',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'anna@test.com',
+    id: 4,
+    legalName: 'Anna Neri',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Firenze 7',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 5,
+      name: 'Firenze',
+      province: 'FI',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'paolo@test.com',
+    id: 5,
+    legalName: 'Paolo Rossi',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Bologna 14',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 6,
+      name: 'Bologna',
+      province: 'BO',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'sofia@test.com',
+    id: 6,
+    legalName: 'Sofia Colombo',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Palermo 9',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 7,
+      name: 'Palermo',
+      province: 'PA',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'giovanni@test.com',
+    id: 7,
+    legalName: 'Giovanni Russo',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Genova 16',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 8,
+      name: 'Genova',
+      province: 'GE',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'elena@test.com',
+    id: 8,
+    legalName: 'Elena Ferrari',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Bari 11',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 9,
+      name: 'Bari',
+      province: 'BA',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'matteo@test.com',
+    id: 9,
+    legalName: 'Matteo Rizzi',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Catania 20',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 10,
+      name: 'Catania',
+      province: 'CT',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    email: 'laura@test.com',
+    id: 10,
+    legalName: 'Laura Conti',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Cliente 1',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    email: 'testcost@test.com',
+    id: 11,
+    legalName: 'TestCostumer',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Cliente 1',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    email: 'testcost@test.com',
+    id: 12,
+    legalName: 'TestCostumer',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Cliente 1',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    email: 'testcost@test.com',
+    id: 13,
+    legalName: 'TestCostumer',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Cliente 1',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    email: 'testcost@test.com',
+    id: 14,
+    legalName: 'TestCostumer',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Cliente 1',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    email: 'testcost@test.com',
+    id: 15,
+    legalName: 'TestCostumer',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Cliente 1',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    email: 'testcost@test.com',
+    id: 16,
+    legalName: 'TestCostumer',
+    pw: 'pass123'
+  }
+]
+=================================
+Test {
+  name: 'Dish - Find All',
+  uri: 'http://localhost:8080/javaeat/api/dishes',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    deliveryIds: [ 1, 2 ],
+    description: 'Pizza classica con pomodoro e mozzarella',
+    id: 1,
+    name: 'Margherita',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [ 2 ],
+    description: 'Risotto con funghi porcini',
+    id: 2,
+    name: 'Risotto ai Funghi',
+    price: 12,
+    restaurantId: 2
+  },
+  {
+    deliveryIds: [ 3, 5 ],
+    description: 'Pasta con uova, pancetta e pecorino',
+    id: 3,
+    name: 'Pasta Carbonara',
+    price: 10,
+    restaurantId: 3
+  },
+  {
+    deliveryIds: [ 4 ],
+    description: 'Pizza autentica napoletana',
+    id: 4,
+    name: 'Pizza Napoletana',
+    price: 9,
+    restaurantId: 4
+  },
+  {
+    deliveryIds: [ 5 ],
+    description: 'Fiorentina con contorno',
+    id: 5,
+    name: 'Bistecca alla Fiorentina',
+    price: 25,
+    restaurantId: 5
+  },
+  {
+    deliveryIds: [ 6 ],
+    description: 'Tortellini fatti in casa',
+    id: 6,
+    name: 'Tortellini in Brodo',
+    price: 11,
+    restaurantId: 6
+  },
+  {
+    deliveryIds: [ 7 ],
+    description: 'Arancina ripiena di ragù',
+    id: 7,
+    name: 'Arancina',
+    price: 3,
+    restaurantId: 7
+  },
+  {
+    deliveryIds: [ 8 ],
+    description: 'Focaccia ligure con rosmarino',
+    id: 8,
+    name: 'Focaccia',
+    price: 4,
+    restaurantId: 8
+  },
+  {
+    deliveryIds: [ 9 ],
+    description: 'Panzerotto fritto',
+    id: 9,
+    name: 'Panzerotto',
+    price: 5,
+    restaurantId: 9
+  },
+  {
+    deliveryIds: [ 10 ],
+    description: 'Arancia fritta con zucchero',
+    id: 10,
+    name: 'Arancia',
+    price: 3,
+    restaurantId: 10
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 11,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 12,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 13,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 14,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 15,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 16,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  }
+]
+=================================
+200
+Test {
+  name: 'Restaurant - Find By City',
+  uri: 'http://localhost:8080/javaeat/api/restaurants/city/1',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    address: 'Via Roma 15',
+    capacity: 50,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    dishes: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    email: 'pizzatorino@test.com',
+    id: 1,
+    name: 'Pizzeria Torino',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Test 1',
+    capacity: 50,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    dishes: [],
+    email: 'test@rest.com',
+    id: 11,
+    name: 'TestRestaurant',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Test 1',
+    capacity: 50,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    dishes: [],
+    email: 'test@rest.com',
+    id: 12,
+    name: 'TestRestaurant',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Test 1',
+    capacity: 50,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    dishes: [],
+    email: 'test@rest.com',
+    id: 13,
+    name: 'TestRestaurant',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Test 1',
+    capacity: 50,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    dishes: [],
+    email: 'test@rest.com',
+    id: 14,
+    name: 'TestRestaurant',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Test 1',
+    capacity: 50,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    dishes: [],
+    email: 'test@rest.com',
+    id: 15,
+    name: 'TestRestaurant',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Test 1',
+    capacity: 50,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    dishes: [],
+    email: 'test@rest.com',
+    id: 16,
+    name: 'TestRestaurant',
+    pw: 'pass123'
+  }
+]
+=================================
+200
+Test {
+  name: 'Delivery - Count By Restaurant',
+  uri: 'http://localhost:8080/javaeat/api/deliveries/count/restaurant/1',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+7
+=================================
+404
+Test {
+  name: 'Dish - Find By Id Not Found',
+  uri: 'http://localhost:8080/javaeat/api/dishes/999999',
+  body: undefined,
+  verb: 'GET',
+  status: 404,
+  verify: null
+}
+passed for
+{ errors: 'Dish not found with id: 999999' }
+=================================
+200
+200
+Test {
+  name: 'Restaurant - Find All',
+  uri: 'http://localhost:8080/javaeat/api/restaurants',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    address: 'Via Roma 15',
+    capacity: 50,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    dishes: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    email: 'pizzatorino@test.com',
+    id: 1,
+    name: 'Pizzeria Torino',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Milano 20',
+    capacity: 80,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 2,
+      name: 'Milano',
+      province: 'MI',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    dishes: [ [Object] ],
+    email: 'ristmilano@test.com',
+    id: 2,
+    name: 'Ristorante Milano',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Napoli 10',
+    capacity: 40,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 3,
+      name: 'Roma',
+      province: 'RM',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    dishes: [ [Object] ],
+    email: 'trattoriaroma@test.com',
+    id: 3,
+    name: 'Trattoria Roma',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Pizzeria 5',
+    capacity: 60,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 4,
+      name: 'Napoli',
+      province: 'NA',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    dishes: [ [Object] ],
+    email: 'pizzanapoli@test.com',
+    id: 4,
+    name: 'Pizzeria Napoli',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Dante 12',
+    capacity: 30,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 5,
+      name: 'Firenze',
+      province: 'FI',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    dishes: [ [Object] ],
+    email: 'osteriafirenze@test.com',
+    id: 5,
+    name: 'Osteria Firenze',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Indipendenza 8',
+    capacity: 45,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 6,
+      name: 'Bologna',
+      province: 'BO',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    dishes: [ [Object] ],
+    email: 'tavernabologna@test.com',
+    id: 6,
+    name: 'Taverna Bologna',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Libertà 25',
+    capacity: 35,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 7,
+      name: 'Palermo',
+      province: 'PA',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    dishes: [ [Object] ],
+    email: 'arancinopalermo@test.com',
+    id: 7,
+    name: 'Arancina Palermo',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Garibaldi 18',
+    capacity: 55,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 8,
+      name: 'Genova',
+      province: 'GE',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    dishes: [ [Object] ],
+    email: 'focacciagenova@test.com',
+    id: 8,
+    name: 'Focaccia Genova',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Sparano 30',
+    capacity: 40,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 9,
+      name: 'Bari',
+      province: 'BA',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    dishes: [ [Object] ],
+    email: 'panzerottibari@test.com',
+    id: 9,
+    name: 'Panzerotti Bari',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Etnea 22',
+    capacity: 50,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 10,
+      name: 'Catania',
+      province: 'CT',
+      restaurants: []
+    },
+    deliveries: [ [Object] ],
+    dishes: [ [Object] ],
+    email: 'arancacatania@test.com',
+    id: 10,
+    name: 'Aranca Catania',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Test 1',
+    capacity: 50,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    dishes: [],
+    email: 'test@rest.com',
+    id: 11,
+    name: 'TestRestaurant',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Test 1',
+    capacity: 50,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    dishes: [],
+    email: 'test@rest.com',
+    id: 12,
+    name: 'TestRestaurant',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Test 1',
+    capacity: 50,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    dishes: [],
+    email: 'test@rest.com',
+    id: 13,
+    name: 'TestRestaurant',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Test 1',
+    capacity: 50,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    dishes: [],
+    email: 'test@rest.com',
+    id: 14,
+    name: 'TestRestaurant',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Test 1',
+    capacity: 50,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    dishes: [],
+    email: 'test@rest.com',
+    id: 15,
+    name: 'TestRestaurant',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Test 1',
+    capacity: 50,
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    dishes: [],
+    email: 'test@rest.com',
+    id: 16,
+    name: 'TestRestaurant',
+    pw: 'pass123'
+  }
+]
+=================================
+Test {
+  name: 'City - Find By Id',
+  uri: 'http://localhost:8080/javaeat/api/cities/1',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+{
+  costumer: [
+    {
+      address: 'Via Torino 15',
+      city: null,
+      deliveries: [Array],
+      email: 'mario@test.com',
+      id: 1,
+      legalName: 'Mario Rossi',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 11,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 12,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 13,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 14,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 15,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 16,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    }
+  ],
+  errors: [],
+  id: 1,
+  name: 'Torino',
+  province: 'TO',
+  restaurants: [
+    {
+      address: 'Via Roma 15',
+      capacity: 50,
+      city: null,
+      deliveries: [Array],
+      dishes: [Array],
+      email: 'pizzatorino@test.com',
+      id: 1,
+      name: 'Pizzeria Torino',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 11,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 12,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 13,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 14,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 15,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 16,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    }
+  ]
+}
+=================================
+200
+Test {
+  name: 'Costumer - Find By City',
+  uri: 'http://localhost:8080/javaeat/api/costumers/city/1',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    address: 'Via Torino 15',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    email: 'mario@test.com',
+    id: 1,
+    legalName: 'Mario Rossi',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Cliente 1',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    email: 'testcost@test.com',
+    id: 11,
+    legalName: 'TestCostumer',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Cliente 1',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    email: 'testcost@test.com',
+    id: 12,
+    legalName: 'TestCostumer',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Cliente 1',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    email: 'testcost@test.com',
+    id: 13,
+    legalName: 'TestCostumer',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Cliente 1',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    email: 'testcost@test.com',
+    id: 14,
+    legalName: 'TestCostumer',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Cliente 1',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    email: 'testcost@test.com',
+    id: 15,
+    legalName: 'TestCostumer',
+    pw: 'pass123'
+  },
+  {
+    address: 'Via Cliente 1',
+    city: {
+      costumer: [],
+      errors: [],
+      id: 1,
+      name: 'Torino',
+      province: 'TO',
+      restaurants: []
+    },
+    deliveries: [],
+    email: 'testcost@test.com',
+    id: 16,
+    legalName: 'TestCostumer',
+    pw: 'pass123'
+  }
+]
+=================================
+200
+Test {
+  name: 'Delivery - Find By Restaurant',
+  uri: 'http://localhost:8080/javaeat/api/deliveries/restaurant/1',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    costumerId: 1,
+    day: '2026-02-14T13:47:17',
+    description: 'Ordine margherita',
+    dishes: [ [Object] ],
+    id: 1,
+    price: 13.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 11,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 12,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 13,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 14,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 15,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 16,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  }
+]
+=================================
+404
+Test {
+  name: 'Delivery - Find By Id Not Found',
+  uri: 'http://localhost:8080/javaeat/api/deliveries/999999',
+  body: undefined,
+  verb: 'GET',
+  status: 404,
+  verify: null
+}
+passed for
+{ errors: 'Delivery not found with id: 999999' }
+=================================
+200
+Test {
+  name: 'Delivery - Count By Status',
+  uri: 'http://localhost:8080/javaeat/api/deliveries/count/status/OPEN',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+10
+=================================
+200
+Test {
+  name: 'Delivery - Count By Costumer',
+  uri: 'http://localhost:8080/javaeat/api/deliveries/count/costumer/1',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+7
+=================================
+200
+Test {
+  name: 'Delivery - Find By Id',
+  uri: 'http://localhost:8080/javaeat/api/deliveries/1',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+{
+  costumerId: 1,
+  day: '2026-02-14T13:47:17',
+  description: 'Ordine margherita',
+  dishes: [
+    {
+      deliveryIds: null,
+      description: 'Pizza classica con pomodoro e mozzarella',
+      id: 1,
+      name: 'Margherita',
+      price: 8,
+      restaurantId: 0
+    }
+  ],
+  id: 1,
+  price: 13.5,
+  restaurantId: 1,
+  riderId: 1,
+  status: 'OPEN'
+}
+=================================
+200
+200
+Test {
+  name: 'Delivery - Find By Costumer+Status',
+  uri: 'http://localhost:8080/javaeat/api/deliveries/costumer/1/status/OPEN',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    costumerId: 1,
+    day: '2026-02-14T13:47:17',
+    description: 'Ordine margherita',
+    dishes: [ [Object] ],
+    id: 1,
+    price: 13.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 11,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 12,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 13,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 14,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 15,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 16,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  }
+]
+=================================
+200
+Test {
+  name: 'Rider - Find By Id',
+  uri: 'http://localhost:8080/javaeat/api/riders/1',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+{
+  deliveries: [
+    {
+      costumerId: 1,
+      day: '2026-02-14T13:47:17',
+      description: 'Ordine margherita',
+      dishes: [Array],
+      id: 1,
+      price: 13.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 5,
+      day: '2026-02-11T13:47:17',
+      description: 'Ordine bistecca',
+      dishes: [Array],
+      id: 5,
+      price: 30,
+      restaurantId: 5,
+      riderId: 1,
+      status: 'DELIVERED'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 11,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 12,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 13,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 14,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 15,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    },
+    {
+      costumerId: 1,
+      day: '2025-01-15T12:30:00',
+      description: 'Test consegna',
+      dishes: [],
+      id: 16,
+      price: 25.5,
+      restaurantId: 1,
+      riderId: 1,
+      status: 'OPEN'
+    }
+  ],
+  email: 'rider1@test.com',
+  id: 1,
+  legalName: 'Andrea Courier',
+  pw: 'pass123',
+  serviceCost: 5,
+  status: 'AVAILABLE'
+}
+=================================
+Test {
+  name: 'Delivery - Count By Rider',
+  uri: 'http://localhost:8080/javaeat/api/deliveries/count/rider/1',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+8
+=================================
+200
+Test {
+  name: 'City - Insert',
+  uri: 'http://localhost:8080/javaeat/api/cities',
+  body: { name: 'TestCity', province: 'TC' },
+  verb: 'POST',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+{
+  costumer: [],
+  errors: [],
+  id: 17,
+  name: 'TestCity',
+  province: 'TC',
+  restaurants: []
+}
+=================================
+200
+Test {
+  name: 'Delivery - Find All',
+  uri: 'http://localhost:8080/javaeat/api/deliveries',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    costumerId: 1,
+    day: '2026-02-14T13:47:17',
+    description: 'Ordine margherita',
+    dishes: [ [Object] ],
+    id: 1,
+    price: 13.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 2,
+    day: '2026-02-13T13:47:17',
+    description: 'Ordine risotto',
+    dishes: [ [Object], [Object] ],
+    id: 2,
+    price: 16,
+    restaurantId: 2,
+    riderId: 2,
+    status: 'DELIVERED'
+  },
+  {
+    costumerId: 3,
+    day: '2026-02-14T11:47:17',
+    description: 'Ordine carbonara',
+    dishes: [ [Object] ],
+    id: 3,
+    price: 14,
+    restaurantId: 3,
+    riderId: 3,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 4,
+    day: '2026-02-12T13:47:17',
+    description: 'Ordine pizza napoletana',
+    dishes: [ [Object] ],
+    id: 4,
+    price: 14.5,
+    restaurantId: 4,
+    riderId: 4,
+    status: 'CANCELED'
+  },
+  {
+    costumerId: 5,
+    day: '2026-02-11T13:47:17',
+    description: 'Ordine bistecca',
+    dishes: [ [Object], [Object] ],
+    id: 5,
+    price: 30,
+    restaurantId: 5,
+    riderId: 1,
+    status: 'DELIVERED'
+  },
+  {
+    costumerId: 6,
+    day: '2026-02-14T12:47:17',
+    description: 'Ordine tortellini',
+    dishes: [ [Object] ],
+    id: 6,
+    price: 15,
+    restaurantId: 6,
+    riderId: 6,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 7,
+    day: '2026-02-10T13:47:17',
+    description: 'Ordine arancina',
+    dishes: [ [Object] ],
+    id: 7,
+    price: 7,
+    restaurantId: 7,
+    riderId: 7,
+    status: 'DELIVERED'
+  },
+  {
+    costumerId: 8,
+    day: '2026-02-14T13:17:17',
+    description: 'Ordine focaccia',
+    dishes: [ [Object] ],
+    id: 8,
+    price: 8,
+    restaurantId: 8,
+    riderId: 8,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 9,
+    day: '2026-02-09T13:47:17',
+    description: 'Ordine panzerotto',
+    dishes: [ [Object] ],
+    id: 9,
+    price: 9,
+    restaurantId: 9,
+    riderId: 9,
+    status: 'CANCELED'
+  },
+  {
+    costumerId: 10,
+    day: '2026-02-08T13:47:17',
+    description: 'Ordine arancia',
+    dishes: [ [Object] ],
+    id: 10,
+    price: 7,
+    restaurantId: 10,
+    riderId: 10,
+    status: 'DELIVERED'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 11,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 12,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 13,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 14,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 15,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 16,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  }
+]
+=================================
+200
+Test {
+  name: 'Dish - Find By Restaurant',
+  uri: 'http://localhost:8080/javaeat/api/dishes/restaurant/1',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    deliveryIds: [ 1, 2 ],
+    description: 'Pizza classica con pomodoro e mozzarella',
+    id: 1,
+    name: 'Margherita',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 11,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 12,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 13,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 14,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 15,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 16,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  }
+]
+=================================
+200
+Test {
+  name: 'Rider - Find All',
+  uri: 'http://localhost:8080/javaeat/api/riders',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    deliveries: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ],
+    email: 'rider1@test.com',
+    id: 1,
+    legalName: 'Andrea Courier',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider2@test.com',
+    id: 2,
+    legalName: 'Marco Speed',
+    pw: 'pass123',
+    serviceCost: 4,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider3@test.com',
+    id: 3,
+    legalName: 'Sara Veloce',
+    pw: 'pass123',
+    serviceCost: 6,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider4@test.com',
+    id: 4,
+    legalName: 'Giovanni Express',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [],
+    email: 'rider5@test.com',
+    id: 5,
+    legalName: 'Francesco Rapid',
+    pw: 'pass123',
+    serviceCost: 4,
+    status: 'NOTAVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider6@test.com',
+    id: 6,
+    legalName: 'Luca Flash',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider7@test.com',
+    id: 7,
+    legalName: 'Maria Sprint',
+    pw: 'pass123',
+    serviceCost: 6,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider8@test.com',
+    id: 8,
+    legalName: 'Roberto Jet',
+    pw: 'pass123',
+    serviceCost: 4,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider9@test.com',
+    id: 9,
+    legalName: 'Chiara Turbo',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'NOTAVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider10@test.com',
+    id: 10,
+    legalName: 'Alessio Rush',
+    pw: 'pass123',
+    serviceCost: 6,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [],
+    email: 'testrider@test.com',
+    id: 11,
+    legalName: 'TestRider',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [],
+    email: 'testrider@test.com',
+    id: 12,
+    legalName: 'TestRider',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [],
+    email: 'testrider@test.com',
+    id: 13,
+    legalName: 'TestRider',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [],
+    email: 'testrider@test.com',
+    id: 14,
+    legalName: 'TestRider',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [],
+    email: 'testrider@test.com',
+    id: 15,
+    legalName: 'TestRider',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [],
+    email: 'testrider@test.com',
+    id: 16,
+    legalName: 'TestRider',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  }
+]
+=================================
+200
+Test {
+  name: 'Delivery - Find By Rider',
+  uri: 'http://localhost:8080/javaeat/api/deliveries/rider/1',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    costumerId: 1,
+    day: '2026-02-14T13:47:17',
+    description: 'Ordine margherita',
+    dishes: [ [Object] ],
+    id: 1,
+    price: 13.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 5,
+    day: '2026-02-11T13:47:17',
+    description: 'Ordine bistecca',
+    dishes: [ [Object], [Object] ],
+    id: 5,
+    price: 30,
+    restaurantId: 5,
+    riderId: 1,
+    status: 'DELIVERED'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 11,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 12,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 13,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 14,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 15,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 16,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  }
+]
+=================================
+200
+Test {
+  name: 'City - Find By Province',
+  uri: 'http://localhost:8080/javaeat/api/cities/province/TO',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+{
+  costumer: [
+    {
+      address: 'Via Torino 15',
+      city: null,
+      deliveries: [Array],
+      email: 'mario@test.com',
+      id: 1,
+      legalName: 'Mario Rossi',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 11,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 12,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 13,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 14,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 15,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Cliente 1',
+      city: null,
+      deliveries: [],
+      email: 'testcost@test.com',
+      id: 16,
+      legalName: 'TestCostumer',
+      pw: 'pass123'
+    }
+  ],
+  errors: [],
+  id: 1,
+  name: 'Torino',
+  province: 'TO',
+  restaurants: [
+    {
+      address: 'Via Roma 15',
+      capacity: 50,
+      city: null,
+      deliveries: [Array],
+      dishes: [Array],
+      email: 'pizzatorino@test.com',
+      id: 1,
+      name: 'Pizzeria Torino',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 11,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 12,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 13,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 14,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 15,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    },
+    {
+      address: 'Via Test 1',
+      capacity: 50,
+      city: null,
+      deliveries: [],
+      dishes: [],
+      email: 'test@rest.com',
+      id: 16,
+      name: 'TestRestaurant',
+      pw: 'pass123'
+    }
+  ]
+}
+=================================
+200
+Test {
+  name: 'Costumer - Insert',
+  uri: 'http://localhost:8080/javaeat/api/costumers',
+  body: {
+    email: 'testcost@test.com',
+    pw: 'pass123',
+    legalName: 'TestCostumer',
+    address: 'Via Cliente 1',
+    city: { id: 1 }
+  },
+  verb: 'POST',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+{
+  address: 'Via Cliente 1',
+  city: {
+    costumer: [],
+    errors: [],
+    id: 1,
+    name: null,
+    province: null,
+    restaurants: []
+  },
+  deliveries: null,
+  email: 'testcost@test.com',
+  id: 17,
+  legalName: 'TestCostumer',
+  pw: 'pass123'
+}
+=================================
+200
+Test {
+  name: 'Rider - Insert',
+  uri: 'http://localhost:8080/javaeat/api/riders',
+  body: {
+    email: 'testrider@test.com',
+    pw: 'pass123',
+    legalName: 'TestRider',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  verb: 'POST',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+{
+  deliveries: null,
+  email: 'testrider@test.com',
+  id: 17,
+  legalName: 'TestRider',
+  pw: 'pass123',
+  serviceCost: 5,
+  status: 'AVAILABLE'
+}
+=================================
+200
+Test {
+  name: 'Restaurant - Insert',
+  uri: 'http://localhost:8080/javaeat/api/restaurants',
+  body: {
+    name: 'TestRestaurant',
+    email: 'test@rest.com',
+    pw: 'pass123',
+    address: 'Via Test 1',
+    capacity: 50,
+    city: { id: 1 }
+  },
+  verb: 'POST',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+{
+  address: 'Via Test 1',
+  capacity: 50,
+  city: {
+    costumer: [],
+    errors: [],
+    id: 1,
+    name: null,
+    province: null,
+    restaurants: []
+  },
+  deliveries: [],
+  dishes: [],
+  email: 'test@rest.com',
+  id: 17,
+  name: 'TestRestaurant',
+  pw: 'pass123'
+}
+=================================
+200
+Test {
+  name: 'Delivery - Find By Costumer',
+  uri: 'http://localhost:8080/javaeat/api/deliveries/costumer/1',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    costumerId: 1,
+    day: '2026-02-14T13:47:17',
+    description: 'Ordine margherita',
+    dishes: [ [Object] ],
+    id: 1,
+    price: 13.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 11,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 12,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 13,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 14,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 15,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 16,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  }
+]
+=================================
+200
+Test {
+  name: 'Delivery - Find By Restaurant+Status',
+  uri: 'http://localhost:8080/javaeat/api/deliveries/restaurant/1/status/OPEN',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    costumerId: 1,
+    day: '2026-02-14T13:47:17',
+    description: 'Ordine margherita',
+    dishes: [ [Object] ],
+    id: 1,
+    price: 13.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 11,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 12,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 13,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 14,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 15,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 16,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  }
+]
+=================================
+200
+Test {
+  name: 'Delivery - Find By Rider+Status',
+  uri: 'http://localhost:8080/javaeat/api/deliveries/rider/1/status/OPEN',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    costumerId: 1,
+    day: '2026-02-14T13:47:17',
+    description: 'Ordine margherita',
+    dishes: [ [Object] ],
+    id: 1,
+    price: 13.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 11,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 12,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 13,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 14,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 15,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  },
+  {
+    costumerId: 1,
+    day: '2025-01-15T12:30:00',
+    description: 'Test consegna',
+    dishes: [],
+    id: 16,
+    price: 25.5,
+    restaurantId: 1,
+    riderId: 1,
+    status: 'OPEN'
+  }
+]
+=================================
+200
+Test {
+  name: 'Dish - Find By Name',
+  uri: 'http://localhost:8080/javaeat/api/dishes/search/a',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    deliveryIds: [ 1, 2 ],
+    description: 'Pizza classica con pomodoro e mozzarella',
+    id: 1,
+    name: 'Margherita',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [ 2 ],
+    description: 'Risotto con funghi porcini',
+    id: 2,
+    name: 'Risotto ai Funghi',
+    price: 12,
+    restaurantId: 2
+  },
+  {
+    deliveryIds: [ 3, 5 ],
+    description: 'Pasta con uova, pancetta e pecorino',
+    id: 3,
+    name: 'Pasta Carbonara',
+    price: 10,
+    restaurantId: 3
+  },
+  {
+    deliveryIds: [ 4 ],
+    description: 'Pizza autentica napoletana',
+    id: 4,
+    name: 'Pizza Napoletana',
+    price: 9,
+    restaurantId: 4
+  },
+  {
+    deliveryIds: [ 5 ],
+    description: 'Fiorentina con contorno',
+    id: 5,
+    name: 'Bistecca alla Fiorentina',
+    price: 25,
+    restaurantId: 5
+  },
+  {
+    deliveryIds: [ 7 ],
+    description: 'Arancina ripiena di ragù',
+    id: 7,
+    name: 'Arancina',
+    price: 3,
+    restaurantId: 7
+  },
+  {
+    deliveryIds: [ 8 ],
+    description: 'Focaccia ligure con rosmarino',
+    id: 8,
+    name: 'Focaccia',
+    price: 4,
+    restaurantId: 8
+  },
+  {
+    deliveryIds: [ 9 ],
+    description: 'Panzerotto fritto',
+    id: 9,
+    name: 'Panzerotto',
+    price: 5,
+    restaurantId: 9
+  },
+  {
+    deliveryIds: [ 10 ],
+    description: 'Arancia fritta con zucchero',
+    id: 10,
+    name: 'Arancia',
+    price: 3,
+    restaurantId: 10
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 11,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 12,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 13,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 14,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 15,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  },
+  {
+    deliveryIds: [],
+    description: 'Piatto di test',
+    id: 16,
+    name: 'TestPiatto',
+    price: 8,
+    restaurantId: 1
+  }
+]
+=================================
+200
+Test {
+  name: 'Rider - Find By Status',
+  uri: 'http://localhost:8080/javaeat/api/riders/status/AVAILABLE',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    deliveries: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ],
+    email: 'rider1@test.com',
+    id: 1,
+    legalName: 'Andrea Courier',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider2@test.com',
+    id: 2,
+    legalName: 'Marco Speed',
+    pw: 'pass123',
+    serviceCost: 4,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider3@test.com',
+    id: 3,
+    legalName: 'Sara Veloce',
+    pw: 'pass123',
+    serviceCost: 6,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider4@test.com',
+    id: 4,
+    legalName: 'Giovanni Express',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider6@test.com',
+    id: 6,
+    legalName: 'Luca Flash',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider7@test.com',
+    id: 7,
+    legalName: 'Maria Sprint',
+    pw: 'pass123',
+    serviceCost: 6,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider8@test.com',
+    id: 8,
+    legalName: 'Roberto Jet',
+    pw: 'pass123',
+    serviceCost: 4,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider10@test.com',
+    id: 10,
+    legalName: 'Alessio Rush',
+    pw: 'pass123',
+    serviceCost: 6,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [],
+    email: 'testrider@test.com',
+    id: 11,
+    legalName: 'TestRider',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [],
+    email: 'testrider@test.com',
+    id: 12,
+    legalName: 'TestRider',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [],
+    email: 'testrider@test.com',
+    id: 13,
+    legalName: 'TestRider',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [],
+    email: 'testrider@test.com',
+    id: 14,
+    legalName: 'TestRider',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [],
+    email: 'testrider@test.com',
+    id: 15,
+    legalName: 'TestRider',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [],
+    email: 'testrider@test.com',
+    id: 16,
+    legalName: 'TestRider',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  }
+]
+=================================
+200
+Test {
+  name: 'Delivery - Insert',
+  uri: 'http://localhost:8080/javaeat/api/deliveries',
+  body: {
+    description: 'Test consegna',
+    status: 'OPEN',
+    price: 25.5,
+    day: '2025-01-15T12:30:00',
+    restaurantId: 1,
+    costumerId: 1,
+    riderId: 1
+  },
+  verb: 'POST',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+{
+  costumerId: 1,
+  day: '2025-01-15T12:30:00',
+  description: 'Test consegna',
+  dishes: null,
+  id: 17,
+  price: 25.5,
+  restaurantId: 1,
+  riderId: 1,
+  status: 'OPEN'
+}
+=================================
+200
+Test {
+  name: 'Rider - Find By LegalName',
+  uri: 'http://localhost:8080/javaeat/api/riders/search/a',
+  body: undefined,
+  verb: 'GET',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+[
+  {
+    deliveries: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ],
+    email: 'rider1@test.com',
+    id: 1,
+    legalName: 'Andrea Courier',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider2@test.com',
+    id: 2,
+    legalName: 'Marco Speed',
+    pw: 'pass123',
+    serviceCost: 4,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider3@test.com',
+    id: 3,
+    legalName: 'Sara Veloce',
+    pw: 'pass123',
+    serviceCost: 6,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider4@test.com',
+    id: 4,
+    legalName: 'Giovanni Express',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [],
+    email: 'rider5@test.com',
+    id: 5,
+    legalName: 'Francesco Rapid',
+    pw: 'pass123',
+    serviceCost: 4,
+    status: 'NOTAVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider6@test.com',
+    id: 6,
+    legalName: 'Luca Flash',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider7@test.com',
+    id: 7,
+    legalName: 'Maria Sprint',
+    pw: 'pass123',
+    serviceCost: 6,
+    status: 'AVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider9@test.com',
+    id: 9,
+    legalName: 'Chiara Turbo',
+    pw: 'pass123',
+    serviceCost: 5,
+    status: 'NOTAVAILABLE'
+  },
+  {
+    deliveries: [ [Object] ],
+    email: 'rider10@test.com',
+    id: 10,
+    legalName: 'Alessio Rush',
+    pw: 'pass123',
+    serviceCost: 6,
+    status: 'AVAILABLE'
+  }
+]
+=================================
+200
+Test {
+  name: 'Dish - Insert',
+  uri: 'http://localhost:8080/javaeat/api/dishes',
+  body: {
+    name: 'TestPiatto',
+    price: 8,
+    description: 'Piatto di test',
+    restaurantId: 1
+  },
+  verb: 'POST',
+  status: 200,
+  verify: [Function (anonymous)]
+}
+passed for
+{
+  deliveryIds: null,
+  description: 'Piatto di test',
+  id: 17,
+  name: 'TestPiatto',
+  price: 8,
+  restaurantId: 1
+}
+=================================
