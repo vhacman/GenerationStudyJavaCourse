@@ -1,0 +1,28 @@
+<form class="filters">
+  <div>
+    <label>Nome</label><br />
+    <input type="text" name="filterName" 
+           [ngModel]="filterName()" 
+           (ngModelChange)="filterName.set($event)" />
+  </div>
+  <div>
+    <label>Cognome</label><br />
+    <input type="text" name="filterSurname" 
+           [ngModel]="filterSurname()" 
+           (ngModelChange)="filterSurname.set($event)" />
+  </div>
+  <div>
+    <label>Città</label><br />
+    <input type="text" name="filterCitta" 
+           [ngModel]="filterCitta()" 
+           (ngModelChange)="filterCitta.set($event)" />
+  </div>
+</form>
+
+@for(person of filteredPeople(); track person.id){
+  <div class="person">
+    {{person.id}} - {{person.nome}} {{person.cognome}} <br />
+    {{person.citta}} {{person.salario}} <br />
+    <hr />
+  </div>
+}

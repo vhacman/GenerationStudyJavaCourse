@@ -1,0 +1,9 @@
+<form>
+  Current cost: {{moneyCost()}} <br />
+  New cost
+    <input type="number" name="newCost" [(ngModel)]="newCost" />
+    <!-- ngModel crea binding bidirezionale con la proprietà newCost del componente -->
+    <!-- newCost deve essere un signal() nel componente per funzionare con Signals -->
+    <input type="button" value="change" (click)="changeCost()" />
+
+</form>

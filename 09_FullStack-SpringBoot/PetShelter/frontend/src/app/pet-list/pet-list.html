@@ -1,0 +1,40 @@
+<form class="filters">
+  <div>
+    <label>Nome</label><br />
+    <input type="text" name="filterName" 
+           [ngModel]="filterName()" 
+           (ngModelChange)="filterName.set($event)" />
+  </div>
+  <div>
+    <label>Specie</label><br />
+    <input type="text" name="filterSpecies" 
+           [ngModel]="filterSpecies()" 
+           (ngModelChange)="filterSpecies.set($event)" />
+  </div>
+  <div>
+    <label>Notes</label><br />
+    <input type="text" name="filterNotes" 
+           [ngModel]="filterNotes()" 
+           (ngModelChange)="filterNotes.set($event)" />
+  </div>
+  <div>
+    <label>Maggiore di (età)</label><br />
+    <input type="number" name="filterOlderThan" 
+           [ngModel]="filterOlderThan()" 
+           (ngModelChange)="filterOlderThan.set($event)" />
+  </div>
+  <div>
+    <label>Minore di (età)</label><br />
+    <input type="number" name="filterYoungerThan" 
+           [ngModel]="filterYoungerThan()" 
+           (ngModelChange)="filterYoungerThan.set($event)" />
+  </div>
+</form>
+
+@for (pet of filteredPets(); track pet.id) {
+  <div class="pet">
+    {{pet.id}} - {{pet.name}} ({{pet.species}}) <br />
+    Età: {{pet.age}} anni {{pet.notes ? '| ' + pet.notes : ''}} <br />
+    <hr />
+  </div>
+}

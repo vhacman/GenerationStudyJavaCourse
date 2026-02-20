@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Gen School - Lesson Configurator</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/lesson.css" />
+    <script src="js/model/lesson.js"></script>
+    <script src="js/controller/paylesson.js"></script>
+</head>
+<body>
+
+    <header class="header-line">
+        <div class="header-container">
+            <img src="img/logo.png" alt="Gen School Logo" class="main-logo" />
+            <a href="index.html" class="home-link">Home</a>
+        </div>
+    </header>
+
+    <div class="content">
+        <h2>Configura la tua Lezione</h2>
+
+        <form id="lessonForm" name="lessonForm">
+            <div class="field-group">
+                <label>Studente</label>
+                <input type="text" name="student" placeholder="Nome Studente" onChange="controller.synch()"/>
+            </div>
+
+            <div class="field-group">
+                <label>Materia</label>
+                <select name="subject" onChange="controller.synch()">
+                    <option value="">Scegli...</option>
+                    <option value="JAVA">Java Programming</option>
+                    <option value="SQL">Database SQL</option>
+                    <option value="ITALIAN">Italiano</option>
+                </select>
+            </div>
+
+            <div class="field-group">
+                <label>Durata</label>
+                <select name="hours" onChange="controller.synch()">
+                    <option value="">Seleziona ore...</option>
+                    <option value="1">1 ora</option>
+                    <option value="2">2 ore</option>
+                    <option value="3">3 ore</option>
+                </select>
+            </div>
+
+            <div class="field-group">
+                <label class="accent">Prezzo Calcolato</label>
+                <input type="text" name="price" readonly class="readonly-field" />
+            </div>
+
+            <div class="field-group">
+                <label>Stato Operazione</label>
+                <input type="text" name="operationstatus" readonly class="readonly-field" />
+            </div>
+
+            <button type="button" disabled name="saveBtn" onClick="controller.callAPI()">
+                Conferma e Paga
+            </button>
+        </form>
+    </div>
+</body>
+</html>

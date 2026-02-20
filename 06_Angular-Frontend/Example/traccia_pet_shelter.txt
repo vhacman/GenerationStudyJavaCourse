@@ -1,0 +1,100 @@
+==========================================
+ESERCIZIO: PET SHELTER
+==========================================
+
+OBIETTIVO: Creare una pagina web per la gestione degli animali del rifugio (Pet Shelter).
+
+------------------------------------------
+STRUTTURA DEI DATI (pet.model.ts)
+------------------------------------------
+
+Interfaccia Pet:
+- id: number
+- name: string
+- species: string (es: "cane", "gatto", "coniglio", ecc.)
+- age: number
+- notes: string (es: "docile", "non ama altri animali", ecc.)
+
+File JSON di esempio (pets.json):
+[
+  { "id": 1, "name": "Buddy", "species": "cane", "age": 3, "notes": "docile e giocoso" },
+  { "id": 2, "name": "Mittens", "species": "gatto", "age": 5, "notes": "indipendente" },
+  { "id": 3, "name": "Max", "species": "cane", "age": 7, "notes": "ha bisogno di esercizio" },
+  ...
+]
+
+------------------------------------------
+SERVIZIO: PetService
+------------------------------------------
+
+1. Creare il servizio PetService  
+2. Utilizzare signal per gestire la lista degli animali: 
+
+3. Nel constructor:
+   - Iniettare HttpClient
+   - Caricare i dati da "pets.json" (file mock nella cartella public)
+
+4. Metodi (opzionali per futuro):
+   - getPetById(id: number)
+   - addPet(pet: Pet)
+   - updatePet(pet: Pet)
+   - deletePet(id: number)
+
+------------------------------------------
+COMPONENTE: PetList
+------------------------------------------
+
+1. Creare il componente in:
+   src/app/pet-list/pet-list.ts
+   src/app/pet-list/pet-list.html
+   src/app/pet-list/pet-list.css
+
+2. Dipendenze:
+   - Iniettare PetService
+   - Accedere al signal pets
+
+3. Signal per i filtri:
+   - filterName = signal<string>("")
+   - filterSpecies = signal<string>("")
+   - filterOlderThan = signal<number | null>(null)
+   - filterYoungerThan = signal<number | null>(null)
+   - filterNotes = signal<string>("")
+
+4. Computed per i filtri:
+   - filteredPets = computed<Pet[]>(() => { ... })
+ 
+
+ Template (pet-list.html):
+   - Form con campi di input allineati orizzontalmente
+   - Ciclo @for per visualizzare la lista filtrata
+   - Card per ogni animale con tutti i dati
+ 
+------------------------------------------
+CONFIGURAZIONE
+------------------------------------------
+
+1. In app.config.ts:
+   - Assicurarsi di avere provideHttpClient()
+
+2. In app.ts:
+   - Importare e aggiungere PetList nei providers
+
+------------------------------------------
+PASSI DI IMPLEMENTAZIONE
+------------------------------------------
+
+1. Creare il modello Pet (src/app/model/pet.ts)
+2. Creare il file mock pets.json (nella cartella public/)
+3. Creare il PetService con HttpClient
+4. Creare il componente PetList con filtri
+5. Creare template e CSS
+6. Integrare in App
+
+------------------------------------------
+NOTE
+------------------------------------------
+
+- Seguire la stessa struttura dell'esercizio PeopleList
+- Utilizzare i signal e computed come visto in precedenza
+- I filtri "older than" e "younger than" devono funzionare come numeri (età)
+- L'utente deve poter filtrare per più campi contemporaneamente

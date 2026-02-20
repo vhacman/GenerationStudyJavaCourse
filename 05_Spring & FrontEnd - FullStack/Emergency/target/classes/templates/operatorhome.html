@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Operator Home Page - Pronto Soccorso</title>
+    <style>
+        /* CSS IN LINEA PER STILE MEDICO */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 2rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 550px;
+            text-align: center;
+            border-top: 8px solid #0056b3;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-container {
+            margin-bottom: 1rem;
+        }
+
+        svg {
+            fill: #d32f2f; /* Rosso Emergenza */
+            width: 60px;
+            height: 60px;
+        }
+
+        h1 { color: #0056b3; margin: 10px 0; font-size: 1.8rem; }
+        h2 { color: #546e7a; font-weight: 400; font-size: 1.1rem; margin-bottom: 20px; }
+        h3 { color: #0056b3; margin: 0 0 15px 0; font-size: 1.2rem; text-align: left; border-bottom: 2px solid #e3f2fd; padding-bottom: 8px; }
+
+        .badge {
+            background-color: #e3f2fd;
+            color: #007bff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 15px 0;
+        }
+
+        #quote {
+            font-style: italic;
+            color: #78909c;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+
+        .loading { opacity: 0.5; }
+
+        /* Tabella ospedali */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        table th {
+            background-color: #e3f2fd;
+            color: #0056b3;
+            padding: 10px 12px;
+            font-weight: 600;
+            border-bottom: 2px solid #0056b3;
+        }
+
+        table td {
+            padding: 9px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        table tr:hover td {
+            background-color: #f5f9fc;
+        }
+
+        /* Badge inline per la coda nella tabella */
+        .queue-badge {
+            background-color: #e3f2fd;
+            color: #007bff;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Sezione ricerca */
+        .search-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .search-row input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-row input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 2px #cfe2ff;
+        }
+
+        .search-row button {
+            padding: 8px 18px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .search-row button:hover {
+            background-color: #004085;
+        }
+
+        /* Aggiorna coda */
+        .update-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-top: 6px;
+        }
+
+        .update-row input[type="number"] {
+            width: 60px;
+            padding: 5px 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .update-row button {
+            padding: 5px 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .update-row button:hover {
+            background-color: #218838;
+        }
+
+        .risultati-vuoti {
+            color: #78909c;
+            font-style: italic;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CARD 1: Pronto soccorso più veloce (coda più corta) -->
+    <div class="card">
+        <div class="logo-container">
+            <svg viewBox="0 0 24 24">
+                <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M17,13H13V17H11V13H7V11H11V7H13V11H17V13Z" />
+            </svg>
+        </div>
+
+        <h1 id="hospitalname" class="loading">Caricamento...</h1>
+        <h2 id="hospitaladdress">Ricerca struttura più vicina...</h2>
+
+        <div class="badge">
+            <span id="hospitalqueue">--</span> in coda
+        </div>
+
+        <div id="quote">"La pazienza è la miglior medicina."</div>
+    </div>
+
+    <!-- CARD 2: Lista tutti gli ospedali con possibilità di aggiornare la coda -->
+    <div class="card">
+        <h3>Tutti gli Ospedali</h3>
+        <div id="hospitallist">
+            <p class="risultati-vuoti">Caricamento lista...</p>
+        </div>
+    </div>
+
+    <!-- CARD 3: Ricerca ospedali per città o indirizzo -->
+    <div class="card">
+        <h3>Cerca Ospedale</h3>
+        <div class="search-row">
+            <input type="text" id="searchCity" placeholder="Cerca per città..." />
+            <button onclick="controller.searchByCity()">Cerca</button>
+        </div>
+        <div class="search-row">
+            <input type="text" id="searchAddress" placeholder="Cerca per indirizzo..." />
+            <button onclick="controller.searchByAddress()">Cerca</button>
+        </div>
+        <div id="searchresults">
+            <p class="risultati-vuoti">I risultati apparranno qui</p>
+        </div>
+    </div>
+
+    <script>
+        // oggetto controller della pagina operatore
+        // gestisce tutte le chiamate API e l'aggiornamento del DOM
+        let controller = {
+
+            // --- URL delle API ---
+            fastestURL:  "/emergency/api/hospitals/fastest",
+            hospitalsURL:"/emergency/api/hospitals",
+            quotesURL:   "/emergency/api/quotes/random",
+            byCityURL:   "/emergency/api/hospitals/bycity",
+            byAddressURL:"/emergency/api/hospitals/byaddress",
+
+            // --- INIZIALIZZAZIONE: chiamata al caricamento della pagina ---
+            init: function()
+            {
+                controller.loadFastest();
+                controller.loadQuote();
+                controller.loadAllHospitals();
+            },
+
+            // Carica l'ospedale con coda più corta e lo mostra nella card principale
+            loadFastest: function()
+            {
+                fetch(controller.fastestURL)
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('hospitalname').innerText = data.name;
+                    document.getElementById('hospitalname').classList.remove('loading');
+                    document.getElementById('hospitaladdress').innerText = data.address + " - " + data.city;
+                    document.getElementById('hospitalqueue').innerText = data.queue;
+                })
+                .catch(err => {
+                    document.getElementById('hospitalname').innerText = "Errore Connessione";
+                    console.error("Errore fetch ospedale più veloce:", err);
+                });
+            },
+
+            // Carica una citazione casuale dal QuoteAPI
+            loadQuote: function()
+            {
+                fetch(controller.quotesURL)
+                .then(res => res.text())
+                .then(text => {
+                    document.getElementById('quote').innerText = `"${text}"`;
+                });
+            },
+
+            // Carica TUTTI gli ospedali e li mostra in una tabella
+            // ogni riga ha un campo input + pulsante per aggiornare la coda
+            loadAllHospitals: function()
+            {
+                fetch(controller.hospitalsURL)
+                .then(res => res.json())
+                .then(hospitals => {
+                    controller.renderHospitalTable("hospitallist", hospitals);
+                })
+                .catch(err => {
+                    document.getElementById('hospitallist').innerHTML = '<p class="risultati-vuoti">Errore nel caricamento</p>';
+                    console.error("Errore fetch ospedali:", err);
+                });
+            },
+
+            // Funzione generica: renderizza una lista di ospedali in una tabella HTML
+            // containerID = id del div dove inserire la tabella
+            // hospitals = array di oggetti Hospital ricevuti dall'API
+            renderHospitalTable: function(containerID, hospitals)
+            {
+                let container = document.getElementById(containerID);
+
+                if (hospitals.length === 0) {
+                    container.innerHTML = '<p class="risultati-vuoti">Nessun ospedale trovato</p>';
+                    return;
+                }
+
+                // costruisco la tabella HTML come stringa
+                let html = '<table><thead><tr>'
+                    + '<th>Nome</th>'
+                    + '<th>Indirizzo</th>'
+                    + '<th>Città</th>'
+                    + '<th>Coda</th>'
+                    + '<th>Aggiorna</th>'
+                    + '</tr></thead><tbody>';
+
+                // per ogni ospedale creo una riga
+                hospitals.forEach(h => {
+                    html += '<tr>'
+                        + '<td>' + h.name + '</td>'
+                        + '<td>' + h.address + '</td>'
+                        + '<td>' + h.city + '</td>'
+                        + '<td><span class="queue-badge">' + h.queue + '</span></td>'
+                        + '<td>'
+                            + '<div class="update-row">'
+                                + '<input type="number" id="queue_' + h.id + '" value="' + h.queue + '" min="0" />'
+                                + '<button onclick="controller.updateQueue(' + h.id + ')">Salva</button>'
+                            + '</div>'
+                        + '</td>'
+                        + '</tr>';
+                });
+
+                html += '</tbody></table>';
+                container.innerHTML = html;
+            },
+
+            // Aggiorna la coda di un ospedale tramite PUT
+            // id = identificativo dell'ospedale
+            updateQueue: function(id)
+            {
+                // prendo il valore dal campo input corrispondente
+                let newQueue = document.getElementById('queue_' + id).value;
+
+                // costruisco il JSON da mandare nell'API
+                // mando solo id e queue, il server aggiorna solo la coda
+                let json = { id: id, queue: parseInt(newQueue) };
+
+                fetch(controller.hospitalsURL, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(json)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    alert('Coda aggiornata: ' + data.name + ' ora ha ' + data.queue + ' persone in coda');
+                    // ricarico la lista e il "fastest" per aggiornare tutto
+                    controller.loadAllHospitals();
+                    controller.loadFastest();
+                })
+                .catch(err => {
+                    alert('Errore nell aggiornamento');
+                    console.error("Errore PUT coda:", err);
+                });
+            },
+
+            // Cerca ospedali per città usando il RequestParam
+            searchByCity: function()
+            {
+                let city = document.getElementById('searchCity').value;
+                if (city === '') { alert('Inserisci una città'); return; }
+
+                fetch(controller.byCityURL + '?city=' + city)
+                .then(res => res.json())
+                .then(hospitals => {
+                    controller.renderHospitalTable("searchresults", hospitals);
+                });
+            },
+
+            // Cerca ospedali per indirizzo (ricerca parziale con LIKE)
+            searchByAddress: function()
+            {
+                let address = document.getElementById('searchAddress').value;
+                if (address === '') { alert('Inserisci un indirizzo'); return; }
+
+                fetch(controller.byAddressURL + '?address=' + address)
+                .then(res => res.json())
+                .then(hospitals => {
+                    controller.renderHospitalTable("searchresults", hospitals);
+                });
+            }
+        };
+
+        // al caricamento della pagina chiamo init
+        controller.init();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+.loan-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.loan-card h2 {
+  margin-top: 0;
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+.loan-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.loan-item:last-of-type {
+  border-bottom: none;
+}
+
+.loan-item .label {
+  font-weight: bold;
+  color: #555;
+}
+
+.loan-item .value {
+  color: #2980b9;
+}
+
+.loan-item.total {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 2px solid #3498db;
+  font-size: 1.2em;
+}
+
+.loan-item.total .value {
+  color: #27ae60;
+  font-weight: bold;
+}

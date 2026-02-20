@@ -1,0 +1,27 @@
+<!--  questa Ã¨ l'interfaccia con cui l'ospite di una stanza "apre un ticket" -->
+<!--  insert di un ticket -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Insert new ticket</title>
+	    <!-- import ticketservice/css/style.css -->
+	    <link rel="stylesheet" href="/ticketservice/css/style.css">
+	    <!--  import newTicket.js -->
+	    <script src="/ticketservice/js/newticket.js"></script>
+	
+	</head>
+	<body>
+		<h1> Insert new Ticket </h1>
+		
+		<form name="form1">
+			Insert opening 
+			<input type="text" name="opening" class="stdinput" onChange="controller.checkForm()" />
+			Insert room
+			<input type="text" name="room" class="stdinput" onChange="controller.checkForm()" />
+
+			<input type="button" id="savebtn" value="Open ticket" class="stdbtn" disabled onClick="controller.callAPI()" />
+		</form>
+		
+	</body>
+</html>

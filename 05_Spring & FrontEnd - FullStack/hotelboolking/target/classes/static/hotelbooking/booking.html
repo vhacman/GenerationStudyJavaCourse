@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="menu">
+    <div class="link">Hotel Booking Manager</div>
+</div>
+
+<!-- FORM CREAZIONE PRENOTAZIONE -->
+<form name="bookingForm" class="formconfigurator">
+    <h2>Nuova Prenotazione</h2>
+
+    <div class="field">
+        <label>Nome Ospite</label>
+        <input type="text" name="guestName" oninput="controller.synch()">
+    </div>
+
+    <div class="field">
+        <label>Tipo Camera</label>
+        <select name="roomType" oninput="controller.synch()">
+            <option value="">Seleziona</option>
+            <option value="single">Single</option>
+            <option value="double">Double</option>
+            <option value="suite">Suite</option>
+        </select>
+    </div>
+
+    <div class="field">
+        <label>Check-in</label>
+        <input type="date" name="checkInDate" oninput="controller.synch()">
+    </div>
+
+    <div class="field">
+        <label>Check-out</label>
+        <input type="date" name="checkOutDate" oninput="controller.synch()">
+    </div>
+
+    <div class="field">
+        <label>Tariffa Notturna (EUR)</label>
+        <input type="text" name="nightlyRate" oninput="controller.synch()">
+    </div>
+
+    <div class="field">
+        <label>Metodo di Pagamento</label>
+        <select name="paymentMethod" oninput="controller.synch()">
+            <option value="">Seleziona</option>
+            <option value="credit_card">Carta di Credito</option>
+            <option value="cash">Contanti</option>
+            <option value="bank_transfer">Bonifico</option>
+        </select>
+    </div>
+
+    <div class="field">
+        <label>Stato Operazione</label>
+        <input type="text" name="operationstatus" readonly>
+    </div>
+
+    <input type="button" name="saveBtn" value="Salva Prenotazione" onclick="controller.callAPI()" disabled>
+</form>
+
+<!-- FORM RICERCA E AZIONI -->
+<form name="searchForm" class="formconfigurator">
+    <h2>Cerca Prenotazioni</h2>
+
+    <div class="field">
+        <label>Cerca per ID</label>
+        <input type="text" name="searchId">
+    </div>
+
+    <div class="field">
+        <label>Cerca per Nome Ospite</label>
+        <input type="text" name="searchGuest">
+    </div>
+
+    <div class="field">
+        <label>Filtra per Stato</label>
+        <select name="filterStatus">
+            <option value="">Tutti</option>
+            <option value="pending">Pending</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="checked-in">Checked-in</option>
+            <option value="checked-out">Checked-out</option>
+            <option value="cancelled">Cancelled</option>
+        </select>
+    </div>
+
+    <div class="field">
+        <label>Filtra per Tipo Camera</label>
+        <select name="filterRoomType">
+            <option value="">Tutti</option>
+            <option value="single">Single</option>
+            <option value="double">Double</option>
+            <option value="suite">Suite</option>
+        </select>
+    </div>
+
+    <input type="button" value="Cerca" onclick="controller.search()">
+
+    <!-- RISULTATI -->
+    <div id="results"></div>
+
+    <h2>Azioni su Prenotazione</h2>
+
+    <div class="field">
+        <label>ID Prenotazione</label>
+        <input type="text" name="actionId">
+    </div>
+
+    <input type="button" value="Conferma"  onclick="controller.confirm()">
+    <input type="button" value="Check-in"  onclick="controller.checkin()">
+    <input type="button" value="Check-out" onclick="controller.checkout()">
+    <input type="button" value="Cancella"  onclick="controller.cancel()">
+
+    <div class="field">
+        <label>Risultato Operazione</label>
+        <input type="text" name="operationstatus" readonly>
+    </div>
+</form>
+
+<script src="js/model/booking.js"></script>
+<script src="js/controller/bookingController.js"></script>
+</body>
+</html>

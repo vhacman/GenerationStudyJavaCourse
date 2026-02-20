@@ -1,0 +1,38 @@
+.registrationtext p {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #666;
+    border-left: 3px solid var(--vt-yellow);
+    padding-left: 15px;
+}
+
+.basicform input, .basicform select {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0 15px 0;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.basicform input:focus {
+    border-color: var(--vt-blue);
+    outline: none;
+}
+
+.submit-btn {
+    background-color: var(--vt-yellow) !important;
+    color: var(--vt-blue) !important;
+    font-weight: bold;
+    border: none !important;
+    cursor: pointer;
+    margin-top: 20px !important;
+    text-transform: uppercase;
+}
+
+.submit-btn:disabled {
+    background-color: #ccc !important;
+    color: #777 !important;
+    cursor: not-allowed;
+}
